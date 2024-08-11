@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Bag from '../Bag/Bag';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import { v4 as uuidv4 } from 'uuid';
-import './product.scss';
+
 import SuggestedItems from '../SuggestedItems';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { addItemToCart } from '/src/app/GlobalStore/cartSlice.js';
 import DetailsItem from '../DetailsItem';
 
 import { IoBookmarkSharp } from 'react-icons/io5';
 import { MdOutlineCheck } from 'react-icons/md';
 import { AiOutlineSelect } from 'react-icons/ai';
+
+import '../../styles/header.scss';
+import '../../styles/product.scss';
+import '../../styles/footer.scss';
 
 function ProductPage({
     image1,
@@ -28,9 +33,15 @@ function ProductPage({
     link,
     productId,
 }) {
+    let itemInfoModal = useRef(null);
+    let itemSizeModal = useRef(null);
+    let itemQuantityModal = useRef(null);
     const dispatch = useDispatch();
-    const addItem = (product) => {
-        dispatch({ type: 'ADD_ITEM', payload: product });
+    //const itemsInCart = useSelector((state) => state.cart.items);
+
+    const handleAddItem = (payload) => {
+        console.log(payload);
+        dispatch(addItemToCart(payload)); // Wysyłamy produkt jako payload
     };
 
     const renderSuggestedItems = renderSuggested;
@@ -42,50 +53,52 @@ function ProductPage({
         setItemQuantity(e.target.value);
     }
 
-    const itemInfoModal = document.querySelector('.itemInfoModal');
-    const itemSizeModal = document.querySelector('.itemSizeModal');
-    const itemQuantityModal = document.querySelector('.itemQuantityModal');
-
     function addProductToBag({ name, price, link, photo }) {
         if (itemQuantity !== 0 && itemQuantity !== '' && itemSize !== '') {
-            //addItem - dodawanie przez reducer do store'a
-            addItem({
-                name: name,
+            handleAddItem({
+                name,
                 id: uuidv4(),
                 size: itemSize,
                 quantity: itemQuantity,
                 price: itemQuantity * price,
-                link: link,
-                photo: photo,
+                link,
+                photo,
             });
 
-            //resetowanie inputów
             setItemQuantity(0);
             setItemSize('');
 
-            itemInfoModal.classList.add('show_added-modal');
-            setTimeout(() => {
-                itemInfoModal.classList.remove('show_added-modal');
-            }, 3250);
+            if (itemInfoModal.current) {
+                itemInfoModal.current.classList.add('show_added-modal');
+                setTimeout(() => {
+                    itemInfoModal.current?.classList.remove('show_added-modal');
+                }, 3250);
+            }
         } else if (itemQuantity !== 0 && itemQuantity !== '') {
-            itemSizeModal.classList.add('show_added-modal');
-            setTimeout(() => {
-                itemSizeModal.classList.remove('show_added-modal');
-            }, 2100);
+            if (itemSizeModal.current) {
+                itemSizeModal.current.classList.add('show_added-modal');
+                setTimeout(() => {
+                    itemSizeModal.current?.classList.remove('show_added-modal');
+                }, 2100);
+            }
         } else if (itemSize !== '') {
-            itemQuantityModal.classList.add('show_added-modal');
-            setTimeout(() => {
-                itemQuantityModal.classList.remove('show_added-modal');
-            }, 2100);
+            if (itemQuantityModal.current) {
+                itemQuantityModal.current.classList.add('show_added-modal');
+                setTimeout(() => {
+                    itemQuantityModal.current?.classList.remove(
+                        'show_added-modal'
+                    );
+                }, 2100);
+            }
         } else {
             return;
         }
     }
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     useEffect(() => {
         setActiveImg(image1);
-    }, [navigate, image1]);
+    }, [/*navigate,*/ image1]);
 
     let sizingTextContent;
     if (productCategory === 'Accessories') {
@@ -167,21 +180,17 @@ function ProductPage({
 
             <article className='links-container additional-space'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/webstore')}>
+                    <p onClick={() => (document.location.href = '/')}>
                         MUSTHAVE
                     </p>
                     <span>/</span>
-                    <p
-                        onClick={() =>
-                            (document.location.href = `/webstore/#/items/`)
-                        }
-                    >
+                    <p onClick={() => (document.location.href = `/items/`)}>
                         ITEMS
                     </p>
                     <span>/</span>
                     <p
                         onClick={() =>
-                            (document.location.href = `/webstore/#/${productCategory}/`)
+                            (document.location.href = `/${productCategory.toLowerCase()}/`)
                         }
                     >
                         {productCategory}
@@ -195,6 +204,7 @@ function ProductPage({
                 <div
                     className='itemInfoModal'
                     style={{ transitionDuration: '300ms' }}
+                    ref={itemInfoModal}
                 >
                     <p>
                         Product successfully added
@@ -202,14 +212,14 @@ function ProductPage({
                     </p>
                 </div>
 
-                <div className='itemSizeModal'>
+                <div className='itemSizeModal' ref={itemSizeModal}>
                     <p>
                         Please select your Size
                         <AiOutlineSelect className='icon' />
                     </p>
                 </div>
 
-                <div className='itemQuantityModal'>
+                <div className='itemQuantityModal' ref={itemQuantityModal}>
                     <p>
                         Please select Quantity
                         <AiOutlineSelect className='icon' />

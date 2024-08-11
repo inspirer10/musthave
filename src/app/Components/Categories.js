@@ -10,8 +10,7 @@ function Categories() {
                         <p>Clothing</p>
                         <button
                             onClick={() =>
-                                (document.location.href =
-                                    '/webstore/#/clothing')
+                                (document.location.href = '/clothing')
                             }
                         >
                             Visit the shop
@@ -24,8 +23,7 @@ function Categories() {
                         <p>Accessories</p>
                         <button
                             onClick={() =>
-                                (document.location.href =
-                                    '/webstore/#/accessories')
+                                (document.location.href = '/accessories')
                             }
                         >
                             Visit the shop
@@ -37,9 +35,7 @@ function Categories() {
                     <div className='item__payload'>
                         <p>Shoes</p>
                         <button
-                            onClick={() =>
-                                (document.location.href = '/webstore/#/shoes')
-                            }
+                            onClick={() => (document.location.href = '/shoes')}
                         >
                             Visit the shop
                         </button>

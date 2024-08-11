@@ -1,32 +1,26 @@
 import React from 'react';
 import './bag.scss';
 import { useSelector, useDispatch } from 'react-redux';
-
+import {
+    removeItemFromCart,
+    clearCart,
+} from '/src/app/GlobalStore/cartSlice.js';
 import { MdOutlineClose } from 'react-icons/md';
 
 function Bag() {
-    // const dispatch = useDispatch();
-    //const cart = useSelector((state) => state.cart);
-    // const itemsPrice = useSelector((state) => state.totalPrice);
-    let itemsPrice = [];
-    let cart = [{}];
+    const itemsInCart = useSelector((state) => state.cart.items);
+    const dispatch = useDispatch();
 
-    function removeItem(payload) {
+    const handleRemoveItem = (payload) => {
         console.log(payload);
-        dispatch({ type: 'REMOVE_ITEM', payload: payload });
-    }
+        dispatch(removeItemFromCart(payload)); // Wysyłamy produkt jako payload
+    };
 
-    function clearCart() {
-        dispatch({ type: 'CLEAR_ITEMS' });
-    }
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
 
-    function closeBag() {
-        document.querySelector('.bag').classList.remove('open');
-        document.querySelector('.navbar').classList.remove('disable__pointers');
-        document.querySelector('body').classList.remove('disable__scroll');
-    }
-
-    document.querySelector('body').addEventListener('click', function (e) {
+    /*  document.querySelector('body').addEventListener('click', function (e) {
         if (
             e.target.matches('#close__icon') ||
             e.target.matches('header') ||
@@ -37,7 +31,15 @@ function Bag() {
         ) {
             closeBag();
         }
-    });
+    }); */
+
+    function closeBag() {
+        document.querySelector('.bag').classList.remove('open');
+        document.querySelector('body').classList.remove('disable__scroll');
+        document.querySelector('.navbar').classList.remove('disable__pointers');
+    }
+
+    const itemsPrice = itemsInCart.reduce((sum, item) => sum + item.price, 0);
 
     return (
         <section className='bag'>
@@ -59,7 +61,7 @@ function Bag() {
             </ul>
 
             <div className='products-container'>
-                {cart.map((product) => {
+                {itemsInCart.map((product) => {
                     return (
                         <ul className='bag__products'>
                             <li className='product-name-wrapper'>
@@ -85,7 +87,7 @@ function Bag() {
                                     <p
                                         className='remove_product-icon'
                                         onClick={() =>
-                                            removeItem({
+                                            handleRemoveItem({
                                                 name: product.name,
                                                 price: product.price,
                                                 id: product.id,
@@ -108,7 +110,7 @@ function Bag() {
                 <p>
                     Subtotal: <span>{itemsPrice}$</span>
                 </p>
-                <button onClick={() => clearCart()}>CHECKOUT</button>
+                <button onClick={() => handleClearCart()}>CHECKOUT</button>
             </div>
         </section>
     );

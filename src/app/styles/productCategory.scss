@@ -1,0 +1,276 @@
+//! CLOTHING
+.clothing__header {
+    text-transform: uppercase;
+    font-size: 3.7rem;
+    letter-spacing: 0px;
+    font-weight: 700;
+}
+
+//! KATEOGORIA PRODUKTÓW PODSTRONA
+.items_category_container {
+    width: 80%;
+    margin: 10vh auto 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .sorting-wrapper {
+        background-color: #FFF;
+        width: 19%;
+        //position: fixed;
+        //top: 12.5%;
+        .sorting-heading {
+            padding-top: 1rem;
+            border-top: 2px solid rgb(210, 210, 210);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0;
+            &:first-of-type {
+                margin-top: 0;
+            }
+            h6 {
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            .icon {
+                color: #000;
+                cursor: pointer;
+                font-size: 1.25rem;
+                transition: .125s ease-in-out;
+            }
+        }
+    }
+}
+
+.sorting__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &.hidden-list {
+        display: none;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        margin: 0.45rem 0;
+        input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin-right: 9px;
+            position: relative;
+            cursor: pointer;
+            &:checked+span {
+                font-weight: 600;
+                color: #000;
+            }
+            &:checked::before {
+                content: '';
+                display: block;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background-color: #000;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    span {
+        font-size: 16px;
+        color: rgb(50, 50, 50);
+        text-transform: uppercase;
+    }
+}
+
+.sorting__categories__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &.hidden-list {
+        display: none;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        margin: 0.45rem 0;
+        input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            margin-right: 9px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 1px 1px 0px rgb(100, 100, 100);
+            &:checked+span {
+                font-weight: 600;
+                color: #000;
+            }
+            &:checked::before {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: rgb(30, 30, 30);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    span {
+        font-size: 16px;
+        color: rgb(50, 50, 50);
+        text-transform: uppercase;
+    }
+}
+
+.clothing__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 77.5%;
+}
+
+.clothing__single__item {
+    width: calc(92.5% / 3);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7.5vh;
+    user-select: none;
+    img {
+        width: 100%;
+        display: flex;
+        object-fit: cover;
+        object-position: top;
+        cursor: pointer;
+        aspect-ratio: 1.4/2;
+        box-shadow: 1px 1px 4px rgb(200, 200, 200);
+    }
+}
+
+.clothing__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 3px;
+    .name {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.85px;
+        word-spacing: 2.5px;
+        cursor: pointer;
+    }
+    .price {
+        font-family: 'Poppins';
+        color: rgb(75, 75, 75);
+        font-weight: 500;
+        font-size: 1.35rem;
+        letter-spacing: -1px;
+    }
+}
+
+//! 4 PROPONOWANE ITEMKI na podstronie produktu
+.search__items__input {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    color: gray;
+}
+
+.search__items__input:focus {
+    color: #000;
+}
+
+.search__items__input::placeholder {
+    color: gray
+}
+
+.search__items__input:focus,
+.search__items__input:focus-within {
+    border-bottom: 2px solid gray;
+}
+
+.suggested__heading {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    word-spacing: 6px;
+    font-weight: 600;
+    margin: 7.5vh 0 4rem;
+    letter-spacing: -0.75px;
+    user-select: none;
+}
+
+.suggested__items_container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .suggested__single__item {
+        width: calc(90% / 4);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 7.5vh;
+        user-select: none;
+        img {
+            width: 100%;
+            display: flex;
+            object-fit: cover;
+            object-position: center;
+            cursor: pointer;
+            aspect-ratio: 1.5/2;
+            box-shadow: 1px 1px 4px rgb(200, 200, 200);
+        }
+        .element {
+            position: relative;
+            .element__description {
+                position: absolute;
+                z-index: 10;
+                width: 100%;
+                bottom: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 22.5%;
+                transition: 0s backdrop-filter, .3s background;
+                cursor: pointer;
+                font-size: 200%;
+                color: transparent;
+                font-weight: 400;
+                letter-spacing: 5px;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, transparent 50%);
+                background-size: 100% 200%;
+                background-position: top;
+            }
+        }
+    }
+}
+
+.suggested__single__item .element:hover .element__description {
+    background-position: bottom;
+    color: #fff;
+    transition: 0.75s backdrop-filter, .225s background;
+    backdrop-filter: blur(10px);
+}

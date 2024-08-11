@@ -56,11 +56,7 @@ function Autumn() {
                         THE <br /> SUMMER <br /> COLLECTION
                     </h2>
                     <p>Limited release available now</p>
-                    <button
-                        onClick={() =>
-                            (document.location.href = '/webstore/#/items')
-                        }
-                    >
+                    <button onClick={() => (document.location.href = '/items')}>
                         Visit the shop
                     </button>
                 </article>
@@ -74,7 +70,7 @@ function Autumn() {
                             }}
                             onClick={() =>
                                 (document.location.href =
-                                    '/webstore/#/product/black/DRESS')
+                                    '/product/black/DRESS')
                             }
                         ></div>
                         <div className='glass__box'>
@@ -82,7 +78,7 @@ function Autumn() {
                             <h5
                                 onClick={() =>
                                     (document.location.href =
-                                        '/webstore/#/product/black/DRESS')
+                                        'product/black/DRESS')
                                 }
                             >
                                 DRESS
@@ -98,16 +94,14 @@ function Autumn() {
                                 backgroundImage: `url(/${shirtImages[currentImageIndex]})`,
                             }}
                             onClick={() =>
-                                (document.location.href =
-                                    '/webstore/#/product/black/GOT%20T-SHIRT')
+                                (document.location.href = `/product/${product.productId}`)
                             }
                         ></div>
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>
                             <h5
                                 onClick={() =>
-                                    (document.location.href =
-                                        '/webstore/#/product/black/GOT%20T-SHIRT')
+                                    (document.location.href = `/product/${product.productId}`)
                                 }
                             >
                                 T-SHIRT

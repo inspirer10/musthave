@@ -8,7 +8,7 @@ function AboutCompany() {
             <section className='aboutCompany'>
                 <div className='video-container'>
                     <video
-                        src={process.env.PUBLIC_URL + '/video3.mp4'}
+                        src={'video3.mp4'}
                         playsInline
                         autoPlay
                         loop

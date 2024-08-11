@@ -1,27 +1,24 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
+import Navbar from './Navbar.js';
 import Bag from './Bag/Bag.js';
-import Footer from './Footer';
+import Footer from './Footer.js';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-//data of all products
-import productsData from '../productsData';
 
-function Clothing() {
-    const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(productsData.clothing); // sortowanie kolejności produktów
+// data of all products
+import productsData from '../productsData.js';
+
+function ItemsSubpage() {
+    let allProductsData = [
+        ...productsData.clothing,
+        ...productsData.shoes,
+        ...productsData.accessories,
+    ];
+    const [searchItem, setSearchItem] = useState('');
+    const [data, setData] = useState(allProductsData); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
-
-    const [hoveredProduct, setHoveredProduct] = useState(null);
-    const handleMouseEnter = (productName) => {
-        setHoveredProduct(productName);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredProduct(null);
-    };
 
     //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
     const handleCategorySelection = (category) => {
@@ -50,21 +47,11 @@ function Clothing() {
 
             <article className='links-container'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/webstore')}>
-                        MUSTHAVE
-                    </p>
+                    <p>MUSTHAVE</p>
                     <span>/</span>
-                    <p
-                        onClick={() =>
-                            (document.location.href = `/webstore/#/items/`)
-                        }
-                    >
-                        ITEMS
-                    </p>
-                    <span>/</span>
-                    <p className='active-link'>Clothing</p>
+                    <p className='active-link'>ITEMS</p>
                 </div>
-                <h2 className='clothing__header'>Clothing</h2>
+                <h2 className='clothing__header'>All products</h2>
             </article>
 
             <section className='items_category_container'>
@@ -213,10 +200,10 @@ function Clothing() {
                             <input
                                 type='radio'
                                 name='category'
-                                value='sweatshirt'
-                                checked={searchItem === 'SWEATSHIRT'}
+                                value='knitwear'
+                                checked={searchItem === 'KNITWEAR'}
                                 onClick={() =>
-                                    handleCategorySelection('SWEATSHIRT')
+                                    handleCategorySelection('KNITWEAR')
                                 }
                                 readOnly
                             />
@@ -233,18 +220,17 @@ function Clothing() {
                             />
                             <span>Dresses & Jumpsuits</span>
                         </label>
+
                         <label>
                             <input
                                 type='radio'
                                 name='category'
-                                value='hoodie'
-                                checked={searchItem === 'HOODIE'}
-                                onClick={() =>
-                                    handleCategorySelection('HOODIE')
-                                }
+                                value='shoes'
+                                checked={searchItem === 'SHOES'}
+                                onClick={() => handleCategorySelection('SHOES')}
                                 readOnly
                             />
-                            <span>HOODIES</span>
+                            <span>SHOES</span>
                         </label>
                     </div>
                 </div>
@@ -273,46 +259,31 @@ function Clothing() {
                                 productPrice,
                                 productId,
                                 image,
-                                image2,
                             }) => (
                                 <div
                                     key={productName + productId}
                                     className='clothing__single__item'
                                     onClick={() =>
-                                        (document.location.href = `/webstore/#/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
+                                        (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
                                     <img
                                         title={productName}
-                                        src={
-                                            hoveredProduct ===
-                                            productName + productId
-                                                ? image2
-                                                : image
-                                        }
-                                        onMouseEnter={() =>
-                                            handleMouseEnter(
-                                                productName + productId
-                                            )
-                                        }
-                                        onMouseLeave={handleMouseLeave}
-                                        alt='product thumbnail'
+                                        src={image}
+                                        alt='product'
                                     />
                                     <div className='clothing__info'>
-                                        <p className='name'>
-                                            {productId + ' ' + productName}
-                                        </p>
-                                        <p className='price'>${productPrice}</p>
+                                        <p className='name'>{productName}</p>
+                                        <p className='price'>{productPrice}$</p>
                                     </div>
                                 </div>
                             )
                         )}
                 </div>
             </section>
-
             <Footer />
         </>
     );
 }
 
-export default Clothing;
+export default ItemsSubpage;

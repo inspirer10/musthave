@@ -11,7 +11,6 @@ function Header() {
 
     const modalTimeout = setTimeout(() => {
         setTimesModalHasShown(1);
-        console.log('POJAWIENIE SIĘ MODALU MAILINGOWEGO ' + showModal);
         setShowModal(true);
     }, 5000);
 
@@ -52,11 +51,7 @@ function Header() {
                         HELLO SUMMER<i>'</i> 24
                     </h2>
                     <p>Minimal & Comfort</p>
-                    <button
-                        onClick={() =>
-                            (document.location.href = '/webstore/#/items')
-                        }
-                    >
+                    <button onClick={() => (document.location.href = '/items')}>
                         VISIT THE SHOP
                     </button>
                 </div>

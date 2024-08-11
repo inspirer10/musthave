@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-//!import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IoBagOutline } from 'react-icons/io5';
+import Link from 'next/link';
 
 function Navbar({ color, children }) {
-    //! const cart = useSelector((state) => state.cart);
-    let cart = [];
+    const itemsInCart = useSelector((state) => state.cart.items);
+
     let [mobileView, setMobileView] = useState(true);
     const [showNavbar, setShowNavbar] = useState(true);
     let lastScrollTop = 0;
@@ -19,11 +20,11 @@ function Navbar({ color, children }) {
         if (children) {
             return;
         } else {
-            document.location.href = '/webstore/#/items';
+            document.location.href = '/items';
         }
     };
 
-    function setMobileNav() {
+    /*    function setMobileNav() {
         if (window.innerWidth <= 985) {
             setMobileView(false);
         } else if (window.innerWidth > 985) {
@@ -39,7 +40,7 @@ function Navbar({ color, children }) {
         }
     }, []);
 
-    window.addEventListener('resize', setMobileNav);
+    // window.addEventListener('resize', setMobileNav); */
 
     const handleScroll = () => {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -61,89 +62,51 @@ function Navbar({ color, children }) {
             className={`navbar ${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
         >
             <ul>
-                <li
-                    className='animated-border-bottom'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/clothing')
-                    }
-                >
+                <Link className='li animated-border-bottom' href='/clothing'>
                     CLOTHING
-                </li>
-                <li
-                    className='animated-border-bottom'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/accessories')
-                    }
-                >
+                </Link>
+                <Link className='li animated-border-bottom' href='/accessories'>
                     ACCESSORIES
-                </li>
-                <li
-                    className='animated-border-bottom'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/shoes')
-                    }
-                >
+                </Link>
+                <Link className='li animated-border-bottom' href='/shoes'>
                     SHOES
-                </li>
+                </Link>
             </ul>
             <div>
-                <p
-                    className='logo'
-                    style={{ color: `${color}` }}
-                    onClick={() => (document.location.href = '/webstore')}
-                >
+                <Link className='logo' style={{ color: `${color}` }} href='/'>
                     MUSTHAVE
-                </p>
+                </Link>
             </div>
             <ul>
                 <li onClick={handleRedirect}>
                     {children ? (
                         children
                     ) : (
-                        <li className='header__products'>ITEMS</li>
+                        <p className='header__products'>ITEMS</p>
                     )}
                 </li>
                 <li className='bag__reference' onClick={openBag}>
-                    MY BAG<sup>[{cart.length}]</sup>
+                    MY BAG<sup>[{itemsInCart.length}]</sup>
                 </li>
             </ul>
         </nav>
     ) : (
         <nav className='navbar'>
             <div>
-                <p
-                    className='logo'
-                    style={{ color: `${color}` }}
-                    onClick={() => (document.location.href = '/webstore')}
-                >
+                <Link className='logo' style={{ color: `${color}` }} href={'/'}>
                     MUSTHAVE
-                </p>
+                </Link>
             </div>
             <ul>
-                <li
-                    className='mobile__ul'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/clothing')
-                    }
-                >
+                <Link className='mobile__li' href='/clothing'>
                     CLOTHING
-                </li>
-                <li
-                    className='mobile__ul'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/accessories')
-                    }
-                >
+                </Link>
+                <Link className='mobile__li' href='/accessories'>
                     ACCESSORIES
-                </li>
-                <li
-                    className='mobile__ul'
-                    onClick={() =>
-                        (document.location.href = '/webstore/#/shoes')
-                    }
-                >
+                </Link>
+                <Link className='mobile__li' href='/shoes'>
                     SHOES
-                </li>
+                </Link>
                 <li className='bag__reference' onClick={openBag}>
                     MY BAG
                 </li>

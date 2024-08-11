@@ -7,9 +7,9 @@ import { IoIosArrowDown } from 'react-icons/io';
 //data of all products
 import productsData from '../productsData.js';
 
-function CathegorySubPage() {
+function AccessoriesSubpage() {
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(productsData.shoes); // sortowanie kolejności produktów
+    const [data, setData] = useState(productsData.accessories); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
@@ -50,21 +50,17 @@ function CathegorySubPage() {
 
             <article className='links-container'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/webstore')}>
+                    <p onClick={() => (document.location.href = '/')}>
                         MUSTHAVE
                     </p>
                     <span>/</span>
-                    <p
-                        onClick={() =>
-                            (document.location.href = `/webstore/#/items/`)
-                        }
-                    >
+                    <p onClick={() => (document.location.href = `/items/`)}>
                         ITEMS
                     </p>
                     <span>/</span>
-                    <p className='active-link'>Shoes</p>
+                    <p className='active-link'>Accessories</p>
                 </div>
-                <h2 className='clothing__header'>Shoes</h2>
+                <h2 className='clothing__header'>Accessories</h2>
             </article>
 
             <section className='items_category_container'>
@@ -182,6 +178,44 @@ function CathegorySubPage() {
                             />
                             <span>All</span>
                         </label>
+
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='bag'
+                                checked={searchItem === 'BAG'}
+                                onClick={() => handleCategorySelection('BAG')}
+                                readOnly
+                            />
+                            <span>Bags</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='glasses'
+                                checked={searchItem === 'GLASSES'}
+                                onClick={() =>
+                                    handleCategorySelection('GLASSES')
+                                }
+                                readOnly
+                            />
+                            <span>GLASSES</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='cap'
+                                checked={searchItem === 'CAP'}
+                                onClick={() => handleCategorySelection('CAP')}
+                                readOnly
+                            />
+                            <span>CAPS</span>
+                        </label>
                     </div>
                 </div>
 
@@ -214,7 +248,7 @@ function CathegorySubPage() {
                                     key={productName + productId}
                                     className='clothing__single__item'
                                     onClick={() =>
-                                        (document.location.href = `/webstore/#/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
+                                        (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
                                     <img
@@ -248,4 +282,4 @@ function CathegorySubPage() {
     );
 }
 
-export default CathegorySubPage;
+export default AccessoriesSubpage;

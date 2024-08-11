@@ -9,17 +9,18 @@ import AboutCompany from './Components/AboutCompany';
 import Instagram from './Components/Instagram';
 import Footer from './Components/Footer';
 
-import './header.scss';
-import './autumn.scss';
-import './categories.scss';
-import './about.scss';
-import './instagramSection.scss';
-import './newsletter.scss';
-import './footer.scss';
+import './styles/header.scss';
+import './styles/autumn.scss';
+import './styles/categories.scss';
+import './styles/about.scss';
+import './styles/instagramSection.scss';
+import './styles/newsletter.scss';
+import './styles/footer.scss';
 
 export default function Home() {
     useEffect(() => {
         const lenis = new Lenis();
+
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -27,8 +28,9 @@ export default function Home() {
 
         requestAnimationFrame(raf);
     }, []);
+
     return (
-        <main>
+        <>
             <Header />
             <Bag />
             <Autumn />
@@ -36,6 +38,6 @@ export default function Home() {
             <AboutCompany />
             <Instagram />
             <Footer />
-        </main>
+        </>
     );
 }

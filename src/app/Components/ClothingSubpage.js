@@ -7,21 +7,12 @@ import { IoIosArrowDown } from 'react-icons/io';
 //data of all products
 import productsData from '../productsData.js';
 
-function CathegorySubPage() {
+function ClothingSubpage() {
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(productsData.accessories); // sortowanie kolejności produktów
+    const [data, setData] = useState(productsData.clothing); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
-
-    //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
-    const handleCategorySelection = (category) => {
-        if (searchItem === category) {
-            setSearchItem('');
-        } else {
-            setSearchItem(category);
-        }
-    };
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
     const handleMouseEnter = (productName) => {
@@ -30,6 +21,15 @@ function CathegorySubPage() {
 
     const handleMouseLeave = () => {
         setHoveredProduct(null);
+    };
+
+    //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
+    const handleCategorySelection = (category) => {
+        if (searchItem === category) {
+            setSearchItem('');
+        } else {
+            setSearchItem(category);
+        }
     };
 
     return (
@@ -50,21 +50,17 @@ function CathegorySubPage() {
 
             <article className='links-container'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/webstore')}>
+                    <p onClick={() => (document.location.href = '/')}>
                         MUSTHAVE
                     </p>
                     <span>/</span>
-                    <p
-                        onClick={() =>
-                            (document.location.href = `/webstore/#/items/`)
-                        }
-                    >
+                    <p onClick={() => (document.location.href = `/items/`)}>
                         ITEMS
                     </p>
                     <span>/</span>
-                    <p className='active-link'>Accessories</p>
+                    <p className='active-link'>Clothing</p>
                 </div>
-                <h2 className='clothing__header'>Accessories</h2>
+                <h2 className='clothing__header'>Clothing</h2>
             </article>
 
             <section className='items_category_container'>
@@ -187,38 +183,64 @@ function CathegorySubPage() {
                             <input
                                 type='radio'
                                 name='category'
-                                value='bag'
-                                checked={searchItem === 'BAG'}
-                                onClick={() => handleCategorySelection('BAG')}
-                                readOnly
-                            />
-                            <span>Bags</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='glasses'
-                                checked={searchItem === 'GLASSES'}
+                                value='trousers'
+                                checked={searchItem === 'TROUSERS'}
                                 onClick={() =>
-                                    handleCategorySelection('GLASSES')
+                                    handleCategorySelection('TROUSERS')
                                 }
                                 readOnly
                             />
-                            <span>GLASSES</span>
+                            <span>Trousers & Jeans</span>
                         </label>
 
                         <label>
                             <input
                                 type='radio'
                                 name='category'
-                                value='cap'
-                                checked={searchItem === 'CAP'}
-                                onClick={() => handleCategorySelection('CAP')}
+                                value='shirt'
+                                checked={searchItem === 'SHIRT'}
+                                onClick={() => handleCategorySelection('SHIRT')}
                                 readOnly
                             />
-                            <span>CAPS</span>
+                            <span>Blouses & Tops</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='sweatshirt'
+                                checked={searchItem === 'SWEATSHIRT'}
+                                onClick={() =>
+                                    handleCategorySelection('SWEATSHIRT')
+                                }
+                                readOnly
+                            />
+                            <span>Sweatshirts</span>
+                        </label>
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='dress'
+                                checked={searchItem === 'DRESS'}
+                                onClick={() => handleCategorySelection('DRESS')}
+                                readOnly
+                            />
+                            <span>Dresses & Jumpsuits</span>
+                        </label>
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='hoodie'
+                                checked={searchItem === 'HOODIE'}
+                                onClick={() =>
+                                    handleCategorySelection('HOODIE')
+                                }
+                                readOnly
+                            />
+                            <span>HOODIES</span>
                         </label>
                     </div>
                 </div>
@@ -231,14 +253,15 @@ function CathegorySubPage() {
                     {data
                         .filter((post) => {
                             if (searchItem === '') {
-                                return post;
+                                return true; //wszystkie posty gdy searchItem jest pusty
                             } else if (
                                 post.productName
                                     .toLowerCase()
                                     .includes(searchItem.toLowerCase())
                             ) {
-                                return post;
+                                return true; //true gdy post.productName zawiera searchItem
                             }
+                            return false; //false gdy post nie spełnia warunku
                         })
                         .map(
                             ({
@@ -252,7 +275,7 @@ function CathegorySubPage() {
                                     key={productName + productId}
                                     className='clothing__single__item'
                                     onClick={() =>
-                                        (document.location.href = `/webstore/#/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
+                                        (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
                                     <img
@@ -272,8 +295,10 @@ function CathegorySubPage() {
                                         alt='product thumbnail'
                                     />
                                     <div className='clothing__info'>
-                                        <p className='name'>{productName}</p>
-                                        <p className='price'>{productPrice}$</p>
+                                        <p className='name'>
+                                            {productId + ' ' + productName}
+                                        </p>
+                                        <p className='price'>${productPrice}</p>
                                     </div>
                                 </div>
                             )
@@ -286,4 +311,4 @@ function CathegorySubPage() {
     );
 }
 
-export default CathegorySubPage;
+export default ClothingSubpage;
