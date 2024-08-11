@@ -1,0 +1,186 @@
+/* ! QUOTE  */
+
+.quoteSection {
+    text-align: center;
+    background-color: rgb(225, 225, 225);
+    padding: 5.25rem 0 4rem;
+    margin: 5vh auto;
+    .quote {
+        width: 60%;
+        margin: 0 auto;
+        font-size: 2.3rem;
+        color: #000;
+        font-weight: 500;
+        text-wrap: balance;
+    }
+    .author {
+        font-family: 'Poppins';
+        font-size: 1.45rem;
+        font-weight: 400;
+        color: rgb(150, 150, 150);
+        margin: 3.5rem auto 0;
+        user-select: none;
+    }
+}
+
+
+/* ! INSTAGRAM  */
+
+.instagramSection__placeholder {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 72.5%;
+    margin: 17.5vh auto;
+}
+
+.instagramSection__image {
+    background-image: url('/images/blackHoodie2.jpg');
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    aspect-ratio: 2.2/3;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.instagramSection__text {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-right: 2.5rem;
+    h2 {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+    }
+    p {
+        font-family: 'Poppins';
+        font-size: 1.175rem;
+        line-height: calc(1.175rem * 1.4);
+    }
+    .view_product {
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        a {
+            font-size: 1.15rem;
+            font-weight: 500;
+            border-bottom: 2px solid #000;
+            color: #000;
+            text-decoration: none;
+            transition: .125s ease-in-out;
+            padding-bottom: 1px;
+            font-family: 'Poppins';
+            letter-spacing: 0.1px;
+            word-spacing: 1.25px;
+        }
+        .icon {
+            color: rgb(150, 150, 150);
+            margin-left: 0.5rem;
+            font-size: 1.3rem;
+            transition: .225s ease;
+            margin-bottom: 0.25rem;
+        }
+    }
+}
+
+.instagramSection__text .view_product:hover .icon {
+    transform: translate(12.5%, -12.5%);
+    color: #000;
+}
+
+.instagramSection {
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.instagramSection__followUs {
+    text-align: center;
+    h2 {
+        font-size: 3rem;
+        font-weight: 500;
+        word-spacing: 1.75px;
+        letter-spacing: 1.1px;
+    }
+    button {
+        word-spacing: 2px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        border: 2px solid black;
+        padding: 0.8rem 3.25rem;
+        margin: 4rem 0;
+        background-color: transparent;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .14s ease-in-out;
+    }
+}
+
+.instagramSection__followUs button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.top__gallery {
+    display: flex;
+    width: 82.5%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.top_gallery_item1 {
+    background: url(https://images.unsplash.com/photo-1589810635657-232948472d98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80) 50% 50%;
+    height: 17.5vw;
+    background-size: cover;
+    aspect-ratio: 1.25/1;
+}
+
+.top_gallery_item2 {
+    background: url(https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) 50% 50%;
+    height: 17.5vw;
+    background-size: cover;
+    aspect-ratio: 1.25/1;
+}
+
+.bottom__gallery {
+    width: 82.5%;
+    margin-top: 7.5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom__gallery_item1,
+.bottom__gallery_item2,
+.bottom__gallery_item3,
+.bottom__gallery_item4 {
+    background: url(https://images.unsplash.com/photo-1653715782349-238a9211f73f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80) 50% 50%;
+    height: 17.5vw;
+    background-size: cover;
+    aspect-ratio: 1/1;
+}
+
+.bottom__gallery_item2 {
+    background: url(https://images.unsplash.com/photo-1616837874254-8d5aaa63e273?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=856&q=80) 50% 50%;
+    background-size: cover;
+}
+
+.bottom__gallery_item3 {
+    background: url(https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80) 50% 50%;
+    background-size: cover;
+}
+
+.bottom__gallery_item4 {
+    background: url(https://images.unsplash.com/photo-1563545712546-34de145f484c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80) 50% 50%;
+    background-size: cover;
+}

@@ -1,0 +1,211 @@
+//!   AUTUMN
+.main__container {
+    max-width: 1000px;
+    margin-inline: auto;
+    background: rgb(124, 145, 175);
+    padding: 3rem;
+}
+
+
+/* Marquee styles */
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+
+.marquee {
+    --gap: 0rem;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    margin-top: 1rem;
+    .marquee__content {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        gap: var(--gap);
+        min-width: 100%;
+        animation: scroll 40s linear infinite;
+        animation-delay: 0.1s;
+        .marquee__item {
+            font-size: 4rem;
+            font-weight: 500;
+            flex: 0 0 auto;
+            margin: 2px;
+            padding: 0 0.7rem;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            letter-spacing: -4px;
+        }
+    }
+}
+
+.autumn__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+    padding: 15vh 0;
+    background-color: white;
+    color: black;
+    .autumn__left__section {
+        width: auto;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 600;
+            line-height: 5.75rem;
+            letter-spacing: -4px;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            margin: 2.25rem 0 3rem;
+            letter-spacing: -0.2px;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        button {
+            font-size: 17px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 2px solid black;
+            padding: 1rem 3.4rem;
+            margin: 0.25rem 0;
+            background-color: rgb(15, 15, 15);
+            color: #FFF;
+            cursor: pointer;
+            transition: .15s ease-in-out;
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
+        }
+    }
+    .autumn__right__section {
+        width: 52.5%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-right: 1.5%;
+        .product__tile {
+            margin: 5vh auto;
+            height: 67.5vh;
+            aspect-ratio: 1.25/2;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+            transition: .5s ease;
+            .image-container {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: .35s linear;
+            }
+            .glass__box {
+                text-align: left;
+                padding: 0.5rem 0.5rem 0.75rem 1.2rem;
+                color: #fff;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 25%;
+                background: rgba(0, 0, 0, 0.525);
+                backdrop-filter: blur(11px);
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                user-select: none;
+                transition: .175s ease-in-out;
+                .company-name {
+                    font-size: 16px;
+                    font-weight: 200;
+                    margin-top: 0.2rem;
+                    letter-spacing: 1px;
+                }
+                h5 {
+                    font-size: 2.2rem;
+                    font-weight: 500;
+                    margin-top: 1.4rem;
+                    letter-spacing: -0.5px;
+                    cursor: pointer;
+                }
+                .slogan {
+                    font-family: 'Poppins';
+                    font-weight: 300;
+                    font-size: 1.3rem;
+                    letter-spacing: -0.225px;
+                }
+            }
+            &:hover .glass__box {
+                background: rgba(0, 0, 0, 0.775);
+            }
+        }
+    }
+}
+
+.item__image__one,
+.item__image__two {
+    background-image: url(https://images.unsplash.com/photo-1572251583906-511b87c865e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80);
+    height: 60vh;
+    width: 20vw;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    filter: grayscale(20%);
+}
+
+.item__image__two {
+    background-image: url(https://images.unsplash.com/photo-1572251337078-1063752b2a35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80);
+}
+
+.item__image__one:hover,
+.item__image__two:hover {
+    filter: grayscale(0);
+    filter: saturate(150%);
+}
+
+.item__description {
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item__name {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.item__price {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgb(105, 105, 105);
+}
+
+.fixed__image {
+    background: url(https://images.unsplash.com/photo-1572251328450-19c5082bc582?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) 50% 70%;
+    height: 65vh;
+    background-size: cover;
+    background-attachment: fixed;
+}

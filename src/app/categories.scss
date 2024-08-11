@@ -1,0 +1,103 @@
+/* ! CATEGORIES */
+
+.section__categories {
+    padding-bottom: 20vh;
+    height: auto;
+    color: black;
+    background-color: rgb(240, 240, 240);
+}
+
+.categories__heading {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    padding: 7.5rem 0;
+    user-select: none;
+    letter-spacing: 3px;
+}
+
+.categories__container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 90%;
+    height: 60vh;
+}
+
+.categories__item__one {
+    background: url(https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) 50% 50% no-repeat;
+    align-self: flex-start;
+}
+
+.categories__item__two {
+    background: url(https://images.unsplash.com/photo-1581017316696-709bf1da2ed5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80) 50% 50% no-repeat;
+    align-self: flex-start;
+}
+
+.categories__item__three {
+    background: url(https://images.unsplash.com/photo-1631180543602-727e1197619d?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) 50% 50% no-repeat;
+    align-self: flex-end;
+}
+
+.categories__item__one,
+.categories__item__two,
+.categories__item__three {
+    position: relative;
+    filter: grayscale(35%);
+    width: 22.5vw;
+    background-size: cover;
+    transition: .2s ease;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+}
+
+.categories__item__one:hover,
+.categories__item__two:hover,
+.categories__item__three:hover {
+    filter: grayscale(0%);
+}
+
+.item__payload {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 7%;
+    user-select: none;
+}
+
+.item__payload p {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    text-shadow: 0px 0px 2px black;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.item__payload button {
+    color: white;
+    text-transform: uppercase;
+    border: 2px solid white;
+    padding: 0.85rem 2.5rem;
+    margin: 0 0 2rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .125s ease-in-out;
+    font-weight: 600;
+    font-size: 14px
+}
+
+.categories__item__one:hover button,
+.categories__item__two:hover button,
+.categories__item__three:hover button {
+    background-color: #fff;
+    color: #000;
+}
+
+.item__payload button:hover {
+    background-color: #fff;
+    color: #000;
+}
