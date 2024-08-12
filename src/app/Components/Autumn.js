@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 function Autumn() {
@@ -114,7 +115,9 @@ function Autumn() {
                 </article>
             </section>
 
-            <section className='fixed__image'></section>
+            <section className='fixed__image'>
+                <Image className='image' src={'/testimg2.jpg'} fill />
+            </section>
         </>
     );
 }

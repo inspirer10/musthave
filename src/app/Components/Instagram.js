@@ -9,25 +9,24 @@ function Instagram() {
 
     return (
         <>
-            <section className='instagramSection__placeholder'>
-                <div className='instagramSection__image' />
+            <section className='highlightedProduct__container'>
+                <div className='highlightedProduct__image' />
 
-                <aside className='instagramSection__text'>
-                    <h2>Hoodie</h2>
+                <aside className='highlightedProduct__text'>
+                    <h2>HOODIE</h2>
                     <p>
                         Experience ultimate comfort and style with our premium
-                        hoodie. Crafted from soft, high-quality cotton, this
-                        piece is perfect for any casual occasion. It's simple,
-                        versatile design pairs effortlessly with jeans, shorts,
-                        or layered under a jacket. Stay cozy and fashionable.
-                        Elevate your wardrobe with this essential, durable
-                        hoodie.
+                        hoodie. Crafted from soft,{' '}
+                        <span>high-quality cotton, </span> this piece is perfect
+                        for any casual occasion. It's simple, versatile design
+                        pairs effortlessly with jeans, shorts, or layered under
+                        a jacket. Stay cozy and fashionable. Elevate your
+                        wardrobe with this{' '}
+                        <span>essential, durable hoodie.</span>
                     </p>
 
                     <div className='view_product'>
-                        <a href='/webstore/#/product/black/HOODIE'>
-                            VIEW PRODUCT
-                        </a>
+                        <a href='/product/black/HOODIE'>VIEW PRODUCT</a>
                         <FiArrowUpRight className='icon' />
                     </div>
                 </aside>
@@ -42,6 +41,7 @@ function Instagram() {
                     </div>
                     <div className='top_gallery_item2' />
                 </div>
+
                 <div className='bottom__gallery'>
                     <div className='bottom__gallery_item1' />
                     <div className='bottom__gallery_item2' />

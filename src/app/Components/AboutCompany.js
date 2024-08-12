@@ -8,16 +8,17 @@ function AboutCompany() {
             <section className='aboutCompany'>
                 <div className='video-container'>
                     <video
-                        src={'video3.mp4'}
-                        playsInline
-                        autoPlay
-                        loop
-                        muted
-                        disablePictureInPicture
-                        preload
+                        playsinline='true'
+                        autoPlay='true'
+                        loop='true'
+                        muted='true'
+                        disablepictureinpicture='true'
+                        controlslist='nodownload nofullscreen noremoteplayback'
                     >
+                        <source src={'/video2.mp4'} type='video/mp4' />
                         Your browser does not support the video tag.
                     </video>
+
                     <div className='video-text'>MUSTHAVE</div>
                 </div>
 
@@ -36,7 +37,7 @@ function AboutCompany() {
                             </p>
 
                             <div className='view_more'>
-                                <a href='/webstore/#/aboutUs'>VIEW MORE</a>
+                                <a href='/aboutCompany'>VIEW MORE</a>
                                 <FaArrowRightLong className='icon' />
                             </div>
                         </div>

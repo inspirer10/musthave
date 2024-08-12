@@ -1,87 +1,39 @@
 //! FOOTER
 #main__footer {
     background-color: #FFF;
-}
-
-#main__footer p {
-    color: rgb(70, 70, 70);
-    font-size: 1.75rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-    margin: 7.5vh auto 2rem;
-    cursor: pointer;
-    transition: .2s ease-in-out;
-}
-
-#main__footer p:hover {
-    color: #000;
-}
-
-#main__footer .footer__links {
-    padding-top: 5vh;
-    width: 70%;
-    margin: 7.5vh auto 0;
-    border-top: 2px solid rgb(200, 200, 200);
-    color: rgb(140, 140, 140);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-direction: row;
-}
-
-#main__footer ul {
-    list-style: none;
-}
-
-#main__footer ul li {
-    font-size: 17px;
-    margin: 0.55rem 0;
-    padding: 0.125rem;
-    cursor: pointer;
-    transition: .15s ease-in-out;
-    width: fit-content;
-}
-
-#main__footer ul li:hover {
-    color: #000;
-}
-
-.links-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin: 17.5vh auto 0;
-    width: 80%;
-    &.additional-space {
-        margin-top: 8rem;
-        width: 75%;
-    }
-    .links-wrapper {
+    p {
+        color: rgb(70, 70, 70);
+        font-size: 1.75rem;
+        font-weight: 600;
         display: flex;
-        align-items: center;
-        text-transform: uppercase;
-        p {
-            font-family: 'Poppins';
-            color: rgb(190, 190, 190);
-            font-size: 19px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: .16s ease;
-            &:hover {
-                color: #000;
-            }
+        justify-content: center;
+        width: fit-content;
+        margin: 7.5vh auto 2rem;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        &:hover {
+            color: #000;
         }
-        span {
-            color: rgb(190, 190, 190);
-            font-size: 19px;
-            font-weight: 500;
-            padding: 0 0.625rem;
-            user-select: none;
-        }
-        .active-link {
-            font-weight: 600;
+    }
+    .footer__links {
+        padding-top: 5vh;
+        width: 70%;
+        margin: 7.5vh auto 0;
+        border-top: 2px solid rgb(200, 200, 200);
+        color: rgb(140, 140, 140);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-direction: row;
+    }
+    ul li {
+        font-size: 17px;
+        margin: 0.55rem 0;
+        padding: 0.125rem;
+        cursor: pointer;
+        transition: .15s ease-in-out;
+        width: fit-content;
+        &:hover {
             color: #000;
         }
     }

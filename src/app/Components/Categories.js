@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 function Categories() {
@@ -6,6 +7,7 @@ function Categories() {
             <h2 className='categories__heading'>Categories</h2>
             <div className='categories__container'>
                 <div className='categories__item__one'>
+                    <Image className='category_image' src='/image.jpg' fill />
                     <div className='item__payload'>
                         <p>Clothing</p>
                         <button
@@ -13,12 +15,13 @@ function Categories() {
                                 (document.location.href = '/clothing')
                             }
                         >
-                            Visit the shop
+                            Check it out!
                         </button>
                     </div>
                 </div>
 
                 <div className='categories__item__three'>
+                    <Image className='category_image' src='/image3.jpg' fill />
                     <div className='item__payload'>
                         <p>Accessories</p>
                         <button
@@ -26,18 +29,19 @@ function Categories() {
                                 (document.location.href = '/accessories')
                             }
                         >
-                            Visit the shop
+                            Check it out!
                         </button>
                     </div>
                 </div>
 
                 <div className='categories__item__two'>
+                    <Image className='category_image' src='/image2.jpg' fill />
                     <div className='item__payload'>
                         <p>Shoes</p>
                         <button
                             onClick={() => (document.location.href = '/shoes')}
                         >
-                            Visit the shop
+                            Check it out!
                         </button>
                     </div>
                 </div>

@@ -1,21 +1,59 @@
-//! CLOTHING
-.clothing__header {
-    text-transform: uppercase;
-    font-size: 3.7rem;
-    letter-spacing: 0px;
-    font-weight: 700;
+//! CLOTHING SUBPAGE with products to choose from
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 17.5vh auto 0;
+    width: 90%;
+    &.additional-space {
+        margin-top: 8rem;
+        width: 75%;
+    }
+    .clothing__header {
+        font-size: 3.7rem;
+        font-weight: 700;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+    }
+    .links-wrapper {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 19px;
+            font-weight: 500;
+            color: rgb(190, 190, 190);
+            cursor: pointer;
+            transition: .16s ease;
+            &:hover {
+                color: #000;
+            }
+        }
+        span {
+            font-size: 19px;
+            font-weight: 500;
+            color: rgb(190, 190, 190);
+            padding: 0 0.625rem;
+            user-select: none;
+        }
+        .active-link {
+            font-weight: 600;
+            color: #000;
+        }
+    }
 }
 
 //! KATEOGORIA PRODUKTÓW PODSTRONA
 .items_category_container {
-    width: 80%;
+    width: 90%;
     margin: 10vh auto 20vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     .sorting-wrapper {
         background-color: #FFF;
-        width: 19%;
+        width: 20%;
         //position: fixed;
         //top: 12.5%;
         .sorting-heading {

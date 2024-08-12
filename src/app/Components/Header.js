@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FaFacebookF, FaTiktok } from 'react-icons/fa';
+import { FaFacebookF, FaTiktok, FaPinterest, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose } from 'react-icons/md';
 import Navbar from './Navbar';
@@ -42,7 +42,7 @@ function Header() {
                     //preload
                     controlslist='nodownload nofullscreen noremoteplayback'
                 >
-                    <source src={'/video2.mp4'} type='video/mp4' />
+                    <source src={'/oceanVideo.mp4'} type='video/mp4' />
                     Your browser does not support the video tag.
                 </video>
 
@@ -52,7 +52,7 @@ function Header() {
                     </h2>
                     <p>Minimal & Comfort</p>
                     <button onClick={() => (document.location.href = '/items')}>
-                        VISIT THE SHOP
+                        EXPLORE THE SHOP
                     </button>
                 </div>
             </div>
@@ -89,10 +89,16 @@ function Header() {
 
                     <div className='modal__icons'>
                         <i>
+                            <GrInstagram size={22.5} />
+                        </i>
+                        <i>
+                            <FaTwitter size={22.5} />
+                        </i>
+                        <i>
                             <FaFacebookF size={22.5} />
                         </i>
                         <i>
-                            <GrInstagram size={22.5} />
+                            <FaPinterest size={22.5} />
                         </i>
                         <i>
                             <FaTiktok size={22.5} />
