@@ -15,14 +15,15 @@
             object-position: top;
         }
         .video-text {
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 9.5rem;
+            font-size: clamp(3rem, 7.5vw, 10rem);
+            font-weight: 600;
             position: absolute;
             z-index: 10;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 9.5rem;
-            font-size: clamp(3rem, 7.5vw, 10rem);
-            font-weight: 600;
             letter-spacing: 8px;
             color: #fff;
             pointer-events: none;
@@ -45,19 +46,20 @@
             display: flex;
             flex-direction: column;
             h2 {
+                font-family: "Be Vietnam Pro", sans-serif;
                 font-size: 6rem;
                 font-weight: 600;
-                letter-spacing: 0.5px;
-                word-spacing: 8px;
+                word-spacing: 7px;
                 margin-bottom: 2.5rem;
             }
             p {
-                font-family: 'Poppins', sans-serif;
+                font-family: "Lexend Deca", sans-serif;
                 font-size: 1.25rem;
-                line-height: calc(1.2rem * 1.35);
+                line-height: calc(1.25rem * 1.325);
                 text-align: justify;
                 color: rgb(95, 95, 95);
                 span {
+                    font-family: 'Poppins', sans-serif;
                     font-size: calc(1.25rem + 1px);
                     font-weight: 600;
                     color: #000;
@@ -71,28 +73,23 @@
                 justify-content: flex-start;
                 margin-top: 3.5rem;
                 a {
-                    font-family: 'Poppins', sans-serif;
+                    font-family: "Be Vietnam Pro", sans-serif;
                     font-size: 1.25rem;
                     font-weight: 500;
                     color: #000;
-                    text-decoration: none;
                     border-bottom: 2px solid #000;
-                    width: fit-content;
-                    letter-spacing: 0.1px;
+                    text-decoration: none;
                     word-spacing: 2px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
                 }
                 .icon {
                     margin-left: 0.6rem;
-                    transition: .25s ease;
-                    color: rgb(165, 165, 165);
+                    transition: .225s ease;
+                    color: rgb(150, 150, 150);
                 }
             }
             &:hover {
                 .icon {
-                    transform: translateX(55%);
+                    transform: translateX(25%);
                     color: #000;
                 }
             }
@@ -119,15 +116,16 @@
     background-position: center;
     background-size: cover;
     .quote {
+        font-family: "Urbanist", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: #000;
         width: 60%;
         margin: 0 auto;
-        font-size: 2.3rem;
-        color: #000;
-        font-weight: 500;
         text-wrap: balance;
     }
     .author {
-        font-family: 'Poppins';
+        font-family: "Lexend Deca", sans-serif;
         font-size: 1.45rem;
         font-weight: 400;
         color: rgb(150, 150, 150);

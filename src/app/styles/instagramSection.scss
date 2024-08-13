@@ -24,19 +24,20 @@
         justify-content: space-between;
         margin-right: 2.5rem;
         h2 {
-            font-size: 5rem;
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 5.5rem;
             font-weight: 600;
             margin-bottom: 2.5rem;
         }
         p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 1.25rem;
             line-height: calc(1.3rem * 1.4);
             word-spacing: 0.75px;
             color: rgb(110, 110, 110);
             text-wrap: balance;
             span {
-                //font-family: 'Inter', sans-serif !important;
+                font-family: 'Poppins', sans-serif;
                 color: #000;
                 font-weight: 500;
             }
@@ -47,16 +48,14 @@
             align-items: center;
             justify-content: flex-start;
             a {
-                font-size: 1.15rem;
+                font-family: "Be Vietnam Pro", sans-serif;
+                font-size: 1.25rem;
                 font-weight: 500;
-                border-bottom: 2px solid #000;
                 color: #000;
+                border-bottom: 2px solid #000;
                 text-decoration: none;
-                transition: .125s ease-in-out;
                 padding-bottom: 1px;
-                font-family: 'Poppins';
-                letter-spacing: 0.1px;
-                word-spacing: 1.25px;
+                word-spacing: 2px;
             }
             .icon {
                 color: rgb(150, 150, 150);
@@ -89,12 +88,13 @@
         .instagramSection__followUs {
             text-align: center;
             h2 {
+                font-family: "Lexend Deca", sans-serif;
                 font-size: 3rem;
                 font-weight: 500;
-                word-spacing: 1.75px;
-                letter-spacing: 1.1px;
+                word-spacing: 1px;
             }
             button {
+                font-family: "Be Vietnam Pro", sans-serif;
                 word-spacing: 2px;
                 font-size: 1.1rem;
                 text-transform: uppercase;

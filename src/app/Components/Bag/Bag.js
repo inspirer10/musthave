@@ -6,6 +6,8 @@ import {
     clearCart,
 } from '/src/app/GlobalStore/cartSlice.js';
 import { MdOutlineClose } from 'react-icons/md';
+import Link from 'next/link';
+import Image from 'next/image';
 
 function Bag() {
     const itemsInCart = useSelector((state) => state.cart.items);
@@ -61,49 +63,50 @@ function Bag() {
             </ul>
 
             <div className='products-container'>
-                {itemsInCart.map((product) => {
-                    return (
-                        <ul className='bag__products'>
-                            <li className='product-name-wrapper'>
-                                <img
-                                    src={
-                                        process.env.PUBLIC_URL +
-                                        '/' +
-                                        product.photo
-                                    }
-                                    alt={product.name}
-                                />
+                {itemsInCart.map(
+                    ({ photo, name, id, price, size, quantity, link }) => {
+                        return (
+                            <ul className='bag__products'>
+                                <li className='product-name-wrapper'>
+                                    <Image
+                                        className='thumbnail-image'
+                                        src={photo}
+                                        alt={id + name}
+                                        height={300}
+                                        width={300}
+                                    />
 
-                                <div className='product-name'>
-                                    <p
-                                        className='product_link'
-                                        onClick={() => {
-                                            document.location.href = `#/${product.link}`;
-                                            closeBag();
-                                        }}
-                                    >
-                                        {product.name}
-                                    </p>
-                                    <p
-                                        className='remove_product-icon'
-                                        onClick={() =>
-                                            handleRemoveItem({
-                                                name: product.name,
-                                                price: product.price,
-                                                id: product.id,
-                                            })
-                                        }
-                                    >
-                                        remove
-                                    </p>
-                                </div>
-                            </li>
-                            <li>{product.size}</li>
-                            <li>{product.quantity}</li>
-                            <li>{product.price}$</li>
-                        </ul>
-                    );
-                })}
+                                    <div className='product-name'>
+                                        <Link
+                                            className='product_link'
+                                            href={`${link}`}
+                                            onClick={() => {
+                                                closeBag();
+                                            }}
+                                        >
+                                            {name}
+                                        </Link>
+                                        <p
+                                            className='remove_product-icon'
+                                            onClick={() =>
+                                                handleRemoveItem({
+                                                    name: name,
+                                                    price: price,
+                                                    id: id,
+                                                })
+                                            }
+                                        >
+                                            remove
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>{size}</li>
+                                <li>{quantity}</li>
+                                <li>{price}$</li>
+                            </ul>
+                        );
+                    }
+                )}
             </div>
 
             <div className='bag__checkout'>

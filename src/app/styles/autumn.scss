@@ -56,7 +56,7 @@
         align-items: flex-start;
         margin: 0 auto;
         h2 {
-            font-family: 'Poppins', sans-serif;
+            font-family: "Be Vietnam Pro", sans-serif;
             font-size: 5.5rem;
             font-weight: 600;
             line-height: 5.75rem;
@@ -64,23 +64,25 @@
             margin-bottom: 0.5rem;
         }
         p {
-            font-family: 'Poppins', sans-serif;
-            margin: 2.25rem 0 3rem;
-            letter-spacing: -0.2px;
-            font-size: 1.4rem;
+            font-family: "Urbanist", sans-serif;
+            font-size: 1.6rem;
             font-weight: 500;
+            letter-spacing: -0.25px;
+            margin: 2.25rem 0 3rem;
         }
         button {
-            font-size: 17px;
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 18px;
             font-weight: 700;
+            letter-spacing: 0.25px;
             text-transform: uppercase;
             border: 2px solid black;
             padding: 1rem 3.4rem;
             margin: 0.25rem 0;
-            background-color: rgb(15, 15, 15);
+            background-color: #000;
             color: #FFF;
             cursor: pointer;
-            transition: .15s ease-in-out;
+            transition: .2s ease-in-out;
             &:hover {
                 background-color: #fff;
                 color: #000;
@@ -132,22 +134,24 @@
                 user-select: none;
                 transition: .175s ease-in-out;
                 .company-name {
+                    font-family: "Be Vietnam Pro", sans-serif;
                     font-size: 16px;
                     font-weight: 200;
-                    margin-top: 0.2rem;
                     letter-spacing: 1px;
+                    margin-top: 0.2rem;
                 }
                 h5 {
-                    font-size: 2.2rem;
-                    font-weight: 500;
+                    font-family: "Urbanist", sans-serif;
+                    font-size: 2.25rem;
+                    font-weight: 700;
+                    letter-spacing: 0px;
                     margin-top: 1.25rem;
-                    letter-spacing: -0.5px;
                     cursor: pointer;
                 }
                 .slogan {
                     font-family: 'Poppins';
-                    font-weight: 300;
                     font-size: 1.3rem;
+                    font-weight: 300;
                     letter-spacing: -0.225px;
                 }
             }

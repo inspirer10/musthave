@@ -5,18 +5,20 @@ import Footer from '../Footer';
 import { v4 as uuidv4 } from 'uuid';
 
 import SuggestedItems from '../SuggestedItems';
-//import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '/src/app/GlobalStore/cartSlice.js';
 import DetailsItem from '../DetailsItem';
 
-import { IoBookmarkSharp } from 'react-icons/io5';
+import { IoBookmarks } from 'react-icons/io5';
 import { MdOutlineCheck } from 'react-icons/md';
-import { AiOutlineSelect } from 'react-icons/ai';
+import { SlClose } from 'react-icons/sl';
+
+import { CiRuler } from 'react-icons/ci';
 
 import '../../styles/header.scss';
 import '../../styles/product.scss';
 import '../../styles/footer.scss';
+import Image from 'next/image';
 
 function ProductPage({
     image1,
@@ -215,14 +217,14 @@ function ProductPage({
                 <div className='itemSizeModal' ref={itemSizeModal}>
                     <p>
                         Please select your Size
-                        <AiOutlineSelect className='icon' />
+                        <SlClose className='icon' />
                     </p>
                 </div>
 
                 <div className='itemQuantityModal' ref={itemQuantityModal}>
                     <p>
                         Please select Quantity
-                        <AiOutlineSelect className='icon' />
+                        <SlClose className='icon' />
                     </p>
                 </div>
 
@@ -237,43 +239,60 @@ function ProductPage({
 
                     <div className='images-container'>
                         <div className='product-thumbnails'>
-                            <img
+                            <Image
                                 src={image1}
-                                alt='product photo_1'
+                                className='thumbnail-image'
+                                height={325}
+                                width={325}
                                 onClick={() => setActiveImg(image1)}
+                                alt='product photo_1'
                             />
-                            <img
+                            <Image
                                 src={image2}
-                                alt='product photo_2'
+                                className='thumbnail-image'
+                                height={325}
+                                width={325}
                                 onClick={() => setActiveImg(image2)}
+                                alt='product photo_2'
                             />
                             {image3 && (
-                                <img
+                                <Image
                                     src={image3}
-                                    alt='product photo_3'
+                                    className='thumbnail-image'
+                                    height={325}
+                                    width={325}
                                     onClick={() => setActiveImg(image3)}
+                                    alt='product photo_3'
                                 />
                             )}
                             {image4 && (
-                                <img
+                                <Image
                                     src={image4}
-                                    alt='product photo_4'
+                                    className='thumbnail-image'
+                                    height={325}
+                                    width={325}
                                     onClick={() => setActiveImg(image4)}
+                                    alt='product photo_4'
                                 />
                             )}
                             {image5 && (
-                                <img
+                                <Image
                                     src={image5}
-                                    alt='product photo_5'
+                                    className='thumbnail-image'
+                                    height={325}
+                                    width={325}
                                     onClick={() => setActiveImg(image5)}
+                                    alt='product photo_5'
                                 />
                             )}
                         </div>
 
                         <div className='img-wrapper'>
-                            <img
-                                id='imageBox'
+                            <Image
                                 src={activeImg}
+                                id='imageBox'
+                                height={650}
+                                width={650}
                                 alt='Product thumbnail'
                             />
                         </div>
@@ -282,18 +301,28 @@ function ProductPage({
 
                 <div className='product__info'>
                     <div className='product__description'>
+                        <p className='brand'>MUSTHAVE</p>
                         <h2>
                             {productId} {productName}
                         </h2>
                         <p>${productPrice}</p>
                     </div>
-
+                    <div className='additional-info'>
+                        {detailsData.map((item, index) => (
+                            <DetailsItem
+                                key={index}
+                                label={item.label}
+                                textContent={item.textContent}
+                            />
+                        ))}
+                    </div>
                     <div className='selector-container'>
                         <div className='size-selector'>
                             <div className='size-selector-label'>
-                                <label for='size'>SIZE</label>
-                                <p href='#' class='size-help'>
-                                    SIZE HELP
+                                <label for='size'>SIZE:</label>
+                                <p class='size-guide'>
+                                    <CiRuler className='ruler-icon' /> SIZE
+                                    GUIDE
                                 </p>
                             </div>
                             {SELECT_SIZE}
@@ -327,20 +356,11 @@ function ProductPage({
                                 ADD TO BAG
                             </button>
                             <div className='favorite-button'>
-                                <IoBookmarkSharp className='fav-icon' />
+                                <IoBookmarks className='fav-icon' />
                             </div>
                         </div>
                     </div>
-
-                    <div className='additional-info'>
-                        {detailsData.map((item, index) => (
-                            <DetailsItem
-                                key={index}
-                                label={item.label}
-                                textContent={item.textContent}
-                            />
-                        ))}
-                    </div>
+                    {/* ADDITIONAL INFO OG POSITION */}
                 </div>
             </div>
 

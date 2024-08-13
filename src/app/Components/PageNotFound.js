@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react';
-
-//import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 function PageNotFound() {
-    //const navigate = useNavigate();
+    const router = useRouter();
     const [countdown, setCountdown] = useState(3);
 
-    useEffect(
-        () => {
-            const interval = setInterval(() => {
-                setCountdown((prevCountdown) => prevCountdown - 1);
-            }, 1000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCountdown((prevCountdown) => prevCountdown - 1);
+        }, 1000);
 
-            const timer = setTimeout(() => {
-                navigate(-1);
-            }, 3000);
+        const timer = setTimeout(() => {
+            router.back(); // Przekierowanie do poprzedniej strony
+        }, 3000);
 
-            return () => {
-                clearInterval(interval);
-                clearTimeout(timer);
-            };
-        },
-        [
-            /*navigate*/
-        ]
-    );
+        return () => {
+            clearInterval(interval);
+            clearTimeout(timer);
+        };
+    }, [router]);
 
     return (
         <div className='not-found-container'>
