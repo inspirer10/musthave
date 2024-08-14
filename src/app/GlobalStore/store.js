@@ -1,35 +1,24 @@
 'use client';
 
 import { configureStore } from '@reduxjs/toolkit';
-//import { createWrapper } from 'next-redux-wrapper';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // domyślne local storage
 import cartReducer from './cartSlice.js';
 
-/*
-const makeStore = () =>
-    configureStore({
-        reducer: {
-            productsCart: cartReducer,
-        },
-    });
+// Konfiguracja persystencji
+const persistConfig = {
+    key: 'root', // klucz, pod którym stan będzie przechowywany w local storage
+    storage, // local storage
+};
 
-export const wrapper = createWrapper(makeStore);
-
-
-export function makeStore() {
-    return configureStore({
-        reducer: {
-            productsCart: cartReducer,
-        },
-    });
-}
-
-export const store = makeStore();
-*/
+const persistedReducer = persistReducer(persistConfig, cartReducer);
 
 export const store = configureStore({
     reducer: {
-        cart: cartReducer,
+        cart: persistedReducer,
     },
 });
+
+export const persistor = persistStore(store);
 
 export default store;

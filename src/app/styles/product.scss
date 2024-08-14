@@ -174,6 +174,7 @@
             font-weight: 400;
             letter-spacing: 3px;
             color: rgb(125, 125, 125);
+            margin-left: 5px;
         }
         p {
             font-size: 1.75rem;
@@ -367,6 +368,7 @@
     }
 }
 
+//! propozycje 4 itemków pod produktem
 .suggested__heading {
     font-family: "Be Vietnam Pro", sans-serif;
     font-size: 4.5rem;
@@ -385,7 +387,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
     .suggested__single__item {
         width: calc(90% / 4);
         display: flex;
@@ -404,16 +406,16 @@
         .element {
             position: relative;
             .element__description {
-                font-family: "Lexend Deca", sans-serif;
-                font-size: 200%;
-                font-weight: 400;
-                letter-spacing: 2px;
                 position: absolute;
                 bottom: 0;
                 right: 0;
                 z-index: 10;
                 width: 100%;
                 height: 22.5%;
+                font-family: "Lexend Deca", sans-serif;
+                font-size: 200%;
+                font-weight: 400;
+                letter-spacing: 2px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -426,10 +428,10 @@
             }
             &:hover {
                 .element__description {
-                    background-position: bottom;
                     color: #fff;
-                    transition: 0.75s backdrop-filter, .225s background;
+                    background-position: bottom;
                     backdrop-filter: blur(10px);
+                    transition: 0.75s backdrop-filter, .225s background;
                 }
             }
         }

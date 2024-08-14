@@ -95,14 +95,14 @@ function Autumn() {
                                 backgroundImage: `url(/${shirtImages[currentImageIndex]})`,
                             }}
                             onClick={() =>
-                                (document.location.href = `/product/${product.productId}`)
+                                (document.location.href = `/product/black/GOT%20T-SHIRT`)
                             }
                         ></div>
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>
                             <h5
                                 onClick={() =>
-                                    (document.location.href = `/product/${product.productId}`)
+                                    (document.location.href = `/product/black/GOT%20T-SHIRT`)
                                 }
                             >
                                 T-SHIRT
