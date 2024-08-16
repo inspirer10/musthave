@@ -39,6 +39,12 @@
     width: 77.5%;
     margin: 0 auto;
     padding-bottom: 10vh;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
     article {
         width: 50%;
         .aboutCompany__description {
@@ -115,6 +121,12 @@
     //background-image: url('/testimg5.jpg');
     background-position: center;
     background-size: cover;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
     .quote {
         font-family: "Urbanist", sans-serif;
         font-size: 2.4rem;

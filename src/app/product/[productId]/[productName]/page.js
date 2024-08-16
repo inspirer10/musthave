@@ -23,9 +23,7 @@ const Product = (params) => {
         ...productsData.shoes,
         ...productsData.accessories,
     ];
-    console.log([allProducts]);
 
-    // const prodxuct = [allProducts].find((item) => item.productId === productId);
     const product = allProducts.find(
         (item) =>
             item.productId === decodedProductId &&

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import Header from './Components/Header';
 import Bag from './Components/Bag/Bag';
@@ -16,8 +16,11 @@ import './styles/about.scss';
 import './styles/instagramSection.scss';
 import './styles/newsletter.scss';
 import './styles/footer.scss';
+import Introduction from './Components/Introduction';
 
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         const lenis = new Lenis();
 
@@ -27,10 +30,16 @@ export default function Home() {
         }
 
         requestAnimationFrame(raf);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
     }, []);
 
     return (
         <>
+            {isLoading && <Introduction />}
+
             <Header />
             <Bag />
             <Autumn />

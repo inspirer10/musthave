@@ -51,6 +51,12 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
     .product {
         width: 47.5%;
         display: flex;
@@ -332,10 +338,10 @@
             align-items: center;
             color: rgb(25, 25, 25);
             padding: 4px 8px;
-            border-radius: 8px;
-            text-transform: uppercase;
+            border-radius: 6px;
             cursor: pointer;
             transition: .175s ease;
+            text-transform: uppercase;
             &:hover {
                 background-color: rgb(225, 225, 225);
             }
@@ -363,7 +369,8 @@
             transition: max-height 0.3s ease;
         }
         .additional-info-label#opened {
-            background-color: rgb(210, 210, 210);
+            background-color: rgb(200, 200, 200);
+            transition: .25s ease-in-out;
         }
     }
 }

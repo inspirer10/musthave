@@ -12,7 +12,7 @@ const FAQItem = ({ label, textContent }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 id={isOpen ? 'opened' : ''}
             >
-                {label}
+                <div className='test'>{label}</div>
                 <span className='additional-info-toggle'>
                     {isOpen ? (
                         <RiCloseLine className='icon' />

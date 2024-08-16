@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Bag from '../Bag/Bag';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -18,7 +19,6 @@ import { CiRuler } from 'react-icons/ci';
 import '../../styles/header.scss';
 import '../../styles/product.scss';
 import '../../styles/footer.scss';
-import Image from 'next/image';
 
 function ProductPage({
     image1,
@@ -113,11 +113,11 @@ function ProductPage({
 
     const detailsData = [
         {
-            label: 'Product details',
+            label: `Product details`,
             textContent: productDescription,
         },
         {
-            label: 'Shipping & returns',
+            label: `Shipping & returns`,
             textContent:
                 'Enjoy free standard shipping on all orders over $50. Orders are processed within 1-2 business days, and you will receive a tracking number once your package is shipped. We offer a 30-day return policy for a full refund, provided the item is in its original condition.',
         },
@@ -138,7 +138,7 @@ function ProductPage({
 
     let SELECT_SIZE = <p>Size</p>;
 
-    if (size === 'One') {
+    if (size === 'Accessories') {
         SELECT_SIZE = (
             <select id='size' value={itemSize} onChange={handleItemSizeSelect}>
                 <option value='' disabled hidden>
@@ -177,7 +177,7 @@ function ProductPage({
 
     return (
         <>
-            <Navbar />
+            <Navbar color={'dimgray'} />
             <Bag />
 
             <article className='links-container additional-space'>
@@ -321,8 +321,8 @@ function ProductPage({
                             <div className='size-selector-label'>
                                 <label for='size'>SIZE:</label>
                                 <p class='size-guide'>
-                                    <CiRuler className='ruler-icon' /> SIZE
-                                    GUIDE
+                                    SIZE GUIDE{' '}
+                                    <CiRuler className='ruler-icon' />
                                 </p>
                             </div>
                             {SELECT_SIZE}

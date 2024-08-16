@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 function Instagram() {
+    const image1 = useRef(null);
+    const image2 = useRef(null);
+    const image3 = useRef(null);
+    const image4 = useRef(null);
+    const image5 = useRef(null);
+    const image6 = useRef(null);
+    const instagramLink = useRef(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         document.querySelector('#newsletterInput').value = '';
+    };
+
+    const handleMouseEnter = () => {
+        image1.current.classList.add('brightness');
+        image2.current.classList.add('brightness');
+        image3.current.classList.add('brightness');
+        image4.current.classList.add('brightness');
+        image5.current.classList.add('brightness');
+        image6.current.classList.add('brightness');
+        instagramLink.current.classList.add('visible');
+    };
+
+    const handleMouseLeave = () => {
+        image1.current.classList.remove('brightness');
+        image2.current.classList.remove('brightness');
+        image3.current.classList.remove('brightness');
+        image4.current.classList.remove('brightness');
+        image5.current.classList.remove('brightness');
+        image6.current.classList.remove('brightness');
+        instagramLink.current.classList.remove('visible');
     };
 
     return (
@@ -34,19 +62,27 @@ function Instagram() {
 
             <section className='instagramSection'>
                 <div className='top__gallery'>
-                    <div className='top_gallery_item1' />
+                    <div className='top_gallery_item1' ref={image1} />
                     <div className='instagramSection__followUs'>
                         <h2>WE'RE ON INSTAGRAM</h2>
-                        <button>follow us</button>
+                        <button
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            follow us
+                        </button>
+                        <p className='instagram-link' ref={instagramLink}>
+                            @musthave
+                        </p>
                     </div>
-                    <div className='top_gallery_item2' />
+                    <div className='top_gallery_item2' ref={image2} />
                 </div>
 
                 <div className='bottom__gallery'>
-                    <div className='bottom__gallery_item1' />
-                    <div className='bottom__gallery_item2' />
-                    <div className='bottom__gallery_item3' />
-                    <div className='bottom__gallery_item4' />
+                    <div className='bottom__gallery_item1' ref={image3} />
+                    <div className='bottom__gallery_item2' ref={image4} />
+                    <div className='bottom__gallery_item3' ref={image5} />
+                    <div className='bottom__gallery_item4' ref={image6} />
                 </div>
             </section>
 

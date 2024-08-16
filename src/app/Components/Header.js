@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FaFacebookF, FaTiktok, FaPinterest, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
@@ -9,14 +9,22 @@ function Header() {
     const [showModal, setShowModal] = useState(false);
     const [timesModalHasShown, setTimesModalHasShown] = useState(0);
 
-    const modalTimeout = setTimeout(() => {
-        setTimesModalHasShown(1);
-        setShowModal(true);
-    }, 5000);
+    //*showing modal after 8sec
+    useEffect(() => {
+        const modalTimeout = setTimeout(() => {
+            setShowModal(true);
+            setTimesModalHasShown(1);
+        }, 8000);
 
-    if (timesModalHasShown > 0) {
-        clearTimeout(modalTimeout);
-    }
+        if (timesModalHasShown > 0) {
+            clearTimeout(modalTimeout);
+            console.log(showModal, timesModalHasShown);
+        }
+
+        return () => {
+            clearTimeout(modalTimeout);
+        };
+    }, []);
 
     const handleSubmitModal = (e) => {
         if (document.querySelector('#modalInput').value) {
@@ -33,7 +41,6 @@ function Header() {
 
             <div className='header-video-container'>
                 <video
-                    className='NAZWA-KLASY'
                     playsinline='true'
                     autoPlay='true'
                     loop='true'
@@ -42,7 +49,7 @@ function Header() {
                     //preload
                     controlslist='nodownload nofullscreen noremoteplayback'
                 >
-                    <source src={'/oceanVideo.mp4'} type='video/mp4' />
+                    <source src={'/video5.mp4'} type='video/mp4' />
                     Your browser does not support the video tag.
                 </video>
 
