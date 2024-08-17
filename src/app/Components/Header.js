@@ -1,37 +1,44 @@
 import React, { useEffect, useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { openModal, closeModal } from '../GlobalStore/newsletterSlice';
 import { FaFacebookF, FaTiktok, FaPinterest, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose } from 'react-icons/md';
 import Navbar from './Navbar';
 
 function Header() {
-    const [showModal, setShowModal] = useState(false);
-    const [timesModalHasShown, setTimesModalHasShown] = useState(0);
+    const modalOpenStateFromSessionStorage = useSelector(
+        (state) => state.newsletter.isOpen
+    );
+    const hasModalBeenShown = useSelector(
+        (state) => state.newsletter.wasModalShown
+    );
+    const dispatch = useDispatch();
 
-    //*showing modal after 8sec
+    // const [showModal, setShowModal] = useState(false);
+    // const [timesModalHasShown, setTimesModalHasShown] = useState(0);
+    //const handleNewsletterModalOpen = () => dispatch(openModal());
+
+    const handleNewsletterModalClose = () => dispatch(closeModal());
+
+    //* OPEN modal after 8sec
     useEffect(() => {
-        const modalTimeout = setTimeout(() => {
-            setShowModal(true);
-            setTimesModalHasShown(1);
-        }, 8000);
+        if (!hasModalBeenShown) {
+            // Jeśli nie był, ustaw timer do otwarcia modala
+            const modalTimeout = setTimeout(() => {
+                dispatch(openModal());
+                // Zapisz w sessionStorage, że modal został otwarty
+                // sessionStorage.setItem('modalShown', 'true');
+            }, 8000);
 
-        if (timesModalHasShown > 0) {
-            clearTimeout(modalTimeout);
-            console.log(showModal, timesModalHasShown);
+            return () => clearTimeout(modalTimeout);
         }
-
-        return () => {
-            clearTimeout(modalTimeout);
-        };
-    }, []);
+    }, [dispatch]);
 
     const handleSubmitModal = (e) => {
+        e.preventDefault();
         if (document.querySelector('#modalInput').value) {
-            e.preventDefault();
-            setShowModal(false);
-        } else {
-            e.preventDefault();
+            handleNewsletterModalClose();
         }
     };
 
@@ -64,9 +71,9 @@ function Header() {
                 </div>
             </div>
 
-            {showModal && (
+            {modalOpenStateFromSessionStorage && (
                 <div id='mailing__modal'>
-                    <p className='close' onClick={() => setShowModal(false)}>
+                    <p className='close' onClick={handleNewsletterModalClose}>
                         <MdOutlineClose />
                     </p>
 

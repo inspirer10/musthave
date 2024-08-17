@@ -1,22 +1,31 @@
 'use client';
 
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // domyślne local storage
-import cartReducer from './cartSlice.js';
+import sessionStorage from 'redux-persist/lib/storage/session'; // dla sessionStorage
+import cartReducer from './cartSlice';
+import newsletterReducer from './newsletterSlice';
 
-// Konfiguracja persystencji
-const persistConfig = {
-    key: 'root', // klucz, pod którym stan będzie przechowywany w local storage
-    storage, // local storage
+// Konfiguracja dla localStorage (koszyk)
+const cartPersistConfig = {
+    key: 'cart', // klucz, pod którym stan będzie przechowywany w local storage
+    storage: storage, // localStorage
 };
 
-const persistedReducer = persistReducer(persistConfig, cartReducer);
+// Konfiguracja dla sessionStorage (modal newslettera)
+const newsletterPersistConfig = {
+    key: 'newsletter',
+    storage: sessionStorage, // sessionStorage
+};
+
+const rootReducer = combineReducers({
+    cart: persistReducer(cartPersistConfig, cartReducer),
+    newsletter: persistReducer(newsletterPersistConfig, newsletterReducer),
+});
 
 export const store = configureStore({
-    reducer: {
-        cart: persistedReducer,
-    },
+    reducer: rootReducer,
 });
 
 export const persistor = persistStore(store);
