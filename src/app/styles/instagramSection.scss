@@ -4,7 +4,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    width: 72.5%;
+    width: 75%;
     margin: 17.5vh auto;
     * {
         &::selection {
@@ -188,6 +188,24 @@
         .bottom__gallery_item4 {
             background: url('/instaGallery6.jpg') 50% 50%;
             background-size: cover;
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .highlightedProduct__container {
+        width: 87.5%;
+    }
+    .instagramSection {
+        .top__gallery {
+            width: 95%;
+            .instagramSection__followUs h2 {
+                font-size: 2.75rem;
+                letter-spacing: -0.5px;
+            }
+        }
+        .bottom__gallery {
+            width: 95%;
         }
     }
 }

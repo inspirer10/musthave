@@ -245,7 +245,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        transform: translate(-50%, 30%);
+        transform: translate(-30%, 30%);
         transition: .175s ease-in-out;
         &:hover {
             color: red;
@@ -279,28 +279,45 @@
         background-color: #000;
         color: #fff;
     }
+    .modal__icons {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        flex-direction: row;
+        margin: 1rem auto 0;
+        width: 50%;
+        i {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            color: gray;
+            transition: 0.3s ease-out;
+            &:hover {
+                color: black;
+                transition: 0.125s ease-in;
+            }
+        }
+    }
 }
 
 #mailing__modal #modalInput:focus-within {
     border-color: #000;
 }
 
-.modal__icons {
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-    flex-direction: row;
-    margin: 1rem auto 0;
-    width: 50%;
-    i {
-        cursor: pointer;
-        user-select: none;
-        display: flex;
-        color: gray;
-        transition: 0.3s ease-out;
-        &:hover {
-            color: black;
-            transition: 0.125s ease-in;
+@media screen and (max-width: 1500px) {
+    .navbar {
+        .navbar-container {
+            width: 90%;
+            .navbar_links-container .logo {
+                margin-right: 3.25rem;
+            }
         }
+    }
+    .header-video-container .header__video__text {
+        top: 55%;
+    }
+    #mailing__modal {
+        width: 52.5%;
+        height: 52.5%;
     }
 }

@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
+import Introduction from './Components/Introduction';
 import Header from './Components/Header';
 import Bag from './Components/Bag/Bag';
 import Autumn from './Components/Autumn';
@@ -16,7 +17,7 @@ import './styles/about.scss';
 import './styles/instagramSection.scss';
 import './styles/newsletter.scss';
 import './styles/footer.scss';
-import Introduction from './Components/Introduction';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +39,9 @@ export default function Home() {
 
     return (
         <>
-            {isLoading && <Introduction />}
+            <AnimatePresence mode='wait'>
+                {isLoading && <Introduction />}
+            </AnimatePresence>
 
             <Header />
             <Bag />

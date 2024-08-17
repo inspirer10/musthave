@@ -92,3 +92,17 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 1500px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links {
+        width: 85%;
+        ul {
+            p {
+                font-size: 18px;
+            }
+            li {
+                font-size: 16px;
+            }
+        }
+    }
+}

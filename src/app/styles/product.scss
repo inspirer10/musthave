@@ -183,7 +183,7 @@
             margin-left: 5px;
         }
         p {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 600;
         }
     }
@@ -359,7 +359,7 @@
             font-size: 17px;
             font-weight: 400;
             letter-spacing: -0.25px;
-            line-height: calc(17px * 1.375);
+            line-height: calc(17px * 1.35);
             margin: 0.5rem auto 0.1rem;
             padding: 0 0.5rem;
             text-align: justify;
@@ -407,7 +407,7 @@
             object-fit: cover;
             object-position: center;
             cursor: pointer;
-            aspect-ratio: 1.5/2;
+            aspect-ratio: 1.4/2;
             box-shadow: 1px 1px 4px rgb(175, 175, 175);
         }
         .element {
@@ -448,7 +448,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            margin-top: 4px;
+            margin-top: 5px;
             .name {
                 font-family: "Be Vietnam Pro", sans-serif;
                 font-size: 1.5rem;
@@ -459,7 +459,6 @@
                 cursor: pointer;
             }
             .price {
-                font-family: 'Poppins';
                 font-size: 1.5rem;
                 font-weight: 400;
                 letter-spacing: -0.7px;
@@ -469,34 +468,79 @@
     }
 }
 
-@media (max-width: 1550px) {
-    .product__container {
-        width: 80%;
-    }
-    .selector-container .buttons-wrapper .add-to-bag {
-        width: 82.5%;
-    }
-}
-
-@media (max-width: 1350px) {
-    .product__container {
-        margin-top: 7.5vh;
-        width: 85%;
-    }
-    .img-wrapper img {
-        max-width: 95%;
-    }
-    .product__info__paragraph {
-        font-size: 14.5px;
-    }
-    .size__guide .product__info ol {
-        list-style: none;
-    }
-}
-
-@media (max-width: 1100px) {
+//? MEDIA QUERIES
+@media screen and (max-width: 1500px) {
     .product__container {
         width: 90%;
+    }
+    .product__info {
+        width: 50%;
+        margin-right: -5%;
+    }
+    .suggested__heading {
+        font-size: 4.25rem;
+    }
+    .suggested__items_container {
+        width: 95%;
+        .suggested__single__item img {
+            aspect-ratio: 1.4/2;
+        }
+    }
+    .additional-info .additional-info-item .additional-info-textContent {
+        font-size: 15px;
+        line-height: calc(15px * 1.325);
+    }
+}
+
+@media (max-width: 1200px) {
+    .product__container {
+        width: 95%;
+        .product {
+            width: 52.5%;
+            .images-container {
+                .product-thumbnails {
+                    margin-right: 0.5rem;
+                }
+                .img-wrapper #imageBox {
+                    height: 72.5vh;
+                }
+            }
+        }
+    }
+    .product__info {
+        width: 45%;
+        margin-right: 0;
+        .product__description {
+            width: 97.5%;
+            h2 {
+                font-size: 2.6rem;
+                line-height: calc(2.75rem * 1.1);
+            }
+        }
+        .selector-container {
+            width: 97.5%;
+            .buttons-wrapper {
+                .add-to-bag {
+                    width: 82.5%;
+                }
+            }
+        }
+    }
+    .additional-info {
+        width: 97.5%;
+    }
+    .suggested__heading {
+        font-size: 3.75rem;
+    }
+    .suggested__items_container {
+        width: 97.5%;
+        .suggested__single__item img {
+            aspect-ratio: 1.5/2;
+        }
+    }
+    .additional-info .additional-info-item .additional-info-textContent {
+        font-size: 14px;
+        line-height: calc(14px * 1.325);
     }
 }
 
@@ -507,9 +551,6 @@
     .product__info__paragraph {
         font-size: 14px;
         width: 90%;
-    }
-    .product__info ol {
-        width: 95%;
     }
 }
 

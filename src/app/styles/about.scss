@@ -138,10 +138,37 @@
     }
     .author {
         font-family: "Lexend Deca", sans-serif;
-        font-size: 1.45rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: rgb(150, 150, 150);
         margin: 3.5rem auto 0;
         user-select: none;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .aboutCompany .video-container video {
+        height: 60vh;
+    }
+    .aboutCompany__container {
+        width: 87.5%;
+        article .aboutCompany__description {
+            width: 85%;
+            h2 {
+                font-size: 5rem;
+                letter-spacing: -2px;
+            }
+        }
+        .aboutCompany__item__image {
+            width: 45%;
+            height: 90vh;
+            margin-top: -10vh;
+        }
+    }
+    .quoteSection {
+        padding: 6.5vh 0;
+        .author {
+            margin: 3rem auto 0;
+        }
     }
 }

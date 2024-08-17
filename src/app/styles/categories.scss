@@ -7,7 +7,7 @@
     background-color: rgb(240, 240, 240);
     .categories__heading {
         font-family: "Be Vietnam Pro", sans-serif;
-        font-size: clamp(3rem, 5vw, 7rem);
+        font-size: clamp(3rem, 5.75vw, 7rem);
         font-weight: 700;
         letter-spacing: 3px;
         text-transform: uppercase;
@@ -103,4 +103,31 @@
 .categories__item__three:hover button {
     background-color: #fff;
     color: #000;
+}
+
+@media screen and (max-width: 1500px) {
+    .section__categories {
+        .categories__container {
+            width: 95%;
+            justify-content: space-between;
+            .categories__item__one,
+            .categories__item__two,
+            .categories__item__three {
+                width: 27.5vw;
+                aspect-ratio: 1/1.55;
+            }
+            .categories__item__three {
+                margin-bottom: -15vh;
+            }
+        }
+    }
+    .item__payload {
+        p {
+            font-size: 2.5rem;
+            letter-spacing: 0.5px;
+        }
+        button {
+            width: 70%;
+        }
+    }
 }

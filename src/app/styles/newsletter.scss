@@ -24,6 +24,7 @@
             font-size: 1rem;
             margin-top: 5vh;
             width: 17.5%;
+            min-width: 300px;
             background: transparent;
             text-align: left;
             padding: 1rem 1.5rem 1rem 1rem;
@@ -49,5 +50,11 @@
                 font-weight: 600;
             }
         }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .newsletter form #newsletterInput {
+        width: 27.5%;
     }
 }

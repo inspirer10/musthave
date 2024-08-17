@@ -3,16 +3,17 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin: 17.5vh auto 0;
+    margin: 15vh auto 0;
     width: 90%;
     &.additional-space {
         margin-top: 8rem;
         width: 75%;
     }
     .clothing__header {
+        font-family: "Be Vietnam Pro", sans-serif;
         font-size: 3.7rem;
         font-weight: 700;
-        letter-spacing: 0px;
+        letter-spacing: -0.75px;
         text-transform: uppercase;
     }
     .links-wrapper {
@@ -47,7 +48,7 @@
 //! KATEOGORIA PRODUKTÓW PODSTRONA
 .items_category_container {
     width: 90%;
-    margin: 10vh auto 20vh;
+    margin: 7.5vh auto 20vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -67,6 +68,7 @@
                 margin-top: 0;
             }
             h6 {
+                font-family: "Be Vietnam Pro", sans-serif;
                 font-size: 16px;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -123,7 +125,9 @@
         }
     }
     span {
+        font-family: "Be Vietnam Pro", sans-serif;
         font-size: 16px;
+        letter-spacing: -0.25px;
         color: rgb(50, 50, 50);
         text-transform: uppercase;
     }
@@ -170,7 +174,9 @@
         }
     }
     span {
+        font-family: "Be Vietnam Pro", sans-serif;
         font-size: 16px;
+        letter-spacing: -0.3px;
         color: rgb(50, 50, 50);
         text-transform: uppercase;
     }
@@ -210,19 +216,19 @@
     width: 100%;
     margin-top: 3px;
     .name {
-        text-transform: uppercase;
+        font-family: "Be Vietnam Pro", sans-serif;
         font-size: 1.4rem;
         font-weight: 700;
-        letter-spacing: -0.85px;
-        word-spacing: 2.5px;
+        letter-spacing: -1px;
+        word-spacing: 2px;
+        text-transform: uppercase;
         cursor: pointer;
     }
     .price {
-        font-family: 'Poppins';
-        color: rgb(75, 75, 75);
-        font-weight: 500;
         font-size: 1.35rem;
+        font-weight: 500;
         letter-spacing: -1px;
+        color: rgb(75, 75, 75);
     }
 }
 
@@ -311,4 +317,18 @@
     color: #fff;
     transition: 0.75s backdrop-filter, .225s background;
     backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 1500px) {
+    .links-container {
+        width: 92.5%;
+    }
+    .items_category_container {
+        width: 95%;
+    }
+    .clothing__info {
+        .name {
+            font-size: 1.2rem;
+        }
+    }
 }
