@@ -39,11 +39,10 @@ function ProductPage({
     let itemSizeModal = useRef(null);
     let itemQuantityModal = useRef(null);
     const dispatch = useDispatch();
-    //const itemsInCart = useSelector((state) => state.cart.items);
 
     const handleAddItem = (payload) => {
         console.log(payload);
-        dispatch(addItemToCart(payload)); // Wysyłamy produkt jako payload
+        dispatch(addItemToCart(payload)); //produkt jako payload
     };
 
     const renderSuggestedItems = renderSuggested;
@@ -97,10 +96,9 @@ function ProductPage({
         }
     }
 
-    //const navigate = useNavigate();
     useEffect(() => {
         setActiveImg(image1);
-    }, [/*navigate,*/ image1]);
+    }, [image1]);
 
     let sizingTextContent;
     if (productCategory === 'Accessories') {
@@ -174,6 +172,18 @@ function ProductPage({
             </select>
         );
     }
+
+    useEffect(() => {
+        let titleId =
+            productId.charAt(0).toUpperCase() +
+            productId.slice(1).toLowerCase();
+
+        let titleName =
+            productName.charAt(0).toUpperCase() +
+            productName.slice(1).toLowerCase();
+
+        document.title = `${titleId} ${titleName} | MUSTHAVE`;
+    }, []);
 
     return (
         <>
