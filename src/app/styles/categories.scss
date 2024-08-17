@@ -131,3 +131,33 @@
         }
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .section__categories {
+        padding-bottom: 15vh;
+        .categories__heading {
+            font-size: 3.5rem;
+            letter-spacing: 0px;
+            padding: 5rem 0;
+        }
+        .categories__container {
+            width: 97.5%;
+            flex-direction: column;
+            height: auto;
+            .categories__item__one {
+                img {
+                    object-position: bottom;
+                }
+            }
+            .categories__item__one,
+            .categories__item__two,
+            .categories__item__three {
+                align-self: center;
+                margin: 1rem auto;
+                width: 90%;
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}

@@ -209,3 +209,77 @@
         }
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .highlightedProduct__container {
+        margin: 10vh auto;
+        width: 97.5%;
+        flex-direction: column;
+        .highlightedProduct__image {
+            height: 45vh;
+            width: 100%;
+            border-radius: 0px;
+            box-shadow: none;
+        }
+        .highlightedProduct__text {
+            width: 97.5%;
+            margin-right: 0;
+            margin-top: 1.5rem;
+            h2 {
+                font-size: 5rem;
+                font-weight: 700;
+                margin: 0 auto 1rem;
+            }
+            p {
+                font-size: 18px;
+                line-height: calc(18px * 1.35);
+                text-align: justify;
+            }
+            .view_product {
+                justify-content: center;
+                margin: 3rem auto 0;
+                a {
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+    .instagramSection {
+        margin-top: 15vh;
+        .top__gallery {
+            width: 100%;
+            flex-direction: column;
+            .top_gallery_item1 {
+                height: 22.5vh;
+                width: 85%;
+            }
+            .top_gallery_item2 {
+                display: none;
+            }
+            .instagramSection__followUs {
+                margin: 2rem 0;
+                h2 {
+                    font-size: 2rem;
+                    letter-spacing: -0.5px;
+                }
+                button {
+                    margin: 1rem 0;
+                }
+            }
+        }
+        .bottom__gallery {
+            width: 100%;
+            margin: 0 0 2.5vh;
+            flex-wrap: wrap;
+            .bottom__gallery_item1,
+            .bottom__gallery_item2,
+            .bottom__gallery_item3,
+            .bottom__gallery_item4 {
+                width: 50vw;
+                height: auto;
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}

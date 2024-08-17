@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import { RiUser3Line } from 'react-icons/ri';
+import { RiUser3Line, RiMenu4Fill } from 'react-icons/ri';
 import {
     IoBagOutline,
     IoBookmarkOutline,
     IoSearchOutline,
 } from 'react-icons/io5';
+import { CgMenuLeftAlt } from 'react-icons/cg';
 
 function Navbar({ color, children }) {
     const itemsInCart = useSelector((state) => state.cart.items);
@@ -67,6 +68,10 @@ function Navbar({ color, children }) {
             className={`navbar ${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
         >
             <div className='navbar-container'>
+                <div className='navbar_menu-wrapper'>
+                    <CgMenuLeftAlt className='navbar_menu' />
+                </div>
+
                 <div className='navbar_links-container'>
                     <Link
                         className='logo'
@@ -89,9 +94,9 @@ function Navbar({ color, children }) {
                 </div>
 
                 <div className='navbar_icons-wrapper'>
-                    <IoSearchOutline className='fav-icon' />
+                    <IoSearchOutline className='fav-icon' id='searchIcon' />
                     <RiUser3Line className='fav-icon' />
-                    <Link href='/favourites'>
+                    <Link href='/favourites' id='navbar-fav'>
                         <IoBookmarkOutline className='fav-icon' />
                     </Link>
                     <p

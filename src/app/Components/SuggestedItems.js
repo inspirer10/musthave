@@ -42,7 +42,7 @@ function SuggestedItems() {
                             key={productName + productId}
                             className='suggested__single__item'
                             onClick={() =>
-                                (document.location.href = `/webstore/#/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
+                                (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                             }
                         >
                             <div className='element'>

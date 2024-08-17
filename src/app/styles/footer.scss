@@ -106,3 +106,21 @@ footer {
         }
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links {
+        width: 98%;
+        ul {
+            align-items: center;
+            p {
+                font-size: 12px;
+                letter-spacing: -0.4px;
+                margin-bottom: 1.25rem;
+            }
+            li {
+                font-size: 11px;
+            }
+        }
+    }
+}

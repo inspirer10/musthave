@@ -172,3 +172,69 @@
         }
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .aboutCompany {
+        margin-bottom: 0;
+        .video-container {
+            video {
+                height: 42.5vh;
+            }
+            .video-text {
+                font-size: 3.3rem;
+            }
+        }
+        .aboutCompany__container {
+            width: 95%;
+            flex-direction: column;
+            padding-bottom: 5vh;
+            article {
+                width: 100%;
+                .aboutCompany__description {
+                    width: 100%;
+                    h2 {
+                        font-size: 3.75rem;
+                        font-weight: 700;
+                        text-align: center;
+                        letter-spacing: -1.5px;
+                        margin-top: 1.25rem;
+                    }
+                    p {
+                        font-size: 18px;
+                        line-height: calc(18px *1.35);
+                        span {
+                            font-size: calc(1.25rem + 2px);
+                        }
+                    }
+                }
+                .view_more {
+                    justify-content: center;
+                    a {
+                        font-size: 18px;
+                    }
+                }
+            }
+            .aboutCompany__item__image {
+                width: 100%;
+                height: 42.5vh;
+                margin-top: 5vh;
+            }
+        }
+    }
+    .quoteSection {
+        padding: 5vh 0;
+        margin: 5vh auto;
+        .quote {
+            font-size: 1.7rem;
+            font-weight: 500;
+            width: 99%;
+            text-wrap: balance;
+        }
+        .author {
+            font-size: 1.45rem;
+            font-weight: 300;
+            margin: 2.25rem auto 0;
+        }
+    }
+}

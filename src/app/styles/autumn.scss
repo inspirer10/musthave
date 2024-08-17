@@ -235,3 +235,49 @@
         }
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .marquee .marquee__content .marquee__item {
+        font-size: 3.5rem;
+    }
+    .autumn__section {
+        padding: 12.5vh 0;
+        width: 97.5%;
+        flex-direction: column;
+        .autumn__left__section {
+            width: 100%;
+            h2 {
+                font-size: 3.9rem;
+                font-weight: 700;
+                line-height: 4.2rem;
+                text-align: center;
+                margin: 0 auto;
+            }
+            p {
+                margin: 0.75rem auto;
+            }
+            button {
+                margin: 1.5rem auto;
+            }
+        }
+        .autumn__right__section {
+            margin-top: 2.5vh;
+            width: 100%;
+            flex-wrap: wrap;
+            .product__tile {
+                margin: 1rem auto;
+                width: 92.5%;
+                height: 55vh;
+                .glass__box {
+                    height: 32.5%;
+                    align-items: center;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    .fixed__image {
+        display: none;
+    }
+}

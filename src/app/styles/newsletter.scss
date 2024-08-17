@@ -58,3 +58,13 @@
         width: 27.5%;
     }
 }
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .newsletter {
+        p {
+            font-size: 2rem;
+            line-height: calc(2rem * 1.3);
+        }
+    }
+}

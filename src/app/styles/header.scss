@@ -17,6 +17,9 @@
         flex-direction: row;
         align-items: baseline;
         justify-content: space-between;
+        .navbar_menu {
+            display: none;
+        }
         .navbar_links-container {
             display: flex;
             justify-content: space-between;
@@ -319,5 +322,86 @@
     #mailing__modal {
         width: 52.5%;
         height: 52.5%;
+    }
+}
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 450px) {
+    .navbar {
+        .navbar-container {
+            width: 95%;
+            align-items: center;
+            .navbar_menu-wrapper {
+                display: flex;
+                align-items: flex-start;
+                width: 25%;
+                .navbar_menu {
+                    display: flex;
+                    font-size: 30px;
+                    //font-size: 2rem;
+                    color: #fff;
+                    user-select: none;
+                    cursor: pointer;
+                }
+            }
+            .navbar_links-container {
+                .logo {
+                    font-size: 2rem;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    margin-right: 0;
+                }
+                .navbar_links-wrapper {
+                    display: none;
+                }
+            }
+            .navbar_icons-wrapper {
+                width: 25%;
+                .fav-icon {
+                    font-size: 22px;
+                    margin: 0 0.45rem;
+                    &.cart {
+                        &::after {
+                            font-size: 17px;
+                        }
+                    }
+                    &#searchIcon {
+                        display: none;
+                    }
+                }
+                #navbar-fav {
+                    display: none;
+                }
+            }
+        }
+    }
+    .header-video-container {
+        video {
+            height: 80vh;
+        }
+        .header__video__text {
+            top: 55%;
+            h2 {
+                font-size: 3.75rem;
+                font-weight: 700;
+                line-height: calc(3.75rem * 1.075);
+                letter-spacing: 2px;
+                word-spacing: 4px;
+                margin: 0 auto;
+            }
+            p {
+                font-size: 1.8rem;
+                word-spacing: 4px;
+                letter-spacing: 0.5px;
+            }
+            button {
+                margin-top: 3.5rem;
+                font-size: 1.25rem;
+            }
+        }
+    }
+    #mailing__modal {
+        width: 97.5%;
+        height: 75%;
     }
 }
