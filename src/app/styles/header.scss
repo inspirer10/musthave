@@ -10,6 +10,62 @@
     background-color: rgba(0, 0, 0, 1);
     backdrop-filter: blur(20px);
     transition: transform 0.175s ease-in-out, box-shadow 0.175s ease-in-out;
+    .mobile_menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100000000;
+        height: 100vh;
+        width: 100%;
+        display: none; //none    align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgb(3, 3, 3);
+        color: #fff;
+        position: relative;
+        &.active {
+            display: flex;
+        }
+        .close-icon {
+            font-size: 2.5rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            &:hover {
+                color: rgb(175, 175, 175);
+            }
+        }
+        .mobile-links-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 25%;
+            .mobile-link {
+                font-family: "Be Vietnam Pro", sans-serif;
+                font-size: 2.2rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                padding: 0.25rem;
+                margin: 0.75rem 0;
+                &:hover {
+                    color: rgb(175, 175, 175);
+                }
+            }
+        }
+        .mobile-brand {
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: rgb(40, 40, 40);
+            position: absolute;
+            bottom: 7.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
     .navbar-container {
         margin: 0 auto;
         width: 87.5%;
@@ -17,8 +73,11 @@
         flex-direction: row;
         align-items: baseline;
         justify-content: space-between;
-        .navbar_menu {
+        .navbar_menu-wrapper {
             display: none;
+            .navbar_menu {
+                display: none;
+            }
         }
         .navbar_links-container {
             display: flex;
@@ -402,6 +461,22 @@
     }
     #mailing__modal {
         width: 97.5%;
-        height: 75%;
+        height: 60%;
+        .close {
+            transform: translate(-15%, 10%);
+        }
+        .modal_heading {
+            font-size: 30px;
+            letter-spacing: -0.75px;
+            word-spacing: 0.5px;
+        }
+        .modal_description {
+            width: 98%;
+            font-size: 19px;
+            line-height: 25.5px;
+        }
+        .modal__icons {
+            width: 80%;
+        }
     }
 }

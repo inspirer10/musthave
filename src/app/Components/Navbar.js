@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import { RiUser3Line, RiMenu4Fill } from 'react-icons/ri';
+import { RiUser3Line } from 'react-icons/ri';
 import {
     IoBagOutline,
     IoBookmarkOutline,
     IoSearchOutline,
 } from 'react-icons/io5';
 import { CgMenuLeftAlt } from 'react-icons/cg';
+import { IoMdClose } from 'react-icons/io';
 
 function Navbar({ color, children }) {
+    let lastScrollTop = 0;
     const itemsInCart = useSelector((state) => state.cart.items);
 
-    let [mobileView, setMobileView] = useState(true);
+    let [mobileView, setMobileView] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
-    let lastScrollTop = 0;
 
     const openBag = () => {
         document.querySelector('.bag').classList.toggle('open');
@@ -30,32 +31,17 @@ function Navbar({ color, children }) {
         }
     };
 
-    /*    function setMobileNav() {
-        if (window.innerWidth <= 985) {
-            setMobileView(false);
-        } else if (window.innerWidth > 985) {
-            setMobileView(true);
-        }
-    }
-
-    useEffect(() => {
-        if (window.innerWidth <= 985) {
-            setMobileView(false);
-        } else if (window.innerWidth > 985) {
-            setMobileView(true);
-        }
-    }, []);
-
-    // window.addEventListener('resize', setMobileNav); */
-
     const handleScroll = () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            setShowNavbar(false); // Scroll w dół - ukryj navbar
-        } else {
-            setShowNavbar(true); // Scroll w górę - pokaż navbar
+        if (window.innerWidth > 1050) {
+            const scrollTop =
+                window.scrollY || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                setShowNavbar(false); // Scroll w dół - ukryj navbar
+            } else {
+                setShowNavbar(true); // Scroll w górę - pokaż navbar
+            }
+            lastScrollTop = scrollTop;
         }
-        lastScrollTop = scrollTop;
     };
 
     useEffect(() => {
@@ -63,13 +49,49 @@ function Navbar({ color, children }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    return mobileView ? (
+    const handleOpenMobileMenu = () => {
+        setMobileView(true);
+    };
+
+    const handleCloseMobileMenu = () => {
+        setMobileView(false);
+    };
+
+    return (
         <nav
             className={`navbar ${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
         >
+            <main className={mobileView ? 'mobile_menu active' : 'mobile_menu'}>
+                <div className='mobile-links-wrapper'>
+                    <IoMdClose
+                        className='close-icon'
+                        onClick={handleCloseMobileMenu}
+                    />
+                    <Link className='mobile-link' href='/items'>
+                        ITEMS
+                    </Link>
+                    <Link className='mobile-link' href='/clothing'>
+                        CLOTHING
+                    </Link>
+                    <Link className='mobile-link' href='/accessories'>
+                        ACCESSORIES
+                    </Link>
+                    <Link className='mobile-link' href='/shoes'>
+                        SHOES
+                    </Link>
+                    <Link className='mobile-link' href='/favourites'>
+                        FAVOURITES
+                    </Link>
+                </div>
+                <p className='mobile-brand'>MUSTHAVE</p>
+            </main>
+
             <div className='navbar-container'>
                 <div className='navbar_menu-wrapper'>
-                    <CgMenuLeftAlt className='navbar_menu' />
+                    <CgMenuLeftAlt
+                        className='navbar_menu'
+                        onClick={handleOpenMobileMenu}
+                    />
                 </div>
 
                 <div className='navbar_links-container'>
@@ -109,8 +131,6 @@ function Navbar({ color, children }) {
                 </div>
             </div>
         </nav>
-    ) : (
-        <nav className='navbar'>{/* MOBILE  */}</nav>
     );
 }
 

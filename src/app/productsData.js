@@ -553,6 +553,8 @@ const productsData = {
             productCategory: 'Shoes',
             image: '/images/keyShoes1.png',
             image2: '/images/keyShoes2.png',
+            productDescription:
+                'Stylish white sneakers that complement any outfit. Made from durable materials, they provide comfort and versatility for everyday wear. Perfect for those who value both fashion and function.',
         },
         {
             productName: 'HYPER SHOES',
@@ -565,6 +567,8 @@ const productsData = {
             image3: '/images/hyperShoes3.jpg',
             image4: '/images/hyperShoes4.jpg',
             image5: '/images/hyperShoes5.jpg',
+            productDescription:
+                'Bold, special edition shoes designed for those who love to stand out. Featuring unique design and top-notch craftsmanship, they are perfect for special occasions. These shoes combine striking aesthetics with exceptional quality.',
         },
         {
             productName: 'SBW SHOES',
@@ -574,6 +578,8 @@ const productsData = {
             productCategory: 'Shoes',
             image: '/images/sbwShoes1.png',
             image2: '/images/sbwShoes2.png',
+            productDescription:
+                'Elegant leather shoes that add a touch of class to any outfit. Crafted from high-quality leather, they offer both durability and style. Ideal for both formal events and everyday wear',
         },
         {
             productName: 'HEELS',
@@ -584,6 +590,8 @@ const productsData = {
             image: '/images/heels1.jpg',
             image2: '/images/heels2.jpg',
             image3: '/images/heels3.jpg',
+            productDescription:
+                'Classic white heels that blend elegance with comfort. Perfect for formal events, they add a touch of glamour to any outfit. These heels are designed to make you feel confident and stylish',
         },
         {
             productName: 'TIM BOOTS',
@@ -596,6 +604,8 @@ const productsData = {
             image3: '/images/timBoots3.jpg',
             image4: '/images/timBoots4.jpg',
             image5: '/images/timBoots5.jpg',
+            productDescription:
+                'Sturdy boots in a wood-tone finish, designed for outdoor activities. Made from high-quality materials, they provide comfort and durability. These boots are perfect for both rugged adventures and casual wear',
         },
         {
             productName: 'SPECIAL SHOES',
@@ -607,6 +617,8 @@ const productsData = {
             image2: '/images/specialShoes2.jpg',
             image3: '/images/specialShoes3.jpg',
             image4: '/images/specialShoes4.jpg',
+            productDescription:
+                'Vibrant yellow shoes that are sure to catch the eye. These shoes are perfect for adding a pop of color and flair to any outfit. Crafted with care, they combine style and comfort seamlessly',
         },
         {
             productName: 'BRD SHOES',
@@ -618,6 +630,8 @@ const productsData = {
             image2: '/images/brdShoes2.jpg',
             image3: '/images/brdShoes3.jpg',
             image4: '/images/brdShoes4.jpg',
+            productDescription:
+                'Multicolored shoes that highlight your individuality. They offer a unique blend of style and comfort for any occasion. These shoes are perfect for those who love to make a statement',
         },
         {
             productName: 'SLIDES',
@@ -628,6 +642,8 @@ const productsData = {
             image: '/images/slides1.jpg',
             image2: '/images/slides2.jpg',
             image3: '/images/slides3.jpg',
+            productDescription:
+                'Comfortable creamy slides, perfect for everyday outings or lounging at home. They offer simplicity and style in one package. These slides are a must-have for anyone looking for casual comfort',
         },
         {
             productName: 'GOAT SHOES',
@@ -640,6 +656,8 @@ const productsData = {
             image3: '/images/goatShoes3.jpg',
             image4: '/images/goatShoes4.jpg',
             image5: '/images/goatShoes5.jpg',
+            productDescription:
+                'Luxurious black shoes with an elegant design. Ideal for both formal and casual occasions, they add a touch of sophistication to any outfit. Made from high-quality materials, they ensure long-lasting comfort',
         },
         {
             productName: 'UNIQUE SHOES',
@@ -652,6 +670,8 @@ const productsData = {
             image3: '/images/uniqueShoes3.png',
             image4: '/images/uniqueShoes4.png',
             image: '/images/uniqueShoes5.png',
+            productDescription:
+                'Reflective shoes that combine safety with fashion. Perfect for those who love to stand out, these shoes offer both visibility and style. They are designed to make a bold statement wherever you go',
         },
         {
             productName: 'PUFFED SHOES',
@@ -664,6 +684,8 @@ const productsData = {
             image3: '/images/puffedShoes2.png',
             image4: '/images/puffedShoes4.jpg',
             image5: '/images/puffedShoes5.png',
+            productDescription:
+                'Gray, plush shoes that provide all-day comfort. Ideal for everyday wear, they offer a blend of style and coziness. These shoes are perfect for anyone seeking both comfort and elegance',
         },
         {
             productName: 'VANS',
@@ -675,6 +697,8 @@ const productsData = {
             image2: '/images/vans2.jpg',
             image3: '/images/vans3.jpg',
             image4: '/images/vans4.jpg',
+            productDescription:
+                'Classic and durable shoes, perfect for any casual occasion. They offer a timeless style that pairs well with any outfit. These shoes are a staple for those who value both comfort and fashion',
         },
         {
             productName: 'CLASSIC',
@@ -687,6 +711,8 @@ const productsData = {
             image3: '/images/classicShoes3.png',
             image4: '/images/classicShoes4.png',
             image5: '/images/classicShoes5.png',
+            productDescription:
+                'Minimalist white sneakers, perfect for everyday wear. They combine comfort, style, and versatility in one. These sneakers are ideal for those who appreciate a clean, classic look',
         },
         {
             productName: 'ANKLE SHOES',
@@ -698,6 +724,8 @@ const productsData = {
             image2: '/images/ankleShoes2.png',
             image3: '/images/ankleShoes3.png',
             image4: '/images/ankleShoes4.png',
+            productDescription:
+                'Elegant white ankle shoes that add sophistication to any outfit. Ideal for both everyday and semi-formal occasions, they provide comfort and style. These shoes are a great addition to any wardrobe',
         },
     ],
 };
