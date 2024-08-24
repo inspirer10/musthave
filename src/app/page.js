@@ -42,7 +42,7 @@ export default function Home() {
             <AnimatePresence mode='wait'>
                 {isLoading && <Introduction />}
             </AnimatePresence>
-
+            <h2 className='fixed-brand'>MUSTHAVE</h2>
             <Header />
             <Bag />
             <Autumn />

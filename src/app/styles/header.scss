@@ -273,10 +273,16 @@
     transform: translate(-50%, -50%);
     z-index: 999999;
     box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.885);
+    * {
+        &::selection {
+            background-color: black;
+            color: white;
+        }
+    }
     .modal_image-wrapper {
         height: 100%;
         width: 50%;
-        background-color: rgb(225, 225, 225);
+        background-color: #000;
         position: relative;
         img {
             position: absolute;

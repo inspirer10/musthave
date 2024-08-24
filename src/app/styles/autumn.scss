@@ -18,7 +18,7 @@
     overflow: hidden;
     user-select: none;
     gap: var(--gap);
-    margin-top: 1rem;
+    margin-top: 0rem;
     .marquee__content {
         flex-shrink: 0;
         display: flex;
@@ -28,6 +28,7 @@
         animation: scroll 40s linear infinite;
         animation-delay: 0.1s;
         .marquee__item {
+            font-family: "Be Vietnam Pro", sans-serif;
             font-size: 4rem;
             font-weight: 500;
             flex: 0 0 auto;
