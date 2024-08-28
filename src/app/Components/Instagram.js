@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 function Instagram() {
@@ -35,10 +36,21 @@ function Instagram() {
         instagramLink.current.classList.remove('visible');
     };
 
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [225, -100]);
+
     return (
         <>
-            <section className='highlightedProduct__container'>
-                <div className='highlightedProduct__image' />
+            <section className='highlightedProduct__container' ref={container}>
+                <motion.div
+                    className='highlightedProduct__image'
+                    style={{ y: scrollParalax }}
+                />
 
                 <aside className='highlightedProduct__text'>
                     <h2>HOODIE</h2>

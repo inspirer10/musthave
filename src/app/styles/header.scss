@@ -41,14 +41,14 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            margin-bottom: 25%;
+            margin-bottom: 42.5%;
             .mobile-link {
                 font-family: "Be Vietnam Pro", sans-serif;
                 font-size: 2.2rem;
                 font-weight: 500;
                 letter-spacing: 1px;
                 padding: 0.25rem;
-                margin: 0.75rem 0;
+                margin: 1rem 0;
                 &:hover {
                     color: rgb(175, 175, 175);
                 }
@@ -61,7 +61,7 @@
             letter-spacing: 3px;
             color: rgb(40, 40, 40);
             position: absolute;
-            bottom: 7.5%;
+            bottom: 12.5%;
             left: 50%;
             transform: translate(-50%, -50%);
         }

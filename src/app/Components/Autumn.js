@@ -1,5 +1,6 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function Autumn() {
     const dressImages = [
@@ -18,6 +19,7 @@ function Autumn() {
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+    //! change to next image after 2.5 sec
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex(
@@ -29,6 +31,14 @@ function Autumn() {
         return () => clearInterval(interval);
     }, [dressImages.length]);
 
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [125, -125]);
+    const scrollParalaxSlow = useTransform(scrollYProgress, [0, 1], [75, -75]);
     return (
         <>
             <div className='marquee'>
@@ -62,8 +72,11 @@ function Autumn() {
                     </button>
                 </article>
 
-                <article className='autumn__right__section'>
-                    <div className='product__tile'>
+                <article className='autumn__right__section' ref={container}>
+                    <motion.div
+                        className='product__tile'
+                        style={{ y: scrollParalax }}
+                    >
                         <div
                             className='image-container'
                             style={{
@@ -86,9 +99,12 @@ function Autumn() {
                             </h5>
                             <p className='slogan'>Be revolutionary with us</p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className='product__tile'>
+                    <motion.div
+                        className='product__tile'
+                        style={{ y: scrollParalaxSlow }}
+                    >
                         <div
                             className='image-container'
                             style={{
@@ -111,7 +127,7 @@ function Autumn() {
                                 Unleash a new way of looking
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </article>
             </section>
 

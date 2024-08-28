@@ -1,8 +1,15 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 function AboutCompany() {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [325, -75]);
     return (
         <>
             <section className='aboutCompany'>
@@ -22,7 +29,7 @@ function AboutCompany() {
                     <div className='video-text'>MUSTHAVE</div>
                 </div>
 
-                <aside className='aboutCompany__container'>
+                <aside className='aboutCompany__container' ref={container}>
                     <article>
                         <div className='aboutCompany__description'>
                             <h2>ABOUT US</h2>
@@ -43,7 +50,10 @@ function AboutCompany() {
                         </div>
                     </article>
 
-                    <div className='aboutCompany__item__image'></div>
+                    <motion.div
+                        className='aboutCompany__item__image'
+                        style={{ y: scrollParalax }}
+                    ></motion.div>
                 </aside>
             </section>
 

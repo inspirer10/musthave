@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
 import Introduction from './Components/Introduction';
 import Header from './Components/Header';
@@ -17,6 +17,7 @@ import './styles/about.scss';
 import './styles/instagramSection.scss';
 import './styles/newsletter.scss';
 import './styles/footer.scss';
+
 import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
 
         setTimeout(() => {
             setIsLoading(false);
+            window.scrollTo(0, 0);
         }, 2000);
     }, []);
 
@@ -42,10 +44,12 @@ export default function Home() {
             <AnimatePresence mode='wait'>
                 {isLoading && <Introduction />}
             </AnimatePresence>
-            <h2 className='fixed-brand'>MUSTHAVE</h2>
             <Header />
             <Bag />
             <Autumn />
+
+            <h2 className='fixed-brand'>MUSTHAVE</h2>
+
             <Categories />
             <AboutCompany />
             <Instagram />

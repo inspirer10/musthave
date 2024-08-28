@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../GlobalStore/newsletterSlice';
-import { FaFacebookF, FaTiktok, FaPinterest, FaTwitter } from 'react-icons/fa';
+import { FaFacebookF, FaTiktok, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose } from 'react-icons/md';
 import Navbar from './Navbar';
@@ -16,20 +16,13 @@ function Header() {
     );
     const dispatch = useDispatch();
 
-    // const [showModal, setShowModal] = useState(false);
-    // const [timesModalHasShown, setTimesModalHasShown] = useState(0);
-    //const handleNewsletterModalOpen = () => dispatch(openModal());
-
     const handleNewsletterModalClose = () => dispatch(closeModal());
 
     //* OPEN modal after 8sec
     useEffect(() => {
         if (!hasModalBeenShown) {
-            // Jeśli nie był, ustaw timer do otwarcia modala
             const modalTimeout = setTimeout(() => {
                 dispatch(openModal());
-                // Zapisz w sessionStorage, że modal został otwarty
-                // sessionStorage.setItem('modalShown', 'true');
             }, 8000);
 
             return () => clearTimeout(modalTimeout);
