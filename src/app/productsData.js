@@ -311,7 +311,7 @@ const productsData = {
             productPopularity: 12,
             productId: 'gradient',
             productCategory: 'Clothing',
-            image: 'images/tshirtGradient1.png',
+            image: '/images/tshirtGradient1.png',
             image2: '/images/tshirtGradient2.png',
             image3: '/images/tshirtGradient3.png',
             image4: '/images/tshirtGradient4.png',

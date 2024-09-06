@@ -12,7 +12,7 @@ const FAQItem = ({ label, textContent }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 id={isOpen ? 'opened' : ''}
             >
-                <div className='test'>{label}</div>
+                <div>{label}</div>
                 <span className='additional-info-toggle'>
                     {isOpen ? (
                         <RiCloseLine className='icon' />
@@ -21,9 +21,16 @@ const FAQItem = ({ label, textContent }) => {
                     )}
                 </span>
             </div>
-            {isOpen && (
-                <div className='additional-info-textContent'>{textContent}</div>
-            )}
+
+            <div
+                className={
+                    isOpen
+                        ? 'additional-info-textContent opened'
+                        : 'additional-info-textContent'
+                }
+            >
+                {textContent}
+            </div>
         </div>
     );
 };

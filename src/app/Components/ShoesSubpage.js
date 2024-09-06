@@ -6,6 +6,7 @@ import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 //data of all products
 import productsData from '../productsData.js';
+import Image from 'next/image.js';
 
 function ShoesSubpage() {
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
@@ -213,7 +214,9 @@ function ShoesSubpage() {
                                         (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
-                                    <img
+                                    <Image
+                                        height={400}
+                                        width={400}
                                         title={productName}
                                         src={
                                             hoveredProduct ===
@@ -230,7 +233,9 @@ function ShoesSubpage() {
                                         alt='product thumbnail'
                                     />
                                     <div className='clothing__info'>
-                                        <p className='name'>{productName}</p>
+                                        <p className='name'>
+                                            {productId + ' ' + productName}
+                                        </p>
                                         <p className='price'>{productPrice}$</p>
                                     </div>
                                 </div>

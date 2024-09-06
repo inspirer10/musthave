@@ -6,6 +6,8 @@ import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 //data of all products
 import productsData from '../productsData.js';
+import Image from 'next/image.js';
+import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
 
 function ClothingSubpage() {
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
@@ -278,7 +280,9 @@ function ClothingSubpage() {
                                         (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
-                                    <img
+                                    <Image
+                                        height={400}
+                                        width={400}
                                         title={productName}
                                         src={
                                             hoveredProduct ===
@@ -298,7 +302,11 @@ function ClothingSubpage() {
                                         <p className='name'>
                                             {productId + ' ' + productName}
                                         </p>
-                                        <p className='price'>${productPrice}</p>
+                                        <p className='price'>{productPrice}$</p>
+
+                                        <div className='favorite-button'>
+                                            <IoBookmarksOutline className='fav-icon' />
+                                        </div>
                                     </div>
                                 </div>
                             )

@@ -7,8 +7,18 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 // data of all products
 import productsData from '../productsData.js';
+import Image from 'next/image.js';
 
 function ItemsSubpage() {
+    const [hoveredProduct, setHoveredProduct] = useState(null);
+    const handleMouseEnter = (productName) => {
+        setHoveredProduct(productName);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredProduct(null);
+    };
+
     let allProductsData = [
         ...productsData.clothing,
         ...productsData.shoes,
@@ -259,6 +269,7 @@ function ItemsSubpage() {
                                 productPrice,
                                 productId,
                                 image,
+                                image2,
                             }) => (
                                 <div
                                     key={productName + productId}
@@ -267,13 +278,29 @@ function ItemsSubpage() {
                                         (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
-                                    <img
+                                    <Image
+                                        height={400}
+                                        width={400}
+                                        srxc={image}
+                                        src={
+                                            hoveredProduct ===
+                                            productName + productId
+                                                ? image2
+                                                : image
+                                        }
                                         title={productName}
-                                        src={image}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(
+                                                productName + productId
+                                            )
+                                        }
+                                        onMouseLeave={handleMouseLeave}
                                         alt='product'
                                     />
                                     <div className='clothing__info'>
-                                        <p className='name'>{productName}</p>
+                                        <p className='name'>
+                                            {productId + ' ' + productName}
+                                        </p>
                                         <p className='price'>{productPrice}$</p>
                                     </div>
                                 </div>
