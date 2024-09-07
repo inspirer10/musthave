@@ -16,6 +16,7 @@
         }
         .video-text {
             font-family: "Be Vietnam Pro", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 9.5rem;
             font-size: clamp(3rem, 7.5vw, 10rem);
             font-weight: 600;
@@ -65,7 +66,7 @@
                 text-align: justify;
                 color: rgb(95, 95, 95);
                 span {
-                    font-family: 'Poppins', sans-serif;
+                    font-family: inherit;
                     font-size: calc(1.25rem + 1px);
                     font-weight: 600;
                     color: #000;
@@ -138,6 +139,7 @@
     }
     .author {
         font-family: "Lexend Deca", sans-serif;
+        font-family: "Raleway", sans-serif;
         font-size: 1.5rem;
         font-weight: 400;
         color: rgb(150, 150, 150);

@@ -165,6 +165,14 @@
         justify-content: center;
         flex-direction: column;
         text-transform: uppercase;
+        .brand {
+            font-family: "Raleway", sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2.75px;
+            color: rgb(125, 125, 125);
+            margin-left: 5px;
+        }
         h2 {
             font-family: "Lexend Deca", sans-serif;
             letter-spacing: -3px;
@@ -173,14 +181,6 @@
             line-height: calc(3.5rem * 1.1);
             margin-bottom: 0.75rem;
             text-wrap: balance;
-        }
-        .brand {
-            //font-family: "Be Vietnam Pro", sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: rgb(125, 125, 125);
-            margin-left: 5px;
         }
         p {
             font-size: 2rem;
@@ -395,10 +395,20 @@
     font-weight: 600;
     letter-spacing: -1px;
     word-spacing: 6px;
-    margin: 7.5vh 0 4rem;
+    margin: 7.5vh 0 0;
     display: flex;
     justify-content: center;
     user-select: none;
+}
+
+.suggested__sub_heading {
+    font-family: "Raleway", sans-serif;
+    color: rgb(125, 125, 125);
+    font-size: clamp(14px, 5vw, 1.7rem);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.25px;
+    margin-bottom: 4rem;
 }
 
 .suggested__items_container {
@@ -414,14 +424,22 @@
         flex-direction: column;
         margin-bottom: 7.5vh;
         user-select: none;
+        border: 1px solid rgb(225, 225, 225);
+        border-bottom: 1px solid rgb(190, 190, 190);
+        border-radius: 12px;
+        padding-bottom: 10px;
+        transition: .16s ease-in-out;
+        position: relative;
         img {
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
             width: 100%;
             display: flex;
             object-fit: cover;
             object-position: center;
             cursor: pointer;
             aspect-ratio: 1.4/2;
-            box-shadow: 1px 1px 4px rgb(175, 175, 175);
+            box-shadow: 1px 1px 3px rgb(200, 200, 200);
         }
         .element {
             position: relative;
@@ -457,25 +475,45 @@
         }
         .clothing__info {
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             justify-content: space-between;
             width: 100%;
             margin-top: 5px;
+            padding-left: 0.6rem;
+            position: relative;
+            .favorite-button {
+                position: absolute;
+                top: 50%;
+                right: 2px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                &:hover {
+                    .fav-icon {
+                        transform: translateY(-2.5px);
+                        color: rgb(130, 130, 130);
+                    }
+                }
+                .fav-icon {
+                    font-size: 1.5rem;
+                    transition: .175s ease-in-out;
+                }
+            }
             .name {
-                font-family: "Be Vietnam Pro", sans-serif;
+                font-family: "Inter", sans-serif;
                 font-size: 1.5rem;
                 font-weight: 600;
-                letter-spacing: -1px;
-                word-spacing: 2px;
+                letter-spacing: -0.75px;
+                word-spacing: 3px;
                 text-transform: uppercase;
                 cursor: pointer;
+                margin: 0.5rem 0;
             }
             .price {
                 font-size: 1.5rem;
                 font-weight: 400;
-                letter-spacing: -0.7px;
-                color: rgb(75, 75, 75);
+                letter-spacing: 0px;
+                color: rgb(125, 125, 125);
             }
         }
     }
@@ -502,6 +540,20 @@
     .additional-info .additional-info-item .additional-info-textContent {
         font-size: 15px;
         line-height: calc(15px * 1.325);
+    }
+}
+
+@media screen and (max-width: 1385px) {
+    .suggested__items_container .suggested__single__item .clothing__info {
+        .name {
+            font-size: 22px;
+        }
+        .price {
+            font-size: 1.3rem;
+        }
+        .favorite-button .fav-icon {
+            font-size: 22px;
+        }
     }
 }
 
@@ -557,6 +609,31 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .suggested__heading {
+        font-size: 2.5rem;
+        letter-spacing: -1.75px;
+    }
+    .suggested__items_container .suggested__single__item .clothing__info {
+        padding-left: 0.4rem;
+        .name {
+            font-size: 16px;
+            letter-spacing: -1px;
+            word-spacing: 1px;
+            margin-bottom: 0px;
+        }
+        .price {
+            font-size: 18px;
+        }
+        .favorite-button {
+            top: 92.5%;
+            .fav-icon {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .product__container {
         width: 100%;
@@ -568,6 +645,20 @@
 }
 
 @media (max-width: 660px) {
+    .suggested__items_container .suggested__single__item .clothing__info {
+        padding-left: 0rem;
+        align-items: center;
+        .name {
+            font-size: 14.75px;
+            letter-spacing: -1px;
+        }
+        .price {
+            font-size: 15px;
+        }
+        .favorite-button {
+            display: none;
+        }
+    }
     .img-wrapper {
         display: none;
     }

@@ -8,6 +8,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 // data of all products
 import productsData from '../productsData.js';
 import Image from 'next/image.js';
+import { IoBookmarksOutline } from 'react-icons/io5';
 
 function ItemsSubpage() {
     const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -281,27 +282,30 @@ function ItemsSubpage() {
                                     <Image
                                         height={400}
                                         width={400}
-                                        srxc={image}
-                                        src={
-                                            hoveredProduct ===
-                                            productName + productId
-                                                ? image2
-                                                : image
-                                        }
                                         title={productName}
-                                        onMouseEnter={() =>
-                                            handleMouseEnter(
-                                                productName + productId
-                                            )
-                                        }
-                                        onMouseLeave={handleMouseLeave}
-                                        alt='product'
+                                        src={image}
+                                        className='main_image'
+                                        alt='product thumbnail'
                                     />
+
+                                    <Image
+                                        height={400}
+                                        width={400}
+                                        title={productName}
+                                        src={image2}
+                                        className='secondary_image'
+                                        alt='product thumbnail'
+                                    />
+
                                     <div className='clothing__info'>
                                         <p className='name'>
                                             {productId + ' ' + productName}
                                         </p>
                                         <p className='price'>{productPrice}$</p>
+
+                                        <div className='favorite-button'>
+                                            <IoBookmarksOutline className='fav-icon' />
+                                        </div>
                                     </div>
                                 </div>
                             )

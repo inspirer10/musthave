@@ -1,6 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Autumn() {
     const dressImages = [
@@ -31,14 +30,6 @@ function Autumn() {
         return () => clearInterval(interval);
     }, [dressImages.length]);
 
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ['start end', 'end start'],
-    });
-
-    const scrollParalax = useTransform(scrollYProgress, [0, 1], [125, -125]);
-    const scrollParalaxSlow = useTransform(scrollYProgress, [0, 1], [75, -75]);
     return (
         <>
             <div className='marquee'>
@@ -72,11 +63,8 @@ function Autumn() {
                     </button>
                 </article>
 
-                <article className='autumn__right__section' ref={container}>
-                    <motion.div
-                        className='product__tile'
-                        style={{ y: scrollParalax }}
-                    >
+                <article className='autumn__right__section'>
+                    <div className='product__tile'>
                         <div
                             className='image-container'
                             style={{
@@ -99,12 +87,9 @@ function Autumn() {
                             </h5>
                             <p className='slogan'>Be revolutionary with us</p>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className='product__tile'
-                        style={{ y: scrollParalaxSlow }}
-                    >
+                    <div className='product__tile'>
                         <div
                             className='image-container'
                             style={{
@@ -127,7 +112,7 @@ function Autumn() {
                                 Unleash a new way of looking
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
                 </article>
             </section>
 

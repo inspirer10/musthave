@@ -43,7 +43,7 @@
             color: rgb(110, 110, 110);
             text-wrap: balance;
             span {
-                font-family: 'Poppins', sans-serif;
+                font-family: inherit;
                 color: #000;
                 font-weight: 500;
             }
@@ -107,6 +107,7 @@
             }
             button {
                 font-family: "Be Vietnam Pro", sans-serif;
+                font-family: "Raleway", sans-serif;
                 word-spacing: 2px;
                 font-size: 1.1rem;
                 text-transform: uppercase;

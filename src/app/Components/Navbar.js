@@ -112,6 +112,14 @@ function Navbar({ color, children }) {
                         <Link className='navbar-link' href='/shoes'>
                             SHOES
                         </Link>
+                        {/*
+                        <Link
+                            className='navbar-link'
+                            href='/shoes'
+                            style={{ color: 'red' }}
+                        >
+                            SALES
+                        </Link> */}
                     </div>
                 </div>
 

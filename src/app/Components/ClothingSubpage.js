@@ -284,18 +284,17 @@ function ClothingSubpage() {
                                         height={400}
                                         width={400}
                                         title={productName}
-                                        src={
-                                            hoveredProduct ===
-                                            productName + productId
-                                                ? image2
-                                                : image
-                                        }
-                                        onMouseEnter={() =>
-                                            handleMouseEnter(
-                                                productName + productId
-                                            )
-                                        }
-                                        onMouseLeave={handleMouseLeave}
+                                        src={image}
+                                        className='main_image'
+                                        alt='product thumbnail'
+                                    />
+
+                                    <Image
+                                        height={400}
+                                        width={400}
+                                        title={productName}
+                                        src={image2}
+                                        className='secondary_image'
                                         alt='product thumbnail'
                                     />
                                     <div className='clothing__info'>

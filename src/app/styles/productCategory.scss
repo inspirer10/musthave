@@ -200,23 +200,47 @@
     user-select: none;
     border: 1px solid rgb(225, 225, 225);
     border-bottom: 1px solid rgb(190, 190, 190);
-    border-radius: 10px;
+    border-radius: 12px;
     padding-bottom: 10px;
-    transition: .15s ease-out;
-    img {
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
+    transition: .16s ease-in-out;
+    position: relative;
+    .main_image {
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        height: 87.5%;
         width: 100%;
-        height: 100%;
         display: flex;
         object-fit: cover;
         object-position: top;
-        cursor: pointer;
         aspect-ratio: 1.4/2;
         box-shadow: 1px 1px 3px rgb(200, 200, 200);
+        opacity: 1;
+        cursor: pointer;
+        transition: 0.35s ease-in-out;
+        z-index: 1;
+    }
+    .secondary_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        height: 87.5%;
+        width: 100%;
+        aspect-ratio: 1.4/2;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        opacity: 0;
+        cursor: pointer;
+        transition: 0.35s ease-in-out;
     }
     &:hover {
         border-color: rgb(75, 75, 75);
+        .main_image {
+            opacity: 0;
+        }
+        .secondary_image {
+            opacity: 1;
+        }
     }
 }
 
@@ -249,7 +273,7 @@
     .name {
         font-family: "Inter", sans-serif;
         font-size: 1.4rem;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: -0.75px;
         word-spacing: 3px;
         text-transform: uppercase;
