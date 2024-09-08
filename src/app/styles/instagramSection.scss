@@ -1,4 +1,5 @@
-// ! INSTAGRAM
+//! INSTAGRAM
+
 .highlightedProduct__container {
     display: flex;
     justify-content: space-between;
@@ -287,15 +288,29 @@
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
     .highlightedProduct__container {
-        margin: 10vh auto;
+        margin: 0vh auto 10vh;
         width: 97.5%;
         flex-direction: column;
         .highlightedProduct__image {
-            height: 45vh;
-            width: 100%;
-            border-radius: 0px;
-            box-shadow: none;
-        }
+                width: 100%;
+                height: 65vh;
+                margin-top: 0vh;
+                margin-bottom: 10vh;
+                h3 {
+                    margin-top: 1rem;
+                    margin-bottom: 0;
+                    font-size: 1.65rem;
+                }
+                p {
+                    font-size: 13px;
+                    width: 87.5%;
+                }
+                button {
+                    font-size: 13px;
+                    padding: 0.7rem 1rem;
+                    margin: 0.5rem auto 0.25rem;
+                }
+            }
         .highlightedProduct__text {
             width: 97.5%;
             margin-right: 0;

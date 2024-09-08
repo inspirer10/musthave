@@ -280,6 +280,23 @@
     }
 }
 
+
+
+
+@media screen and (max-width: 800px) {
+    .aboutCompany__container .aboutCompany__item__image {
+        width: 45%;
+        h3 {
+            margin-top: 1.25rem;
+            margin-bottom: 0;
+        }
+        button {
+            margin: 1rem auto 0.5rem;
+        }
+    }
+}
+
+
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
     .aboutCompany {
@@ -324,8 +341,22 @@
             }
             .aboutCompany__item__image {
                 width: 100%;
-                height: 42.5vh;
+                height: 65vh;
                 margin-top: 5vh;
+                h3 {
+                    margin-top: 1rem;
+                    margin-bottom: 0;
+                    font-size: 1.7rem;
+                }
+                p {
+                    font-size: 13px;
+                    width: 87.5%;
+                }
+                button {
+                    font-size: 13px;
+                    padding: 0.7rem 1rem;
+                    margin: 0.5rem auto 0.25rem;
+                }
             }
         }
     }

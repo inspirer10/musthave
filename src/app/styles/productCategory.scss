@@ -422,7 +422,7 @@
 
 @media screen and (max-width: 900px) {
     .clothing__info {
-        padding-left: 0.4rem;
+        padding-left: 0.3rem;
         .name {
             font-size: 16px;
             letter-spacing: -1px;
@@ -432,16 +432,34 @@
             font-size: 18px;
         }
         .favorite-button {
-            top: 92.5%;
+            top: 60%;
             .fav-icon {
-                font-size: 17px;
+                font-size: 16px;
             }
+        }
+    }
+    .clothing__single__item .image__container {
+        height: 50vh;
+        .main_image {
+            height: 50vh;
+        }
+        .secondary_image {
+            height: 50vh;
         }
     }
 }
 
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
+    .clothing__single__item .image__container {
+        height: 40vh;
+        .main_image {
+            height: 40vh;
+        }
+        .secondary_image {
+            height: 40vh;
+        }
+    }
     .links-container {
         width: 97.5%;
         flex-direction: column-reverse;
@@ -457,10 +475,15 @@
         width: 97.5%;
         flex-direction: column;
         margin-bottom: 5vh;
+        margin-top: 2.5vh;
         .sorting-wrapper {
             width: 97.5%;
             margin: 0 auto;
         }
+    }
+    .sorting__list label,
+    .sorting__categories__list label {
+        margin: 0.25rem 0;
     }
     .clothing__items {
         width: 100%;

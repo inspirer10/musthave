@@ -645,6 +645,12 @@
 }
 
 @media (max-width: 660px) {
+    .suggested__heading {
+        font-size: 2.15rem
+    }
+    .suggested__sub_heading {
+        font-size: 1rem;
+    }
     .suggested__items_container .suggested__single__item .clothing__info {
         padding-left: 0rem;
         align-items: center;
@@ -765,9 +771,10 @@
                     img {
                         height: auto;
                         width: 48%;
-                        aspect-ratio: 1.25/1;
+                        aspect-ratio: 1.35/1;
+                        margin: 0.25rem 0;
                         &:first-of-type {
-                            margin-top: 0.5rem;
+                            margin-top: 0.25rem;
                         }
                     }
                 }

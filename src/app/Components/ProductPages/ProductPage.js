@@ -182,7 +182,7 @@ function ProductPage({
             productName.charAt(0).toUpperCase() +
             productName.slice(1).toLowerCase();
 
-        document.title = `${titleId} ${titleName} | MUSTHAVE`;
+        document.title = `${titleId} ${titleName.toUpperCase()} | MUSTHAVE`;
     }, []);
 
     return (
