@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
 
 function Instagram() {
     const image1 = useRef(null);
@@ -50,7 +52,24 @@ function Instagram() {
                 <motion.div
                     className='highlightedProduct__image'
                     style={{ y: scrollParalax }}
-                />
+                >
+                    <div className='image-container'>
+                        <Image
+                            src={'/images/blackHoodie2.jpg'}
+                            height={650}
+                            width={650}
+                        />
+                    </div>
+
+                    <h3>Experience ultimate comfort</h3>
+                    <p>Stay cozy and fashionable</p>
+                    <Link href='/product/black/HOODIE'>
+                        <button>
+                            Check
+                            <FiArrowUpRight className='arrow-icon' />
+                        </button>
+                    </Link>
+                </motion.div>
 
                 <aside className='highlightedProduct__text'>
                     <h2>HOODIE</h2>

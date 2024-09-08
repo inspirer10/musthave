@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import Image from 'next/image';
+import { FiArrowUpRight } from 'react-icons/fi';
+import Link from 'next/link';
 
 function AboutCompany() {
     const container = useRef(null);
@@ -9,7 +12,7 @@ function AboutCompany() {
         offset: ['start end', 'end start'],
     });
 
-    const scrollParalax = useTransform(scrollYProgress, [0, 1], [325, -75]);
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [175, -175]);
     return (
         <>
             <section className='aboutCompany'>
@@ -50,17 +53,43 @@ function AboutCompany() {
                         </div>
                     </article>
 
-                    <motion.div
+                    {/* <motion.div
                         className='aboutCompany__item__image'
                         style={{ y: scrollParalax }}
                     ></motion.div>
+                    */}
+
+                    <motion.div
+                        className='aboutCompany__item__image'
+                        style={{ y: scrollParalax }}
+                    >
+                        <div className='image-container'>
+                            <Image
+                                src={'/aboutCompany2.jpg'}
+                                height={550}
+                                width={550}
+                            />
+                        </div>
+
+                        <h3>Redefine Your Look</h3>
+                        <p>
+                            MUSTHAVE goal is to improve what surrounds people.
+                        </p>
+                        <Link href='/clothing'>
+                            <button>
+                                See more
+                                <FiArrowUpRight className='arrow-icon' />
+                            </button>
+                        </Link>
+                    </motion.div>
                 </aside>
             </section>
 
             <article className='quoteSection'>
                 <p className='quote'>
                     <i>" </i>Dressing well doesn't depend on a lot of clothes.
-                    It's a matter of harmony and common sense.<i>"</i>
+                    It's a matter of harmony and common sense.
+                    <i>"</i>
                 </p>
                 <p className='author'>Oscar de la Renta</p>
             </article>

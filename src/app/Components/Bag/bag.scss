@@ -14,8 +14,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 90%;
-        padding: 0 0.75rem;
+        width: 92.5%;
+        //padding: 0 0.75rem;
         margin: 0 auto 3rem;
         h2 {
             font-family: "Be Vietnam Pro", sans-serif;
@@ -30,7 +30,7 @@
         margin-top: 0.25rem;
     }
     .bag__products {
-        width: 90%;
+        width: 92.5%;
         margin: 0 auto;
         color: #000;
         display: flex;
@@ -38,7 +38,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0 0.75rem;
-        border-bottom: 1px solid rgb(160, 160, 160);
+        border-bottom: 1px solid rgb(150, 150, 150);
         &.categories-top-bar {
             border-bottom: 2px solid #000;
             color: rgb(160, 160, 160);

@@ -103,13 +103,93 @@
         }
     }
     .aboutCompany__item__image {
-        background-image: url('/aboutCompany.jpg');
-        height: 95vh;
-        width: 42.5%;
+        height: 90vh;
+        width: 40%;
         z-index: 5;
-        margin-top: -12.5vh;
-        background-size: cover;
-        background-position: center;
+        margin-top: -10vh;
+        background-color: #000;
+        border-radius: 44px;
+        padding: 14px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        &:hover {
+            .image-container img {
+                transform: scale(1.025);
+            }
+        }
+        * {
+            &::selection {
+                background-color: #fff;
+                color: #000;
+            }
+        }
+        .image-container {
+            height: 77.5%;
+            width: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            img {
+                overflow: hidden;
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                border-radius: 30px;
+                margin: 0 auto;
+                transition: .3s ease-in-out;
+            }
+        }
+        h3 {
+            font-family: "Raleway", sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin: 2.5rem 0 0.25rem;
+            color: #fff;
+        }
+        p {
+            font-family: "Inter", sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.3;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(175, 175, 175);
+        }
+        button {
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            margin: 2rem auto 1rem;
+            border: 1px solid #000;
+            outline: none;
+            color: #fff;
+            background-color: #000;
+            background: linear-gradient(90deg, #151515, #737373);
+            border-radius: 50px;
+            padding: 0.85rem 1.5rem;
+            padding-right: 1rem;
+            cursor: pointer;
+            transition: .225s ease-in-out;
+            .arrow-icon {
+                background-color: #fff;
+                color: #000;
+                border-radius: 50%;
+                font-size: 17px;
+                margin-left: 1rem;
+                transition: .125s ease-out;
+            }
+            &:hover {
+                border-color: #fff;
+                .arrow-icon {
+                    transition: .25s ease;
+                    rotate: 45deg;
+                }
+            }
+        }
     }
 }
 
@@ -122,16 +202,10 @@
     //background-image: url('/testimg5.jpg');
     background-position: center;
     background-size: cover;
-    * {
-        &::selection {
-            background-color: #000;
-            color: #fff;
-        }
-    }
     .quote {
         font-family: "Urbanist", sans-serif;
         font-size: 2.4rem;
-        font-weight: 500;
+        font-weight: 600;
         color: #000;
         width: 60%;
         margin: 0 auto;
@@ -145,6 +219,18 @@
         color: rgb(150, 150, 150);
         margin: 3.5rem auto 0;
         user-select: none;
+    }
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+}
+
+@keyframes scroll-reveal {
+    to {
+        background-size: 100% 100%;
     }
 }
 
@@ -165,12 +251,31 @@
             width: 45%;
             height: 90vh;
             margin-top: -10vh;
+            h3 {
+                margin-top: 2rem;
+            }
+            button {
+                margin: 1.5rem auto 0.75rem;
+            }
         }
     }
     .quoteSection {
         padding: 6.5vh 0;
         .author {
             margin: 3rem auto 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .aboutCompany__container .aboutCompany__item__image {
+        width: 42.5%;
+        h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+        }
+        button {
+            margin: 1rem auto 0.5rem;
         }
     }
 }

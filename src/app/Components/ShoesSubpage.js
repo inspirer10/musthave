@@ -215,23 +215,24 @@ function ShoesSubpage() {
                                         (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
                                     }
                                 >
-                                    <Image
-                                        height={400}
-                                        width={400}
-                                        title={productName}
-                                        src={image}
-                                        className='main_image'
-                                        alt='product thumbnail'
-                                    />
-
-                                    <Image
-                                        height={400}
-                                        width={400}
-                                        title={productName}
-                                        src={image2}
-                                        className='secondary_image'
-                                        alt='product thumbnail'
-                                    />
+                                    <div className='image__container'>
+                                        <Image
+                                            height={400}
+                                            width={400}
+                                            title={productName}
+                                            src={image}
+                                            className='main_image'
+                                            alt='product thumbnail'
+                                        />
+                                        <Image
+                                            height={400}
+                                            width={400}
+                                            title={productName}
+                                            src={image2}
+                                            className='secondary_image'
+                                            alt='product thumbnail'
+                                        />
+                                    </div>
                                     <div className='clothing__info'>
                                         <p className='name'>
                                             {productId + ' ' + productName}
