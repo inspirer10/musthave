@@ -1,5 +1,4 @@
 //! INSTAGRAM
-
 .highlightedProduct__container {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,8 @@
         }
         .image-container {
             height: 77.5%;
-            width: 100%;
+            width: 97.5%;
+            margin: 0.25rem auto 0;
             border-radius: 30px;
             overflow: hidden;
             img {
@@ -47,9 +47,9 @@
             font-family: "Raleway", sans-serif;
             font-size: 2rem;
             font-weight: 400;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             text-align: center;
-            margin: 2.25rem 0 0.2rem;
+            margin: 1.75rem 0 0.1rem;
             color: #fff;
         }
         p {
@@ -285,6 +285,22 @@
     }
 }
 
+@media screen and (max-width: 1370px) {
+    .highlightedProduct__container {
+        .highlightedProduct__image {
+            h3 {
+                margin-top: 1rem;
+                margin-bottom: 0;
+                font-size: 1.75rem;
+            }
+            p {}
+            button {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
     .highlightedProduct__container {
@@ -292,25 +308,25 @@
         width: 97.5%;
         flex-direction: column;
         .highlightedProduct__image {
-                width: 100%;
-                height: 65vh;
-                margin-top: 0vh;
-                margin-bottom: 10vh;
-                h3 {
-                    margin-top: 1rem;
-                    margin-bottom: 0;
-                    font-size: 1.65rem;
-                }
-                p {
-                    font-size: 13px;
-                    width: 87.5%;
-                }
-                button {
-                    font-size: 13px;
-                    padding: 0.7rem 1rem;
-                    margin: 0.5rem auto 0.25rem;
-                }
+            width: 100%;
+            height: 65vh;
+            margin-top: 0vh;
+            margin-bottom: 10vh;
+            h3 {
+                margin-top: 0.75rem;
+                margin-bottom: 0;
+                font-size: 1.4rem;
             }
+            p {
+                font-size: 13px;
+                width: 87.5%;
+            }
+            button {
+                font-size: 13px;
+                padding: 0.7rem 1rem;
+                margin: 0.4rem auto 0.2rem;
+            }
+        }
         .highlightedProduct__text {
             width: 97.5%;
             margin-right: 0;

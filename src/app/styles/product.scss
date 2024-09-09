@@ -221,7 +221,7 @@
                 font-size: 16px;
                 width: 100%;
                 cursor: pointer;
-                border: 1px solid rgb(125, 125, 125);
+                border: 1px solid rgb(160, 160, 160);
                 transition: .1s ease-in-out;
                 option {
                     background-color: #000;
@@ -302,7 +302,7 @@
         margin: 0.4rem 0 1.5rem;
         justify-content: flex-start;
         p {
-            font-family: "Lexend Deca", sans-serif;
+            font-family: "Be Vietnam Pro", sans-serif;
             font-size: 22px;
             font-weight: 400;
             letter-spacing: -0.5px;
@@ -314,19 +314,20 @@
             font-size: 17px;
             padding: 2px 2px 2px 15px;
             width: 3.25rem;
-            border-radius: 9px;
+            border-radius: 7px;
             align-items: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgb(200, 200, 200);
+            background-color: rgb(225, 225, 225);
             border: 1px solid #000;
             outline: 0;
         }
     }
 }
 
-.additional-info {
+//! FAQ accordion for product
+.additional-info-container {
     margin-top: 2.25rem;
     width: 70%;
     .additional-info-item {
@@ -336,9 +337,8 @@
             border: none;
         }
         .additional-info-label {
-            font-family: "Be Vietnam Pro", sans-serif;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: -0.25px;
             display: flex;
             justify-content: space-between;
@@ -351,39 +351,48 @@
             transition: .175s ease;
             user-select: none;
             &:hover {
-                background-color: rgb(225, 225, 225);
+                background-color: rgb(220, 220, 220);
             }
             .additional-info-toggle {
                 font-size: 20px;
                 font-weight: 600;
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.2s ease-in-out;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
         }
         .additional-info-textContent {
-            font-family: "Lexend Deca", sans-serif;
             font-size: 17px;
             font-weight: 400;
             letter-spacing: -0.25px;
-            line-height: calc(17px * 1.35);
+            line-height: calc(17px * 1.3);
             padding: 0 0.5rem;
             text-align: justify;
-            text-wrap: balance;
             color: rgb(55, 55, 55);
-            overflow: hidden;
-            max-height: 0;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: .14s ease-out;
+            p {
+                font-family: "Raleway", sans-serif;
+            }
             &.opened {
-                max-height: 300px;
-                margin: 0.5rem auto 0.1rem;
+                margin: 0.75rem auto 0.1rem;
+                grid-template-rows: 1fr;
+                transition: .21s ease-in;
+            }
+            &>div {
+                overflow: hidden;
             }
         }
         .additional-info-label#opened {
             background-color: rgb(200, 200, 200);
-            background-color: rgb(25, 25, 25);
+            background-color: rgb(35, 35, 35);
             color: #fff;
             //transition: .175s ease-in-out;
+            &:hover {
+                background-color: #000;
+            }
         }
     }
 }
@@ -537,7 +546,7 @@
             aspect-ratio: 1.4/2;
         }
     }
-    .additional-info .additional-info-item .additional-info-textContent {
+    .additional-info-container .additional-info-item .additional-info-textContent {
         font-size: 15px;
         line-height: calc(15px * 1.325);
     }
@@ -591,7 +600,7 @@
             }
         }
     }
-    .additional-info {
+    .additional-info-container {
         width: 97.5%;
     }
     .suggested__heading {
@@ -603,7 +612,7 @@
             aspect-ratio: 1.5/2;
         }
     }
-    .additional-info .additional-info-item .additional-info-textContent {
+    .additional-info-container .additional-info-item .additional-info-textContent {
         font-size: 14px;
         line-height: calc(14px * 1.325);
     }

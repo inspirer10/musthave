@@ -193,6 +193,153 @@
     }
 }
 
+.goals_section {
+    width: 70%;
+    margin: 15vh auto 20vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    .goals_content {
+        margin-top: 2.5vh;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        h2 {
+            font-family: "Lexend Deca", sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        .goals_accordion {
+            display: flex;
+            flex-direction: column;
+            .accordion-item {
+                padding: 1.5rem 2rem;
+                border-radius: 10px;
+                border: 2px solid rgb(215, 215, 215);
+                width: 100%;
+                position: relative;
+                margin-bottom: 1.5rem;
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25) inset;
+                cursor: pointer;
+                transition: .1s ease-in-out;
+                &:hover {
+                    border-color: rgb(170, 170, 170);
+                }
+                &.active {
+                    border-color: #000;
+                    transition: .35s;
+                    cursor: auto;
+                    .heading_bar {
+                        margin-bottom: 1.25rem;
+                    }
+                    .content-reveal {
+                        grid-template-rows: 1fr;
+                        transition: .275s ease-in;
+                        .description {
+                            display: block;
+                        }
+                        a {
+                            display: flex;
+                            opacity: 1;
+                        }
+                    }
+                }
+                .heading_bar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0rem;
+                    h3 {
+                        font-family: "Be Vietnam Pro", sans-serif;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+                    p {
+                        font-family: "Helvetica Neue", sans-serif;
+                        font-size: 14px;
+                        opacity: 0.2;
+                        user-select: none;
+                        letter-spacing: 0.25px;
+                    }
+                }
+                .content-reveal {
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    transition: none;
+                    &>div {
+                        overflow: hidden;
+                    }
+                    .description {
+                        font-family: "Be Vietnam Pro", sans-serif;
+                        font-size: 17px;
+                        font-weight: 300;
+                        line-height: 1.35;
+                        margin-bottom: 4rem;
+                        color: rgb(50, 50, 50);
+                    }
+                    a {
+                        display: none;
+                        opacity: 0;
+                        align-items: center;
+                        justify-content: center;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        background-color: #000;
+                        //background-image: linear-gradient(90deg, rgb(255, 255, 255), black 72.5%);
+                        color: #fff;
+                        width: 100%;
+                        text-align: center;
+                        padding: 0.75rem;
+                        font-size: 14px;
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                        user-select: none;
+                        &.lime {
+                            // background-image: linear-gradient(90deg, rgb(134, 235, 134), black 90%);
+                        }
+                        &.craft {
+                            //background-image: linear-gradient(90deg, darkblue, black 90%);
+                        }
+                        .arrow-icon {
+                            margin-left: 0.25rem;
+                            font-size: 15px;
+                            transition: .2s ease-in-out .1s;
+                        }
+                        &:hover {
+                            .arrow-icon {
+                                transform: translateX(4.5px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .images_wrapper {
+        width: 50%;
+        img {
+            height: 72.5vh;
+            width: 72.5%;
+            display: flex;
+            margin: 0 auto;
+            border-radius: 30px;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+}
+
 //! QUOTE
 .quoteSection {
     text-align: center;
@@ -280,9 +427,6 @@
     }
 }
 
-
-
-
 @media screen and (max-width: 800px) {
     .aboutCompany__container .aboutCompany__item__image {
         width: 45%;
@@ -295,7 +439,6 @@
         }
     }
 }
-
 
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {

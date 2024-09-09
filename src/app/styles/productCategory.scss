@@ -5,6 +5,12 @@
     align-items: baseline;
     margin: 15vh auto 0;
     width: 90%;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #FFF;
+        }
+    }
     &.additional-space {
         margin-top: 8rem;
         width: 75%;
@@ -52,6 +58,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #FFF;
+        }
+    }
     .sorting-wrapper {
         background-color: #FFF;
         width: 20%;
@@ -219,7 +231,7 @@
             border-top-right-radius: 12px;
             border-top-left-radius: 12px;
             cursor: pointer;
-            transition: 0.35s ease-in-out;
+            transition: 0.375s ease-in-out;
             z-index: 1;
         }
         .secondary_image {
@@ -236,7 +248,7 @@
             border-top-right-radius: 12px;
             border-top-left-radius: 12px;
             cursor: pointer;
-            transition: 0.35s ease-in-out;
+            transition: 0.375s ease-in-out;
         }
     }
     &:hover {

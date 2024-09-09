@@ -317,7 +317,7 @@ function ProductPage({
                         </h2>
                         <p>${productPrice}</p>
                     </div>
-                    <div className='additional-info'>
+                    <div className='additional-info-container'>
                         {detailsData.map((item, index) => (
                             <DetailsItem
                                 key={index}
