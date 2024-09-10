@@ -81,7 +81,6 @@ function AboutCompany() {
                     </motion.div>
                 </aside>
 
-                {/*
                 <article className='goals_section'>
                     <article className='goals_content'>
                         <h2>Company Goals</h2>
@@ -203,7 +202,6 @@ function AboutCompany() {
                         />
                     </aside>
                 </article>
-                */}
             </section>
 
             <article className='quoteSection'>

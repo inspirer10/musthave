@@ -1,10 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-//!test czcionki
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Deca:wght@100..900&family=Urbanist:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-ExtraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/font/Switzer-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -25,8 +73,13 @@ body {
 }
 
 a {
+    font-family: inherit;
     color: inherit;
     text-decoration: none;
+}
+
+span {
+    font-family: inherit;
 }
 
 img {
@@ -108,7 +161,7 @@ ul {
     }
 }
 
-//? 404 PAGE
+//! 404 PAGE
 .not-found-container {
     background-color: #000;
     color: #FFF;

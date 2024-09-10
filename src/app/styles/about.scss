@@ -54,6 +54,7 @@
             flex-direction: column;
             h2 {
                 font-family: "Be Vietnam Pro", sans-serif;
+                font-family: 'Switzer', sans-serif;
                 font-size: 6rem;
                 font-weight: 600;
                 word-spacing: 7px;
@@ -61,12 +62,13 @@
             }
             p {
                 font-family: "Lexend Deca", sans-serif;
+                font-family: 'Switzer', sans-serif;
                 font-size: 1.25rem;
                 line-height: calc(1.25rem * 1.325);
                 text-align: justify;
                 color: rgb(95, 95, 95);
                 span {
-                    font-family: inherit;
+                    font-family: "Lexend Deca", sans-serif;
                     font-size: calc(1.25rem + 1px);
                     font-weight: 600;
                     color: #000;
@@ -81,6 +83,7 @@
                 margin-top: 3.5rem;
                 a {
                     font-family: "Be Vietnam Pro", sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 1.25rem;
                     font-weight: 500;
                     color: #000;
@@ -213,6 +216,7 @@
         width: 50%;
         h2 {
             font-family: "Lexend Deca", sans-serif;
+            font-family: 'Switzer', sans-serif;
             font-size: 2.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -240,7 +244,7 @@
                     transition: .35s;
                     cursor: auto;
                     .heading_bar {
-                        margin-bottom: 1.25rem;
+                        margin-bottom: 1.5rem;
                     }
                     .content-reveal {
                         grid-template-rows: 1fr;
@@ -266,8 +270,9 @@
                     }
                     p {
                         font-family: "Helvetica Neue", sans-serif;
-                        font-size: 14px;
-                        opacity: 0.2;
+                        font-family: 'Switzer', sans-serif;
+                        font-size: 14.5px;
+                        opacity: 0.25;
                         user-select: none;
                         letter-spacing: 0.25px;
                     }
@@ -283,6 +288,7 @@
                         font-family: "Be Vietnam Pro", sans-serif;
                         font-size: 17px;
                         font-weight: 300;
+                        text-wrap: balance;
                         line-height: 1.35;
                         margin-bottom: 4rem;
                         color: rgb(50, 50, 50);
