@@ -412,6 +412,12 @@
             }
         }
     }
+    .goals_section {
+        width: 80%;
+        .images_wrapper img {
+            width: 77.5%;
+        }
+    }
     .quoteSection {
         padding: 6.5vh 0;
         .author {
@@ -431,6 +437,18 @@
             margin: 1rem auto 0.5rem;
         }
     }
+    .goals_section .goals_content .goals_accordion .accordion-item .content-reveal .description {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    .goals_section {
+        width: 87.5%;
+        .images_wrapper img {
+            width: 75%;
+        }
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -442,6 +460,31 @@
         }
         button {
             margin: 1rem auto 0.5rem;
+        }
+    }
+    .goals_section {
+        width: 90%;
+        flex-direction: column;
+        .goals_content {
+            width: 100%;
+            h2 {
+                text-align: center;
+            }
+            .goals_accordion {
+                .accordion-item {
+                    padding: 1.5rem 1rem;
+                    .heading_bar p {
+                        font-size: 12.5px;
+                    }
+                    .content-reveal .description {
+                        font-size: 14px;
+                        margin-bottom: 2.75rem;
+                    }
+                }
+            }
+        }
+        .images_wrapper img {
+            display: none;
         }
     }
 }
@@ -490,21 +533,20 @@
             }
             .aboutCompany__item__image {
                 width: 100%;
-                height: 65vh;
+                height: 67.5vh;
                 margin-top: 5vh;
                 h3 {
-                    margin-top: 1rem;
-                    margin-bottom: 0;
-                    font-size: 1.7rem;
+                    margin-top: 0.75rem;
+                    font-size: 1.5rem;
                 }
                 p {
-                    font-size: 13px;
-                    width: 87.5%;
+                    font-size: 12px;
+                    width: 92.5%;
                 }
                 button {
-                    font-size: 13px;
+                    font-size: 12px;
                     padding: 0.7rem 1rem;
-                    margin: 0.5rem auto 0.25rem;
+                    margin: 0.5rem auto 0.2rem;
                 }
             }
         }
