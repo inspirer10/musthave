@@ -4,14 +4,14 @@ import Lenis from 'lenis';
 import Introduction from './Components/Introduction';
 import Header from './Components/Header';
 import Bag from './Components/Bag/Bag';
-import Autumn from './Components/Autumn';
+import SummerCollection from './Components/SummerCollection';
 import Categories from './Components/Categories';
 import AboutCompany from './Components/AboutCompany';
 import Instagram from './Components/Instagram';
 import Footer from './Components/Footer';
 
 import './styles/header.scss';
-import './styles/autumn.scss';
+import './styles/summer.scss';
 import './styles/categories.scss';
 import './styles/about.scss';
 import './styles/instagramSection.scss';
@@ -46,7 +46,7 @@ export default function Home() {
             </AnimatePresence>
             <Header />
             <Bag />
-            <Autumn />
+            <SummerCollection />
 
             <h2 className='fixed-brand'>MUSTHAVE</h2>
 

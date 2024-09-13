@@ -1,4 +1,4 @@
-//!   AUTUMN
+//!   SUMMER COLLECTION SECTION 
 
 /* Marquee styles */
 
@@ -19,6 +19,7 @@
     user-select: none;
     gap: var(--gap);
     margin-top: 0rem;
+    overflow-x: hidden;
     .marquee__content {
         flex-shrink: 0;
         display: flex;
@@ -42,6 +43,7 @@
 }
 
 .autumn__section {
+    overflow-x: hidden;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -199,6 +201,7 @@
     width: 100vw;
     height: 62.5vh;
     clip-path: inset(0);
+    overflow-x: hidden;
     .image {
         position: fixed !important;
         object-fit: cover;

@@ -1,10 +1,11 @@
-import React, { act, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Link from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
+import AboutIntroParallax from './AboutIntroParallax';
 
 function AboutCompany() {
     const [active, setActive] = useState(1);
@@ -16,8 +17,11 @@ function AboutCompany() {
     });
 
     const scrollParalax = useTransform(scrollYProgress, [0, 1], [175, -175]);
+
     return (
         <>
+            {/*  <AboutIntroParallax /> */}
+
             <section className='aboutCompany'>
                 <div className='video-container'>
                     <video

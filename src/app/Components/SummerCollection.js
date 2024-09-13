@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-function Autumn() {
+function SummerCollection() {
     const dressImages = [
         'images/dressBlack1.jpg',
         'images/dressBlack4.jpg',
@@ -30,6 +31,23 @@ function Autumn() {
         return () => clearInterval(interval);
     }, [dressImages.length]);
 
+    const fadeInAnimation = {
+        initial: {
+            opacity: 0,
+            y: 100,
+        },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.1,
+                type: 'spring',
+                damping: 40,
+                stiffness: 100,
+            },
+        },
+    };
+
     return (
         <>
             <div className='marquee'>
@@ -54,10 +72,23 @@ function Autumn() {
 
             <section className='autumn__section'>
                 <article className='autumn__left__section'>
-                    <h2>
+                    <motion.h2
+                        variants={fadeInAnimation}
+                        initial='initial'
+                        whileInView='animate'
+                    >
                         THE <br /> SUMMER <br /> COLLECTION
-                    </h2>
-                    <p>Limited release available now</p>
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInAnimation}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{
+                            once: true,
+                        }}
+                    >
+                        Limited release available now
+                    </motion.p>
                     <button onClick={() => (document.location.href = '/items')}>
                         Visit the shop
                     </button>
@@ -123,4 +154,4 @@ function Autumn() {
     );
 }
 
-export default Autumn;
+export default SummerCollection;

@@ -5,9 +5,9 @@
     top: 0;
     left: 0;
     z-index: 10000;
-    padding: 1.25rem 0;
+    padding: 1rem 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(20px);
     transition: transform 0.175s ease-in-out, box-shadow 0.175s ease-in-out;
     .mobile_menu {
@@ -229,9 +229,7 @@
             word-spacing: 10px;
         }
         p {
-            font-family: "Be Vietnam Pro", sans-serif;
             font-family: "Raleway", sans-serif;
-            font-family: 'Switzer', sans-serif;
             font-size: 2.1rem;
             font-weight: 500;
             margin-top: 0.5rem;
@@ -544,9 +542,9 @@
         .header__video__text {
             top: 55%;
             h2 {
-                font-size: 3.75rem;
+                font-size: 3.6rem;
                 font-weight: 700;
-                line-height: calc(3.75rem * 1.075);
+                line-height: calc(3.6rem * 1.075);
                 letter-spacing: 2px;
                 word-spacing: 4px;
                 margin: 0 auto;

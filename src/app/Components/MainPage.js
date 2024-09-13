@@ -1,4 +1,4 @@
-import Autumn from './Autumn';
+import Autumn from './SummerCollection';
 import Categories from './Categories';
 import AboutCompany from './AboutCompany';
 import Instagram from './Instagram';

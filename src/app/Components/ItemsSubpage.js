@@ -58,7 +58,9 @@ function ItemsSubpage() {
 
             <article className='links-container'>
                 <div className='links-wrapper'>
-                    <p>MUSTHAVE</p>
+                    <p onClick={() => (document.location.href = '/')}>
+                        MUSTHAVE
+                    </p>
                     <span>/</span>
                     <p className='active-link'>ITEMS</p>
                 </div>

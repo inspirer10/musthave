@@ -765,6 +765,8 @@
         justify-content: center;
         &.additional-space {
             width: 100%;
+            margin-top: 7rem;
+            margin-bottom: 2.5vh;
             .links-wrapper {
                 p {
                     font-size: 16px;
@@ -786,11 +788,16 @@
                 .product-thumbnails {
                     width: 100%;
                     flex-direction: row;
+                    scroll-snap-type: x mandatory;
+                    scroll-padding: 0 24px;
+                    overflow: auto;
+                    flex-wrap: nowrap;
                     img {
+                        scroll-snap-align: start;
                         height: auto;
-                        width: 48%;
-                        aspect-ratio: 1.35/1;
-                        margin: 0.25rem 0;
+                        width: 47.5%;
+                        aspect-ratio: 1.25/1;
+                        margin: 0.25rem 0.2rem;
                         &:first-of-type {
                             margin-top: 0.25rem;
                         }
@@ -800,7 +807,7 @@
                     width: 100%;
                     margin: 0 auto;
                     #imageBox {
-                        height: 57.5vh;
+                        height: 55vh;
                         object-position: center;
                     }
                 }
