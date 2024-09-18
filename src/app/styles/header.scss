@@ -114,14 +114,14 @@
                     list-style: none;
                     user-select: none;
                     cursor: pointer;
-                    transition: 0.3s ease-in-out;
+                    transition: 0.275s ease-in-out;
                     &::after {
                         content: '';
                         position: absolute;
                         left: 0;
                         bottom: -5px;
                         width: 100%;
-                        height: 2px;
+                        height: 1px;
                         background-color: #fff;
                         transform: scaleX(0);
                         transform-origin: right;
@@ -145,13 +145,13 @@
             justify-content: flex-end;
             align-items: center;
             .fav-icon {
-                font-size: 23px;
+                font-size: 22px;
                 margin: 0 1rem;
                 color: #fff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: .15s ease-in-out;
+                transition: color .175s ease-in-out, transform .2s ease;
                 cursor: pointer;
                 &.cart {
                     position: relative;
@@ -167,18 +167,20 @@
                         justify-content: center;
                         text-align: center;
                         font-family: "Be Vietnam Pro", sans-serif;
-                        font-size: 19px;
+                        font-size: 17px;
                         font-weight: 500;
                         color: #fff;
+                        transition: .2s ease;
                     }
                     &:hover {
                         &::after {
-                            color: #fff;
+                            transform: translate(100%, calc(-50% + 2px));
                         }
                     }
                 }
                 &:hover {
                     color: rgb(150, 150, 150);
+                    transform: translateY(-2px);
                 }
             }
         }
@@ -243,7 +245,7 @@
             font-family: "Lexend Deca", sans-serif;
             font-family: 'Switzer', sans-serif;
             font-size: 1.4rem;
-            font-weight: 700;
+            font-weight: 500;
             padding: 18px 3rem;
             margin-top: 5rem;
             box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.275);
@@ -306,7 +308,7 @@
     .modal_info-wrapper {
         width: 50%;
         .modal_heading {
-            font-family: "Be Vietnam Pro", sans-serif;
+            font-family: 'Switzer', sans-serif;
             font-size: 1.75rem;
             font-weight: 600;
             letter-spacing: 0.25px;

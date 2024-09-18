@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import productsData from '../productsData';
 import { IoBookmarksOutline } from 'react-icons/io5';
 
@@ -77,4 +77,4 @@ function SuggestedItems() {
     );
 }
 
-export default SuggestedItems;
+export default memo(SuggestedItems);

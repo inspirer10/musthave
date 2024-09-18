@@ -216,7 +216,7 @@
     border-bottom: 1px solid rgb(190, 190, 190);
     border-radius: 12px;
     padding-bottom: 12px;
-    transition: .16s ease-in-out;
+    transition: .15s ease-out, transform .175s ease-out;
     position: relative;
     .image__container {
         height: 62vh;
@@ -232,7 +232,7 @@
             border-top-right-radius: 12px;
             border-top-left-radius: 12px;
             cursor: pointer;
-            transition: 0.375s ease-in-out;
+            transition: 0.4s ease-in-out;
             z-index: 1;
         }
         .secondary_image {
@@ -249,11 +249,13 @@
             border-top-right-radius: 12px;
             border-top-left-radius: 12px;
             cursor: pointer;
-            transition: 0.375s ease-in-out;
+            transition: 0.4s ease-in-out;
         }
     }
     &:hover {
         border-color: rgb(75, 75, 75);
+        transform: translateY(-1vh);
+        transition: .15s ease-in, transform .28s ease-in;
         .main_image {
             opacity: 0;
         }

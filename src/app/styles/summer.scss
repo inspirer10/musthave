@@ -117,6 +117,10 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: .5s ease;
+            &:hover {
+                transform: translateY(-1.75vh);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+            }
             .image-container {
                 background-size: cover;
                 background-position: center;

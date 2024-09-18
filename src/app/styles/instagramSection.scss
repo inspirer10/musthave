@@ -21,6 +21,11 @@
         border-radius: 44px;
         padding: 14px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        &:hover {
+            .image-container img {
+                transform: scale(1.025);
+            }
+        }
         * {
             &::selection {
                 background-color: #fff;
@@ -29,8 +34,7 @@
         }
         .image-container {
             height: 77.5%;
-            width: 97.5%;
-            margin: 0.25rem auto 0;
+            width: 100%;
             border-radius: 30px;
             overflow: hidden;
             img {
@@ -41,6 +45,7 @@
                 display: flex;
                 border-radius: 30px;
                 margin: 0 auto;
+                transition: .3s ease-in-out;
             }
         }
         h3 {

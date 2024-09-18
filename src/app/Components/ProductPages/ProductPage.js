@@ -45,7 +45,6 @@ function ProductPage({
         dispatch(addItemToCart(payload)); //produkt jako payload
     };
 
-    const renderSuggestedItems = renderSuggested;
     const [itemQuantity, setItemQuantity] = useState(0);
     const [itemSize, setItemSize] = useState('');
     const [activeImg, setActiveImg] = useState(image1);
@@ -185,6 +184,7 @@ function ProductPage({
         document.title = `${titleId} ${titleName.toUpperCase()} | MUSTHAVE`;
     }, []);
 
+    const renderSuggestedItems = renderSuggested;
     return (
         <>
             <Navbar color={'dimgray'} />

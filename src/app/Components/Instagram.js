@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { delay, motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,6 +45,38 @@ function Instagram() {
     });
 
     const scrollParalax = useTransform(scrollYProgress, [0, 1], [225, -100]);
+
+    const fadeInAnimation = {
+        initial: {
+            opacity: 0,
+            y: 100,
+        },
+        animate: {
+            opacity: 1,
+            y: 0,
+
+            transition: {
+                type: 'spring',
+                damping: 40,
+                stiffness: 100,
+            },
+        },
+    };
+
+    const opacityAnimation = {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
+            transition: {
+                delay: 0.1,
+                type: 'spring',
+                damping: 40,
+                stiffness: 100,
+            },
+        },
+    };
 
     return (
         <>
@@ -95,10 +127,19 @@ function Instagram() {
                 <div className='top__gallery'>
                     <div className='top_gallery_item1' ref={image1} />
                     <div className='instagramSection__followUs'>
-                        <h2>WE'RE ON INSTAGRAM</h2>
+                        <motion.h2
+                            variants={opacityAnimation}
+                            initial='initial'
+                            whileInView='animate'
+                        >
+                            WE'RE ON INSTAGRAM
+                        </motion.h2>
                         <button
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
+                            variants={fadeInAnimation}
+                            initial='initial'
+                            whileInView='animate'
                         >
                             follow us
                         </button>
@@ -118,11 +159,20 @@ function Instagram() {
             </section>
 
             <section className='newsletter'>
-                <p>
+                <motion.p
+                    variants={fadeInAnimation}
+                    initial='initial'
+                    whileInView='animate'
+                >
                     Sign up for our newsletter to receive
                     <br /> special offers, news & events.
-                </p>
-                <form onSubmit={handleSubmit}>
+                </motion.p>
+                <motion.form
+                    onSubmit={handleSubmit}
+                    variants={fadeInAnimation}
+                    initial='initial'
+                    whileInView='animate'
+                >
                     <label>
                         <input
                             id='newsletterInput'
@@ -131,7 +181,7 @@ function Instagram() {
                         />
                         <input id='submitButton' type='submit' value='OK' />
                     </label>
-                </form>
+                </motion.form>
             </section>
         </>
     );
