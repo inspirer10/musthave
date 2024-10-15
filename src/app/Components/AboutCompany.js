@@ -191,8 +191,9 @@ function AboutCompany() {
                     </article>
                     <aside className='images_wrapper'>
                         <Image
-                            height={900}
-                            width={900}
+                            loading='lazy'
+                            height={750}
+                            width={750}
                             src={
                                 active === 1
                                     ? '/brand.jpg'

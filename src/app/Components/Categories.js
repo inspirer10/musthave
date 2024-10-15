@@ -7,7 +7,12 @@ function Categories() {
             <h2 className='categories__heading'>Categories</h2>
             <div className='categories__container'>
                 <div className='categories__item__one'>
-                    <Image className='category_image' src='/image.jpg' fill />
+                    <Image
+                        className='category_image'
+                        src='/image.jpg'
+                        fill
+                        loading='lazy'
+                    />
                     <div className='item__payload'>
                         <p>Clothing</p>
                         <button
@@ -21,7 +26,12 @@ function Categories() {
                 </div>
 
                 <div className='categories__item__three'>
-                    <Image className='category_image' src='/image3.jpg' fill />
+                    <Image
+                        className='category_image'
+                        src='/image3.jpg'
+                        fill
+                        loading='lazy'
+                    />
                     <div className='item__payload'>
                         <p>Accessories</p>
                         <button
@@ -35,7 +45,12 @@ function Categories() {
                 </div>
 
                 <div className='categories__item__two'>
-                    <Image className='category_image' src='/image2.jpg' fill />
+                    <Image
+                        className='category_image'
+                        src='/image2.jpg'
+                        fill
+                        loading='lazy'
+                    />
                     <div className='item__payload'>
                         <p>Shoes</p>
                         <button

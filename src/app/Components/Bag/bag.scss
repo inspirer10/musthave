@@ -277,8 +277,26 @@
     .bag__products img {
         display: none;
     }
-    .bag__products li {
-        font-size: 1.05rem;
-        text-align: center;
+    #close__icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .bag {
+        .bag__products .product-name .product_link {
+            text-wrap: nowrap;
+            font-size: 1.2rem;
+        }
+        .bag__products.categories-top-bar li {
+            font-size: 16px;
+        }
+        .bag__checkout p {
+            width: auto;
+        }
+        .bag__products .product-name .remove_product-icon {
+            font-size: 14px;
+            letter-spacing: -0.5px;
+        }
     }
 }

@@ -87,6 +87,7 @@ function Instagram() {
                 >
                     <div className='image-container'>
                         <Image
+                            loading='lazy'
                             src={'/images/blackHoodie2.jpg'}
                             height={650}
                             width={650}

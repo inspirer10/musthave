@@ -148,7 +148,12 @@ function SummerCollection() {
             </section>
 
             <section className='fixed__image'>
-                <Image className='image' src={'/testimg2.jpg'} fill />
+                <Image
+                    className='image'
+                    src={'/testimg2.jpg'}
+                    fill
+                    loading='lazy'
+                />
             </section>
         </>
     );
