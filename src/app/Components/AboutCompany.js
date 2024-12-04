@@ -32,7 +32,7 @@ function AboutCompany() {
                         disablepictureinpicture='true'
                         controlslist='nodownload nofullscreen noremoteplayback'
                     >
-                        <source src={'/video3.mp4'} type='video/mp4' />
+                        <source src={'/musthave2.mp4'} type='video/mp4' />
                         Your browser does not support the video tag.
                     </video>
 
@@ -62,7 +62,7 @@ function AboutCompany() {
 
                     <motion.div
                         className='aboutCompany__item__image'
-                        style={{ y: scrollParalax }}
+                        style={{ y: -scrollParalax }}
                     >
                         <div className='image-container'>
                             <Image

@@ -42,6 +42,9 @@
             color: #000;
         }
     }
+    .links-wrapper:has(p:hover) p:not(:hover) {
+        filter: blur(2px);
+    }
 }
 
 .product__container {

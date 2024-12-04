@@ -24,8 +24,8 @@ function Introduction() {
             exit='exit'
             className='introduction-page'
         >
-            <h1>Are you in?</h1>
-            <h1 className='second-heading'>Are you in?</h1>
+            <h1>MUSTHAVE</h1>
+            <h1 className='second-heading'>MUSTHAVE</h1>
         </motion.div>
     );
 }

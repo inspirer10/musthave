@@ -49,6 +49,9 @@
             color: #000;
         }
     }
+    .links-wrapper:has(p:hover) p:not(:hover) {
+        filter: blur(2px);
+    }
 }
 
 //! KATEOGORIA PRODUKTÓW PODSTRONA
@@ -144,6 +147,16 @@
         color: rgb(50, 50, 50);
         text-transform: uppercase;
     }
+}
+
+.sorting__list:has(span:hover) span:not(:hover) {
+    filter: blur(2px);
+    transition: 0.15s ease-in-out;
+}
+
+.sorting__categories__list:has(span:hover) span:not(:hover) {
+    filter: blur(2px);
+    transition: 0.15s ease-in-out;
 }
 
 .sorting__categories__list {

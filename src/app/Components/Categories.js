@@ -32,6 +32,7 @@ function Categories() {
                         fill
                         loading='lazy'
                     />
+
                     <div className='item__payload'>
                         <p>Accessories</p>
                         <button

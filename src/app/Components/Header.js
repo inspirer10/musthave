@@ -50,7 +50,7 @@ function Header() {
                     //preload
                     controlslist='nodownload nofullscreen noremoteplayback'
                 >
-                    <source src={'/video5.mp4'} type='video/mp4' />
+                    <source src={'/intro.mp4'} type='video/mp4' />
                     Your browser does not support the video tag.
                 </video>
 
@@ -58,10 +58,20 @@ function Header() {
                     <h2>
                         HELLO SUMMER<i>'</i> 24
                     </h2>
-                    <p>Minimal & Comfort</p>
+                    <p>
+                        Minimal & <span>comfort</span>
+                    </p>
                     <button onClick={() => (document.location.href = '/items')}>
                         EXPLORE THE SHOP
                     </button>
+                </div>
+
+                <p className='scroll_down'>
+                    <p>SCROLL DOWN</p>
+                </p>
+
+                <div className='logo'>
+                    <p>MUSTHAVE</p>
                 </div>
             </div>
 

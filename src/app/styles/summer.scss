@@ -26,12 +26,12 @@
         justify-content: space-around;
         gap: var(--gap);
         min-width: 100%;
-        animation: scroll 40s linear infinite;
+        animation: scroll 45s linear infinite;
         animation-delay: 0.1s;
         .marquee__item {
             font-family: 'Switzer', sans-serif;
             font-size: 4rem;
-            font-weight: 500;
+            font-weight: 600;
             flex: 0 0 auto;
             padding: 0 0.5rem;
             text-align: center;
@@ -66,16 +66,14 @@
         margin: 0 auto;
         width: 40%;
         h2 {
-            font-family: "Be Vietnam Pro", sans-serif;
             font-family: 'Switzer', sans-serif;
             font-size: 5.5rem;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 5.75rem;
             letter-spacing: -4px;
             margin-bottom: 0.5rem;
         }
         p {
-            font-family: "Urbanist", sans-serif;
             font-family: 'Switzer', sans-serif;
             font-size: 1.6rem;
             font-weight: 500;
@@ -203,7 +201,7 @@
 
 .fixed__image {
     width: 100vw;
-    height: 62.5vh;
+    height: 55vh;
     clip-path: inset(0);
     overflow-x: hidden;
     .image {

@@ -12,9 +12,9 @@ function SummerCollection() {
 
     const shirtImages = [
         'images/tshirt3.png',
-        'images/tshirt5.png',
         'images/tshirt2.png',
         'images/tshirt5.png',
+        'images/tshirt2.png',
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);

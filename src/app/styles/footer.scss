@@ -39,7 +39,7 @@ footer {
                 justify-content: space-between;
                 align-items: flex-start;
                 flex-direction: row;
-                ul {
+                .TEST {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -55,6 +55,7 @@ footer {
                         color: rgb(200, 200, 200);
                     }
                     li {
+                        list-style: none;
                         font-family: "Be Vietnam Pro", sans-serif;
                         font-size: 17px;
                         font-weight: 300;
@@ -73,6 +74,9 @@ footer {
                         }
                     }
                 }
+            }
+            .footer__links:has(li:hover) li:not(:hover) {
+                filter: blur(2.25px);
             }
             .brand {
                 font-family: "Lexend Deca", sans-serif;

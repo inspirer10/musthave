@@ -15,7 +15,7 @@ const cartPersistConfig = {
 
 // Konfiguracja dla sessionStorage (modal newslettera)
 const newsletterPersistConfig = {
-    key: 'newsletter',
+    key: 'newsletter', // klucz, pod którym stan będzie przechowywany w session storage
     storage: sessionStorage, // sessionStorage
 };
 

@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import React, { useRef } from 'react';
 
 function AboutIntroParallax() {

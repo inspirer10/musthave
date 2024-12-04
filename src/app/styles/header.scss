@@ -137,6 +137,10 @@
                     }
                 }
             }
+            .navbar_links-wrapper:has(.navbar-link:hover) .navbar-link:not(:hover) {
+                filter: blur(2px);
+                transition: 0.125s;
+            }
         }
         .navbar_icons-wrapper {
             width: auto;
@@ -204,13 +208,15 @@
 
 .header-video-container {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    overflow: hidden;
     video {
         filter: brightness(22.5%);
         width: 100%;
-        height: 87.5vh;
+        height: 90vh;
         object-fit: cover;
-        object-position: center;
+        object-position: top;
+        overflow: hidden;
     }
     .header__video__text {
         position: absolute;
@@ -219,36 +225,39 @@
         transform: translate(-50%, -50%);
         z-index: 10;
         width: 100%;
-        color: #fff;
+        color: #FFF;
         text-align: center;
         user-select: none;
         h2 {
-            font-family: 'Switzer', sans-serif;
-            font-size: 6.25rem;
-            font-weight: 600;
+            font-size: 6.5rem;
+            font-weight: 700;
             line-height: 1.1;
-            letter-spacing: 3px;
+            letter-spacing: 2.25px;
             word-spacing: 10px;
         }
         p {
-            font-family: "Raleway", sans-serif;
+            font-family: "Lexend Deca", sans-serif;
             font-size: 2.1rem;
-            font-weight: 500;
+            font-weight: 400;
             margin-top: 0.5rem;
-            letter-spacing: 0.25px;
+            letter-spacing: -0.25px;
             word-spacing: 5px;
+            span {
+                font-family: 'Instrument Serif', serif;
+                font-style: italic;
+                letter-spacing: 0.25px;
+            }
         }
         button {
             background: #fff;
             color: #000;
             border: 1px solid #fff;
-            font-family: "Lexend Deca", sans-serif;
-            font-family: 'Switzer', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 500;
+            border-radius: 16px;
+            font-size: 1.5rem;
+            font-weight: 600;
             padding: 18px 3rem;
             margin-top: 5rem;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.275);
+            box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.275);
             outline: none;
             cursor: pointer;
             transition: .15s ease-in-out;
@@ -257,6 +266,53 @@
                 box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.625);
             }
         }
+    }
+    .scroll_down {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        z-index: 25;
+        p {
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 300;
+            padding-bottom: 6px;
+            letter-spacing: -0.2px;
+            border-bottom: 1px solid #FFF;
+            user-select: none;
+            animation: scroll_down 2.5s infinite forwards;
+        }
+    }
+    .logo {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 35%);
+        width: 100%;
+        line-height: 1;
+        overflow: hidden;
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18vw;
+            font-weight: 700;
+            color: rgb(175, 175, 175);
+            opacity: 0.2;
+            overflow: hidden;
+            user-select: none;
+        }
+    }
+}
+
+@keyframes scroll_down {
+    0% {
+        transform: translateY(-12px);
+    }
+    50% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(-12px);
     }
 }
 
@@ -432,8 +488,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    width: 77.5%;
-    width: fit-content;
+    width: 100%;
     padding: 16px 30px;
     backdrop-filter: blur(15px);
     background-color: rgba(5, 5, 5, 0.95);
@@ -451,6 +506,24 @@
         font-size: 24px;
         margin-left: 8px;
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .navbar {
+        .navbar-container {
+            width: 90%;
+            .navbar_links-container .logo {
+                margin-right: 3.25rem;
+            }
+        }
+    }
+    .header-video-container .header__video__text {
+        top: 55%;
+    }
+    #mailing__modal {
+        width: 62.5%;
+        height: 55%;
     }
 }
 

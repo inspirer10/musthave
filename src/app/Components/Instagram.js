@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
-import { delay, motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SiInstagram } from 'react-icons/si';
+import { FiInstagram } from 'react-icons/fi';
 
 function Instagram() {
     const image1 = useRef(null);
@@ -83,7 +85,7 @@ function Instagram() {
             <section className='highlightedProduct__container' ref={container}>
                 <motion.div
                     className='highlightedProduct__image'
-                    style={{ y: scrollParalax }}
+                    style={{ y: -scrollParalax }}
                 >
                     <div className='image-container'>
                         <Image
@@ -98,7 +100,7 @@ function Instagram() {
                     <p>Stay cozy and fashionable</p>
                     <Link href='/product/black/HOODIE'>
                         <button>
-                            Check
+                            Check product
                             <FiArrowUpRight className='arrow-icon' />
                         </button>
                     </Link>
@@ -126,7 +128,11 @@ function Instagram() {
 
             <section className='instagramSection'>
                 <div className='top__gallery'>
-                    <div className='top_gallery_item1' ref={image1} />
+                    <div className='top_gallery_item1' ref={image1}>
+                        <div className='icon-wrapper'>
+                            <FiInstagram className='insta-icon' />
+                        </div>
+                    </div>
                     <div className='instagramSection__followUs'>
                         <motion.h2
                             variants={opacityAnimation}
@@ -135,27 +141,48 @@ function Instagram() {
                         >
                             WE'RE ON INSTAGRAM
                         </motion.h2>
-                        <button
+                        <motion.button
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
-                            variants={fadeInAnimation}
+                            variants={opacityAnimation}
                             initial='initial'
                             whileInView='animate'
                         >
                             follow us
-                        </button>
+                        </motion.button>
                         <p className='instagram-link' ref={instagramLink}>
                             @musthave
                         </p>
                     </div>
-                    <div className='top_gallery_item2' ref={image2} />
+
+                    <div className='top_gallery_item2' ref={image2}>
+                        <div className='icon-wrapper'>
+                            <SiInstagram className='insta-icon' />
+                        </div>
+                    </div>
                 </div>
 
                 <div className='bottom__gallery'>
-                    <div className='bottom__gallery_item1' ref={image3} />
-                    <div className='bottom__gallery_item2' ref={image4} />
-                    <div className='bottom__gallery_item3' ref={image5} />
-                    <div className='bottom__gallery_item4' ref={image6} />
+                    <div className='bottom__gallery_item1' ref={image3}>
+                        <div className='icon-wrapper'>
+                            <SiInstagram className='insta-icon' />
+                        </div>
+                    </div>
+                    <div className='bottom__gallery_item2' ref={image4}>
+                        <div className='icon-wrapper'>
+                            <FiInstagram className='insta-icon' />
+                        </div>
+                    </div>
+                    <div className='bottom__gallery_item3' ref={image5}>
+                        <div className='icon-wrapper'>
+                            <SiInstagram className='insta-icon' />
+                        </div>
+                    </div>
+                    <div className='bottom__gallery_item4' ref={image6}>
+                        <div className='icon-wrapper'>
+                            <FiInstagram className='insta-icon' />
+                        </div>
+                    </div>
                 </div>
             </section>
 

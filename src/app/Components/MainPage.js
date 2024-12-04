@@ -1,4 +1,4 @@
-import Autumn from './SummerCollection';
+import Summer from './SummerCollection';
 import Categories from './Categories';
 import AboutCompany from './AboutCompany';
 import Instagram from './Instagram';
@@ -11,7 +11,7 @@ function MainPage() {
         <>
             <Header />
             <Bag />
-            <Autumn />
+            <Summer />
             <Categories />
             <AboutCompany />
             <Instagram />
