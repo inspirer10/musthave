@@ -21,6 +21,9 @@ function Navbar({ color, children }) {
         document.querySelector('.bag').classList.toggle('open');
         document.querySelector('.navbar').classList.toggle('disable__pointers');
         document.querySelector('body').classList.toggle('disable__scroll');
+        document.querySelector('.bag').addEventListener('wheel', (e) => {
+            e.stopPropagation(); // Zatrzymuje event scrolla
+        });
     };
 
     const handleRedirect = () => {

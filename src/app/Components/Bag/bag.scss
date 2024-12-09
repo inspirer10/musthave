@@ -1,6 +1,6 @@
 .bag {
     width: 57.5%;
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
     padding-top: 2.5vh;
     position: fixed;
@@ -9,6 +9,26 @@
     background-color: #fff;
     overflow-y: auto;
     display: none;
+    z-index: 999999;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateX(100%); // Początkowo ukryty poza ekranem
+    opacity: 0;
+    pointer-events: auto;
+    scrollbar-color: rgb(35, 35, 35) rgb(220, 220, 220);
+    &.open {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(20px);
+        pointer-events: auto;
+    }
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
     .bag__top__bar {
         display: flex;
         flex-direction: row;
@@ -20,7 +40,7 @@
         h2 {
             font-family: "Be Vietnam Pro", sans-serif;
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: 700;
             user-select: none;
         }
     }
@@ -39,6 +59,11 @@
         align-items: center;
         padding: 1rem 0 0.75rem;
         border-bottom: 1px solid rgb(150, 150, 150);
+        &:hover {
+            .product-name-wrapper .product-name .product_link {
+                text-decoration: underline;
+            }
+        }
         &.categories-top-bar {
             border-bottom: 2px solid #000;
             color: rgb(160, 160, 160);
@@ -80,22 +105,25 @@
             align-items: flex-start;
             flex-direction: column;
             .product_link {
-                cursor: pointer;
-                font-size: 1.3rem;
-                font-weight: 600 !important;
                 font-family: "Lexend Deca", sans-serif;
+                font-size: 21px;
+                font-weight: 600 !important;
+                letter-spacing: -0.5px;
+                cursor: pointer;
+                transition: .2s ease-in;
             }
             .remove_product-icon {
                 font-family: "Lexend Deca", sans-serif;
                 font-size: 15px;
                 font-weight: 300 !important;
-                letter-spacing: -0.6px;
+                letter-spacing: -0.5px;
                 color: rgb(125, 125, 125);
                 padding: 0;
+                margin-top: 1px;
                 text-transform: uppercase;
                 user-select: none;
                 cursor: pointer;
-                transition: .15s ease-in-out;
+                transition: .14s ease-in-out;
                 &:hover {
                     color: #bc0000;
                 }
@@ -107,6 +135,7 @@
             object-fit: cover;
             aspect-ratio: 1/1.35;
             box-shadow: 0px 0px 1px 0px #000;
+            cursor: pointer;
         }
         li {
             font-size: 1.25rem;
@@ -122,7 +151,7 @@
             &:nth-of-type(2) {
                 width: 25%;
                 justify-content: center;
-                font-family: "Be Vietnam Pro", sans-serif;
+                font-family: 'Be Vietnam Pro', sans-serif;
             }
             &:nth-of-type(3) {
                 width: 12.5%;
@@ -142,18 +171,18 @@
         flex-direction: column;
         align-items: flex-end;
         p {
-            font-family: "Be Vietnam Pro", sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
             font-size: 1.25rem;
             font-weight: 500;
             letter-spacing: -0.75px;
             width: 30%;
-            color: rgb(100, 100, 100);
+            color: rgb(125, 125, 125);
             padding: 1rem 0 0.6rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             span {
-                font-family: "Be Vietnam Pro", sans-serif;
+                font-family: 'Be Vietnam Pro', sans-serif;
                 font-weight: 600;
                 color: #000;
                 margin-left: 5px;
@@ -161,22 +190,112 @@
             }
         }
         button {
-            font-family: "Be Vietnam Pro", sans-serif;
-            font-size: 1.2rem;
-            font-weight: 500;
-            background: #000;
+            position: relative;
             width: auto;
             min-width: 30%;
-            padding: 14px 2.25rem;
-            color: #fff;
+            background: #000;
             border: 2px solid #000;
-            cursor: pointer;
+            padding: 1rem 1.25rem;
+            border-radius: 50px;
             user-select: none;
+            cursor: pointer;
             transition: .2s ease-in-out;
-            &:hover {
-                background: #fff;
-                color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 4rem;
+            .price {
+                position: absolute;
+                top: 50%;
+                left: 8%;
+                transform: translate(0%, -50%);
+                font-family: "Lexend Deca", sans-serif;
+                font-family: 'Inter', sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                color: #fff;
+                padding: 0;
+                transition: .225s ease-in-out;
             }
+            span {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-family: "Urbanist", sans-serif;
+                font-size: 19px;
+                font-weight: 500;
+                z-index: 10;
+                transition: .275s ease-in;
+            }
+            .icon {
+                color: #fff;
+                font-size: 19px;
+                z-index: 10;
+                transition: .225s ease-in-out;
+            }
+            .icon_wrapper {
+                z-index: 0;
+                height: 90%;
+                width: 67.5%;
+                background-color: #fff;
+                background: rgb(35, 35, 35);
+                color: #fff;
+                border-radius: 50px;
+                position: absolute;
+                right: 1%;
+                top: 0;
+                transform: translate(0%, 5%);
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                transition: .225s ease-in-out;
+            }
+            &:hover {
+                .icon_wrapper {
+                    background-color: #fff;
+                    width: 20%;
+                    height: 54px;
+                    width: 54px;
+                }
+                .price {
+                    // transform: translateX(125%);
+                    left: 50%;
+                    transform: translate(-25%, -50%);
+                }
+                span {
+                    opacity: 0;
+                    transition: .15s ease-out;
+                }
+                .icon {
+                    color: #000;
+                    transform: rotate(-45deg);
+                }
+            }
+            /*
+            &:hover {
+                .price {
+                    transform: translateX(125%);
+                }
+                .icon_wrapper {
+                    background-color: #fff;
+                    width: 25%;
+                    justify-content: center;
+                    span {
+                        //  opacity: 0;
+                        //  visibility: hidden;
+                        transform: translateX(-450%);
+                    }
+                    .icon {
+                        color: #000;
+                        transform: rotate(-45deg);
+                        transform: translateX(100%);
+                    }
+                }
+            } */
         }
     }
 }
@@ -189,32 +308,31 @@
     width: 9% !important;
 }
 
-.open {
-    display: block;
-    z-index: 999999;
-    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-}
-
 .disable__pointers {
     pointer-events: none;
     user-select: none;
 }
 
 .disable__scroll {
+    user-select: none;
+    pointer-events: none;
     overflow: hidden;
+    position: fixed; // Zapobiega przewijaniu na urządzeniach mobilnych
+    width: 100%; // Zablokowanie przesunięcia strony
 }
 
 #close__icon {
     user-select: none;
     cursor: pointer;
-    font-size: 2rem;
-    color: #fff;
-    background-color: #000;
-    transition: .17s ease-in-out;
+    font-size: 2.5rem;
+    color: #000;
+    transition: .15s ease-in-out;
+    border-radius: 50%;
+    padding: 5px;
     &:hover {
-        color: #000;
-        background-color: transparent;
+        color: #fff;
+        background-color: #000;
+        scale: 1.075;
     }
 }
 

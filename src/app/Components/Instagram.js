@@ -21,22 +21,22 @@ function Instagram() {
     };
 
     const handleMouseEnter = () => {
-        image1.current.classList.add('brightness');
+        /*  image1.current.classList.add('brightness');
         image2.current.classList.add('brightness');
         image3.current.classList.add('brightness');
         image4.current.classList.add('brightness');
         image5.current.classList.add('brightness');
-        image6.current.classList.add('brightness');
+        image6.current.classList.add('brightness');*/
         instagramLink.current.classList.add('visible');
     };
 
     const handleMouseLeave = () => {
-        image1.current.classList.remove('brightness');
+        /* image1.current.classList.remove('brightness');
         image2.current.classList.remove('brightness');
         image3.current.classList.remove('brightness');
         image4.current.classList.remove('brightness');
         image5.current.classList.remove('brightness');
-        image6.current.classList.remove('brightness');
+        image6.current.classList.remove('brightness'); */
         instagramLink.current.classList.remove('visible');
     };
 

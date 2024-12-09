@@ -1,11 +1,13 @@
 import React from 'react';
 import './bag.scss';
+
 import { useSelector, useDispatch } from 'react-redux';
 import {
     removeItemFromCart,
     clearCart,
 } from '/src/app/GlobalStore/cartSlice.js';
 import { MdOutlineClose } from 'react-icons/md';
+import { FaArrowRightLong as ArrowIcon } from 'react-icons/fa6';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -43,6 +45,10 @@ function Bag() {
 
     const itemsPrice = itemsInCart.reduce((sum, item) => sum + item.price, 0);
 
+    const handleRedirect = (link) => {
+        window.location.href = `${link}`; // Przekierowanie na stronę docelową
+    };
+
     return (
         <section className='bag'>
             <div className='bag__top__bar'>
@@ -74,6 +80,7 @@ function Bag() {
                                         alt={id + name}
                                         height={300}
                                         width={300}
+                                        onClick={() => handleRedirect(link)}
                                     />
 
                                     <div className='product-name'>
@@ -110,10 +117,17 @@ function Bag() {
             </div>
 
             <div className='bag__checkout'>
-                <p>
+                {/*  <p>
                     Subtotal: <span>{itemsPrice}$</span>
                 </p>
-                <button onClick={() => handleClearCart()}>CHECKOUT</button>
+                */}
+
+                <button onClick={() => handleClearCart()}>
+                    <p className='price'>${itemsPrice}</p>
+                    <span>Checkout</span>
+                    <ArrowIcon className='icon' />
+                    <div className='icon_wrapper'></div>
+                </button>
             </div>
         </section>
     );

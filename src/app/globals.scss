@@ -59,9 +59,6 @@
     padding: 0;
     margin: 0;
     scrollbar-width: thin;
-    font-family: "Lexend Deca", sans-serif;
-    font-family: "Be Vietnam Pro", sans-serif;
-    font-family: "Urbanist", sans-serif;
     font-family: 'Inter', sans-serif;
 }
 
@@ -71,6 +68,7 @@ body {
     overflow-x: hidden;
     background-color: #fff;
     color: #000;
+    scrollbar-color: rgb(150, 150, 150) white;
 }
 
 a {
@@ -84,11 +82,13 @@ span {
     color: inherit;
 }
 
-img {
+img,
+button {
     user-select: none;
 }
 
-ul {
+ul,
+li {
     list-style: none;
 }
 
