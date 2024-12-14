@@ -6,6 +6,10 @@ import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose } from 'react-icons/md';
 import Navbar from './Navbar';
 import Image from 'next/image';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import { IoIosArrowRoundForward } from 'react-icons/io';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 function Header() {
     const modalOpenStateFromSessionStorage = useSelector(
@@ -55,19 +59,32 @@ function Header() {
                 </video>
 
                 <div className='header__video__text'>
-                    <h2>
-                        HELLO SUMMER<i>'</i> 24
-                    </h2>
-                    <p>
-                        Minimal & <span>comfort</span>
+                    <h3>Where</h3>
+                    <h3>minimalism</h3>
+                    <h3>meets</h3>
+                    <h3>comfort</h3>
+
+                    <p className='intro'>
+                        MUSTHAVE offers products designed to make you stand out
+                        and express your unique style. We stand for innovative
+                        fashion that merges the newest trends with top-tier
+                        quality.{' '}
+                        <span>
+                            Our vision includes expanding our brand worldwide
+                        </span>{' '}
+                        — delivering high-quality clothing to customers across
+                        the globe
                     </p>
-                    <button onClick={() => (document.location.href = '/items')}>
-                        EXPLORE THE SHOP
-                    </button>
                 </div>
 
-                <p className='scroll_down'>
-                    <p>SCROLL DOWN</p>
+                <p
+                    className='scroll_down'
+                    onClick={() => (document.location.href = '/items')}
+                >
+                    <p>
+                        EXPLORE THE SHOP{' '}
+                        <MdKeyboardArrowRight className='icon' />
+                    </p>
                 </p>
 
                 <div className='logo'>

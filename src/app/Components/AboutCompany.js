@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Link from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
-import AboutIntroParallax from './AboutIntroParallax';
+//import AboutIntroParallax from './AboutIntroParallax';
 
 function AboutCompany() {
     const [active, setActive] = useState(1);
-
+    const [imageShowUp, setImageShowUp] = useState(false);
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -17,6 +17,17 @@ function AboutCompany() {
     });
 
     const scrollParalax = useTransform(scrollYProgress, [0, 1], [175, -175]);
+
+    const handleClick = (num) => {
+        setActive(num);
+
+        if (num !== active) {
+            setImageShowUp(false);
+            setTimeout(() => {
+                setImageShowUp(true);
+            }, 5);
+        }
+    };
 
     return (
         <>
@@ -72,7 +83,9 @@ function AboutCompany() {
                             />
                         </div>
 
-                        <h3>Redefine Your Look</h3>
+                        <h3>
+                            <span>Redefine</span> Your Look
+                        </h3>
                         <p>
                             MUSTHAVE goal is to improve what surrounds people.
                         </p>
@@ -96,7 +109,7 @@ function AboutCompany() {
                                         ? 'active accordion-item'
                                         : 'accordion-item'
                                 }
-                                onClick={() => setActive(1)}
+                                onClick={() => handleClick(1)}
                             >
                                 <div className='heading_bar'>
                                     <h3>Worldwide</h3>
@@ -127,7 +140,7 @@ function AboutCompany() {
                                         ? 'active accordion-item'
                                         : 'accordion-item'
                                 }
-                                onClick={() => setActive(2)}
+                                onClick={() => handleClick(2)}
                             >
                                 <div className='heading_bar'>
                                     <h3>Innovation</h3>
@@ -160,7 +173,7 @@ function AboutCompany() {
                                         ? 'active accordion-item'
                                         : 'accordion-item'
                                 }
-                                onClick={() => setActive(3)}
+                                onClick={() => handleClick(3)}
                             >
                                 <div className='heading_bar'>
                                     <h3>Craftsmanship</h3>
@@ -192,8 +205,8 @@ function AboutCompany() {
                     <aside className='images_wrapper'>
                         <Image
                             loading='lazy'
-                            height={750}
-                            width={750}
+                            height={700}
+                            width={700}
                             src={
                                 active === 1
                                     ? '/brand.jpg'
@@ -203,6 +216,7 @@ function AboutCompany() {
                                     ? '/testimg4.jpg'
                                     : '/testimg4.jpg'
                             }
+                            className={` ${imageShowUp ? 'showUp' : ''}`}
                             alt='thumbnail'
                         />
                     </aside>

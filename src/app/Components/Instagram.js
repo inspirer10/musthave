@@ -96,7 +96,9 @@ function Instagram() {
                         />
                     </div>
 
-                    <h3>Experience ultimate comfort</h3>
+                    <h3>
+                        Experience ultimate <span>comfort</span>
+                    </h3>
                     <p>Stay cozy and fashionable</p>
                     <Link href='/product/black/HOODIE'>
                         <button>

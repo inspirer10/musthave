@@ -32,7 +32,7 @@
             font-weight: 500;
             color: rgb(190, 190, 190);
             cursor: pointer;
-            transition: .16s ease;
+            transition: 0.25s ease-in-out;
             &:hover {
                 color: #000;
             }
@@ -68,10 +68,10 @@
         }
     }
     .sorting-wrapper {
-        background-color: #FFF;
+        z-index: 10;
         width: 20%;
-        //position: fixed;
-        //top: 12.5%;
+        position: sticky;
+        top: 10%;
         .sorting-heading {
             padding-top: 1rem;
             border-top: 2px solid rgb(210, 210, 210);
@@ -211,9 +211,9 @@
 .clothing__items {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    // align-items: flex-start;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 77.5%;
 }
 

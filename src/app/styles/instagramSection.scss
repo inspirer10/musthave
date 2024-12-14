@@ -56,8 +56,14 @@
             text-align: center;
             margin: 1.75rem 0 0.1rem;
             color: #fff;
+            span {
+                font-family: "Instrument Serif", serif;
+                font-style: italic;
+                letter-spacing: 0.5px;
+            }
         }
         p {
+            font-style: italic;
             font-family: "Inter", sans-serif;
             font-size: 15px;
             font-weight: 300;

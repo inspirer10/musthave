@@ -25,7 +25,7 @@
             font-weight: 500;
             color: rgb(190, 190, 190);
             cursor: pointer;
-            transition: .16s ease;
+            transition: 0.25s ease-in-out;
             &:hover {
                 color: #000;
             }
@@ -122,20 +122,18 @@
         position: fixed;
         right: 2%;
         bottom: 5%;
-        background-color: rgba(5, 5, 5);
-        padding: 14px 18px;
-        border-radius: 10px;
+        background-color: rgba(0, 0, 0);
+        padding: 14px 19px;
+        border-radius: 50px;
         z-index: 1000;
         transition: .25s ease-in-out;
         &.show_added-modal {
             opacity: 1;
         }
         p {
-            font-family: 'Poppins';
-            font-size: 19px;
-            font-weight: 400;
-            letter-spacing: -0.15px;
-            word-spacing: 0.5px;
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: -0.2px;
             color: #fff;
             display: flex;
             flex-direction: row;
@@ -143,13 +141,13 @@
             align-items: center;
             user-select: none;
             .icon-success {
-                margin-left: 0.5rem;
+                margin-left: 8px;
                 color: rgb(0, 255, 0);
             }
             .icon {
-                font-size: 21px;
-                margin-left: 0.5rem;
-                color: #fff;
+                font-size: 20px;
+                margin-left: 10px;
+                color: rgb(225, 225, 225);
             }
         }
     }
@@ -227,7 +225,7 @@
                 font-size: 16px;
                 width: 100%;
                 cursor: pointer;
-                border: 1px solid rgb(160, 160, 160);
+                border: 1px solid rgb(150, 150, 150);
                 transition: .1s ease-in-out;
                 option {
                     font-family: 'Switzer', sans-serif;
@@ -276,7 +274,7 @@
                 background-color: rgb(0, 0, 0);
                 border: 2px solid #000;
                 padding: 0.85rem 2.4rem;
-                border-radius: 6px;
+                border-radius: 8px;
                 cursor: pointer;
                 transition: .2s ease-in-out;
                 &:hover {
@@ -289,7 +287,7 @@
                 border: 2px solid rgb(0, 0, 0);
                 padding: 0.85rem;
                 color: #000;
-                border-radius: 6px;
+                border-radius: 10px;
                 cursor: pointer;
                 transition: .2s ease-in-out;
                 .fav-icon {
@@ -341,8 +339,8 @@
     margin-top: 2.25rem;
     width: 70%;
     .additional-info-item {
-        padding: 10px 0;
-        border-top: 1px solid rgb(125, 125, 125);
+        padding: 8px 0;
+        border-top: 2px solid rgb(175, 175, 175);
         &:first-of-type {
             border: none;
         }
@@ -350,19 +348,19 @@
             font-family: 'Switzer', sans-serif;
             font-size: 17px;
             font-weight: 500;
-            letter-spacing: -0.25px;
+            letter-spacing: 0px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: rgb(25, 25, 25);
-            padding: 4px 8px;
+            padding: 8px 8px;
             border-radius: 6px;
             text-transform: uppercase;
             cursor: pointer;
             transition: .175s ease;
             user-select: none;
             &:hover {
-                background-color: rgb(220, 220, 220);
+                background-color: rgb(225, 225, 225);
             }
             .additional-info-toggle {
                 font-size: 20px;
@@ -374,6 +372,7 @@
             }
         }
         .additional-info-textContent {
+            font-family: "Inter", sans-serif;
             font-size: 17px;
             font-weight: 400;
             letter-spacing: -0.25px;
@@ -384,11 +383,8 @@
             display: grid;
             grid-template-rows: 0fr;
             transition: .14s ease-out;
-            p {
-                font-family: "Raleway", sans-serif;
-            }
             &.opened {
-                margin: 0.75rem auto 0.1rem;
+                margin: 0.75rem auto 0.5rem;
                 grid-template-rows: 1fr;
                 transition: .21s ease-in;
             }
@@ -398,7 +394,7 @@
         }
         .additional-info-label#opened {
             background-color: rgb(200, 200, 200);
-            background-color: rgb(35, 35, 35);
+            background-color: rgb(30, 30, 30);
             color: #fff;
             //transition: .175s ease-in-out;
             &:hover {
