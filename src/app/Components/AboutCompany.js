@@ -86,13 +86,13 @@ function AboutCompany() {
                         <h3>
                             <span>Redefine</span> Your Look
                         </h3>
-                        <p>
-                            MUSTHAVE goal is to improve what surrounds people.
-                        </p>
+                        <p>MUSTHAVE goal is to improve what surrounds people</p>
                         <Link href='/clothing'>
-                            <button>
-                                See more
-                                <FiArrowUpRight className='arrow-icon' />
+                            <button className='button'>
+                                <p className='text'>See more</p>
+                                <div className='icon_wrapper'>
+                                    <FiArrowUpRight className='arrow-icon' />
+                                </div>
                             </button>
                         </Link>
                     </motion.div>

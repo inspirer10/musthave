@@ -20,26 +20,6 @@ function Instagram() {
         document.querySelector('#newsletterInput').value = '';
     };
 
-    const handleMouseEnter = () => {
-        /*  image1.current.classList.add('brightness');
-        image2.current.classList.add('brightness');
-        image3.current.classList.add('brightness');
-        image4.current.classList.add('brightness');
-        image5.current.classList.add('brightness');
-        image6.current.classList.add('brightness');*/
-        instagramLink.current.classList.add('visible');
-    };
-
-    const handleMouseLeave = () => {
-        /* image1.current.classList.remove('brightness');
-        image2.current.classList.remove('brightness');
-        image3.current.classList.remove('brightness');
-        image4.current.classList.remove('brightness');
-        image5.current.classList.remove('brightness');
-        image6.current.classList.remove('brightness'); */
-        instagramLink.current.classList.remove('visible');
-    };
-
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -100,10 +80,13 @@ function Instagram() {
                         Experience ultimate <span>comfort</span>
                     </h3>
                     <p>Stay cozy and fashionable</p>
+
                     <Link href='/product/black/HOODIE'>
-                        <button>
-                            Check product
-                            <FiArrowUpRight className='arrow-icon' />
+                        <button className='button'>
+                            <p className='text'> Check product</p>
+                            <div className='icon_wrapper'>
+                                <FiArrowUpRight className='arrow-icon' />
+                            </div>
                         </button>
                     </Link>
                 </motion.div>
@@ -143,15 +126,46 @@ function Instagram() {
                         >
                             WE'RE ON INSTAGRAM
                         </motion.h2>
-                        <motion.button
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            variants={opacityAnimation}
-                            initial='initial'
-                            whileInView='animate'
-                        >
-                            follow us
-                        </motion.button>
+
+                        <div className='button'>
+                            <div className='mask'>
+                                <div className='slider'>
+                                    <p>join our community</p>
+                                    <p>join our community</p>
+                                </div>
+
+                                <p className='hover-text'>
+                                    <span style={{ transitionDelay: '0.06s' }}>
+                                        @
+                                    </span>
+                                    <span style={{ transitionDelay: '0.08s' }}>
+                                        M
+                                    </span>
+                                    <span style={{ transitionDelay: '0.09s' }}>
+                                        U
+                                    </span>
+                                    <span style={{ transitionDelay: '0.1s' }}>
+                                        S
+                                    </span>
+                                    <span style={{ transitionDelay: '0.11s' }}>
+                                        T
+                                    </span>
+                                    <span style={{ transitionDelay: '0.12s' }}>
+                                        H
+                                    </span>
+                                    <span style={{ transitionDelay: '0.13s' }}>
+                                        A
+                                    </span>
+                                    <span style={{ transitionDelay: '0.14s' }}>
+                                        V
+                                    </span>
+                                    <span style={{ transitionDelay: '0.15s' }}>
+                                        E
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
                         <p className='instagram-link' ref={instagramLink}>
                             @musthave
                         </p>
@@ -189,6 +203,14 @@ function Instagram() {
             </section>
 
             <section className='newsletter'>
+                <motion.h2
+                    variants={fadeInAnimation}
+                    initial='initial'
+                    whileInView='animate'
+                >
+                    JOIN THE MOVEMENT
+                </motion.h2>
+
                 <motion.p
                     variants={fadeInAnimation}
                     initial='initial'
@@ -209,7 +231,11 @@ function Instagram() {
                             type='email'
                             placeholder='Enter your email address'
                         />
-                        <input id='submitButton' type='submit' value='OK' />
+                        <input
+                            id='submitButton'
+                            type='submit'
+                            value='SUBSCRIBE'
+                        />
                     </label>
                 </motion.form>
             </section>

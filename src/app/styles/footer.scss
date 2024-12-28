@@ -1,7 +1,7 @@
 //! FOOTER
 footer {
     background-color: #000;
-    height: 40vh;
+    height: 45vh;
     position: relative;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
     display: flex;
@@ -16,14 +16,14 @@ footer {
     }
     .footer_content-container {
         position: relative;
-        height: calc(100vh + 40vh);
+        height: calc(100vh + 45vh);
         width: 100%;
         top: 0vh;
         //top: -100vh;
         .footer_content-wrapper {
             position: fixed;
-            height: 40vh;
-            top: calc(100vh - 40vh);
+            height: 45vh;
+            top: calc(100vh - 45vh);
             width: 100%;
             margin: 0 auto;
             display: flex;
@@ -31,40 +31,59 @@ footer {
             align-items: center;
             flex-direction: column;
             .footer__links {
-                padding-bottom: 1.25rem;
+                padding-bottom: 1.5rem;
                 width: 75%;
                 margin: 1rem auto 0;
-                border-bottom: 1px solid rgb(100, 100, 100);
+                border-bottom: 1px solid rgb(50, 50, 50);
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
                 flex-direction: row;
-                .TEST {
+                .wrapper {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     //width: calc(100% / 4);
                     p {
-                        font-family: "Be Vietnam Pro", sans-serif;
-                        font-family: "Raleway", sans-serif;
+                        font-family: 'Be Vietnam Pro', sans-serif;
+                        font-family: 'Raleway', sans-serif;
                         font-size: 19px;
-                        font-weight: 500;
-                        letter-spacing: -0.3px;
+                        font-weight: 600;
+                        letter-spacing: -0.2px;
                         text-transform: uppercase;
                         margin-bottom: 1.5rem;
-                        color: rgb(200, 200, 200);
+                        color: rgb(225, 225, 225);
+                    }
+                    .social_icons {
+                        margin-top: 4px;
+                        display: flex;
+                        align-items: baseline;
+                        .icon {
+                            font-size: 22px;
+                            color: rgb(100, 100, 100);
+                            margin-right: 18px;
+                            cursor: pointer;
+                            transition: 0.225s ease-in-out;
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+                            &:hover {
+                                transform: translateY(-2px) scale(1.2);
+                                color: #fff;
+                            }
+                        }
                     }
                     li {
                         list-style: none;
                         position: relative;
-                        font-family: "Be Vietnam Pro", sans-serif;
+                        font-family: 'Be Vietnam Pro', sans-serif;
                         font-size: 17px;
-                        font-weight: 300;
-                        letter-spacing: -0.6px;
-                        text-transform: uppercase;
+                        font-weight: 400;
+                        letter-spacing: -0.5px;
+                        //text-transform: uppercase;
                         margin: 0.25rem 0;
                         padding: 0.15rem;
-                        color: rgb(140, 140, 140);
+                        color: rgb(100, 100, 100);
                         width: fit-content;
                         cursor: pointer;
                         transition: 0.25s ease-in-out;
@@ -92,7 +111,7 @@ footer {
                 }
             }
             .footer__links:has(li:hover) li:not(:hover) {
-                filter: blur(2px);
+                filter: blur(1.75px);
             }
             .brand {
                 font-family: "Lexend Deca", sans-serif;
@@ -100,7 +119,7 @@ footer {
                 font-size: 1.75rem;
                 font-weight: 600;
                 letter-spacing: 0.5px;
-                color: rgb(125, 125, 125);
+                color: rgb(100, 100, 100);
                 display: flex;
                 justify-content: center;
                 width: fit-content;

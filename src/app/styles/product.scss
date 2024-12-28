@@ -43,7 +43,7 @@
         }
     }
     .links-wrapper:has(p:hover) p:not(:hover) {
-        filter: blur(2px);
+        filter: blur(1.75px);
     }
 }
 
@@ -117,21 +117,23 @@
     }
     .itemInfoModal,
     .itemSizeModal,
-    .itemQuantityModal {
+    .itemQuantityModal,
+    .itemFavoriteModal,
+    .itemFavoriteModalRemove {
         opacity: 0;
         position: fixed;
-        right: 2%;
-        bottom: 5%;
+        right: 1rem;
+        bottom: 3rem;
         background-color: rgba(0, 0, 0);
-        padding: 14px 19px;
+        padding: 13px 19px;
         border-radius: 50px;
         z-index: 1000;
-        transition: .25s ease-in-out;
+        transition: .4s cubic-bezier(.4, 0, .2, 1);
         &.show_added-modal {
             opacity: 1;
         }
         p {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 300;
             letter-spacing: -0.2px;
             color: #fff;
@@ -141,14 +143,31 @@
             align-items: center;
             user-select: none;
             .icon-success {
-                margin-left: 8px;
+                font-size: 20px;
+                margin-right: 8px;
                 color: rgb(0, 255, 0);
             }
             .icon {
                 font-size: 20px;
-                margin-left: 10px;
+                margin-right: 10px;
                 color: rgb(225, 225, 225);
             }
+        }
+    }
+    .itemFavoriteModal,
+    .itemFavoriteModalRemove {
+        bottom: 1.75rem;
+        background-color: #0a00c1;
+        z-index: 990;
+        p {
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: 0px;
+        }
+        .icon-heart {
+            font-size: 20px;
+            margin-right: 10px;
+            color: white;
         }
     }
 }
@@ -254,7 +273,7 @@
                     font-size: 22px;
                 }
                 &:hover {
-                    color: royalblue;
+                    color: #0a00c1;
                 }
             }
         }
@@ -264,9 +283,15 @@
             align-items: center;
             width: 100%;
             .add-to-bag {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                position: relative;
+                overflow: hidden;
                 font-family: "Be Vietnam Pro", sans-serif;
-                font-size: 1.1rem;
-                font-weight: 600;
+                font-size: 18px;
+                font-weight: 500;
                 letter-spacing: 0.25px;
                 word-spacing: 0.25px;
                 width: 85%;
@@ -276,25 +301,60 @@
                 padding: 0.85rem 2.4rem;
                 border-radius: 8px;
                 cursor: pointer;
-                transition: .2s ease-in-out;
+                transition: .25s ease-in-out;
+                z-index: 10;
+                text-align: center;
+                .background {
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 50%;
+                    background-color: white;
+                    transition: transform .325s ease-out, background-color .1s ease-in-out;
+                }
+                .text {
+                    // font-size: 16px;
+                    transition: all .3s ease-out;
+                    z-index: 2;
+                }
+                .icon {
+                    font-size: 25px;
+                    position: absolute;
+                    top: 50%;
+                    left: 100%;
+                    transform: translate(0, -50%);
+                    display: flex;
+                    z-index: 2;
+                    transition: transform .325s ease-out;
+                }
                 &:hover {
-                    /*box-shadow: inset 0 -3.25em 0 0 #000;*/
-                    color: #000;
-                    background: #fff;
+                    border-color: #0a00c1;
+                    .background {
+                        transform: scale(60);
+                        background-color: #0a00c1;
+                        background-color: #00008B;
+                    }
+                    .text {
+                        color: #fff;
+                        transform: translateX(-25px);
+                    }
+                    .icon {
+                        transform: translate(-350%, -50%);
+                    }
                 }
             }
             .favorite-button {
-                border: 2px solid rgb(0, 0, 0);
+                border: 1px solid rgb(0, 0, 0);
                 padding: 0.85rem;
                 color: #000;
                 border-radius: 10px;
                 cursor: pointer;
-                transition: .2s ease-in-out;
+                transition: .225s ease-in-out;
                 .fav-icon {
+                    font-size: 1.4rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 1.4rem;
+                    //transition: .225s ease-in-out;
                 }
                 &:hover {
                     color: #fff;
@@ -340,9 +400,9 @@
     width: 70%;
     .additional-info-item {
         padding: 8px 0;
-        border-top: 2px solid rgb(175, 175, 175);
+        border-bottom: 1px solid rgb(175, 175, 175);
         &:first-of-type {
-            border: none;
+            // border: none;
         }
         .additional-info-label {
             font-family: 'Switzer', sans-serif;
@@ -353,7 +413,7 @@
             justify-content: space-between;
             align-items: center;
             color: rgb(25, 25, 25);
-            padding: 8px 8px;
+            padding: 8px 10px;
             border-radius: 6px;
             text-transform: uppercase;
             cursor: pointer;
@@ -372,21 +432,19 @@
             }
         }
         .additional-info-textContent {
-            font-family: "Inter", sans-serif;
             font-size: 17px;
-            font-weight: 400;
             letter-spacing: -0.25px;
-            line-height: calc(17px * 1.3);
+            line-height: 1.35;
             padding: 0 0.5rem;
             text-align: justify;
-            color: rgb(55, 55, 55);
+            color: rgb(75, 75, 75);
             display: grid;
             grid-template-rows: 0fr;
-            transition: .14s ease-out;
+            transition: .125s ease;
             &.opened {
                 margin: 0.75rem auto 0.5rem;
                 grid-template-rows: 1fr;
-                transition: .21s ease-in;
+                transition: .25s ease;
             }
             &>div {
                 overflow: hidden;

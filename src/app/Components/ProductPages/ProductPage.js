@@ -6,21 +6,30 @@ import Footer from '../Footer';
 import { v4 as uuidv4 } from 'uuid';
 
 import SuggestedItems from '../SuggestedItems';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '/src/app/GlobalStore/cartSlice.js';
+import {
+    addFavoriteItem,
+    removeFavoriteItem,
+} from '/src/app/GlobalStore/favoriteSlice.js';
+import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
+
 import DetailsItem from '../DetailsItem';
 
-import { IoBookmarks } from 'react-icons/io5';
-import { MdOutlineCheck } from 'react-icons/md';
+import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
+import { GoCheckCircle } from 'react-icons/go';
 import { SlClose } from 'react-icons/sl';
-
 import { CiRuler } from 'react-icons/ci';
+import { IoMdAddCircle } from 'react-icons/io';
+import { GrFavorite } from 'react-icons/gr';
+import { FaHeartBroken } from 'react-icons/fa';
 
 import '../../styles/header.scss';
 import '../../styles/product.scss';
 import '../../styles/footer.scss';
 
 function ProductPage({
+    isFavorite,
     image1,
     image2,
     image3,
@@ -35,19 +44,64 @@ function ProductPage({
     link,
     productId,
 }) {
+    const dispatch = useDispatch();
     let itemInfoModal = useRef(null);
     let itemSizeModal = useRef(null);
     let itemQuantityModal = useRef(null);
-    const dispatch = useDispatch();
+    let itemFavoriteModal = useRef(null);
+    let itemFavoriteModalRemove = useRef(null);
+
+    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemSize, setItemSize] = useState('');
+    const [activeImg, setActiveImg] = useState(image1);
 
     const handleAddItem = (payload) => {
         console.log(payload);
         dispatch(addItemToCart(payload)); //produkt jako payload
     };
 
-    const [itemQuantity, setItemQuantity] = useState(0);
-    const [itemSize, setItemSize] = useState('');
-    const [activeImg, setActiveImg] = useState(image1);
+    const favoriteList = useSelector((state) => state.favorite.favItemsList);
+
+    const handleFavoriteItem = (payload, id) => {
+        // Sprawdzanie, czy produkt już istnieje w tablicy
+        const isInFavoriteList = favoriteList.some((item) => item.photo === id);
+
+        if (!isInFavoriteList) {
+            dispatch(addFavoriteItem(payload)); //dodanie prod do FAV_List - produkt jako payload
+            if (itemFavoriteModal.current) {
+                itemFavoriteModal.current.classList.add('show_added-modal');
+                itemFavoriteModalRemove.current?.classList.remove(
+                    'show_added-modal'
+                );
+                const timeout = setTimeout(() => {
+                    itemFavoriteModal.current?.classList.remove(
+                        'show_added-modal'
+                    );
+                }, 2000);
+
+                return () => {
+                    clearTimeout(timeout);
+                };
+            }
+        } else {
+            dispatch(removeFavoriteItem(id));
+            if (itemFavoriteModalRemove.current) {
+                itemFavoriteModalRemove.current.classList.add(
+                    'show_added-modal'
+                );
+                itemFavoriteModal.current?.classList.remove('show_added-modal');
+                const timeout = setTimeout(() => {
+                    itemFavoriteModalRemove.current?.classList.remove(
+                        'show_added-modal'
+                    );
+                }, 1250);
+                return () => {
+                    clearTimeout(timeout);
+                };
+            }
+        }
+        dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
+    };
 
     function handleQuantityChange(e) {
         setItemQuantity(e.target.value);
@@ -72,14 +126,14 @@ function ProductPage({
                 itemInfoModal.current.classList.add('show_added-modal');
                 setTimeout(() => {
                     itemInfoModal.current?.classList.remove('show_added-modal');
-                }, 3250);
+                }, 3000);
             }
         } else if (itemQuantity !== 0 && itemQuantity !== '') {
             if (itemSizeModal.current) {
                 itemSizeModal.current.classList.add('show_added-modal');
                 setTimeout(() => {
                     itemSizeModal.current?.classList.remove('show_added-modal');
-                }, 2100);
+                }, 2000);
             }
         } else if (itemSize !== '') {
             if (itemQuantityModal.current) {
@@ -88,7 +142,7 @@ function ProductPage({
                     itemQuantityModal.current?.classList.remove(
                         'show_added-modal'
                     );
-                }, 2100);
+                }, 2000);
             }
         } else {
             return;
@@ -185,6 +239,9 @@ function ProductPage({
     }, []);
 
     const renderSuggestedItems = renderSuggested;
+
+    const [progress, setProgress] = useState(100);
+
     return (
         <>
             <Navbar color={'dimgray'} />
@@ -213,28 +270,41 @@ function ProductPage({
             </article>
 
             <div className='product__container'>
-                <div
-                    className='itemInfoModal'
-                    style={{ transitionDuration: '300ms' }}
-                    ref={itemInfoModal}
-                >
+                <div className='itemInfoModal' ref={itemInfoModal}>
                     <p>
+                        <GoCheckCircle className='icon-success' />
                         Product successfully added
-                        <MdOutlineCheck className='icon-success' />
                     </p>
                 </div>
 
                 <div className='itemSizeModal' ref={itemSizeModal}>
                     <p>
-                        Please select your Size
                         <SlClose className='icon' />
+                        Please select your Size
                     </p>
                 </div>
 
                 <div className='itemQuantityModal' ref={itemQuantityModal}>
                     <p>
-                        Please select Quantity
                         <SlClose className='icon' />
+                        Please select Quantity
+                    </p>
+                </div>
+
+                <div className='itemFavoriteModal' ref={itemFavoriteModal}>
+                    <p>
+                        <GrFavorite className='icon-heart' />
+                        Added to List
+                    </p>
+                </div>
+
+                <div
+                    className='itemFavoriteModalRemove'
+                    ref={itemFavoriteModalRemove}
+                >
+                    <p>
+                        <FaHeartBroken className='icon-heart' />
+                        Removed from List
                     </p>
                 </div>
 
@@ -351,7 +421,7 @@ function ProductPage({
                         </div>
 
                         <div className='buttons-wrapper'>
-                            <button
+                            <div
                                 className='add-to-bag'
                                 key={link}
                                 onClick={() => {
@@ -363,10 +433,33 @@ function ProductPage({
                                     });
                                 }}
                             >
-                                ADD TO BAG
-                            </button>
-                            <div className='favorite-button'>
-                                <IoBookmarks className='fav-icon' />
+                                <div className='background' />
+                                <p className='text'>ADD TO BAG</p>
+                                <div className='icon'>
+                                    <IoMdAddCircle />
+                                </div>
+                            </div>
+
+                            <div
+                                className='favorite-button'
+                                onClick={() => {
+                                    handleFavoriteItem(
+                                        {
+                                            name: productName,
+                                            id: uuidv4(),
+                                            price: productPrice,
+                                            link: link,
+                                            photo: image1,
+                                        },
+                                        image1
+                                    );
+                                }}
+                            >
+                                {isFavorite ? (
+                                    <IoBookmarks className='fav-icon' />
+                                ) : (
+                                    <IoBookmarksOutline className='fav-icon' />
+                                )}
                             </div>
                         </div>
                     </div>

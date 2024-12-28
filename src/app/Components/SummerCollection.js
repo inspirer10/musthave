@@ -19,7 +19,7 @@ function SummerCollection() {
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    //! change to next image after 2.5 sec
+    //! change to next image after 2.7 sec
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex(
@@ -151,6 +151,7 @@ function SummerCollection() {
                 <Image
                     className='image'
                     src={'/testimg2.jpg'}
+                    //! DO ZMIANY
                     fill
                     loading='lazy'
                 />
