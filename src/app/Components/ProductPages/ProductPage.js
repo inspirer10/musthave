@@ -73,15 +73,11 @@ function ProductPage({
                 itemFavoriteModalRemove.current?.classList.remove(
                     'show_added-modal'
                 );
-                const timeout = setTimeout(() => {
+                setTimeout(() => {
                     itemFavoriteModal.current?.classList.remove(
                         'show_added-modal'
                     );
                 }, 2000);
-
-                return () => {
-                    clearTimeout(timeout);
-                };
             }
         } else {
             dispatch(removeFavoriteItem(id));
@@ -90,14 +86,11 @@ function ProductPage({
                     'show_added-modal'
                 );
                 itemFavoriteModal.current?.classList.remove('show_added-modal');
-                const timeout = setTimeout(() => {
+                setTimeout(() => {
                     itemFavoriteModalRemove.current?.classList.remove(
                         'show_added-modal'
                     );
                 }, 1250);
-                return () => {
-                    clearTimeout(timeout);
-                };
             }
         }
         dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
