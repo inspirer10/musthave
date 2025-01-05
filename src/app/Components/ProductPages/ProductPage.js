@@ -16,13 +16,18 @@ import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
 
 import DetailsItem from '../DetailsItem';
 
-import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
+import {
+    IoBookmarks,
+    IoBookmarksOutline,
+    IoShareSocialOutline,
+} from 'react-icons/io5';
 import { GoCheckCircle } from 'react-icons/go';
 import { SlClose } from 'react-icons/sl';
-import { CiRuler } from 'react-icons/ci';
 import { IoMdAddCircle } from 'react-icons/io';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
+//import { FiLink, FiLink2 } from 'react-icons/fi';
+import { FiMinus, FiPlus, FiShare, FiScissors } from 'react-icons/fi';
 
 import '../../styles/header.scss';
 import '../../styles/product.scss';
@@ -47,11 +52,11 @@ function ProductPage({
     const dispatch = useDispatch();
     let itemInfoModal = useRef(null);
     let itemSizeModal = useRef(null);
-    let itemQuantityModal = useRef(null);
+    let itemCopyURLModal = useRef(null);
     let itemFavoriteModal = useRef(null);
     let itemFavoriteModalRemove = useRef(null);
 
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState(1);
     const [itemSize, setItemSize] = useState('');
     const [activeImg, setActiveImg] = useState(image1);
 
@@ -96,10 +101,6 @@ function ProductPage({
         dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
     };
 
-    function handleQuantityChange(e) {
-        setItemQuantity(e.target.value);
-    }
-
     function addProductToBag({ name, price, link, photo }) {
         if (itemQuantity !== 0 && itemQuantity !== '' && itemSize !== '') {
             handleAddItem({
@@ -126,15 +127,6 @@ function ProductPage({
                 itemSizeModal.current.classList.add('show_added-modal');
                 setTimeout(() => {
                     itemSizeModal.current?.classList.remove('show_added-modal');
-                }, 2000);
-            }
-        } else if (itemSize !== '') {
-            if (itemQuantityModal.current) {
-                itemQuantityModal.current.classList.add('show_added-modal');
-                setTimeout(() => {
-                    itemQuantityModal.current?.classList.remove(
-                        'show_added-modal'
-                    );
                 }, 2000);
             }
         } else {
@@ -233,8 +225,71 @@ function ProductPage({
 
     const renderSuggestedItems = renderSuggested;
 
-    const [progress, setProgress] = useState(100);
+    const [isThrottled, setIsThrottled] = useState(false); //Blok zmiany obrazków onScroll zbyt szybko
+    const containerRef = useRef(null);
+    const handleScroll = (e) => {
+        e.preventDefault(); //Zatrzymuje domyślne działanie przeglądarki
+        e.stopPropagation(); //Zatrzymuje propagację zdarzenia
 
+        if (isThrottled) return;
+        setIsThrottled(true); //Ustaw blokadę
+        setTimeout(() => setIsThrottled(false), 200);
+
+        if (e.deltaY > 0) {
+            //Scroll w dół (przechodzenie naprzód)
+            switch (activeImg) {
+                case image1:
+                    setActiveImg(image2);
+                    break;
+                case image2:
+                    setActiveImg(image3);
+                    break;
+                case image3:
+                    setActiveImg(image4);
+                    break;
+                case image4:
+                    setActiveImg(image5);
+                    break;
+                case image5:
+                    setActiveImg(image1);
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            //Scroll w górę (przechodzenie wstecz)
+            switch (activeImg) {
+                case image1:
+                    setActiveImg(image5);
+                    break;
+                case image2:
+                    setActiveImg(image1);
+                    break;
+                case image3:
+                    setActiveImg(image2);
+                    break;
+                case image4:
+                    setActiveImg(image3);
+                    break;
+                case image5:
+                    setActiveImg(image4);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+    useEffect(() => {
+        const container = containerRef.current;
+        //Dodanie zdarzenia `wheel` z `passive: false`
+        const handleWheel = (e) => handleScroll(e);
+        container.addEventListener('wheel', handleWheel, { passive: false });
+
+        return () => {
+            //Usunięcie zdarzenia przy odmontowywaniu komponentu
+            container.removeEventListener('wheel', handleWheel);
+        };
+    }, [isThrottled, activeImg]);
     return (
         <>
             <Navbar color={'dimgray'} />
@@ -277,10 +332,10 @@ function ProductPage({
                     </p>
                 </div>
 
-                <div className='itemQuantityModal' ref={itemQuantityModal}>
+                <div className='itemCopyURLModal' ref={itemCopyURLModal}>
                     <p>
-                        <SlClose className='icon' />
-                        Please select Quantity
+                        <FiShare className='icon' />
+                        URL copied successfully
                     </p>
                 </div>
 
@@ -314,7 +369,11 @@ function ProductPage({
                         <div className='product-thumbnails'>
                             <Image
                                 src={image1}
-                                className='thumbnail-image'
+                                className={`${
+                                    activeImg === image1
+                                        ? 'thumbnail-image active_image'
+                                        : 'thumbnail-image'
+                                }`}
                                 height={325}
                                 width={325}
                                 onClick={() => setActiveImg(image1)}
@@ -322,7 +381,11 @@ function ProductPage({
                             />
                             <Image
                                 src={image2}
-                                className='thumbnail-image'
+                                className={`${
+                                    activeImg === image2
+                                        ? 'thumbnail-image active_image'
+                                        : 'thumbnail-image'
+                                }`}
                                 height={325}
                                 width={325}
                                 onClick={() => setActiveImg(image2)}
@@ -331,7 +394,11 @@ function ProductPage({
                             {image3 && (
                                 <Image
                                     src={image3}
-                                    className='thumbnail-image'
+                                    className={`${
+                                        activeImg === image3
+                                            ? 'thumbnail-image active_image'
+                                            : 'thumbnail-image'
+                                    }`}
                                     height={325}
                                     width={325}
                                     onClick={() => setActiveImg(image3)}
@@ -341,7 +408,11 @@ function ProductPage({
                             {image4 && (
                                 <Image
                                     src={image4}
-                                    className='thumbnail-image'
+                                    className={`${
+                                        activeImg === image4
+                                            ? 'thumbnail-image active_image'
+                                            : 'thumbnail-image'
+                                    }`}
                                     height={325}
                                     width={325}
                                     onClick={() => setActiveImg(image4)}
@@ -351,7 +422,11 @@ function ProductPage({
                             {image5 && (
                                 <Image
                                     src={image5}
-                                    className='thumbnail-image'
+                                    className={`${
+                                        activeImg === image5
+                                            ? 'thumbnail-image active_image'
+                                            : 'thumbnail-image'
+                                    }`}
                                     height={325}
                                     width={325}
                                     onClick={() => setActiveImg(image5)}
@@ -360,7 +435,11 @@ function ProductPage({
                             )}
                         </div>
 
-                        <div className='img-wrapper'>
+                        <div
+                            className='img-wrapper'
+                            ref={containerRef} // Przypisanie referencji
+                            onWheel={(e) => handleScroll(e)}
+                        >
                             <Image
                                 src={activeImg}
                                 id='imageBox'
@@ -394,28 +473,39 @@ function ProductPage({
                             <div className='size-selector-label'>
                                 <label for='size'>SIZE:</label>
                                 <p class='size-guide'>
+                                    <FiScissors className='ruler-icon' />
                                     SIZE GUIDE{' '}
-                                    <CiRuler className='ruler-icon' />
                                 </p>
                             </div>
                             {SELECT_SIZE}
                         </div>
 
                         <div className='quantity__selector'>
-                            <p>Quantity</p>
-                            <input
-                                onChange={handleQuantityChange}
-                                type='number'
-                                placeholder='1'
-                                min={1}
-                                max={20}
-                                value={itemQuantity}
-                            />
+                            <button
+                                onClick={() => {
+                                    if (itemQuantity <= 1) {
+                                        return;
+                                    } else setItemQuantity(itemQuantity - 1);
+                                }}
+                            >
+                                <FiMinus className='icon' />
+                            </button>
+
+                            <p>{itemQuantity}</p>
+                            <button
+                                onClick={() => {
+                                    if (itemQuantity >= 20) {
+                                        return;
+                                    } else setItemQuantity(itemQuantity + 1);
+                                }}
+                            >
+                                <FiPlus className='icon' />
+                            </button>
                         </div>
 
                         <div className='buttons-wrapper'>
                             <div
-                                className='add-to-bag'
+                                className='add_bag-button'
                                 key={link}
                                 onClick={() => {
                                     addProductToBag({
@@ -453,6 +543,28 @@ function ProductPage({
                                 ) : (
                                     <IoBookmarksOutline className='fav-icon' />
                                 )}
+                            </div>
+
+                            <div
+                                className='copy_link-button'
+                                onClick={() => {
+                                    navigator.clipboard.writeText(
+                                        window.location.href
+                                    );
+
+                                    if (itemCopyURLModal.current) {
+                                        itemCopyURLModal.current.classList.add(
+                                            'show_added-modal'
+                                        );
+                                        setTimeout(() => {
+                                            itemCopyURLModal.current?.classList.remove(
+                                                'show_added-modal'
+                                            );
+                                        }, 3000);
+                                    }
+                                }}
+                            >
+                                <IoShareSocialOutline className='copy-icon' />
                             </div>
                         </div>
                     </div>

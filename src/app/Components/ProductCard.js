@@ -23,10 +23,17 @@ function ProductCard({
     const dispatch = useDispatch();
     // Pobieranie obecnej listy ulubionych
     const favoriteList = useSelector((state) => state.favorite.favItemsList);
+    //console.log(favoriteList);
+    //const [data, setData] = useState(favoriteList);
+    //console.log(data);
+    useEffect(() => {
+        // setData(favoriteList);
+        console.log('wywołanie use effect');
+    }, []);
 
     const handleFavoriteItem = (payload, id) => {
         // Sprawdzanie, czy produkt już istnieje w tablicy
-        const isInFavoriteList = favoriteList.some((item) => item.photo === id);
+        const isInFavoriteList = favoriteList.some((item) => item.photo === id); //data z 27 linii
 
         if (!isInFavoriteList) {
             dispatch(addFavoriteItem(payload)); //dodanie prod do FAV_List - produkt jako payload
