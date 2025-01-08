@@ -390,6 +390,19 @@
     }
 }
 
+//! BREAKPOINT: 1566px
+@media screen and (max-width: 1600px) {
+    .highlightedProduct__container {
+        width: 82.5%;
+        .highlightedProduct__image .button {
+            width: 40%;
+        }
+        .highlightedProduct__text p {
+            font-size: 1.15rem;
+        }
+    }
+}
+
 @media screen and (max-width: 1500px) {
     .highlightedProduct__container {
         width: 87.5%;

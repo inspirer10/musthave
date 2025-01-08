@@ -4,9 +4,6 @@ import Bag from './Bag/Bag.js';
 import Footer from './Footer.js';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-import { GrFavorite } from 'react-icons/gr';
-import { FaHeartBroken } from 'react-icons/fa';
-
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard.js';
 

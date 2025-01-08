@@ -134,17 +134,48 @@ footer {
     }
 }
 
+//! BREAKPOINT: 1440px
 @media screen and (max-width: 1500px) {
     footer .footer_content-container .footer_content-wrapper .footer__links {
-        width: 85%;
-        ul {
+        width: 80%;
+        /*  ul {
             p {
                 font-size: 18px;
             }
             li {
                 font-size: 16px;
             }
-        }
+        }*/
+    }
+}
+
+//! BREAKPOINT: 1366px
+@media screen and (max-width: 1370px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links {
+        width: 85%;
+        /*  ul {
+            p {
+                font-size: 18px;
+            }
+            li {
+                font-size: 16px;
+            }
+        }*/
+    }
+}
+
+//! BREAKPOINT: 1280px
+@media screen and (max-width: 1285px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links {
+        width: 87.5%;
+        /*  ul {
+            p {
+                font-size: 18px;
+            }
+            li {
+                font-size: 16px;
+            }
+        }*/
     }
 }
 

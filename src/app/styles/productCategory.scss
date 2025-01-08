@@ -135,6 +135,7 @@
         }
         &:hover {
             cursor: pointer;
+            //text-decoration: 5px line-through;
         }
     }
     span {
@@ -147,13 +148,15 @@
 }
 
 .sorting__list:has(span:hover) span:not(:hover) {
-    filter: blur(2px);
-    transition: 0.15s ease-in-out;
+    // filter: blur(2px);
+    text-decoration: 5px line-through;
+    transition: .175s ease-in-out;
 }
 
 .sorting__categories__list:has(span:hover) span:not(:hover) {
-    filter: blur(2px);
-    transition: 0.15s ease-in-out;
+    //  filter: blur(2px);
+    text-decoration: 3px line-through;
+    transition: .175s ease-in-out;
 }
 
 .sorting__categories__list {
@@ -194,6 +197,7 @@
         }
         &:hover {
             cursor: pointer;
+            //  text-decoration: 5px line-through;
         }
     }
     span {
@@ -303,11 +307,11 @@
     }
     .name {
         font-family: "Inter", sans-serif;
-        font-family: 'Switzer', sans-serif;
+        //font-family: 'Switzer', sans-serif;
         font-size: 1.4rem;
         font-weight: 600;
         letter-spacing: -0.75px;
-        word-spacing: 3px;
+        word-spacing: 2px;
         text-transform: uppercase;
         cursor: pointer;
         margin: 0.5rem 0 2px;
@@ -407,6 +411,35 @@
     backdrop-filter: blur(10px);
 }
 
+//! BREAKPOINT: 1566px
+@media screen and (max-width: 1600px) {
+    .links-container {
+        width: 92.5%;
+        margin-top: 14vh;
+    }
+    .items_category_container {
+        width: 92.5%;
+        margin-top: 5vh;
+    }
+    .clothing__single__item {
+        width: 31.75%;
+        margin-bottom: 5vh;
+    }
+    .clothing__info .name {
+        font-size: 1.3rem;
+        word-spacing: 1.75px;
+    }
+    .clothing__single__item .image__container {
+        height: 60vh;
+        .main_image {
+            height: 60vh;
+        }
+        .secondary_image {
+            height: 60vh;
+        }
+    }
+}
+
 @media screen and (max-width: 1500px) {
     .links-container {
         width: 92.5%;
@@ -416,7 +449,7 @@
     }
     .clothing__info {
         .name {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
     }
     .clothing__single__item .image__container {

@@ -106,7 +106,7 @@
                     font-family: 'Switzer', sans-serif;
                     font-size: 16px;
                     font-weight: 400;
-                    letter-spacing: 0.2px;
+                    letter-spacing: 0.25px;
                     color: rgb(210, 210, 210);
                     margin: 0 1.5rem;
                     display: flex;
@@ -523,6 +523,7 @@
     }
 }
 
+//! BREAKPOINT: 1566px
 @media screen and (max-width: 1600px) {
     .navbar {
         .navbar-container {
@@ -533,7 +534,9 @@
         }
     }
     .header-video-container .header__video__text {
-        top: 55%;
+        h3 {
+            font-size: 6.25rem;
+        }
     }
     #mailing__modal {
         width: 62.5%;
@@ -541,17 +544,10 @@
     }
 }
 
-@media screen and (max-width: 1500px) {
-    .navbar {
-        .navbar-container {
-            width: 90%;
-            .navbar_links-container .logo {
-                margin-right: 3.25rem;
-            }
-        }
-    }
-    .header-video-container .header__video__text {
-        top: 55%;
+//! BREAKPOINT: 1440px
+@media screen and (max-width: 1450px) {
+    .header-video-container .header__video__text .intro {
+        width: 50%;
     }
     #mailing__modal {
         width: 62.5%;

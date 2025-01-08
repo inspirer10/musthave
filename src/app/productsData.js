@@ -520,6 +520,7 @@ const productsData = {
             productCategory: 'Accessories',
             image: '/images/beanie1.jpg',
             image2: '/images/beanie2.jpg',
+            image3: '/images/beanie3.jpg',
             isFavorite: false,
             productDescription:
                 'Stay warm and stylish with this black beanie. Made from soft, cozy fabric, it offers comfort and a snug fit. Perfect for cold weather.',
@@ -593,6 +594,7 @@ const productsData = {
             productCategory: 'Shoes',
             image: '/images/keyShoes1.png',
             image2: '/images/keyShoes2.png',
+            image3: '/images/keyShoes3.png',
             isFavorite: false,
             productDescription:
                 'Stylish white sneakers that complement any outfit. Made from durable materials, they provide comfort and versatility for everyday wear. Perfect for those who value both fashion and function.',
@@ -620,6 +622,8 @@ const productsData = {
             productCategory: 'Shoes',
             image: '/images/sbwShoes1.png',
             image2: '/images/sbwShoes2.png',
+            image3: '/images/sbwShoes3.png',
+            image4: '/images/sbwShoes4.png',
             isFavorite: false,
             productDescription:
                 'Elegant leather shoes that add a touch of class to any outfit. Crafted from high-quality leather, they offer both durability and style. Ideal for both formal events and everyday wear',

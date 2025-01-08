@@ -36,9 +36,7 @@ function SuggestedItems() {
     return (
         <>
             <h2 className='suggested__heading'>YOU MAY ALSO LIKE</h2>
-            <p className='suggested__sub_heading'>
-                Check out these great products
-            </p>
+            <p className='suggested__sub_heading'>Complete your look with</p>
             <div className='suggested__items_container'>
                 {suggestedProducts.map(
                     ({ productName, productPrice, productId, image }) => (
@@ -64,10 +62,6 @@ function SuggestedItems() {
                             <div className='clothing__info'>
                                 <p className='name'>{productName}</p>
                                 <p className='price'>{productPrice}$</p>
-
-                                <div className='favorite-button'>
-                                    <IoBookmarksOutline className='fav-icon' />
-                                </div>
                             </div>
                         </div>
                     )

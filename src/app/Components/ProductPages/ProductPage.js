@@ -40,6 +40,7 @@ function ProductPage({
     image3,
     image4,
     image5,
+    imagesCount,
     productName,
     productPrice,
     productCategory,
@@ -233,52 +234,120 @@ function ProductPage({
 
         if (isThrottled) return;
         setIsThrottled(true); //Ustaw blokadę
-        setTimeout(() => setIsThrottled(false), 200);
+        setTimeout(() => setIsThrottled(false), 250);
 
         if (e.deltaY > 0) {
             //Scroll w dół (przechodzenie naprzód)
-            switch (activeImg) {
-                case image1:
-                    setActiveImg(image2);
-                    break;
-                case image2:
-                    setActiveImg(image3);
-                    break;
-                case image3:
-                    setActiveImg(image4);
-                    break;
-                case image4:
-                    setActiveImg(image5);
-                    break;
-                case image5:
-                    setActiveImg(image1);
-                    break;
-                default:
-                    break;
+            if (imagesCount === 3) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image2);
+                        break;
+                    case image2:
+                        setActiveImg(image3);
+                        break;
+                    case image3:
+                        setActiveImg(image1);
+                        break;
+
+                    default:
+                        break;
+                }
+            } else if (imagesCount === 4) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image2);
+                        break;
+                    case image2:
+                        setActiveImg(image3);
+                        break;
+                    case image3:
+                        setActiveImg(image4);
+                        break;
+                    case image4:
+                        setActiveImg(image1);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (imagesCount === 5) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image2);
+                        break;
+                    case image2:
+                        setActiveImg(image3);
+                        break;
+                    case image3:
+                        setActiveImg(image4);
+                        break;
+                    case image4:
+                        setActiveImg(image5);
+                        break;
+                    case image5:
+                        setActiveImg(image1);
+                        break;
+                    default:
+                        break;
+                }
             }
         } else {
             //Scroll w górę (przechodzenie wstecz)
-            switch (activeImg) {
-                case image1:
-                    setActiveImg(image5);
-                    break;
-                case image2:
-                    setActiveImg(image1);
-                    break;
-                case image3:
-                    setActiveImg(image2);
-                    break;
-                case image4:
-                    setActiveImg(image3);
-                    break;
-                case image5:
-                    setActiveImg(image4);
-                    break;
-                default:
-                    break;
+            if (imagesCount === 3) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image3);
+                        break;
+                    case image2:
+                        setActiveImg(image1);
+                        break;
+                    case image3:
+                        setActiveImg(image2);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (imagesCount === 4) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image4);
+                        break;
+                    case image2:
+                        setActiveImg(image1);
+                        break;
+                    case image3:
+                        setActiveImg(image2);
+                        break;
+                    case image4:
+                        setActiveImg(image3);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (imagesCount === 5) {
+                switch (activeImg) {
+                    case image1:
+                        setActiveImg(image5);
+                        break;
+                    case image2:
+                        setActiveImg(image1);
+                        break;
+                    case image3:
+                        setActiveImg(image2);
+                        break;
+                    case image4:
+                        setActiveImg(image3);
+                        break;
+                    case image5:
+                        setActiveImg(image4);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     };
+
     useEffect(() => {
         const container = containerRef.current;
         //Dodanie zdarzenia `wheel` z `passive: false`
@@ -290,6 +359,7 @@ function ProductPage({
             container.removeEventListener('wheel', handleWheel);
         };
     }, [isThrottled, activeImg]);
+
     return (
         <>
             <Navbar color={'dimgray'} />
@@ -487,6 +557,7 @@ function ProductPage({
                                         return;
                                     } else setItemQuantity(itemQuantity - 1);
                                 }}
+                                className={itemQuantity === 1 && 'disabled'}
                             >
                                 <FiMinus className='icon' />
                             </button>
@@ -498,6 +569,7 @@ function ProductPage({
                                         return;
                                     } else setItemQuantity(itemQuantity + 1);
                                 }}
+                                className={itemQuantity === 20 && 'disabled'}
                             >
                                 <FiPlus className='icon' />
                             </button>

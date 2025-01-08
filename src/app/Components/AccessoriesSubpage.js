@@ -4,14 +4,15 @@ import Bag from './Bag/Bag.js';
 import Footer from './Footer.js';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-//data of all products
-import productsData from '../productsData.js';
-import Image from 'next/image.js';
-import { IoBookmarksOutline } from 'react-icons/io5';
+import { useSelector } from 'react-redux';
+import ProductCard from './ProductCard.js';
 
 function AccessoriesSubpage() {
+    const accessoriesItems = useSelector(
+        (state) => state.allProducts.allProducts[1]
+    );
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(productsData.accessories); // sortowanie kolejności produktów
+    const [data, setData] = useState(accessoriesItems); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
@@ -25,18 +26,9 @@ function AccessoriesSubpage() {
         }
     };
 
-    const [hoveredProduct, setHoveredProduct] = useState(null);
-    const handleMouseEnter = (productName) => {
-        setHoveredProduct(productName);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredProduct(null);
-    };
-
     return (
         <>
-            <Navbar color={'gray'}>
+            <Navbar color={'rgb(120, 120, 120)'}>
                 <label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
@@ -245,44 +237,18 @@ function AccessoriesSubpage() {
                                 productId,
                                 image,
                                 image2,
+                                isFavorite,
+                                link,
                             }) => (
-                                <div
-                                    key={productName + productId}
-                                    className='clothing__single__item'
-                                    onClick={() =>
-                                        (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
-                                    }
-                                >
-                                    <div className='image__container'>
-                                        <Image
-                                            height={400}
-                                            width={400}
-                                            title={productName}
-                                            src={image}
-                                            className='main_image'
-                                            alt='product thumbnail'
-                                        />
-                                        <Image
-                                            height={400}
-                                            width={400}
-                                            title={productName}
-                                            src={image2}
-                                            className='secondary_image'
-                                            alt='product thumbnail'
-                                        />
-                                    </div>
-
-                                    <div className='clothing__info'>
-                                        <p className='name'>
-                                            {productId + ' ' + productName}
-                                        </p>
-                                        <p className='price'>{productPrice}$</p>
-
-                                        <div className='favorite-button'>
-                                            <IoBookmarksOutline className='fav-icon' />
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProductCard
+                                    productName={productName}
+                                    productPrice={productPrice}
+                                    productId={productId}
+                                    image={image}
+                                    image2={image2}
+                                    link={link}
+                                    isFavorite={isFavorite}
+                                />
                             )
                         )}
                 </div>

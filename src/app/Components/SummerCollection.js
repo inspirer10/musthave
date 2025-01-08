@@ -1,6 +1,6 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 
 function SummerCollection() {
     const dressImages = [
@@ -48,6 +48,14 @@ function SummerCollection() {
         },
     };
 
+    const container = useRef();
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const y = useTransform(scrollYProgress, [0, 1], ['-10vh', '10vh']);
+
     return (
         <>
             <div className='marquee'>
@@ -70,8 +78,8 @@ function SummerCollection() {
                 </div>
             </div>
 
-            <section className='autumn__section'>
-                <article className='autumn__left__section'>
+            <section className='summer__section'>
+                <article className='summer__left__section'>
                     <motion.h2
                         variants={fadeInAnimation}
                         initial='initial'
@@ -94,7 +102,7 @@ function SummerCollection() {
                     </button>
                 </article>
 
-                <article className='autumn__right__section'>
+                <article className='summer__right__section'>
                     <div className='product__tile'>
                         <div
                             className='image-container'
@@ -147,14 +155,41 @@ function SummerCollection() {
                 </article>
             </section>
 
-            <section className='fixed__image'>
+            {/* <section className='fixed__image'>
                 <Image
                     className='image'
                     src={'/testimg2.jpg'}
-                    //! DO ZMIANY
                     fill
                     loading='lazy'
                 />
+            </section>*/}
+
+            <section
+                ref={container}
+                className='parallax-section'
+                style={{
+                    clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
+                }}
+            >
+                <div className='parallax-section_text'>
+                    <p>
+                        BEAUTY AND QUALITY NEED THE RIGHT TIME TO BE CONCEIVED
+                        AND REALISED EVEN IN A WORLD THAT IS IN TOO MUCH OF A
+                        HURRY.
+                    </p>
+                    <h3>MUSTHAVE</h3>
+                </div>
+                <div className='img-container'>
+                    <motion.div style={{ y }} className='img-wrapper'>
+                        <Image
+                            src={'/instaGallery1.jpg'}
+                            //fill
+                            height={1500}
+                            width={1500}
+                            alt='parallax photo'
+                        />
+                    </motion.div>
+                </div>
             </section>
         </>
     );

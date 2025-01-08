@@ -15,9 +15,10 @@
             object-position: center;
         }
         .video-text {
+            mix-blend-mode: difference;
             font-family: "Switzer", sans-serif;
             font-size: 9.5rem;
-            font-size: clamp(3rem, 7.5vw, 10rem);
+            font-size: clamp(5rem, 9vw, 10rem);
             font-weight: 700;
             position: absolute;
             z-index: 10;
@@ -433,6 +434,25 @@
 @keyframes scroll-reveal {
     to {
         background-size: 100% 100%;
+    }
+}
+
+//! BREAKPOINT: 1566px
+@media screen and (max-width: 1600px) {
+    .aboutCompany__container {
+        width: 85%;
+        .aboutCompany__item__image {
+            height: 90vh;
+            .button {
+                width: 30%;
+            }
+        }
+    }
+    .goals_section {
+        width: 80%;
+        .images_wrapper img {
+            height: 75vh;
+        }
     }
 }
 

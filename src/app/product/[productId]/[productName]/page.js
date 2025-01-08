@@ -57,6 +57,7 @@ const Product = (params) => {
                 image3={product.image3}
                 image4={product.image4}
                 image5={product.image5}
+                imagesCount={product.imagesCount}
                 productDescription={product.productDescription}
                 size={product.productCategory}
                 link={`/product/${product.productId}/${product.productName}`}

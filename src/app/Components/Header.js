@@ -4,6 +4,7 @@ import { openModal, closeModal } from '../GlobalStore/newsletterSlice';
 import { FaFacebookF, FaTiktok, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose, MdKeyboardArrowRight } from 'react-icons/md';
+import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Image from 'next/image';
 
@@ -36,6 +37,32 @@ function Header() {
         }
     };
 
+    const fadeIn = {
+        initial: { opacity: 0 },
+        animate: (index) => ({
+            opacity: 1,
+            transition: {
+                //duration: 0.1,
+                type: 'inertia',
+                velocity: 100,
+                delay: 3 + index * 0.75, //opóźnienie (2.75s) + indywidualne opóźnienie (index * 0.4)
+            },
+        }),
+    };
+
+    const fadeInDescription = {
+        initial: { opacity: 0 },
+        animate: () => ({
+            opacity: 1,
+            transition: {
+                //duration: 0.1,
+                type: 'inertia',
+                velocity: 100,
+                delay: 6,
+            },
+        }),
+    };
+
     return (
         <header>
             <Navbar />
@@ -55,12 +82,28 @@ function Header() {
                 </video>
 
                 <div className='header__video__text'>
-                    <h3>Where</h3>
-                    <h3>minimalism</h3>
-                    <h3>meets</h3>
-                    <h3>comfort</h3>
+                    {['Where', 'minimalism', 'meets', 'comfort'].map(
+                        (text, index) => (
+                            <motion.h3
+                                key={index}
+                                variants={fadeIn}
+                                initial='initial'
+                                whileInView='animate'
+                                viewport={{ once: true }}
+                                custom={index} // Przekazanie indeksu dla opóźnienia
+                            >
+                                {text}
+                            </motion.h3>
+                        )
+                    )}
 
-                    <p className='intro'>
+                    <motion.p
+                        variants={fadeInDescription}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{ once: true }}
+                        className='intro'
+                    >
                         MUSTHAVE offers products designed to make you stand out
                         and express your unique style. We stand for innovative
                         fashion that merges the newest trends with top-tier
@@ -70,7 +113,7 @@ function Header() {
                         </span>{' '}
                         — delivering high-quality clothing to customers across
                         the globe
-                    </p>
+                    </motion.p>
                 </div>
 
                 <p
