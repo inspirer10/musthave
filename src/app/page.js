@@ -36,7 +36,7 @@ export default function Home() {
         setTimeout(() => {
             setIsLoading(false);
             window.scrollTo(0, 0);
-        }, 2000);
+        }, 3000); //2900
     }, []);
 
     return (

@@ -91,15 +91,17 @@ function SummerCollection() {
                         variants={fadeInAnimation}
                         initial='initial'
                         whileInView='animate'
-                        viewport={{
-                            once: true,
-                        }}
                     >
                         Limited release available now
                     </motion.p>
-                    <button onClick={() => (document.location.href = '/items')}>
+                    <motion.button
+                        onClick={() => (document.location.href = '/items')}
+                        variants={fadeInAnimation}
+                        initial='initial'
+                        whileInView='animate'
+                    >
                         Visit the shop
-                    </button>
+                    </motion.button>
                 </article>
 
                 <article className='summer__right__section'>

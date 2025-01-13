@@ -45,7 +45,7 @@ function Header() {
                 //duration: 0.1,
                 type: 'inertia',
                 velocity: 100,
-                delay: 3 + index * 0.75, //opóźnienie (2.75s) + indywidualne opóźnienie (index * 0.4)
+                delay: 3.75 + index * 0.7, //opóźnienie (3.75s) + indywidualne opóźnienie (index * 0.7)
             },
         }),
     };
@@ -58,7 +58,7 @@ function Header() {
                 //duration: 0.1,
                 type: 'inertia',
                 velocity: 100,
-                delay: 6,
+                delay: 6.5,
             },
         }),
     };

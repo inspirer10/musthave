@@ -398,25 +398,29 @@
             width: 40%;
         }
         .highlightedProduct__text p {
-            font-size: 1.15rem;
+            font-size: 18px;
         }
     }
 }
 
+//! BREAKPOINT: 1440px
 @media screen and (max-width: 1500px) {
     .highlightedProduct__container {
         width: 87.5%;
+        .highlightedProduct__text {
+            width: 45%;
+        }
     }
     .instagramSection {
         .top__gallery {
-            width: 95%;
+            width: 90%;
             .instagramSection__followUs h2 {
                 font-size: 2.75rem;
                 letter-spacing: -0.5px;
             }
         }
         .bottom__gallery {
-            width: 95%;
+            width: 90%;
         }
     }
 }

@@ -18,15 +18,21 @@ function Introduction() {
     };
 
     return (
-        <motion.div
-            variants={slideUp}
-            initial='initial'
-            exit='exit'
-            className='introduction-page'
-        >
-            <h1>MUSTHAVE</h1>
-            <h1 className='second-heading'>MUSTHAVE</h1>
-        </motion.div>
+        <>
+            <motion.div
+                variants={slideUp}
+                initial='initial'
+                exit='exit'
+                className='introduction-page'
+            >
+                <div className='typing-effect'>
+                    <span className='text'>Because you deserve the best</span>
+                </div>
+                <h2>MUSTHAVE</h2>
+                <h2>MUSTHAVE</h2>
+                <h2>MUSTHAVE</h2>
+            </motion.div>
+        </>
     );
 }
 

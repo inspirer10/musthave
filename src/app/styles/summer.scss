@@ -92,8 +92,9 @@
             background-color: #000;
             color: #FFF;
             cursor: pointer;
-            transition: .2s ease-in-out;
+            // transition: .2s ease-in-out;
             &:hover {
+                transition: .25s ease-in;
                 background-color: #fff;
                 color: #000;
             }

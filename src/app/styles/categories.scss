@@ -121,6 +121,7 @@
     }
 }
 
+//! BREAKPOINT: 1440px
 @media screen and (max-width: 1500px) {
     .section__categories {
         .categories__container {
@@ -129,18 +130,17 @@
             .categories__item__one,
             .categories__item__two,
             .categories__item__three {
-                width: 27.5%;
-                aspect-ratio: 1/1.55;
+                width: 31%;
+                aspect-ratio: 1/1.5;
             }
             .categories__item__three {
-                margin-bottom: -15vh;
+                margin-bottom: -12.5vh;
             }
         }
     }
     .item__payload {
         p {
-            font-size: 2.5rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.25px;
         }
     }
 }
