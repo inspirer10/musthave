@@ -129,7 +129,7 @@ function Navbar({ color, children }) {
                 <div className='navbar_icons-wrapper'>
                     <IoSearchOutline className='fav-icon' id='searchIcon' />
                     <RiUser3Line className='fav-icon' />
-                    <Link href='/favourites' id='navbar-fav'>
+                    <Link href='/favorites' id='navbar-fav'>
                         <IoBookmarkOutline className='fav-icon' />
                     </Link>
                     <p

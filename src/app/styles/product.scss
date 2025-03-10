@@ -621,7 +621,7 @@
 }
 
 //? MEDIA QUERIES
-//! BREAKPOINT: 1566px
+//! BREAKPOINT: 1536px
 @media screen and (max-width: 1600px) {
     .product__container {
         width: 87.5%;
@@ -646,6 +646,7 @@
     }
 }
 
+//! BREAKPOINT: 1440px
 @media screen and (max-width: 1500px) {
     .product__container {
         width: 90%;
@@ -669,17 +670,116 @@
     }
 }
 
+//? BREAKPOINT: 1366px
 @media screen and (max-width: 1385px) {
-    .suggested__items_container .suggested__single__item .clothing__info {
-        .name {
-            font-size: 22px;
+    .links-container {
+        &.additional-space {
+            width: 90%;
         }
-        .price {
-            font-size: 1.3rem;
+    }
+    .suggested__items_container .suggested__single__item {
+        width: 24%;
+        .clothing__info {
+            .name {
+                font-size: 23px;
+            }
+            .price {
+                font-size: 21px;
+            }
+            .favorite-button .fav-icon {
+                font-size: 22px;
+            }
         }
-        .favorite-button .fav-icon {
-            font-size: 22px;
+    }
+}
+
+//? BREAKPOINT: 1280px x 720
+@media screen and (max-width: 1285px) {
+    .links-container {
+        &.additional-space {
+            width: 92.5%;
         }
+    }
+    .product__container {
+        width: 92.5%;
+        .product .images-container .product-thumbnails {
+            margin-right: 1rem;
+        }
+    }
+    .product__info {
+        margin-right: -2.5%;
+        .selector-container {
+            width: 75%;
+            .buttons-wrapper {
+                .add_bag-button {
+                    font-size: 16px;
+                    padding: 0.75rem 2.25rem;
+                    .background {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+                .favorite-button,
+                .copy_link-button {
+                    padding: 0.75rem;
+                    .copy-icon,
+                    .fav-icon {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+        .product__description {
+            h2 {
+                font-size: 3rem;
+                line-height: 3.25rem;
+                letter-spacing: -2.5px;
+            }
+            p {
+                font-size: 30px;
+            }
+        }
+        .quantity__selector {
+            p {
+                width: 3rem;
+            }
+            button {
+                padding: 0.3rem;
+                .icon {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+    .additional-info-container {
+        width: 75%;
+        .additional-info-item .additional-info-label {
+            font-size: 16px;
+            padding: 6px 10px;
+        }
+    }
+    .suggested__items_container {
+        width: 87.5%;
+        .suggested__single__item {
+            width: 31%;
+            &:nth-of-type(4) {
+                display: none;
+            }
+            .clothing__info {
+                .name {
+                    font-size: 23px;
+                }
+                .price {
+                    font-size: 21px;
+                }
+                .favorite-button .fav-icon {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    .suggested__heading {
+        font-weight: 600;
     }
 }
 
@@ -873,8 +973,8 @@
         justify-content: center;
         &.additional-space {
             width: 100%;
-            margin-top: 7rem;
-            margin-bottom: 2.5vh;
+            margin-top: 6rem;
+            margin-bottom: 1rem;
             .links-wrapper {
                 p {
                     font-size: 16px;
@@ -888,6 +988,7 @@
         }
     }
     .product__container {
+        margin-bottom: 5vh;
         .product {
             width: 97.5%;
             margin: 0 auto;
@@ -923,15 +1024,36 @@
         }
     }
     .product__info {
-        margin-top: 4vh;
+        margin-top: 1.75rem;
         width: 95%;
         .product__description {
+            width: 100%;
             h2 {
-                margin-top: 0.25rem;
+                margin-top: 0rem;
+                margin-bottom: 0.25rem;
+            }
+            .brand {
+                margin: 0;
             }
         }
         .quantity__selector {
-            margin: 0.75rem auto 1.25rem;
+            margin: 0.5rem auto 1rem;
         }
+    }
+    .additional-info-container,
+    .product__info .selector-container {
+        width: 100%;
+    }
+    .product__info .selector-container .buttons-wrapper .add_bag-button {
+        width: 72.5%;
+    }
+    .suggested__heading {
+        margin-top: 2.5vh;
+    }
+    .suggested__sub_heading {
+        margin-bottom: 1.25rem;
+    }
+    .suggested__items_container {
+        padding-bottom: 2.5vh;
     }
 }

@@ -127,6 +127,7 @@ li {
         font-size: 18vw;
         color: #00008B;
         //color: #0a00c1;
+        color: #FFF;
         position: absolute;
         top: 17.5%;
         left: 50%;
@@ -140,12 +141,14 @@ li {
         animation-delay: 2.75s;
         &:nth-of-type(2) {
             color: #FFF;
+            color: rgb(135, 135, 135);
             top: 32.5%;
             clip-path: inset(47.5% 0 0 0);
             animation-delay: 2.45s; //0.12s
         }
         &:nth-of-type(3) {
             color: #FFF;
+            color: rgb(90, 90, 90);
             top: 44.25%;
             clip-path: inset(60% 0 0 0);
             //  animation-delay: 2.75s;

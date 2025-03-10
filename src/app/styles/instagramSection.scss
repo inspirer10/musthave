@@ -425,19 +425,39 @@
     }
 }
 
+//? BREAKPOINT: 1366px
 @media screen and (max-width: 1370px) {
     .highlightedProduct__container {
         .highlightedProduct__image {
+            height: 90vh;
             h3 {
                 margin-top: 1rem;
                 margin-bottom: 0;
                 font-size: 1.75rem;
             }
-            p {}
-            button {
-                margin-top: 1rem;
-            }
         }
+    }
+    .highlightedProduct__container .highlightedProduct__image .button {
+        width: 45%;
+    }
+    .instagramSection .top__gallery,
+    .instagramSection .bottom__gallery {
+        width: 92.5%;
+    }
+    .highlightedProduct__container .highlightedProduct__text p {
+        font-size: 17px;
+        line-height: 1.55rem;
+    }
+}
+
+//? BREAKPOINT: 1280px x 720
+@media screen and (max-width: 1285px) {
+    .instagramSection .top__gallery .instagramSection__followUs h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+    .instagramSection .top__gallery .instagramSection__followUs .button {
+        padding: 16px 0;
     }
 }
 
@@ -449,21 +469,22 @@
         flex-direction: column;
         .highlightedProduct__image {
             width: 100%;
-            height: 65vh;
+            width: 97.5%;
+            height: 60vh;
             margin-top: 0vh;
-            margin-bottom: 10vh;
+            margin-bottom: 5vh;
             h3 {
                 margin-top: 0.75rem;
                 margin-bottom: 0;
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
             p {
-                font-size: 13px;
-                width: 87.5%;
+                font-size: 15px;
+                width: 90%;
             }
-            button {
+            .button {
+                width: 50%;
                 font-size: 13px;
-                padding: 0.7rem 1rem;
                 margin: 0.4rem auto 0.2rem;
             }
         }
@@ -472,13 +493,14 @@
             margin-right: 0;
             margin-top: 1.5rem;
             h2 {
-                font-size: 5rem;
+                font-size: 4.25rem;
                 font-weight: 700;
                 margin: 0 auto 1rem;
+                letter-spacing: -1px;
             }
             p {
-                font-size: 18px;
-                line-height: calc(18px * 1.35);
+                font-size: 16px;
+                line-height: calc(16px * 1.35);
                 text-align: justify;
             }
             .view_product {

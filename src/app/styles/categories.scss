@@ -121,7 +121,7 @@
     }
 }
 
-//! BREAKPOINT: 1440px
+//? BREAKPOINT: 1440px
 @media screen and (max-width: 1500px) {
     .section__categories {
         .categories__container {
@@ -130,7 +130,7 @@
             .categories__item__one,
             .categories__item__two,
             .categories__item__three {
-                width: 31%;
+                width: 30.75%;
                 aspect-ratio: 1/1.5;
             }
             .categories__item__three {
@@ -145,14 +145,23 @@
     }
 }
 
+//? BREAKPOINT: 1280px x 720
+@media screen and (max-width: 1285px) {
+    .section__categories .categories__container .categories__item__one,
+    .section__categories .categories__container .categories__item__two,
+    .section__categories .categories__container .categories__item__three {
+        width: 31.5%;
+    }
+}
+
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
     .section__categories {
-        padding-bottom: 15vh;
+        padding-bottom: 7.5vh;
         .categories__heading {
-            font-size: 3.5rem;
-            letter-spacing: 0px;
-            padding: 5rem 0;
+            font-size: 3.75rem;
+            letter-spacing: -1.5px;
+            padding: 2rem 0 0.75rem;
         }
         .categories__container {
             width: 97.5%;
@@ -166,11 +175,15 @@
             .categories__item__one,
             .categories__item__two,
             .categories__item__three {
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
                 align-self: center;
-                margin: 1rem auto;
-                width: 90%;
+                margin: 0.75rem auto;
+                width: 95%;
                 aspect-ratio: 1/1;
             }
         }
+    }
+    .item__payload button {
+        margin-bottom: 1.25rem;
     }
 }

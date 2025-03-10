@@ -523,7 +523,7 @@
     }
 }
 
-//! BREAKPOINT: 1566px
+//? BREAKPOINT: 1536px
 @media screen and (max-width: 1600px) {
     .navbar {
         .navbar-container {
@@ -544,7 +544,7 @@
     }
 }
 
-//! BREAKPOINT: 1440px
+//? BREAKPOINT: 1440px
 @media screen and (max-width: 1450px) {
     .header-video-container .header__video__text .intro {
         width: 50%;
@@ -555,20 +555,42 @@
     }
     .header-video-container .header__video__text h3 {
         font-size: 6rem;
+        letter-spacing: -3.25px;
     }
 }
 
+//? BREAKPOINT: 1366px
 @media screen and (max-width: 1370px) {
     #mailing__modal {
-        width: 67.5%;
+        width: 70%;
         height: 62.5%;
+    }
+    .header-video-container .header__video__text {
+        h3 {
+            font-size: 5rem;
+        }
+        .intro {
+            font-size: 14px;
+        }
     }
 }
 
+//? BREAKPOINT: 1280px x 720
 @media screen and (max-width: 1285px) {
+    .navbar .navbar-container {
+        width: 95%;
+    }
     #mailing__modal {
         width: 72.5%;
         height: 65%;
+    }
+    .header-video-container .header__video__text {
+        h3 {
+            font-size: 4.75rem;
+        }
+        .intro {
+            font-size: 13px;
+        }
     }
 }
 
@@ -609,7 +631,7 @@
                     margin: 0 0.45rem;
                     &.cart {
                         &::after {
-                            font-size: 16px;
+                            font-size: 15px;
                             transform: translate(90%, -50%);
                         }
                     }
@@ -625,52 +647,53 @@
     }
     .header-video-container {
         video {
-            height: 80vh;
+            height: 100dvh;
         }
         .header__video__text {
             top: 55%;
-            h2 {
-                font-size: 3.6rem;
-                font-weight: 700;
-                line-height: calc(3.6rem * 1.075);
-                letter-spacing: 2px;
-                word-spacing: 4px;
-                margin: 0 auto;
+            left: 0%;
+            h3 {
+                font-size: 4.5rem;
+                letter-spacing: -1.5px;
+                //text-align: center;
+                padding-left: 2.5%;
             }
-            p {
-                font-size: 1.8rem;
-                word-spacing: 4px;
-                letter-spacing: 0.5px;
+            .intro {
+                padding: 5rem 2.5% 0;
+                width: 100%;
+                text-align: justify;
             }
-            button {
-                margin-top: 3.5rem;
-                font-size: 1.25rem;
-            }
+        }
+        .logo p {
+            display: none;
         }
     }
     #mailing__modal {
-        width: 100%;
-        height: 75%;
+        width: 95%;
+        height: 55%;
         flex-direction: column;
         .modal_image-wrapper {
             display: none;
         }
         .modal_info-wrapper {
-            width: 95%;
+            width: 97.5%;
             .modal_heading {
                 font-size: 1.55rem;
                 letter-spacing: -0.25px;
             }
             .modal_description {
-                width: 98%;
+                width: 97.5%;
                 font-size: 17px;
                 line-height: calc(17px * 1.3);
             }
             form label {
                 #modalInput,
-                .modalButton,
+                .modalButton {
+                    width: 92.5%;
+                }
                 .modal_rules {
-                    width: 90%;
+                    width: 85%;
+                    text-align: justify;
                 }
             }
             .modal__icons {

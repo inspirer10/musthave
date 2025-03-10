@@ -134,64 +134,67 @@ footer {
     }
 }
 
-//! BREAKPOINT: 1440px
+//! BREAKPOINT: 1500px
 @media screen and (max-width: 1500px) {
     footer .footer_content-container .footer_content-wrapper .footer__links {
         width: 80%;
-        /*  ul {
-            p {
-                font-size: 18px;
-            }
-            li {
-                font-size: 16px;
-            }
-        }*/
+    }
+}
+
+//! BREAKPOINT: 1440px
+@media screen and (max-width: 1450px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links {
+        width: 82.5%;
     }
 }
 
 //! BREAKPOINT: 1366px
 @media screen and (max-width: 1370px) {
     footer .footer_content-container .footer_content-wrapper .footer__links {
-        width: 85%;
-        /*  ul {
-            p {
-                font-size: 18px;
-            }
-            li {
-                font-size: 16px;
-            }
-        }*/
+        width: 87.5%;
     }
 }
 
 //! BREAKPOINT: 1280px
 @media screen and (max-width: 1285px) {
     footer .footer_content-container .footer_content-wrapper .footer__links {
-        width: 87.5%;
-        /*  ul {
-            p {
-                font-size: 18px;
-            }
-            li {
-                font-size: 16px;
-            }
-        }*/
+        width: 90%;
     }
 }
 
 //* iPhone 15 Pro Max
 @media screen and (max-width: 450px) {
     footer .footer_content-container .footer_content-wrapper .footer__links {
-        width: 98%;
-        ul {
+        width: 99%;
+        flex-wrap: wrap;
+        border-bottom-color: rgb(75, 75, 75);
+        .wrapper {
+            width: 33%;
             align-items: center;
             p {
-                font-size: 12px;
-                letter-spacing: -0.4px;
-                margin-bottom: 1.25rem;
+                font-size: 18px;
+                letter-spacing: 0;
+                margin-bottom: 0.5rem;
             }
             li {
-                font-size: 11px;
+                font-size: 15px;
+                font-weight: 400;
+                margin: 1px 0;
+                letter-spacing: -0.4px;
+                white-space: nowrap;
+            }
+            &:nth-of-type(4) {
+                width: 100%;
+                margin-top: 1.5rem;
+                align-items: center;
+            }
+            .social_icons {
+                gap: 1.5rem;
+                margin-top: 6px;
+                .icon {
+                    font-size: 24px;
+                    margin-right: 0;
+                }
             }
         }
     }

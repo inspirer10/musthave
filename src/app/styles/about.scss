@@ -503,6 +503,7 @@
     }
 }
 
+//? BREAKPOINT: 1366px
 @media screen and (max-width: 1370px) {
     .aboutCompany__container .aboutCompany__item__image {
         width: 42.5%;
@@ -514,16 +515,40 @@
             margin: 1rem auto 0.5rem;
         }
     }
-    .goals_section .goals_content .goals_accordion .accordion-item .content-reveal .description {
-        font-size: 16px;
+    .aboutCompany__container article .aboutCompany__description p {
+        font-size: 18px;
+        line-height: 1.5rem;
+    }
+    .aboutCompany__container .aboutCompany__item__image .button {
+        width: 32.5%;
+    }
+    .goals_section {
+        width: 85%;
+        .images_wrapper {
+            width: 42.5%;
+        }
+        .goals_content .goals_accordion .accordion-item .content-reveal .description {
+            font-size: 16px;
+        }
+    }
+    .quoteSection .quote {
+        width: 75%;
     }
 }
 
+//? BREAKPOINT: 1280px x 720
 @media screen and (max-width: 1285px) {
+    .aboutCompany__container .aboutCompany__item__image p {
+        width: 95%;
+    }
+    .aboutCompany__container .aboutCompany__item__image .button {
+        width: 34%;
+    }
     .goals_section {
         width: 87.5%;
         .images_wrapper img {
-            width: 75%;
+            width: 80%;
+            height: 80vh;
         }
     }
 }
@@ -572,16 +597,17 @@
         margin-bottom: 0;
         .video-container {
             video {
-                height: 42.5vh;
+                height: 40vh;
             }
             .video-text {
-                font-size: 3.3rem;
+                font-size: 17.5vw;
+                letter-spacing: 0;
             }
         }
         .aboutCompany__container {
             width: 95%;
             flex-direction: column;
-            padding-bottom: 5vh;
+            padding-bottom: 0vh;
             article {
                 width: 100%;
                 .aboutCompany__description {
@@ -590,19 +616,21 @@
                         font-size: 3.75rem;
                         font-weight: 700;
                         text-align: center;
-                        letter-spacing: -1.5px;
-                        margin-top: 1.25rem;
+                        letter-spacing: -1px;
+                        margin-top: 1.5rem;
+                        margin-bottom: 2rem;
                     }
                     p {
-                        font-size: 18px;
-                        line-height: calc(18px *1.35);
+                        font-size: 16px;
+                        line-height: calc(16px * 1.35);
                         span {
-                            font-size: calc(1.25rem + 2px);
+                            font-size: 18px;
                         }
                     }
                 }
                 .view_more {
                     justify-content: center;
+                    margin: 2rem auto 0;
                     a {
                         font-size: 18px;
                     }
@@ -610,37 +638,42 @@
             }
             .aboutCompany__item__image {
                 width: 100%;
-                height: 67.5vh;
+                height: 60vh;
                 margin-top: 5vh;
                 h3 {
                     margin-top: 0.75rem;
-                    font-size: 1.5rem;
+                    font-size: 1.75rem;
                 }
                 p {
-                    font-size: 12px;
-                    width: 92.5%;
+                    font-size: 13px;
+                    width: 95%;
                 }
                 button {
+                    width: 40%;
                     font-size: 12px;
-                    padding: 0.7rem 1rem;
                     margin: 0.5rem auto 0.2rem;
                 }
             }
         }
     }
+    .goals_section {
+        margin: 7.5vh auto;
+    }
     .quoteSection {
         padding: 5vh 0;
         margin: 5vh auto;
         .quote {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 500;
             width: 99%;
             text-wrap: balance;
+            line-height: 1.22;
+            letter-spacing: -0.2px;
         }
         .author {
-            font-size: 1.45rem;
-            font-weight: 300;
-            margin: 2.25rem auto 0;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2rem auto 0;
         }
     }
 }

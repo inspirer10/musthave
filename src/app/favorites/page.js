@@ -1,20 +1,19 @@
 'use client';
 
 import { useEffect } from 'react';
-import ShoesSubpage from '../Components/ShoesSubpage';
+import FavoritesSubpage from '../Components/FavoritesSubpage';
 
 import '../styles/header.scss';
-import '../styles/productCategory.scss';
 import '../styles/footer.scss';
 
-export default function Shoes() {
+export default function Favorites() {
     useEffect(() => {
-        document.title = `MUSTHAVE | Shoes`;
+        document.title = `MUSTHAVE | Favorite products`;
     }, []);
 
     return (
         <>
-            <ShoesSubpage />
+            <FavoritesSubpage />
         </>
     );
 }

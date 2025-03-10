@@ -6,7 +6,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #fff;
+    background-color: rgb(250, 250, 250);
     overflow-y: auto;
     z-index: 999999;
     pointer-events: auto;
@@ -348,6 +348,7 @@
     border-bottom: 2px solid #fff;
 }
 
+//! BREAKPOINT: 1440px
 @media (max-width: 1550px) {
     .bag {
         width: 60%;
@@ -357,6 +358,26 @@
 @media (max-width: 1400px) {
     .bag {
         width: 65%;
+    }
+}
+
+//! BREAKPOINT: 1366px
+@media screen and (max-width: 1370px) {
+    .bag .bag__checkout button {
+        min-width: 35%;
+        .price {
+            font-size: 18px;
+        }
+        span {
+            font-size: 18px;
+        }
+    }
+}
+
+//? BREAKPOINT: 1280px x 720
+@media screen and (max-width: 1285px) {
+    .bag {
+        width: 70%;
     }
 }
 
@@ -394,7 +415,7 @@
         display: none;
     }
     #close__icon {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -412,7 +433,28 @@
         }
         .bag__products .product-name .remove_product-icon {
             font-size: 14px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.25px;
+        }
+    }
+}
+
+//* iPhone 15 Pro Max
+@media (max-width: 450px) {
+    .bag {
+        .bag__products {
+            padding: 0.75rem 0;
+            .product-name .product_link {
+                font-size: 20px;
+            }
+            li {
+                font-size: 18px;
+            }
+            &.categories-top-bar li {
+                font-size: 15px;
+            }
+        }
+        .bag__checkout button {
+            min-width: 62.5%;
         }
     }
 }

@@ -460,6 +460,7 @@ function ProductPage({
                                 width={325}
                                 onClick={() => setActiveImg(image2)}
                                 alt='product photo_2'
+                                loading='lazy'
                             />
                             {image3 && (
                                 <Image
@@ -473,6 +474,7 @@ function ProductPage({
                                     width={325}
                                     onClick={() => setActiveImg(image3)}
                                     alt='product photo_3'
+                                    loading='lazy'
                                 />
                             )}
                             {image4 && (
@@ -487,6 +489,7 @@ function ProductPage({
                                     width={325}
                                     onClick={() => setActiveImg(image4)}
                                     alt='product photo_4'
+                                    loading='lazy'
                                 />
                             )}
                             {image5 && (
@@ -501,6 +504,7 @@ function ProductPage({
                                     width={325}
                                     onClick={() => setActiveImg(image5)}
                                     alt='product photo_5'
+                                    loading='lazy'
                                 />
                             )}
                         </div>

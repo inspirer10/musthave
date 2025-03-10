@@ -271,7 +271,7 @@
     }
 }
 
-//! BREAKPOINT: 1566px
+//! BREAKPOINT: 1536px
 @media screen and (max-width: 1600px) {
     .summer__section {
         width: 92.5%;
@@ -311,7 +311,6 @@
                     padding-left: 1.25rem;
                     .slogan {
                         font-size: 19px;
-                        letter-spacing: -0.2px;
                     }
                 }
             }
@@ -319,6 +318,29 @@
     }
     .parallax-section .img-container {
         //  top: 5vh;
+    }
+}
+
+//! BREAKPOINT: 1366px
+@media screen and (max-width: 1370px) {
+    .summer__section .summer__left__section h2 {
+        font-size: 4.75rem;
+        line-height: 4.5rem;
+        letter-spacing: -3.25px;
+    }
+    .summer__section .summer__left__section p {
+        font-size: 1.5rem;
+    }
+    .summer__section .summer__left__section button {
+        font-size: 17px;
+        padding: 1rem 3rem;
+    }
+    .summer__section .summer__right__section .product__tile {
+        height: 72.5vh;
+        height: 75vh;
+    }
+    .summer__section .summer__right__section .product__tile .glass__box {
+        padding-left: 18px;
     }
 }
 
@@ -354,16 +376,20 @@
             .product__tile {
                 margin: 1rem auto;
                 width: 92.5%;
-                height: 55vh;
+                height: 60vh;
                 .glass__box {
-                    height: 32.5%;
+                    height: 25%;
                     align-items: center;
                     padding-left: 0;
+                    .company-name {
+                        font-size: 15px;
+                        opacity: 0.75;
+                    }
                 }
             }
         }
     }
-    .fixed__image {
+    .parallax-section {
         display: none;
     }
 }
