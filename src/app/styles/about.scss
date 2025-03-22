@@ -677,3 +677,30 @@
         }
     }
 }
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    .aboutCompany .aboutCompany__container article .aboutCompany__description p {
+        font-size: 15px;
+        line-height: calc(15px * 1.4);
+    }
+    .aboutCompany .aboutCompany__container .aboutCompany__item__image button {
+        width: 42.5%
+    }
+    .goals_section {
+        width: 95%;
+        .goals_content {
+            h2 {
+                font-size: 2.5rem;
+                letter-spacing: -0.75px;
+            }
+            .goals_accordion .accordion-item {
+                padding: 1.2rem 14px;
+                .content-reveal .description {
+                    font-size: 13px;
+                    line-height: 1.375;
+                }
+            }
+        }
+    }
+}

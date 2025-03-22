@@ -267,7 +267,7 @@
         }
     }
     &:hover {
-        border-color: rgb(75, 75, 75);
+        border-color: rgb(120, 120, 120);
         transform: translateY(-1vh);
         transition: .15s ease-in, transform .28s ease-in;
         .main_image {
@@ -285,9 +285,38 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    margin-top: 5px;
-    padding-left: 12px;
+    margin-top: 2px;
+    padding-left: 10px;
     position: relative;
+    .brand {
+        font-family: "Inter", sans-serif;
+        font-family: "Be Vietnam Pro", sans-serif;
+        //font-family: 'Switzer', sans-serif;
+        color: rgb(175, 175, 175);
+        font-size: 15px;
+        font-weight: 400;
+        margin: 5px 0 0;
+        letter-spacing: -0.5px;
+    }
+    .name {
+        font-family: "Inter", sans-serif;
+        //font-family: 'Switzer', sans-serif;
+        font-size: 1.4rem;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        //word-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin: 6px 0 0;
+    }
+    .price {
+        font-size: 1.4rem;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: rgb(135, 135, 135);
+    }
     .favorite-button {
         position: absolute;
         top: 50%;
@@ -297,30 +326,13 @@
         &:hover {
             .fav-icon {
                 transform: translateY(-2.5px);
-                color: rgb(130, 130, 130);
+                color: rgb(150, 150, 150);
             }
         }
         .fav-icon {
             font-size: 1.5rem;
             transition: .175s ease-in-out;
         }
-    }
-    .name {
-        font-family: "Inter", sans-serif;
-        //font-family: 'Switzer', sans-serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        letter-spacing: -0.75px;
-        word-spacing: 2px;
-        text-transform: uppercase;
-        cursor: pointer;
-        margin: 0.5rem 0 2px;
-    }
-    .price {
-        font-size: 1.4rem;
-        font-weight: 400;
-        letter-spacing: 0px;
-        color: rgb(160, 160, 160);
     }
 }
 
@@ -582,10 +594,18 @@
         }
     }
     .clothing__info {
+        .brand {
+            font-family: "Inter";
+            margin-top: 6px;
+            font-size: 13px;
+            letter-spacing: 0;
+        }
         .name {
-            font-size: 14px;
+            margin-top: 4px;
+            font-size: 15px;
             font-weight: 600;
             word-spacing: 0;
+            letter-spacing: -0.25px;
         }
         .price {
             font-size: 15px;

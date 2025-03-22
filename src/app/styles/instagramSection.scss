@@ -518,21 +518,24 @@
             width: 100%;
             flex-direction: column;
             .top_gallery_item1 {
-                height: 22.5vh;
-                width: 85%;
+                height: 27.5vh;
+                height: 27.5dvh;
+                width: 90%;
                 background: url('/instaGallery2.jpg') 50% 50%;
+                background-size: cover;
             }
             .top_gallery_item2 {
                 display: none;
             }
             .instagramSection__followUs {
-                margin: 2rem 0;
+                margin: 1.25rem 0;
                 h2 {
                     font-size: 2rem;
                     letter-spacing: -0.5px;
                 }
-                button {
-                    margin: 1rem 0;
+                .button {
+                    margin-top: 1.5rem;
+                    width: 62.5%;
                 }
             }
         }
@@ -548,6 +551,35 @@
                 height: auto;
                 aspect-ratio: 1/1;
             }
+        }
+    }
+}
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    .highlightedProduct__container {
+        margin-bottom: 5vh;
+        .highlightedProduct__text {
+            p {
+                font-size: 15px;
+                line-height: calc(15px * 1.4);
+            }
+            .view_product {
+                margin-top: 2.25rem;
+            }
+        }
+        .highlightedProduct__image {
+            height: 62.5vh;
+            margin-bottom: 2.5vh;
+            .button {
+                width: 60%;
+            }
+        }
+    }
+    .instagramSection {
+        margin-top: 10vh;
+        .top__gallery .instagramSection__followUs .button {
+            width: 65%;
         }
     }
 }

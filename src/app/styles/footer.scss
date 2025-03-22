@@ -199,3 +199,14 @@ footer {
         }
     }
 }
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    footer .footer_content-container .footer_content-wrapper .footer__links .wrapper {
+        width: 33.3333%;
+        li {
+            font-size: 14px;
+            letter-spacing: -0.5px;
+        }
+    }
+}

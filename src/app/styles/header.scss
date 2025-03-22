@@ -662,6 +662,7 @@
                 padding: 5rem 2.5% 0;
                 width: 100%;
                 text-align: justify;
+                line-height: 1.425;
             }
         }
         .logo p {
@@ -703,6 +704,24 @@
         }
         .close {
             transform: translate(-15%, 10%);
+        }
+    }
+}
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    .header-video-container .header__video__text .intro {
+        line-height: 1.35;
+    }
+    .navbar .navbar-container {
+        .navbar_menu-wrapper .navbar_menu {
+            font-size: 28px
+        }
+        .navbar_icons-wrapper .fav-icon {
+            font-size: 20px
+        }
+        .navbar_icons-wrapper .fav-icon.cart::after {
+            font-size: 14px
         }
     }
 }

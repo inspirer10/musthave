@@ -75,6 +75,7 @@ function ProductCard({
                 />
             </div>
             <div className='clothing__info'>
+                <p className='brand'>MUSTHAVE</p>
                 <p
                     className='name'
                     onClick={() =>

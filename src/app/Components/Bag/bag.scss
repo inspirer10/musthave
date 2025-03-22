@@ -454,7 +454,17 @@
             }
         }
         .bag__checkout button {
-            min-width: 62.5%;
+            min-width: 65%;
+            height: 3.75rem;
         }
+    }
+}
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    .bag .bag__checkout button {
+        min-width: 72.5%;
+        padding: 14px 1.25rem;
+        height: 3.5rem;
     }
 }

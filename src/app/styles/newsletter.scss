@@ -95,3 +95,28 @@
         }
     }
 }
+
+//* iPhone 15 Pro
+@media screen and (max-width: 400px) {
+    .newsletter {
+        h2 {
+            font-size: 4rem;
+        }
+        p {
+            line-height: 1.3;
+            font-size: 20px;
+        }
+        form {
+            #newsletterInput {
+                min-width: 250px;
+                border-top-left-radius: 12px;
+                border-bottom-left-radius: 12px;
+            }
+            #submitButton {
+                padding: 1rem 14px;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+        }
+    }
+}
