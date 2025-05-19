@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'motion/react';
 import Image from 'next/image';
 
 function SummerCollection() {
@@ -29,24 +29,7 @@ function SummerCollection() {
 
         // Clean up the interval on component unmount
         return () => clearInterval(interval);
-    }, [dressImages.length]);
-
-    const fadeInAnimation = {
-        initial: {
-            opacity: 0,
-            y: 100,
-        },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: 0.1,
-                type: 'spring',
-                damping: 40,
-                stiffness: 100,
-            },
-        },
-    };
+    }, []);
 
     const container = useRef();
     const { scrollYProgress } = useScroll({
@@ -81,24 +64,43 @@ function SummerCollection() {
             <section className='summer__section'>
                 <article className='summer__left__section'>
                     <motion.h2
-                        variants={fadeInAnimation}
-                        initial='initial'
-                        whileInView='animate'
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeIn' }}
+                        viewport={{ once: true }}
                     >
                         THE <br /> SUMMER <br /> COLLECTION
                     </motion.h2>
                     <motion.p
-                        variants={fadeInAnimation}
-                        initial='initial'
-                        whileInView='animate'
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeIn' }}
+                        viewport={{ once: true }}
                     >
                         Limited release available now
                     </motion.p>
                     <motion.button
                         onClick={() => (document.location.href = '/items')}
-                        variants={fadeInAnimation}
-                        initial='initial'
-                        whileInView='animate'
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeIn' }}
+                        viewport={{ once: true }}
+                        whileHover={{
+                            color: '#000',
+                            backgroundColor: 'rgb(215, 215, 215)',
+                            transition: {
+                                duration: 0.225,
+                                ease: [0.43, 0.13, 0.23, 0.96],
+                            },
+                        }}
+                        animate={{
+                            backgroundColor: '#000',
+                            color: '#FFF',
+                            transition: {
+                                duration: 0.225,
+                                ease: [0.43, 0.13, 0.23, 0.96],
+                            },
+                        }}
                     >
                         Visit the shop
                     </motion.button>
@@ -116,6 +118,7 @@ function SummerCollection() {
                                     '/product/black/DRESS')
                             }
                         ></div>
+
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>
                             <h5
@@ -140,6 +143,7 @@ function SummerCollection() {
                                 (document.location.href = `/product/black/GOT%20T-SHIRT`)
                             }
                         ></div>
+
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>
                             <h5

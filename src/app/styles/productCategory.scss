@@ -220,18 +220,18 @@
 
 .clothing__single__item {
     //box-shadow: 0px 1px 4px rgb(200, 200, 200);
-    width: calc(92.5% / 3);
+    width: calc(95% / 3);
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 7.5vh;
+    margin-bottom: 2.5rem;
     user-select: none;
     border: 1px solid rgb(225, 225, 225);
     border-bottom: 1px solid rgb(190, 190, 190);
     border-radius: 12px;
     padding-bottom: 12px;
-    transition: .15s ease-out, transform .175s ease-out;
     position: relative;
+    transition: .15s ease-out, transform .175s ease-out;
     .image__container {
         height: 62vh;
         .main_image {
@@ -267,7 +267,7 @@
         }
     }
     &:hover {
-        border-color: rgb(120, 120, 120);
+        border-color: rgb(150, 150, 150);
         transform: translateY(-1vh);
         transition: .15s ease-in, transform .28s ease-in;
         .main_image {
@@ -595,7 +595,7 @@
     }
     .clothing__info {
         .brand {
-            font-family: "Inter";
+            font-family: "Inter", sans-serif;
             margin-top: 6px;
             font-size: 13px;
             letter-spacing: 0;

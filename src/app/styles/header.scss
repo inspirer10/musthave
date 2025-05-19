@@ -85,12 +85,13 @@
             align-items: baseline;
             flex-direction: row;
             .logo {
-                font-family: 'Switzer', sans-serif;
+                //font-family: 'Barlow', sans-serif;
+                font-family: 'Manrope', sans-serif;
                 font-size: 2.25rem;
-                font-weight: 600;
-                letter-spacing: 1.25px;
+                font-weight: 700;
+                letter-spacing: 1px;
                 color: #fff;
-                margin-right: 4.5rem;
+                margin-right: 5rem;
                 transition: .25s ease-in-out;
                 cursor: pointer;
                 user-select: none;
@@ -102,19 +103,24 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                gap: 2.5rem;
                 .navbar-link {
                     font-family: 'Switzer', sans-serif;
+                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Geist', sans-serif;
+                    font-family: 'Urbanist', sans-serif;
+                    font-family: 'Onest', sans-serif;
+                    font-family: 'Outfit', sans-serif;
                     font-size: 16px;
                     font-weight: 400;
                     letter-spacing: 0.25px;
-                    color: rgb(210, 210, 210);
-                    margin: 0 1.5rem;
+                    color: rgb(200, 200, 200);
                     display: flex;
                     position: relative;
                     list-style: none;
                     user-select: none;
                     cursor: pointer;
-                    transition: 0.275s ease-in-out;
+                    transition: 0.3s ease;
                     &::after {
                         content: '';
                         position: absolute;
@@ -125,21 +131,21 @@
                         background-color: #fff;
                         transform: scaleX(0);
                         transform-origin: right;
-                        transition: transform 0.275s ease-in-out;
+                        transition: transform 0.275s ease;
                     }
                     &:hover {
                         color: #fff;
                         &::after {
                             transform: scaleX(1);
                             transform-origin: left;
-                            transition: transform 0.4s ease-in-out;
+                            transition: transform 0.325s ease-in;
                         }
                     }
                 }
             }
             .navbar_links-wrapper:has(.navbar-link:hover) .navbar-link:not(:hover) {
                 filter: blur(2px);
-                transition: 0.125s;
+                transition: 0.2s ease-in-out;
             }
         }
         .navbar_icons-wrapper {
@@ -148,19 +154,23 @@
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
+            gap: 2rem;
             .fav-icon {
                 font-size: 22px;
-                margin: 0 1rem;
                 color: #fff;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: color .175s ease-in-out, transform .2s ease;
+                transition: color .2s ease, transform .25s ease;
                 cursor: pointer;
                 &.cart {
                     position: relative;
                     &::after {
                         content: attr(cart-length);
+                        font-family: "Be Vietnam Pro", sans-serif;
+                        font-family: 'Geist', sans-serif;
+                        font-size: 17px;
+                        font-weight: 500;
                         position: absolute;
                         top: 0;
                         right: 0;
@@ -170,9 +180,6 @@
                         align-items: center;
                         justify-content: center;
                         text-align: center;
-                        font-family: "Be Vietnam Pro", sans-serif;
-                        font-size: 17px;
-                        font-weight: 500;
                         color: #fff;
                         transition: .2s ease;
                     }
@@ -183,7 +190,7 @@
                     }
                 }
                 &:hover {
-                    color: rgb(150, 150, 150);
+                    color: rgb(165, 165, 165);
                     transform: translateY(-2px);
                 }
             }
@@ -228,9 +235,15 @@
         text-align: left;
         user-select: none;
         h3 {
+            //font-family: 'Barlow', sans-serif;
+            font-family: "Switzer", sans-serif;
+            font-family: 'Manrope', sans-serif;
+            font-family: 'Geist', sans-serif;
+            font-family: 'Onest', sans-serif;
+            //font-family: 'Outfit', sans-serif;
             font-size: 6.5rem;
-            letter-spacing: -4.5px;
             font-weight: 400;
+            letter-spacing: -4px;
             line-height: 6rem;
             line-height: 0.875;
             color: rgb(70, 70, 70);
@@ -248,16 +261,19 @@
             }
         }
         .intro {
+            font-family: 'Geist', sans-serif;
+            //font-family: 'Onest', sans-serif;
+            //font-family: 'Outfit', sans-serif;
             padding-top: 5rem;
-            width: 32.5%;
+            width: 35%;
             color: rgb(125, 125, 125);
             text-wrap: balance;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 400;
-            letter-spacing: 0.25px;
+            letter-spacing: 0px;
             line-height: 1.45;
             span {
-                font-weight: 300;
+                font-weight: 400;
                 color: #FFF;
             }
         }
@@ -270,13 +286,14 @@
         transform: translate(-50%, -100%);
         z-index: 25;
         p {
-            font-family: "Exo 2", sans-serif;
+            //font-family: "Exo 2", sans-serif;
+            font-family: 'Geist', sans-serif;
             color: rgb(225, 225, 225);
             font-size: 15px;
             font-weight: 300;
             padding-bottom: 5px;
-            word-spacing: 2px;
-            letter-spacing: -0.2px;
+            word-spacing: 1px;
+            letter-spacing: -0.1px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid rgb(85, 85, 85);

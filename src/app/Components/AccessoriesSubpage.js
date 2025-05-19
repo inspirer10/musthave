@@ -248,6 +248,7 @@ function AccessoriesSubpage() {
                                     image2={image2}
                                     link={link}
                                     isFavorite={isFavorite}
+                                    key={productId + productName}
                                 />
                             )
                         )}

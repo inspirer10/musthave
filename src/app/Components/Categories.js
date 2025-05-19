@@ -12,6 +12,7 @@ function Categories() {
                         src='/image.jpg'
                         fill
                         loading='lazy'
+                        alt='category_thumbnail'
                     />
                     <div className='item__payload'>
                         <p>Clothing</p>
@@ -31,6 +32,7 @@ function Categories() {
                         src='/image3.jpg'
                         fill
                         loading='lazy'
+                        alt='category_thumbnail'
                     />
 
                     <div className='item__payload'>
@@ -51,6 +53,7 @@ function Categories() {
                         src='/image2.jpg'
                         fill
                         loading='lazy'
+                        alt='category_thumbnail'
                     />
                     <div className='item__payload'>
                         <p>Shoes</p>

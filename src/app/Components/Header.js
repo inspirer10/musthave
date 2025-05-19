@@ -42,8 +42,9 @@ function Header() {
         animate: (index) => ({
             opacity: 1,
             transition: {
-                //duration: 0.1,
+                duration: 0.25,
                 type: 'inertia',
+                type: 'easeIn',
                 velocity: 100,
                 delay: 3.75 + index * 0.7, //opóźnienie (3.75s) + indywidualne opóźnienie (index * 0.7)
             },
@@ -55,8 +56,9 @@ function Header() {
         animate: () => ({
             opacity: 1,
             transition: {
-                //duration: 0.1,
+                duration: 0.25,
                 type: 'inertia',
+                type: 'easeIn',
                 velocity: 100,
                 delay: 6.5,
             },
@@ -69,13 +71,14 @@ function Header() {
 
             <div className='header-video-container'>
                 <video
-                    playsinline='true'
-                    autoPlay='true'
-                    loop='true'
-                    muted='true'
-                    disablepictureinpicture='true'
+                    playsInline
+                    autoPlay
+                    loop
+                    muted
+                    disablePictureInPicture
                     //preload
-                    controlslist='nodownload nofullscreen noremoteplayback'
+                    controlsList='nodownload nofullscreen noremoteplayback'
+                    aria-label='Video player'
                 >
                     <source src={'/intro.mp4'} type='video/mp4' />
                     Your browser does not support the video tag.
@@ -116,7 +119,7 @@ function Header() {
                     </motion.p>
                 </div>
 
-                <p
+                <div
                     className='scroll_down'
                     onClick={() => (document.location.href = '/items')}
                 >
@@ -124,7 +127,7 @@ function Header() {
                         EXPLORE THE SHOP{' '}
                         <MdKeyboardArrowRight className='icon' />
                     </p>
-                </p>
+                </div>
 
                 <div className='logo'>
                     <p>MUSTHAVE</p>

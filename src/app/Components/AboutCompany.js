@@ -36,12 +36,14 @@ function AboutCompany() {
             <section className='aboutCompany'>
                 <div className='video-container'>
                     <video
-                        playsinline='true'
-                        autoPlay='true'
-                        loop='true'
-                        muted='true'
-                        disablepictureinpicture='true'
-                        controlslist='nodownload nofullscreen noremoteplayback'
+                        playsInline
+                        autoPlay
+                        loop
+                        muted
+                        disablePictureInPicture
+                        //preload
+                        controlsList='nodownload nofullscreen noremoteplayback'
+                        aria-label='Video player'
                     >
                         <source src={'/musthave2.mp4'} type='video/mp4' />
                         Your browser does not support the video tag.
@@ -80,6 +82,7 @@ function AboutCompany() {
                                 src={'/aboutCompany2.jpg'}
                                 height={550}
                                 width={550}
+                                alt='black and white photo of a female model'
                             />
                         </div>
 

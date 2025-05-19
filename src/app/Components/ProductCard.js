@@ -63,7 +63,7 @@ function ProductCard({
                     title={productName}
                     src={image}
                     className='main_image'
-                    alt='product thumbnail'
+                    alt={`${productName} thumbnail`}
                 />
                 <Image
                     height={400}
@@ -71,7 +71,8 @@ function ProductCard({
                     title={productName}
                     src={image2}
                     className='secondary_image'
-                    alt='product thumbnail'
+                    alt={`${productName} alternate view`}
+                    loading='lazy'
                 />
             </div>
             <div className='clothing__info'>

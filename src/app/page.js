@@ -33,10 +33,15 @@ export default function Home() {
 
         requestAnimationFrame(raf);
 
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setIsLoading(false);
-            window.scrollTo(0, 0);
-        }, 3000); //2900
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+            lenis.destroy();
+        };
     }, []);
 
     return (

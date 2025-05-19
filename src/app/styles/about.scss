@@ -15,18 +15,19 @@
             object-position: center;
         }
         .video-text {
-            mix-blend-mode: difference;
             font-family: "Switzer", sans-serif;
+            font-family: 'Geist', sans-serif;
             font-size: 9.5rem;
-            font-size: clamp(5rem, 9vw, 10rem);
+            font-size: clamp(4rem, 9vw, 12.5rem);
             font-weight: 700;
+            mix-blend-mode: difference;
+            color: #fff;
             position: absolute;
             z-index: 10;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             letter-spacing: 6px;
-            color: #fff;
             pointer-events: none;
         }
     }
@@ -40,12 +41,6 @@
     width: 77.5%;
     margin: 0 auto;
     padding-bottom: 10vh;
-    * {
-        &::selection {
-            background-color: #000;
-            color: #fff;
-        }
-    }
     article {
         width: 50%;
         .aboutCompany__description {
@@ -55,20 +50,23 @@
             h2 {
                 font-family: "Be Vietnam Pro", sans-serif;
                 font-family: 'Switzer', sans-serif;
+                font-family: 'Geist', sans-serif;
                 font-size: 6rem;
                 font-weight: 700;
+                letter-spacing: -2px;
                 word-spacing: 7px;
                 margin-bottom: 2.5rem;
             }
             p {
                 font-family: 'Inter', sans-serif;
+                font-family: 'Geist', sans-serif;
                 font-size: 1.25rem;
                 font-weight: 400;
-                line-height: calc(1.25rem * 1.4);
+                line-height: 1.4;
                 text-align: justify;
                 color: rgb(115, 115, 115);
                 span {
-                    font-family: "Lexend Deca", sans-serif;
+                    //font-family: "Lexend Deca", sans-serif;
                     font-size: calc(1.25rem + 1px);
                     font-weight: 600;
                     color: #000;
@@ -85,6 +83,7 @@
                 a {
                     font-family: "Be Vietnam Pro", sans-serif;
                     font-family: 'Switzer', sans-serif;
+                    font-family: 'Geist', sans-serif;
                     font-size: 1.25rem;
                     font-weight: 500;
                     color: #000;
@@ -145,6 +144,7 @@
         }
         h3 {
             font-family: "Raleway", sans-serif;
+            font-family: 'Geist', sans-serif;
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 0.5px;
@@ -157,7 +157,8 @@
         }
         p {
             font-family: "Inter", sans-serif;
-            font-size: 15px;
+            font-family: 'Geist', sans-serif;
+            font-size: 16px;
             font-weight: 300;
             line-height: 1.3;
             width: 80%;
@@ -183,6 +184,7 @@
             width: 27.5%;
             .text {
                 font-family: "Be Vietnam Pro", sans-serif;
+                font-family: 'Geist', sans-serif;
                 font-size: 16px;
                 font-weight: 300;
                 color: #fff;
@@ -219,18 +221,12 @@
 }
 
 .goals_section {
-    width: 70%;
+    width: 75%;
     margin: 15vh auto 20vh;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
-    * {
-        &::selection {
-            background-color: #000;
-            color: #fff;
-        }
-    }
     .goals_content {
         margin-top: 2.5vh;
         display: flex;
@@ -238,8 +234,9 @@
         width: 50%;
         h2 {
             font-family: 'Switzer', sans-serif;
-            //font-family: 'Inter';
-            font-size: 2.75rem;
+            font-family: 'Geist', sans-serif;
+            font-family: 'Barlow', sans-serif;
+            font-size: 3rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             word-spacing: 4px;
@@ -290,13 +287,15 @@
                     margin-bottom: 0rem;
                     h3 {
                         font-family: "Be Vietnam Pro", sans-serif;
+                        font-family: 'Barlow', sans-serif;
                         font-size: 1.5rem;
                         font-weight: 600;
                     }
                     p {
                         font-family: 'Switzer', sans-serif;
-                        font-size: 14.5px;
-                        opacity: 0.25;
+                        font-family: 'Geist', sans-serif;
+                        font-size: 15px;
+                        opacity: 0.3;
                         user-select: none;
                         letter-spacing: 0.25px;
                     }
@@ -309,17 +308,18 @@
                         overflow: hidden;
                     }
                     .description {
-                        font-family: "Inter", sans-serif;
+                        font-family: "Geist", sans-serif;
                         font-size: 17px;
                         font-weight: 400;
-                        text-wrap: balance;
                         line-height: 1.4;
+                        text-wrap: balance;
                         margin-bottom: 4rem;
                         color: rgb(75, 75, 75);
                         opacity: 0;
                         transition: .2s ease-out;
                     }
                     a {
+                        font-family: "Geist", sans-serif;
                         position: absolute;
                         bottom: 0;
                         left: 0;
@@ -400,15 +400,17 @@
     text-align: center;
     background-color: rgb(220, 220, 220);
     background-image: linear-gradient(to bottom, #d7d7d7, #e0e0e0, #e8e8e8, #f1f1f1, #fff);
-    padding: 7.5vh 0 10vh;
+    padding: 5rem 0 7.5rem;
     margin: 5vh auto;
     //background-image: url('/testimg5.jpg');
     background-position: center;
     background-size: cover;
     .quote {
         font-family: "Urbanist", sans-serif;
-        font-size: 2.4rem;
+        font-family: "Barlow", sans-serif;
+        font-size: 2.75rem;
         font-weight: 600;
+        letter-spacing: -0.25px;
         color: #000;
         width: 60%;
         margin: 0 auto;
@@ -417,17 +419,12 @@
     .author {
         font-family: "Lexend Deca", sans-serif;
         font-family: "Raleway", sans-serif;
-        font-size: 1.5rem;
+        font-family: "Geist", sans-serif;
+        font-size: 1.75rem;
         font-weight: 400;
         color: rgb(150, 150, 150);
-        margin: 3.5rem auto 0;
+        margin: 3.25rem auto 0;
         user-select: none;
-    }
-    * {
-        &::selection {
-            background-color: #000;
-            color: #fff;
-        }
     }
 }
 

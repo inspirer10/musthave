@@ -73,7 +73,7 @@ function Bag() {
                 {itemsInCart.map(
                     ({ photo, name, id, price, size, quantity, link }) => {
                         return (
-                            <ul className='bag__products'>
+                            <ul className='bag__products' key={name + id}>
                                 <li className='product-name-wrapper'>
                                     <Image
                                         className='thumbnail-image'

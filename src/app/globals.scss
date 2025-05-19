@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Deca:wght@100..900&family=Urbanist:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+//@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Deca:wght@100..900&family=Urbanist:wght@100..900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+//@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+//@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&family=Onest:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+//switzer
 @font-face {
     font-family: 'Switzer';
     src: url('/font/Switzer-Bold.otf') format('opentype');
@@ -42,11 +45,22 @@
 }
 
 * {
+    // font-family: 'Exo 2', sans-serif;
+    // font-family: 'Raleway', sans-serif;
+    // font-family: 'Roboto Flex', sans-serif;
+    // font-family: 'Poppins', sans-serif;
+    // font-family: 'Be Vietnam Pro', sans-serif;
+    //! font-family: 'Inter', sans-serif;
+    font-family: 'Geist', sans-serif;
+    //! font-family: 'Switzer', sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     scrollbar-width: thin;
-    font-family: 'Inter', sans-serif;
+    &::selection {
+        background-color: #000;
+        color: #fff;
+    }
 }
 
 html,
@@ -55,18 +69,16 @@ body {
     //overflow-x: hidden;
     background-color: #fff;
     color: #000;
-    scrollbar-color: rgb(150, 150, 150) white;
+    scrollbar-color: rgb(125, 125, 125) white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-    font-family: inherit;
-    color: inherit;
-    text-decoration: none;
-}
-
+a,
 span {
     font-family: inherit;
     color: inherit;
+    text-decoration: none;
 }
 
 img,
@@ -140,14 +152,12 @@ li {
         // animation-delay: 2.15s;
         animation-delay: 2.75s;
         &:nth-of-type(2) {
-            color: #FFF;
             color: rgb(135, 135, 135);
             top: 32.5%;
             clip-path: inset(47.5% 0 0 0);
             animation-delay: 2.45s; //0.12s
         }
         &:nth-of-type(3) {
-            color: #FFF;
             color: rgb(90, 90, 90);
             top: 44.25%;
             clip-path: inset(60% 0 0 0);

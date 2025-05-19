@@ -545,8 +545,8 @@ function ProductPage({
                     <div className='selector-container'>
                         <div className='size-selector'>
                             <div className='size-selector-label'>
-                                <label for='size'>SIZE:</label>
-                                <p class='size-guide'>
+                                <label htmlFor='size'>SIZE:</label>
+                                <p className='size-guide'>
                                     <FiScissors className='ruler-icon' />
                                     SIZE GUIDE{' '}
                                 </p>
@@ -561,7 +561,9 @@ function ProductPage({
                                         return;
                                     } else setItemQuantity(itemQuantity - 1);
                                 }}
-                                className={itemQuantity === 1 && 'disabled'}
+                                className={
+                                    itemQuantity === 1 ? 'disabled' : null
+                                }
                             >
                                 <FiMinus className='icon' />
                             </button>
@@ -573,7 +575,9 @@ function ProductPage({
                                         return;
                                     } else setItemQuantity(itemQuantity + 1);
                                 }}
-                                className={itemQuantity === 20 && 'disabled'}
+                                className={
+                                    itemQuantity === 20 ? 'disabled' : null
+                                }
                             >
                                 <FiPlus className='icon' />
                             </button>

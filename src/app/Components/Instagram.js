@@ -73,6 +73,7 @@ function Instagram() {
                             src={'/images/blackHoodie2.jpg'}
                             height={650}
                             width={650}
+                            alt='photo of female model sitting on the floor and wearing a hoodie '
                         />
                     </div>
 
