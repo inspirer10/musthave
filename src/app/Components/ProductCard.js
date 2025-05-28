@@ -13,12 +13,12 @@ import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
 
 function ProductCard({
     productName,
-    productPrice,
     productId,
+    productPrice,
     image,
     image2,
-    isFavorite,
     link,
+    isFavorite,
 }) {
     const dispatch = useDispatch();
     // Pobieranie obecnej listy ulubionych
@@ -75,6 +75,7 @@ function ProductCard({
                     loading='lazy'
                 />
             </div>
+
             <div className='clothing__info'>
                 <p className='brand'>MUSTHAVE</p>
                 <p
@@ -86,16 +87,20 @@ function ProductCard({
                     {productId + ' ' + productName}
                 </p>
                 <p className='price'>{productPrice}$</p>
+
                 <div
                     className='favorite-button'
                     onClick={() => {
                         handleFavoriteItem(
                             {
-                                name: productName,
-                                id: uuidv4(),
-                                price: productPrice,
+                                productName: productName,
+                                productPrice: productPrice,
+                                productId: productId,
+                                uniquId: uuidv4(),
+                                image: image,
+                                image2: image2,
                                 link: link,
-                                photo: image,
+                                isFavorite: isFavorite,
                             },
                             image
                         );

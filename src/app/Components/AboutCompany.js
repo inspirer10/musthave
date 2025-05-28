@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
@@ -9,7 +9,7 @@ import { GoArrowRight } from 'react-icons/go';
 
 function AboutCompany() {
     const [active, setActive] = useState(1);
-    const [imageShowUp, setImageShowUp] = useState(false);
+    const [imageShowUp, setImageShowUp] = useState(true);
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -19,14 +19,17 @@ function AboutCompany() {
     const scrollParalax = useTransform(scrollYProgress, [0, 1], [175, -175]);
 
     const handleClick = (num) => {
-        setActive(num);
-
-        if (num !== active) {
-            setImageShowUp(false);
-            setTimeout(() => {
+        if (num === active) return;
+        // First hide the image
+        setImageShowUp(false);
+        // Update active tab with a slight delay to allow for transition
+        setTimeout(() => {
+            setActive(num);
+            // Show new image with animation
+            requestAnimationFrame(() => {
                 setImageShowUp(true);
-            }, 5);
-        }
+            });
+        }, 200);
     };
 
     return (

@@ -15,7 +15,7 @@
             object-position: center;
         }
         .video-text {
-            font-family: "Switzer", sans-serif;
+            //font-family: "Switzer", sans-serif;
             font-family: 'Geist', sans-serif;
             font-size: 9.5rem;
             font-size: clamp(4rem, 9vw, 12.5rem);
@@ -48,9 +48,10 @@
             display: flex;
             flex-direction: column;
             h2 {
-                font-family: "Be Vietnam Pro", sans-serif;
-                font-family: 'Switzer', sans-serif;
-                font-family: 'Geist', sans-serif;
+                //font-family: "Be Vietnam Pro", sans-serif;
+                //font-family: 'Switzer', sans-serif;
+                //font-family: 'Geist', sans-serif;
+                font-family: 'Onest', sans-serif;
                 font-size: 6rem;
                 font-weight: 700;
                 letter-spacing: -2px;
@@ -58,13 +59,12 @@
                 margin-bottom: 2.5rem;
             }
             p {
-                font-family: 'Inter', sans-serif;
-                font-family: 'Geist', sans-serif;
+                //font-family: 'Inter', sans-serif;
+                font-family: "Geist", sans-serif;
                 font-size: 1.25rem;
-                font-weight: 400;
                 line-height: 1.4;
+                color: rgb(125, 125, 125);
                 text-align: justify;
-                color: rgb(115, 115, 115);
                 span {
                     //font-family: "Lexend Deca", sans-serif;
                     font-size: calc(1.25rem + 1px);
@@ -81,8 +81,8 @@
                 margin-top: 3.5rem;
                 width: fit-content;
                 a {
-                    font-family: "Be Vietnam Pro", sans-serif;
-                    font-family: 'Switzer', sans-serif;
+                    //font-family: "Be Vietnam Pro", sans-serif;
+                    //font-family: 'Switzer', sans-serif;
                     font-family: 'Geist', sans-serif;
                     font-size: 1.25rem;
                     font-weight: 500;
@@ -90,15 +90,19 @@
                     border-bottom: 2px solid #000;
                     text-decoration: none;
                     word-spacing: 2px;
+                    transition: .3s ease;
                 }
                 .icon {
-                    margin-left: 0.6rem;
-                    transition: .225s ease;
+                    margin-left: 10px;
+                    transition: .3s ease;
                     color: rgb(150, 150, 150);
                 }
                 &:hover {
+                    a {
+                        border-color: rgb(150, 150, 150);
+                    }
                     .icon {
-                        transform: translateX(42.5%);
+                        transform: translateX(45%);
                         color: #000;
                     }
                 }
@@ -143,8 +147,9 @@
             }
         }
         h3 {
-            font-family: "Raleway", sans-serif;
-            font-family: 'Geist', sans-serif;
+            //font-family: "Raleway", sans-serif;
+            //font-family: 'Geist', sans-serif;
+            font-family: 'Onest', sans-serif;
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 0.5px;
@@ -156,7 +161,7 @@
             }
         }
         p {
-            font-family: "Inter", sans-serif;
+            //font-family: "Inter", sans-serif;
             font-family: 'Geist', sans-serif;
             font-size: 16px;
             font-weight: 300;
@@ -183,12 +188,11 @@
             transition: 0.225s ease-in-out;
             width: 27.5%;
             .text {
-                font-family: "Be Vietnam Pro", sans-serif;
+                //font-family: "Be Vietnam Pro", sans-serif;
                 font-family: 'Geist', sans-serif;
                 font-size: 16px;
                 font-weight: 300;
                 color: #fff;
-                line-height: 1;
                 margin: 0;
                 width: auto;
             }
@@ -233,8 +237,8 @@
         flex-direction: column;
         width: 50%;
         h2 {
-            font-family: 'Switzer', sans-serif;
-            font-family: 'Geist', sans-serif;
+            //font-family: 'Switzer', sans-serif;
+            //font-family: 'Geist', sans-serif;
             font-family: 'Barlow', sans-serif;
             font-size: 3rem;
             font-weight: 700;
@@ -253,46 +257,24 @@
                 width: 100%;
                 position: relative;
                 margin-bottom: 1.5rem;
-                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25) inset;
+                box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25) inset;
                 cursor: pointer;
-                transition: .1s ease-in-out;
-                &:hover {
-                    border-color: rgb(170, 170, 170);
-                }
-                &.active {
-                    border-color: #000;
-                    transition: .35s;
-                    cursor: auto;
-                    .heading_bar {
-                        margin-bottom: 1.5rem;
-                    }
-                    .content-reveal {
-                        grid-template-rows: 1fr;
-                        transition: .45s cubic-bezier(.4, 0, .2, 1);
-                        .description {
-                            opacity: 1;
-                            transition: .425s cubic-bezier(.4, 0, .2, 1);
-                        }
-                        a {
-                            opacity: 1;
-                            visibility: visible;
-                            transition: .425s cubic-bezier(.4, 0, .2, 1);
-                        }
-                    }
-                }
+                will-change: transform;
+                transition: border-color 0.2s ease-out;
                 .heading_bar {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     margin-bottom: 0rem;
                     h3 {
-                        font-family: "Be Vietnam Pro", sans-serif;
-                        font-family: 'Barlow', sans-serif;
+                        // font-family: "Be Vietnam Pro", sans-serif;
+                        //font-family: 'Barlow', sans-serif;
+                        font-family: 'Onest', sans-serif;
                         font-size: 1.5rem;
                         font-weight: 600;
                     }
                     p {
-                        font-family: 'Switzer', sans-serif;
+                        // font-family: 'Switzer', sans-serif;
                         font-family: 'Geist', sans-serif;
                         font-size: 15px;
                         opacity: 0.3;
@@ -303,7 +285,8 @@
                 .content-reveal {
                     display: grid;
                     grid-template-rows: 0fr;
-                    transition: .2s ease-out;
+                    will-change: grid-template-rows;
+                    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     &>div {
                         overflow: hidden;
                     }
@@ -315,20 +298,24 @@
                         text-wrap: balance;
                         margin-bottom: 4rem;
                         color: rgb(75, 75, 75);
+                        transform: translateY(10px);
                         opacity: 0;
-                        transition: .2s ease-out;
+                        will-change: transform, opacity;
+                        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     }
                     a {
-                        font-family: "Geist", sans-serif;
+                        //background-image: linear-gradient(90deg, rgb(255, 255, 255), black 72.5%);
+                        // font-family: "Geist", sans-serif;
+                        font-family: 'Onest', sans-serif;
+                        font-size: 15px;
+                        line-height: 1;
                         position: absolute;
                         bottom: 0;
                         left: 0;
                         background-color: #000;
-                        //background-image: linear-gradient(90deg, rgb(255, 255, 255), black 72.5%);
                         color: #fff;
                         width: 100%;
-                        padding: 0.75rem;
-                        font-size: 15px;
+                        padding: 14px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                         display: flex;
@@ -336,22 +323,44 @@
                         justify-content: center;
                         visibility: hidden;
                         opacity: 0;
-                        transition: .2s ease-out;
-                        &.lime {
-                            // background-image: linear-gradient(90deg, rgb(134, 235, 134), black 90%);
-                        }
-                        &.craft {
-                            //background-image: linear-gradient(90deg, darkblue, black 90%);
-                        }
+                        will-change: transform, opacity, visibility;
+                        transform: translateY(5px);
+                        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                         .arrow-icon {
-                            margin-left: 0.25rem;
                             font-size: 15px;
-                            transition: .2s ease-in-out .1s;
+                            margin-left: 0.25rem;
+                            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                         }
                         &:hover {
                             .arrow-icon {
                                 transform: translateX(5px);
                             }
+                        }
+                    }
+                }
+                &:hover {
+                    border-color: rgb(170, 170, 170);
+                    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                &.active {
+                    border-color: #000;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    cursor: auto;
+                    .heading_bar {
+                        margin-bottom: 1.5rem;
+                        transition: margin 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                    }
+                    .content-reveal {
+                        grid-template-rows: 1fr;
+                        .description {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                        a {
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translateY(0);
                         }
                     }
                 }
@@ -365,33 +374,19 @@
             width: 75%;
             display: flex;
             margin: 0 auto;
-            border-radius: 30px;
+            border-radius: 28px;
             object-fit: cover;
             object-position: bottom;
             opacity: 0;
-            animation: initialShow .1s forwards;
+            transform: scale(0.95);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.15);
+            will-change: transform, opacity, box-shadow;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             &.showUp {
-                animation: showOnChange .425s ease-in forwards;
+                opacity: 1;
+                transform: scale(1);
             }
         }
-    }
-}
-
-@keyframes initialShow {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes showOnChange {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }
 
@@ -420,6 +415,7 @@
         font-family: "Lexend Deca", sans-serif;
         font-family: "Raleway", sans-serif;
         font-family: "Geist", sans-serif;
+        font-family: 'Onest', sans-serif;
         font-size: 1.75rem;
         font-weight: 400;
         color: rgb(150, 150, 150);

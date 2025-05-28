@@ -28,8 +28,8 @@ function AccessoriesSubpage() {
 
     return (
         <>
-            <Navbar color={'rgb(120, 120, 120)'}>
-                <label htmlFor='searchItems' className='search__items'>
+            <Navbar color={'rgb(120, 120, 120)'} activeCategory='accessories'>
+                {/*<label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
                         placeholder='SEARCH'
@@ -38,7 +38,7 @@ function AccessoriesSubpage() {
                         onChange={(e) => setSearchItem(e.target.value)}
                         value={searchItem}
                     />
-                </label>
+                </label> */}
             </Navbar>
             <Bag />
 

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar.js';
 import Bag from './Bag/Bag.js';
+import ProductCard from './ProductCard.js';
 import Footer from './Footer.js';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import ProductCard from './ProductCard.js';
 
 function ClothingSubpage() {
     const clothingItems = useSelector(
         (state) => state.allProducts.allProducts[0]
     );
 
-    const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(clothingItems); // sortowanie kolejności produktów
-    const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
-    const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
-    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
+    const [searchItem, setSearchItem] = useState(''); //przechwytuje nazwę szukanego produktu
+    const [data, setData] = useState(clothingItems); //sortowanie kolejności produktów
+    const [sortedOption, setSortedOption] = useState(''); //SORT rerender podstrony
+    const [sortExpanded, setSortExpanded] = useState(true); //price sort - rozwinięte czy nie
+    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwinięte czy nie
 
     /*
     const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -42,8 +42,8 @@ function ClothingSubpage() {
 
     return (
         <>
-            <Navbar color={'rgb(120, 120, 120)'}>
-                {/*  <label htmlFor='searchItems' className='search__items'>
+            <Navbar color={'rgb(120, 120, 120)'} activeCategory='clothing'>
+                {/*<label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
                         placeholder='SEARCH'
@@ -68,6 +68,7 @@ function ClothingSubpage() {
                     <span>/</span>
                     <p className='active-link'>Clothing</p>
                 </div>
+
                 <h2 className='clothing__header'>Clothing</h2>
             </article>
 

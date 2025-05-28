@@ -22,12 +22,6 @@
         backdrop-filter: blur(20px);
         pointer-events: auto;
     }
-    * {
-        &::selection {
-            background-color: #000;
-            color: #fff;
-        }
-    }
     .bag__top__bar {
         display: flex;
         flex-direction: row;
@@ -37,7 +31,9 @@
         //padding: 0 0.75rem;
         margin: 0 auto 3rem;
         h2 {
-            font-family: "Be Vietnam Pro", sans-serif;
+            //font-family: "Be Vietnam Pro", sans-serif;
+            font-family: 'Geist', sans-serif;
+            //font-family: 'Onest', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
         }
@@ -68,7 +64,8 @@
             padding: 0rem 0 0.1rem;
             text-transform: uppercase;
             li {
-                font-family: "Lexend Deca", sans-serif !important;
+                //font-family: "Lexend Deca", sans-serif !important;
+                font-family: 'Onest', sans-serif !important;
                 font-size: 1.25rem;
                 font-weight: 400;
                 letter-spacing: -0.5px;
@@ -103,7 +100,8 @@
             align-items: flex-start;
             flex-direction: column;
             .product_link {
-                font-family: "Lexend Deca", sans-serif;
+                // font-family: "Lexend Deca", sans-serif;
+                font-family: 'Onest', sans-serif;
                 font-size: 21px;
                 font-weight: 600 !important;
                 letter-spacing: -0.5px;
@@ -111,9 +109,10 @@
                 transition: .2s ease-in;
             }
             .remove_product-icon {
-                font-family: "Lexend Deca", sans-serif;
+                //font-family: "Lexend Deca", sans-serif;
+                font-family: 'Barlow', sans-serif;
                 font-size: 15px;
-                font-weight: 300 !important;
+                font-weight: 400 !important;
                 letter-spacing: -0.5px;
                 color: rgb(125, 125, 125);
                 padding: 0;
@@ -121,7 +120,7 @@
                 text-transform: uppercase;
                 user-select: none;
                 cursor: pointer;
-                transition: .14s ease-in-out;
+                transition: .175s ease;
                 &:hover {
                     color: #bc0000;
                 }
@@ -141,22 +140,27 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            transition: .125s;
+            transition: .175s ease;
             &:nth-of-type(1) {
                 width: 45%;
                 justify-content: flex-start;
             }
             &:nth-of-type(2) {
+                // font-family: 'Be Vietnam Pro', sans-serif;
+                //font-family: 'Onest', sans-serif;
+                font-family: 'Geist', sans-serif;
                 width: 25%;
                 justify-content: center;
-                font-family: 'Be Vietnam Pro', sans-serif;
             }
             &:nth-of-type(3) {
+                //font-family: 'Inter', sans-serif;
+                //font-family: 'Barlow', sans-serif;
+                font-family: 'Onest', sans-serif;
                 width: 12.5%;
                 justify-content: center;
-                font-family: 'Inter', sans-serif;
             }
             &:nth-of-type(4) {
+                font-family: 'Barlow', sans-serif;
                 width: 17.5%;
                 justify-content: flex-end;
             }
@@ -170,6 +174,7 @@
         align-items: flex-end;
         p {
             font-family: 'Be Vietnam Pro', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-size: 1.25rem;
             font-weight: 500;
             letter-spacing: -0.75px;
@@ -181,6 +186,7 @@
             align-items: center;
             span {
                 font-family: 'Be Vietnam Pro', sans-serif;
+                font-family: 'Geist', sans-serif;
                 font-weight: 600;
                 color: #000;
                 margin-left: 5px;
@@ -207,8 +213,9 @@
                 top: 50%;
                 left: 8%;
                 transform: translate(0%, -50%);
-                font-family: "Lexend Deca", sans-serif;
-                font-family: 'Inter', sans-serif;
+                //font-family: "Lexend Deca", sans-serif;
+                //font-family: 'Inter', sans-serif;
+                font-family: 'Geist', sans-serif;
                 font-size: 20px;
                 font-weight: 400;
                 letter-spacing: 0px;
@@ -223,7 +230,8 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: #fff;
-                font-family: "Urbanist", sans-serif;
+                //font-family: "Urbanist", sans-serif;
+                font-family: 'Onest', sans-serif;
                 font-size: 19px;
                 font-weight: 500;
                 z-index: 10;
@@ -315,8 +323,8 @@
     user-select: none;
     pointer-events: none;
     overflow: hidden;
-    position: fixed; // Zapobiega przewijaniu na urządzeniach mobilnych
-    width: 100%; // Zablokowanie przesunięcia strony
+    position: fixed; //Zapobiega przewijaniu na mobilnych
+    width: 100%; //Zablokowanie przesunięcia strony
 }
 
 #close__icon {

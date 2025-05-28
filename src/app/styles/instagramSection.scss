@@ -43,8 +43,9 @@
             }
         }
         h3 {
-            font-family: "Raleway", sans-serif;
-            font-family: 'Geist', sans-serif;
+            // font-family: "Raleway", sans-serif;
+            // font-family: 'Geist', sans-serif;
+            font-family: 'Onest', sans-serif;
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 0.3px;
@@ -85,7 +86,7 @@
             transition: 0.225s ease-in-out;
             width: 35%;
             .text {
-                font-family: "Be Vietnam Pro", sans-serif;
+                //font-family: "Be Vietnam Pro", sans-serif;
                 font-family: 'Geist', sans-serif;
                 font-size: 16px;
                 font-weight: 300;
@@ -129,19 +130,20 @@
         justify-content: space-between;
         margin-right: 2.5rem;
         h2 {
-            font-family: "Be Vietnam Pro", sans-serif;
-            font-family: 'Switzer', sans-serif;
-            font-family: 'Geist', sans-serif;
+            // font-family: "Be Vietnam Pro", sans-serif;
+            //font-family: 'Switzer', sans-serif;
+            //font-family: 'Geist', sans-serif;
+            font-family: 'Onest', sans-serif;
             font-size: 6rem;
             font-weight: 700;
             margin-bottom: 2.5rem;
         }
         p {
-            font-family: 'Poppins', sans-serif;
+            //font-family: 'Poppins', sans-serif;
             font-family: "Geist", sans-serif;
             font-size: 1.25rem;
-            line-height: calc(1.25rem * 1.4);
-            color: rgb(135, 135, 135);
+            line-height: 1.4;
+            color: rgb(125, 125, 125);
             text-align: justify;
             span {
                 color: #000;
@@ -154,7 +156,7 @@
             align-items: center;
             justify-content: flex-start;
             a {
-                font-family: 'Switzer', sans-serif;
+                //font-family: 'Switzer', sans-serif;
                 font-family: "Geist", sans-serif;
                 font-size: 1.25rem;
                 font-weight: 500;
@@ -163,15 +165,19 @@
                 text-decoration: none;
                 padding-bottom: 1px;
                 word-spacing: 2px;
+                transition: .3s ease;
             }
             .icon {
                 color: rgb(150, 150, 150);
                 margin-left: 0.5rem;
-                font-size: 1.3rem;
-                transition: .225s ease;
+                font-size: 21px;
                 margin-bottom: 0.25rem;
+                transition: .3s ease;
             }
             &:hover {
+                a {
+                    border-color: rgb(150, 150, 150);
+                }
                 .icon {
                     transform: translate(15%, -12.5%);
                     color: #000;
@@ -197,7 +203,7 @@
             flex-direction: column;
             align-items: center;
             h2 {
-                font-family: "Lexend Deca", sans-serif;
+                //font-family: "Lexend Deca", sans-serif;
                 font-family: "Barlow", sans-serif;
                 font-size: 3rem;
                 font-weight: 600;
@@ -212,6 +218,7 @@
                 border-radius: 50px;
                 width: 50%;
                 overflow: hidden;
+                transition: .2s ease;
                 cursor: pointer;
                 .mask {
                     overflow: hidden;
@@ -219,7 +226,7 @@
                     .slider {
                         display: flex;
                         position: relative;
-                        animation: text_slide 3s linear 0s infinite;
+                        animation: text_slide 2.5s linear infinite forwards;
                         transition: top .325s ease;
                         top: 0;
                         p {
@@ -227,7 +234,9 @@
                             margin: 0;
                             text-transform: uppercase;
                             white-space: nowrap;
-                            letter-spacing: -0.2px;
+                            letter-spacing: -0.25px;
+                            letter-spacing: 1px;
+                            word-spacing: 1.5px;
                             &:nth-of-type(2) {
                                 position: absolute;
                                 left: calc(100% + 15px);
@@ -240,7 +249,7 @@
                         left: 50%;
                         transform: translateX(-50%);
                         span {
-                            font-family: "Lexend Deca", sans-serif;
+                            //font-family: "Lexend Deca", sans-serif;
                             font-family: 'Geist', sans-serif;
                             top: 18px;
                             position: relative;
@@ -250,7 +259,6 @@
                     }
                 }
                 &:hover {
-                    background-color: #000;
                     background-color: #00008B;
                     background-color: #0a00c1;
                     .slider {
@@ -258,14 +266,13 @@
                         top: -18px;
                     }
                     .hover-text span {
-                        color: #000;
                         color: #FFF;
                         top: 0;
                     }
                 }
             }
             .instagram-link {
-                font-family: "Lexend Deca", sans-serif;
+                //font-family: "Lexend Deca", sans-serif;
                 font-family: 'Geist', sans-serif;
                 font-size: 18px;
                 font-weight: 500;
@@ -300,7 +307,7 @@
                 width: 100%;
                 height: 100%;
                 opacity: 0;
-                transition: 0.275s ease-in-out;
+                transition: 0.25s ease;
                 &:hover {
                     opacity: 1;
                 }
@@ -310,9 +317,12 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     color: #FFF;
-                    font-size: 2.25rem;
-                    font-size: 38px;
+                    font-size: 2.5rem;
                     cursor: pointer;
+                    transition: .2s ease;
+                    &:hover {
+                        transform: translate(-50%, -57.5%);
+                    }
                 }
             }
         }
@@ -345,7 +355,7 @@
                 width: 100%;
                 height: 100%;
                 opacity: 0;
-                transition: 0.275s ease-in-out;
+                transition: 0.25s ease;
                 &:hover {
                     opacity: 1;
                 }
@@ -355,10 +365,9 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     color: #FFF;
-                    font-size: 2.25rem;
-                    font-size: 38px;
+                    font-size: 2.5rem;
                     cursor: pointer;
-                    transition: .18s ease-in-out;
+                    transition: .2s ease;
                     &:hover {
                         transform: translate(-50%, -57.5%);
                     }

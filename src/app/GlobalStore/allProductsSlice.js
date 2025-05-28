@@ -8,6 +8,7 @@ const initialState = {
         [
             {
                 productName: 'GOT T-SHIRT',
+                //productPrice: '129.00',
                 productPrice: 129,
                 productPopularity: 0,
                 productId: 'black',

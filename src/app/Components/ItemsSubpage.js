@@ -40,7 +40,7 @@ function ItemsSubpage() {
     return (
         <>
             <Navbar color={'rgb(120, 120, 120)'}>
-                <label htmlFor='searchItems' className='search__items'>
+                {/* <label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
                         placeholder='SEARCH'
@@ -49,7 +49,7 @@ function ItemsSubpage() {
                         onChange={(e) => setSearchItem(e.target.value)}
                         value={searchItem}
                     />
-                </label>
+                </label> */}
             </Navbar>
             <Bag />
 

@@ -2,6 +2,25 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'motion/react';
 import Image from 'next/image';
 
+const useImageTransition = (images, interval = 2500) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIsTransitioning(true);
+            setTimeout(() => {
+                setCurrentIndex((prev) => (prev + 1) % images.length);
+                setIsTransitioning(false);
+            }, 250); // Half of the transition duration
+        }, interval);
+
+        return () => clearInterval(timer);
+    }, [images.length, interval]);
+
+    return { currentIndex, isTransitioning };
+};
+
 function SummerCollection() {
     const dressImages = [
         'images/dressBlack1.jpg',
@@ -17,19 +36,18 @@ function SummerCollection() {
         'images/tshirt2.png',
     ];
 
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    //const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    //! change to next image after 2.7 sec
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex(
-                (prevIndex) => (prevIndex + 1) % dressImages.length
-            );
-        }, 2700);
+    const { currentIndex: dressIndex, isTransitioning: dressTransitioning } =
+        useImageTransition(dressImages);
+    const { currentIndex: shirtIndex, isTransitioning: shirtTransitioning } =
+        useImageTransition(shirtImages);
 
-        // Clean up the interval on component unmount
-        return () => clearInterval(interval);
-    }, []);
+    /*
+        setCurrentImageIndex(
+            (prevIndex) => (prevIndex + 1) % dressImages.length
+        );
+    */
 
     const container = useRef();
     const { scrollYProgress } = useScroll({
@@ -64,7 +82,7 @@ function SummerCollection() {
             <section className='summer__section'>
                 <article className='summer__left__section'>
                     <motion.h2
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: 'easeIn' }}
                         viewport={{ once: true }}
@@ -72,7 +90,7 @@ function SummerCollection() {
                         THE <br /> SUMMER <br /> COLLECTION
                     </motion.h2>
                     <motion.p
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: 'easeIn' }}
                         viewport={{ once: true }}
@@ -81,7 +99,7 @@ function SummerCollection() {
                     </motion.p>
                     <motion.button
                         onClick={() => (document.location.href = '/items')}
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: 'easeIn' }}
                         viewport={{ once: true }}
@@ -108,16 +126,24 @@ function SummerCollection() {
 
                 <article className='summer__right__section'>
                     <div className='product__tile'>
-                        <div
+                        <motion.div
                             className='image-container'
                             style={{
-                                backgroundImage: `url(/${dressImages[currentImageIndex]})`,
+                                backgroundImage: `url(/${dressImages[dressIndex]})`,
                             }}
                             onClick={() =>
                                 (document.location.href =
                                     '/product/black/DRESS')
                             }
-                        ></div>
+                            animate={{
+                                opacity: dressTransitioning ? 0 : 1,
+                                scale: dressTransitioning ? 1.05 : 1,
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: 'easeInOut',
+                            }}
+                        ></motion.div>
 
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>
@@ -134,15 +160,23 @@ function SummerCollection() {
                     </div>
 
                     <div className='product__tile'>
-                        <div
+                        <motion.div
                             className='image-container'
                             style={{
-                                backgroundImage: `url(/${shirtImages[currentImageIndex]})`,
+                                backgroundImage: `url(/${shirtImages[shirtIndex]})`,
                             }}
                             onClick={() =>
                                 (document.location.href = `/product/black/GOT%20T-SHIRT`)
                             }
-                        ></div>
+                            animate={{
+                                opacity: shirtTransitioning ? 0 : 1,
+                                scale: shirtTransitioning ? 1.05 : 1,
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: 'easeInOut',
+                            }}
+                        ></motion.div>
 
                         <div className='glass__box'>
                             <p className='company-name'>MUSTHAVE</p>

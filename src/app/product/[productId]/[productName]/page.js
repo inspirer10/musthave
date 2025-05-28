@@ -3,7 +3,7 @@
 import React from 'react';
 import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
 
-import productsData from '../../../productsData';
+//import productsData from '../../../productsData';
 import ProductPage from '@/app/Components/ProductPages/ProductPage';
 import PageNotFound from '@/app/Components/PageNotFound';
 
@@ -26,11 +26,11 @@ const Product = (params) => {
         (state) => state.allProducts.allProducts[1]
     );
     const shoesItems = useSelector((state) => state.allProducts.allProducts[2]);
-    const allProductsSTARE_Z_PLIKU = [
+    /* const allProductsSTARE_Z_PLIKU = [
         ...productsData.clothing,
         ...productsData.shoes,
         ...productsData.accessories,
-    ];
+    ]; */
 
     const allProducts = [...clothingItems, ...shoesItems, ...accessoriesItems];
 

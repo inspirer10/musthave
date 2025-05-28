@@ -39,10 +39,10 @@ footer {
                     align-items: flex-start;
                     //width: calc(100% / 4);
                     p {
-                        font-family: 'Be Vietnam Pro', sans-serif;
-                        font-family: 'Raleway', sans-serif;
-                        font-family: "Geist", sans-serif;
-                        font-family: "Barlow", sans-serif;
+                        //font-family: 'Be Vietnam Pro', sans-serif;
+                        //font-family: 'Raleway', sans-serif;
+                        //font-family: "Geist", sans-serif;
+                        font-family: 'Barlow', sans-serif;
                         font-size: 19px;
                         font-weight: 600;
                         text-transform: uppercase;
@@ -53,15 +53,12 @@ footer {
                         margin-top: 4px;
                         display: flex;
                         align-items: baseline;
+                        gap: 1.25rem;
                         .icon {
                             font-size: 22px;
                             color: rgb(100, 100, 100);
-                            margin-right: 18px;
                             cursor: pointer;
-                            transition: 0.225s ease-in-out;
-                            &:last-of-type {
-                                margin-right: 0;
-                            }
+                            transition: 0.25s ease;
                             &:hover {
                                 transform: translateY(-2px) scale(1.2);
                                 color: #fff;
@@ -70,8 +67,9 @@ footer {
                     }
                     li {
                         position: relative;
-                        font-family: 'Be Vietnam Pro', sans-serif;
+                        //font-family: 'Be Vietnam Pro', sans-serif;
                         font-family: 'Geist', sans-serif;
+                        font-family: 'Onest', sans-serif;
                         font-size: 18px;
                         font-weight: 500;
                         letter-spacing: -0.5px;
@@ -109,8 +107,8 @@ footer {
                 filter: blur(1.75px);
             }
             .brand {
-                font-family: "Lexend Deca", sans-serif;
-                font-family: 'Switzer', sans-serif;
+                //font-family: "Lexend Deca", sans-serif;
+                //font-family: 'Switzer', sans-serif;
                 font-family: 'Geist', sans-serif;
                 font-size: 1.75rem;
                 font-weight: 600;
@@ -119,9 +117,10 @@ footer {
                 display: flex;
                 justify-content: center;
                 width: fit-content;
-                margin: 0.25rem auto;
+                margin: 0 auto;
+                padding: 0.25rem;
                 cursor: pointer;
-                transition: .2s ease-in-out;
+                transition: .275s ease-in-out;
                 &:hover {
                     color: #fff;
                 }

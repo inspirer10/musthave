@@ -1,14 +1,9 @@
-//@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Deca:wght@100..900&family=Urbanist:wght@100..900&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 //@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
-//@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=SUSE:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&family=Onest:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-//switzer
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=Onest:wght@100..900&display=swap');
+//------------------------
+//? Switzer
+
+/*
 @font-face {
     font-family: 'Switzer';
     src: url('/font/Switzer-Bold.otf') format('opentype');
@@ -42,17 +37,10 @@
     src: url('/font/Switzer-Semibold.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
-}
+}*/
 
 * {
-    // font-family: 'Exo 2', sans-serif;
-    // font-family: 'Raleway', sans-serif;
-    // font-family: 'Roboto Flex', sans-serif;
-    // font-family: 'Poppins', sans-serif;
-    // font-family: 'Be Vietnam Pro', sans-serif;
-    //! font-family: 'Inter', sans-serif;
     font-family: 'Geist', sans-serif;
-    //! font-family: 'Switzer', sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -91,6 +79,7 @@ li {
     list-style: none;
 }
 
+//INTRO on visting page
 .introduction-page {
     position: fixed;
     top: 0;
@@ -189,7 +178,7 @@ li {
 
 .fixed-brand {
     display: none;
-    font-family: "Be Vietnam Pro", sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     letter-spacing: 1.25px;
@@ -214,20 +203,21 @@ li {
     flex-direction: column;
     overflow: hidden;
     h2 {
-        font-family: "Be Vietnam Pro", sans-serif;
+        font-family: 'Geist', sans-serif;
         font-size: 5rem;
         font-weight: 600;
         margin-bottom: 2rem;
     }
     h6 {
         font-family: 'Poppins', sans-serif;
+        font-family: 'Onest', sans-serif;
         font-size: 1.6rem;
         font-weight: 400;
         margin-bottom: 10rem;
         letter-spacing: -0.75px;
     }
     .not-found-brand {
-        font-family: "Be Vietnam Pro", sans-serif;
+        font-family: 'Geist', sans-serif;
         position: absolute;
         font-weight: 300;
         bottom: 3%;

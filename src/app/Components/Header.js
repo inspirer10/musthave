@@ -4,7 +4,7 @@ import { openModal, closeModal } from '../GlobalStore/newsletterSlice';
 import { FaFacebookF, FaTiktok, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose, MdKeyboardArrowRight } from 'react-icons/md';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Navbar from './Navbar';
 import Image from 'next/image';
 
@@ -19,7 +19,7 @@ function Header() {
 
     const handleNewsletterModalClose = () => dispatch(closeModal());
 
-    //* OPEN modal after 8sec
+    //! OPEN modal after 8sec
     useEffect(() => {
         if (!hasModalBeenShown) {
             const modalTimeout = setTimeout(() => {
@@ -143,14 +143,14 @@ function Header() {
                     <div className='modal_image-wrapper'>
                         <Image
                             src='/images/blackHoodie2.jpg'
-                            height={475}
-                            width={475}
+                            height={450}
+                            width={450}
                             alt='product thumbnail'
                         />
                         <Image
                             src='/instaGallery6.jpg'
-                            height={475}
-                            width={475}
+                            height={450}
+                            width={450}
                             alt='product thumbnail'
                         />
                     </div>
@@ -182,18 +182,10 @@ function Header() {
                             </label>
                         </form>
                         <div className='modal__icons'>
-                            <i>
-                                <GrInstagram size={22.5} />
-                            </i>
-                            <i>
-                                <FaTwitter size={22.5} />
-                            </i>
-                            <i>
-                                <FaFacebookF size={22.5} />
-                            </i>
-                            <i>
-                                <FaTiktok size={22.5} />
-                            </i>
+                            <GrInstagram className='icon' />
+                            <FaTwitter className='icon' />
+                            <FaFacebookF className='icon' />
+                            <FaTiktok className='icon' />
                         </div>
                     </div>
                 </div>

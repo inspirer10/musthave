@@ -31,7 +31,7 @@ function Instagram() {
     const fadeInAnimation = {
         initial: {
             opacity: 0,
-            y: 100,
+            y: 80,
         },
         animate: {
             opacity: 1,
@@ -73,7 +73,7 @@ function Instagram() {
                             src={'/images/blackHoodie2.jpg'}
                             height={650}
                             width={650}
-                            alt='photo of female model sitting on the floor and wearing a hoodie '
+                            alt='photo of female model sitting on the floor and wearing a hoodie'
                         />
                     </div>
 

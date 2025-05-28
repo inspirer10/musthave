@@ -10,7 +10,7 @@ import {
 import { CgMenuLeftAlt } from 'react-icons/cg';
 import { IoMdClose } from 'react-icons/io';
 
-function Navbar({ color, children }) {
+function Navbar({ color, activeCategory, children }) {
     let lastScrollTop = 0;
     const itemsInCart = useSelector((state) => state.cart.items);
 
@@ -106,13 +106,34 @@ function Navbar({ color, children }) {
                         MUSTHAVE
                     </Link>
                     <div className='navbar_links-wrapper'>
-                        <Link className='navbar-link' href='/clothing'>
+                        <Link
+                            href='/clothing'
+                            className={`${
+                                activeCategory === 'clothing'
+                                    ? 'navbar-link active'
+                                    : 'navbar-link'
+                            }`}
+                        >
                             CLOTHING
                         </Link>
-                        <Link className='navbar-link' href='/accessories'>
+                        <Link
+                            href='/accessories'
+                            className={`${
+                                activeCategory === 'accessories'
+                                    ? 'navbar-link active'
+                                    : 'navbar-link'
+                            }`}
+                        >
                             ACCESSORIES
                         </Link>
-                        <Link className='navbar-link' href='/shoes'>
+                        <Link
+                            href='/shoes'
+                            className={`${
+                                activeCategory === 'shoes'
+                                    ? 'navbar-link active'
+                                    : 'navbar-link'
+                            }`}
+                        >
                             SHOES
                         </Link>
                         {/*

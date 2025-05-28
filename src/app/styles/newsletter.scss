@@ -7,7 +7,7 @@
     text-align: center;
     h2 {
         // font-family: 'Inter';
-        font-family: "Raleway", sans-serif;
+        //font-family: "Raleway", sans-serif;
         font-family: "Geist", sans-serif;
         font-size: 4.75rem;
         font-weight: 800; //700 - Inter
@@ -16,7 +16,8 @@
         margin-top: 2rem;
     }
     p {
-        font-family: "Lexend Deca", sans-serif;
+        // font-family: "Lexend Deca", sans-serif;
+        font-family: 'Onest', sans-serif;
         font-family: "Barlow", sans-serif;
         font-size: 1.75rem;
         font-weight: 400;
@@ -27,7 +28,7 @@
     }
     form {
         #newsletterInput {
-            font-family: "Lexend Deca", sans-serif;
+            //font-family: "Lexend Deca", sans-serif;
             font-family: "Geist", sans-serif;
             font-size: 1rem;
             margin-top: 5vh;
@@ -45,20 +46,21 @@
             }
         }
         #submitButton {
-            font-family: "Urbanist", sans-serif;
-            font-family: "Geist", sans-serif;
+            //font-family: "Urbanist", sans-serif;
+            //font-family: "Geist", sans-serif;
+            font-family: 'Onest', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             padding: 1rem;
-            border: 1px solid #000;
+            border: 1px solid #0a00c1;
             border-top-width: 2px;
-            background-color: #000;
+            background-color: #0a00c1;
             color: #fff;
             cursor: pointer;
-            transition: .16s ease-in-out;
+            transition: .2s ease-in-out;
             &:hover {
-                background-color: #0a00c1;
-                border-color: #0a00c1;
+                background-color: #000;
+                border-color: #000;
             }
         }
     }
