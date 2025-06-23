@@ -105,7 +105,7 @@ function SummerCollection() {
                         viewport={{ once: true }}
                         whileHover={{
                             color: '#000',
-                            backgroundColor: 'rgb(215, 215, 215)',
+                            backgroundColor: 'rgb(225, 225, 225)',
                             transition: {
                                 duration: 0.225,
                                 ease: [0.43, 0.13, 0.23, 0.96],
@@ -224,8 +224,8 @@ function SummerCollection() {
                         <Image
                             src={'/instaGallery1.jpg'}
                             //fill
-                            height={1500}
-                            width={1500}
+                            height={1200}
+                            width={1200}
                             alt='parallax photo'
                         />
                     </motion.div>

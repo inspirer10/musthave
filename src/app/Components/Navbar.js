@@ -82,7 +82,7 @@ function Navbar({ color, activeCategory, children }) {
                     <Link className='mobile-link' href='/shoes'>
                         SHOES
                     </Link>
-                    <Link className='mobile-link' href='/favourites'>
+                    <Link className='mobile-link' href='/favorites'>
                         FAVOURITES
                     </Link>
                 </div>
@@ -149,7 +149,9 @@ function Navbar({ color, activeCategory, children }) {
 
                 <div className='navbar_icons-wrapper'>
                     <IoSearchOutline className='fav-icon' id='searchIcon' />
-                    <RiUser3Line className='fav-icon' />
+                    <Link href='/profile' id='navbar-fav'>
+                        <RiUser3Line className='fav-icon' />
+                    </Link>
                     <Link href='/favorites' id='navbar-fav'>
                         <IoBookmarkOutline className='fav-icon' />
                     </Link>

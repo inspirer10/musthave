@@ -18,15 +18,6 @@ function ClothingSubpage() {
     const [sortExpanded, setSortExpanded] = useState(true); //price sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwinięte czy nie
 
-    /*
-    const [hoveredProduct, setHoveredProduct] = useState(null);
-    const handleMouseEnter = (productName) => {
-        setHoveredProduct(productName);
-    };
-    const handleMouseLeave = () => {
-        setHoveredProduct(null);
-    };*/
-
     //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
     const handleCategorySelection = (category) => {
         if (searchItem === category) {
@@ -35,10 +26,6 @@ function ClothingSubpage() {
             setSearchItem(category);
         }
     };
-
-    useEffect(() => {
-        console.log('Produkty zostały zaktualizowane:', clothingItems);
-    }, [clothingItems]); // Reaguj na każdą zmianę produktów
 
     return (
         <>

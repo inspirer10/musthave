@@ -59,6 +59,7 @@ footer {
                             color: rgb(100, 100, 100);
                             cursor: pointer;
                             transition: 0.25s ease;
+                            transition-delay: .1s;
                             &:hover {
                                 transform: translateY(-2px) scale(1.2);
                                 color: #fff;
@@ -98,6 +99,7 @@ footer {
                                 transform: scaleX(1);
                                 transform-origin: left;
                                 transition: transform 0.4s ease-in-out;
+                                transition-delay: .15s;
                             }
                         }
                     }
@@ -120,7 +122,8 @@ footer {
                 margin: 0 auto;
                 padding: 0.25rem;
                 cursor: pointer;
-                transition: .275s ease-in-out;
+                transition: .25s ease-in-out;
+                transition-delay: .1s;
                 &:hover {
                     color: #fff;
                 }

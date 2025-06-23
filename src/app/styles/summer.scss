@@ -119,6 +119,7 @@
                 height: 100%;
                 border-radius: 0;
                 cursor: pointer;
+                will-change: transform, opacity;
                 //transition: .35s linear;
             }
             .glass__box {
@@ -226,6 +227,7 @@
         justify-content: space-between;
         align-items: center;
         mix-blend-mode: soft-light;
+        mix-blend-mode: difference;
         user-select: none;
         p {
             font-family: 'Barlow', sans-serif;
@@ -253,6 +255,7 @@
         .img-wrapper {
             position: relative;
             width: 100%;
+            will-change: transform;
             img {
                 object-fit: cover;
                 height: 100%;

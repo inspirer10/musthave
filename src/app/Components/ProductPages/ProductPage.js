@@ -29,6 +29,8 @@ import { FaHeartBroken } from 'react-icons/fa';
 //import { FiLink, FiLink2 } from 'react-icons/fi';
 import { FiMinus, FiPlus, FiShare, FiScissors } from 'react-icons/fi';
 
+import { TbTruckDelivery } from 'react-icons/tb';
+
 import '../../styles/header.scss';
 import '../../styles/product.scss';
 import '../../styles/footer.scss';
@@ -151,19 +153,23 @@ function ProductPage({
     const detailsData = [
         {
             label: `Product details`,
+            icon: '',
             textContent: productDescription,
         },
         {
             label: `Shipping & returns`,
+            icon: '',
             textContent:
                 'Enjoy free standard shipping on all orders over $50. Orders are processed within 1-2 business days, and you will receive a tracking number once your package is shipped. We offer a 30-day return policy for a full refund, provided the item is in its original condition.',
         },
         {
             label: 'Sizing',
+            icon: <TbTruckDelivery />,
             textContent: `${sizingTextContent} Please refer to our size chart to find your perfect fit. If you're between sizes, we recommend ordering the next size up for a more comfortable fit.`,
         },
         {
             label: 'Delivery',
+            icon: '',
             textContent:
                 'Expect your order to arrive within 3-5 business days for standard shipping. Expedited shipping options are available at checkout. For international orders, delivery times may vary based on the destination country.',
         },
@@ -234,7 +240,7 @@ function ProductPage({
 
         if (isThrottled) return;
         setIsThrottled(true); //Ustaw blokadę
-        setTimeout(() => setIsThrottled(false), 250);
+        setTimeout(() => setIsThrottled(false), 125);
 
         if (e.deltaY > 0) {
             //Scroll w dół (przechodzenie naprzód)
@@ -534,13 +540,16 @@ function ProductPage({
                         <p>${productPrice}</p>
                     </div>
                     <div className='additional-info-container'>
-                        {detailsData.map((item, index) => (
-                            <DetailsItem
-                                key={index}
-                                label={item.label}
-                                textContent={item.textContent}
-                            />
-                        ))}
+                        {detailsData.map(
+                            ({ icon, label, textContent }, index) => (
+                                <DetailsItem
+                                    key={index}
+                                    icon={icon}
+                                    label={label}
+                                    textContent={textContent}
+                                />
+                            )
+                        )}
                     </div>
                     <div className='selector-container'>
                         <div className='size-selector'>

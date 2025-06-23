@@ -19,7 +19,7 @@ function Header() {
 
     const handleNewsletterModalClose = () => dispatch(closeModal());
 
-    //! OPEN modal after 8sec
+    //* OPEN modal after 8sec
     useEffect(() => {
         if (!hasModalBeenShown) {
             const modalTimeout = setTimeout(() => {

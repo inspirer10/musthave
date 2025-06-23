@@ -13,7 +13,6 @@ import Image from 'next/image';
 
 function Bag() {
     const itemsInCart = useSelector((state) => state.cart.items);
-
     const dispatch = useDispatch();
 
     const handleRemoveItem = (payload) => {

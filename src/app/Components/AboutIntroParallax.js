@@ -36,12 +36,14 @@ function AboutIntroParallax() {
                         <div className='img-container'>
                             <div className='video-container'>
                                 <video
-                                    playsinline='true'
-                                    autoPlay='true'
-                                    loop='true'
-                                    muted='true'
-                                    disablepictureinpicture='true'
-                                    controlslist='nodownload nofullscreen noremoteplayback'
+                                    playsInline
+                                    autoPlay
+                                    loop
+                                    muted
+                                    disablePictureInPicture
+                                    //preload
+                                    controlsList='nodownload nofullscreen noremoteplayback'
+                                    aria-label='Video player'
                                 >
                                     <source
                                         src={'/video3.mp4'}

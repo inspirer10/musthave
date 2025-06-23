@@ -66,23 +66,25 @@
             justify-content: center;
             justify-content: flex-start;
             .product-thumbnails {
-                margin-right: 1.5rem;
+                margin-right: 1.25rem;
                 display: flex;
                 flex-direction: column;
                 height: auto;
                 width: 12.5%;
+                //* new !GAP!
+                gap: 0.75rem;
                 img {
                     border: 1px solid rgb(210, 210, 210);
                     opacity: 0.65;
                     filter: grayscale(25%);
                     height: 120px;
-                    margin-bottom: 0.75rem;
+                    //margin-bottom: 0.75rem;
                     display: block;
                     width: 100%;
                     object-fit: cover;
                     cursor: pointer;
                     user-select: none;
-                    transition: .2s ease-in-out;
+                    transition: .25s ease;
                     &.active_image {
                         opacity: 1;
                         filter: grayscale(0%);
@@ -90,7 +92,7 @@
                     &:hover {
                         opacity: 1;
                         filter: grayscale(0%);
-                        border-color: rgb(125, 125, 125);
+                        border-color: rgb(100, 100, 100);
                     }
                     &:last-of-type {
                         margin: 0;
@@ -110,6 +112,11 @@
                     object-fit: cover;
                     object-position: top;
                     user-select: none;
+                    transition: .2s ease;
+                    &:hover {
+                        //border-color: rgb(75, 75, 75);
+                        border-color: rgb(100, 100, 100);
+                    }
                 }
             }
         }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { RiArrowDownSLine, RiCloseLine } from 'react-icons/ri';
 
-const FAQItem = ({ label, textContent }) => {
+const FAQItem = ({ label, textContent, icon }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

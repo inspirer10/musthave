@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import productsData from '../productsData';
-import { IoBookmarksOutline } from 'react-icons/io5';
 
 function SuggestedItems() {
     let firstItem = 0, // od 0 do 3

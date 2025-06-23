@@ -44,9 +44,9 @@ function FavoritesSubpage() {
                                     className='image'
                                     //src={'/aboutCompany2.jpg'}
                                     src={'/stars.png'}
-                                    height={750}
-                                    width={750}
-                                    alt='black and white photo of a female model'
+                                    height={700}
+                                    width={700}
+                                    alt='infinite sign in space'
                                 />
                             </div>
 
