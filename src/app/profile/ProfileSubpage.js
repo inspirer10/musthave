@@ -6,10 +6,10 @@ import Footer from '../Components/Footer';
 import InstagramStory from './InstagramStory';
 
 //import { IoPersonOutline } from 'react-icons/io5';
-import { GoPerson } from 'react-icons/go';
 import { FcGoogle } from 'react-icons/fc';
 import { HiOutlineMail } from 'react-icons/hi';
 import { PiLock, PiEyeLight, PiEyeSlashLight } from 'react-icons/pi';
+import { BsPersonBoundingBox } from 'react-icons/bs';
 
 function ProfileSubpage() {
     // Stan formularza
@@ -72,7 +72,7 @@ function ProfileSubpage() {
             <section className='profile-section'>
                 <div className='content-wrapper'>
                     <main>
-                        <GoPerson className='icon' />
+                        <BsPersonBoundingBox className='icon' />
                         <h2>Log to your account</h2>
                         <p className='subHeading'>
                             Enter your details to login

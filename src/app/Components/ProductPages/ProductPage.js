@@ -36,7 +36,7 @@ import '../../styles/product.scss';
 import '../../styles/footer.scss';
 
 function ProductPage({
-    isFavorite,
+    //isFavorite,
     image1,
     image2,
     image3,
@@ -69,10 +69,17 @@ function ProductPage({
     };
 
     const favoriteList = useSelector((state) => state.favorite.favItemsList);
+    // Get favorite status from Redux
+    const isFavorite = favoriteList.some(
+        (item) => item.productId === productId
+    );
 
-    const handleFavoriteItem = (payload, id) => {
+    /*    const handleFavoriteItem = (payload, id) => {
         // Sprawdzanie, czy produkt już istnieje w tablicy
-        const isInFavoriteList = favoriteList.some((item) => item.photo === id);
+        //!const isInFavoriteList = favoriteList.some((item) => item.photo === id);
+        const isInFavoriteList = favoriteList.some(
+            (item) => item.productId === payload.productId
+        );
 
         if (!isInFavoriteList) {
             dispatch(addFavoriteItem(payload)); //dodanie prod do FAV_List - produkt jako payload
@@ -102,6 +109,51 @@ function ProductPage({
             }
         }
         dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
+    }; */
+
+    const handleFavoriteItem = () => {
+        const isInFavoriteList = favoriteList.some(
+            (item) => item.productId === productId
+        );
+
+        if (!isInFavoriteList) {
+            const payload = {
+                productName,
+                productPrice,
+                productId,
+                image: image1,
+                image2,
+                link,
+            };
+
+            dispatch(addFavoriteItem(payload));
+            dispatch(toggleFavorite(productId));
+
+            // Show add modal
+            if (itemFavoriteModal.current) {
+                itemFavoriteModal.current.classList.add('show_added-modal');
+                setTimeout(() => {
+                    itemFavoriteModal.current?.classList.remove(
+                        'show_added-modal'
+                    );
+                }, 2000);
+            }
+        } else {
+            dispatch(removeFavoriteItem(productId));
+            dispatch(toggleFavorite(productId));
+
+            // Show remove modal
+            if (itemFavoriteModalRemove.current) {
+                itemFavoriteModalRemove.current.classList.add(
+                    'show_added-modal'
+                );
+                setTimeout(() => {
+                    itemFavoriteModalRemove.current?.classList.remove(
+                        'show_added-modal'
+                    );
+                }, 1250);
+            }
+        }
     };
 
     function addProductToBag({ name, price, link, photo }) {
@@ -614,18 +666,7 @@ function ProductPage({
 
                             <div
                                 className='favorite-button'
-                                onClick={() => {
-                                    handleFavoriteItem(
-                                        {
-                                            name: productName,
-                                            id: uuidv4(),
-                                            price: productPrice,
-                                            link: link,
-                                            photo: image1,
-                                        },
-                                        image1
-                                    );
-                                }}
+                                onClick={handleFavoriteItem}
                             >
                                 {isFavorite ? (
                                     <IoBookmarks className='fav-icon' />

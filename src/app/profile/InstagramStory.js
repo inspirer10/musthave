@@ -11,7 +11,7 @@ function InstagramStory() {
     const slides = [
         { id: 1, image: '/instaGallery6.jpg', time: '19h' },
         { id: 2, image: '/instaGallery2.jpg', time: '3h' },
-        { id: 3, image: '/instaGallery3.jpg', time: '1h' },
+        { id: 3, image: '/aboutCompany2.jpg', time: '1h' },
     ];
 
     const SLIDE_DURATION = 3500; //3.5-sekundy
@@ -112,6 +112,7 @@ function InstagramStory() {
                         fill
                         className='instagram-story__image'
                         //priority
+                        priority
                     />
                 </div>
 

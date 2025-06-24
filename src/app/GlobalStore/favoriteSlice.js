@@ -12,12 +12,18 @@ const favoriteSlice = createSlice({
     initialState,
     reducers: {
         addFavoriteItem: (state, action) => {
-            state.favItemsList.push(action.payload);
-            //state.totalPrice += action.payload.price;
+            const exists = state.favItemsList.some(
+                (item) => item.productId === action.payload.productId
+            );
+
+            if (!exists) {
+                state.favItemsList.push(action.payload);
+            }
         },
         removeFavoriteItem: (state, action) => {
+            // Remove by productId
             state.favItemsList = state.favItemsList.filter(
-                (item) => item.photo !== action.payload
+                (item) => item.productId !== action.payload
             );
             //state.totalPrice -= action.payload.price;
         },

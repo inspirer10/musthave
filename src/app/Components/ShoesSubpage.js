@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard.js';
 
 function ShoesSubpage() {
-    const shoesItems = useSelector((state) => state.allProducts.allProducts[2]);
+    const shoesItems = useSelector((state) => state.allProducts.products[2]);
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
     const [data, setData] = useState(shoesItems); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony

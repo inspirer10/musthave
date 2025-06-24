@@ -20,21 +20,28 @@
             justify-content: center;
             flex-direction: column;
             .icon {
+                color: rgb(0, 0, 100);
                 font-size: 2.5rem;
+                will-change: transform;
+                transition: .35s ease;
+                cursor: pointer;
+                &:hover {
+                    transform: translateY(-4px);
+                }
             }
             h2 {
-                margin-top: 1rem;
+                color: rgb(15, 15, 15);
                 font-family: 'Onest', sans-serif;
                 font-size: 2.5rem;
                 font-weight: 600;
                 letter-spacing: -0.75px;
+                margin-top: 1rem;
             }
             .subHeading {
-                font-family: 'Onest', sans-serif;
-                font-size: 1.25rem;
+                font-size: 21px;
                 font-weight: 400;
-                color: rgb(115, 115, 115);
-                margin: 0.25rem 0 1.75rem;
+                color: rgb(120, 120, 120);
+                margin: 0.25rem 0 1.5rem;
             }
             .login-form {
                 display: flex;
@@ -45,6 +52,7 @@
                 &__google {
                     font-size: 1rem;
                     font-weight: 500;
+                    line-height: 1;
                     color: #22223b;
                     background: #fff;
                     display: flex;
@@ -192,17 +200,19 @@
                     }
                 }
                 &__submit {
-                    font-family: 'Barlow', sans-serif;
+                    text-transform: uppercase;
+                    font-family: 'Onest', sans-serif;
                     font-size: 1.25rem;
                     font-size: 18px;
                     font-weight: 600;
+                    line-height: 1;
                     border: 1px solid rgb(255, 255, 255);
                     background-color: black;
                     background: rgb(0, 0, 125);
                     color: white;
-                    padding: 15px 2rem;
+                    padding: 16px 1.75rem;
                     min-width: 35%;
-                    margin-top: 0.75rem;
+                    margin-top: 0.5rem;
                     cursor: pointer;
                     border-radius: 14px;
                     transition: .3s ease;
@@ -222,7 +232,8 @@
             //width: 400px;
             height: 750px;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border-radius: 18px;
+            background: rgb(0, 0, 80);
+            border-radius: 20px;
             margin: 0 auto;
             box-shadow: 0 2px 8px 0 rgba(30, 30, 60, 0.15), 0 6px 24px 0 rgba(30, 30, 60, 0.25);
             &__progress {
@@ -257,10 +268,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 16px 16px 40px;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.325) 0%, transparent 100%);
-                border-top-left-radius: 18px;
-                border-top-right-radius: 18px;
+                padding: 16px 16px 45px;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
             }
             &__user {
                 margin-top: 6px;
@@ -286,6 +297,7 @@
                 color: #fff;
                 backdrop-filter: blur(1px);
                 border-radius: 50px;
+                cursor: pointer;
             }
             &__time {
                 font-size: 14px;
@@ -305,11 +317,11 @@
                 position: absolute;
                 inset: 0;
                 z-index: 1;
-                border-radius: 18px;
+                border-radius: 20px;
             }
             &__image {
                 object-fit: cover;
-                border-radius: 18px;
+                border-radius: 20px;
             }
             &__nav {
                 z-index: 2;

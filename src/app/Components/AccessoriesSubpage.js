@@ -9,7 +9,7 @@ import ProductCard from './ProductCard.js';
 
 function AccessoriesSubpage() {
     const accessoriesItems = useSelector(
-        (state) => state.allProducts.allProducts[1]
+        (state) => state.allProducts.products[1]
     );
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
     const [data, setData] = useState(accessoriesItems); // sortowanie kolejności produktów

@@ -73,6 +73,7 @@ function FavoritesSubpage() {
                             link,
                         }) => (
                             <ProductCard
+                                key={`${productId}-${image}`} // Unique composite key
                                 productName={productName}
                                 productPrice={productPrice}
                                 productId={productId}
@@ -80,7 +81,6 @@ function FavoritesSubpage() {
                                 image2={image2}
                                 link={link}
                                 isFavorite={isFavorite}
-                                key={productId + productName}
                             />
                         )
                     )}

@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     //tablica ubrań, akcesoriów i butów
-    allProducts: [
+    products: [
         [
             {
                 productName: 'GOT T-SHIRT',
@@ -867,7 +867,7 @@ const allProductsSlice = createSlice({
             }
         },*/
 
-        toggleFavorite: (state, action) => {
+        /*toggleFavorite: (state, action) => {
             const uniqueImage = action.payload; // Unikalny identyfikator - image
             state.allProducts = state.allProducts.map((category) =>
                 category.map((item) =>
@@ -876,6 +876,40 @@ const allProductsSlice = createSlice({
                         : item
                 )
             );
+        },*/
+
+        /*
+        toggleFavorite: (state, action) => {
+            const product = state.products.find(
+                (item) => item.productId === action.payload
+            );
+            if (product) {
+                product.isFavorite = !product.isFavorite;
+            }
+        },
+        */
+        /*
+        toggleFavorite: (state, action) => {
+            // Przechodzimy po wszystkich kategoriach
+            state.products.forEach((categoryArr) => {
+                categoryArr.forEach((product) => {
+                    if (product.productId === action.payload) {
+                        product.isFavorite = !product.isFavorite;
+                    }
+                });
+            });
+        }, */
+
+        toggleFavorite: (state, action) => {
+            // Przechodzimy po wszystkich kategoriach
+            const productId = action.payload;
+            state.products.forEach((categoryArr) => {
+                categoryArr.forEach((product) => {
+                    if (product.productId === productId) {
+                        product.isFavorite = !product.isFavorite;
+                    }
+                });
+            });
         },
     },
 });

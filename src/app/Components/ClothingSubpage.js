@@ -8,9 +8,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 
 function ClothingSubpage() {
-    const clothingItems = useSelector(
-        (state) => state.allProducts.allProducts[0]
-    );
+    const clothingItems = useSelector((state) => state.allProducts.products[0]);
 
     const [searchItem, setSearchItem] = useState(''); //przechwytuje nazwę szukanego produktu
     const [data, setData] = useState(clothingItems); //sortowanie kolejności produktów

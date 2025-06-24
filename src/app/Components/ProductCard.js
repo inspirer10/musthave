@@ -1,8 +1,5 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image.js';
-import { v4 as uuidv4 } from 'uuid';
-import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -11,6 +8,9 @@ import {
 } from '/src/app/GlobalStore/favoriteSlice.js';
 import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
 
+//import { v4 as uuidv4 } from 'uuid';
+import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
+
 function ProductCard({
     productName,
     productId,
@@ -18,36 +18,36 @@ function ProductCard({
     image,
     image2,
     link,
-    isFavorite,
+    //isFavorite, // This comes from Redux (allProductsSlice)
 }) {
     const dispatch = useDispatch();
-    // Pobieranie obecnej listy ulubionych
-    const favoriteList = useSelector((state) => state.favorite.favItemsList);
-    //console.log(favoriteList);
-    //const [data, setData] = useState(favoriteList);
-    //console.log(data);
-    useEffect(() => {
-        // setData(favoriteList);
-        console.log('wywołanie use effect');
-    }, []);
 
-    const handleFavoriteItem = (payload, id) => {
-        // Sprawdzanie, czy produkt już istnieje w tablicy
-        const isInFavoriteList = favoriteList.some((item) => item.photo === id); //data z 27 linii
+    // Get favorite status directly from Redux
+    const isFavorite = useSelector((state) =>
+        state.favorite.favItemsList.some((item) => item.productId === productId)
+    );
 
-        if (!isInFavoriteList) {
-            dispatch(addFavoriteItem(payload)); //dodanie prod do FAV_List - produkt jako payload
+    const handleFavoriteItem = () => {
+        if (!isFavorite) {
+            //dodanie prod do FAV_List - produkt jako payload
+            dispatch(
+                addFavoriteItem({
+                    productName,
+                    productPrice,
+                    productId,
+                    image,
+                    image2,
+                    link,
+                    //isFavorite: true,
+                })
+            );
         } else {
-            dispatch(removeFavoriteItem(id));
+            dispatch(removeFavoriteItem(productId));
         }
-        dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
+        //Toggle in allProductsSlice
+        //TOGGLE stanu isFavorite w LocalStorage //true||false
+        dispatch(toggleFavorite(productId));
     };
-
-    //obsługa zmiany ikonki po dodaniu do ULUBIONYCH - favorite
-    const [localFavorite, setLocalFavorite] = useState(isFavorite);
-    useEffect(() => {
-        setLocalFavorite(isFavorite);
-    }, [isFavorite]);
 
     return (
         <div key={productName + productId} className='clothing__single__item'>
@@ -88,26 +88,8 @@ function ProductCard({
                 </p>
                 <p className='price'>{productPrice}$</p>
 
-                <div
-                    className='favorite-button'
-                    onClick={() => {
-                        handleFavoriteItem(
-                            {
-                                productName: productName,
-                                productPrice: productPrice,
-                                productId: productId,
-                                uniquId: uuidv4(),
-                                image: image,
-                                image2: image2,
-                                link: link,
-                                isFavorite: isFavorite,
-                            },
-                            image
-                        );
-                        setLocalFavorite(!localFavorite);
-                    }}
-                >
-                    {localFavorite ? (
+                <div className='favorite-button' onClick={handleFavoriteItem}>
+                    {isFavorite ? (
                         <IoBookmarks className='fav-icon' />
                     ) : (
                         <IoBookmarksOutline className='fav-icon' />

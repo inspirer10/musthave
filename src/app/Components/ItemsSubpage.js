@@ -8,13 +8,11 @@ import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard.js';
 
 function ItemsSubpage() {
-    const clothingItems = useSelector(
-        (state) => state.allProducts.allProducts[0]
-    );
+    const clothingItems = useSelector((state) => state.allProducts.products[0]);
     const accessoriesItems = useSelector(
-        (state) => state.allProducts.allProducts[1]
+        (state) => state.allProducts.products[1]
     );
-    const shoesItems = useSelector((state) => state.allProducts.allProducts[2]);
+    const shoesItems = useSelector((state) => state.allProducts.products[2]);
 
     let allProductsData = [
         ...clothingItems,
