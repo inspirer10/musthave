@@ -12,10 +12,11 @@
     pointer-events: auto;
     scrollbar-color: rgb(35, 35, 35) rgb(220, 220, 220);
     opacity: 0;
-    transform: translateX(100%); // Początkowo ukryty poza ekranem
-    transition: transform .2s ease-in-out, opacity .125s ease-in-out;
+    will-change: transform, opacity;
+    transform: translateX(100%); //Początkowo ukryty poza ekranem
+    transition: transform .2s ease, opacity .15s ease;
     &.open {
-        transition: transform .3s ease-in-out, opacity .325s ease-in-out;
+        transition: transform .275s ease, opacity .3s ease;
         opacity: 1;
         transform: translateX(0);
         box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.825);
@@ -356,23 +357,35 @@
     border-bottom: 2px solid #fff;
 }
 
-//! BREAKPOINT: 1440px
-@media (max-width: 1550px) {
+//* BREAKPOINT: 1536px x 864
+@media (max-width: 1600px) {
     .bag {
         width: 60%;
+        .bag__checkout {
+            button {
+                min-width: 35%;
+                .icon_wrapper {
+                    width: 70%;
+                }
+            }
+        }
     }
 }
 
-@media (max-width: 1400px) {
+//* BREAKPOINT: 1440px x 900
+@media (max-width: 1450px) {
     .bag {
         width: 65%;
+        .bag__top__bar {
+            margin-bottom: 2rem;
+        }
     }
 }
 
-//! BREAKPOINT: 1366px
+//* BREAKPOINT: 1366px x 768
 @media screen and (max-width: 1370px) {
     .bag .bag__checkout button {
-        min-width: 35%;
+        min-width: 37.5%;
         .price {
             font-size: 18px;
         }

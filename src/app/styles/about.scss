@@ -186,7 +186,7 @@
             padding-right: 6px;
             cursor: pointer;
             transition: 0.225s ease-in-out;
-            width: 27.5%;
+            width: fit-content;
             .text {
                 //font-family: "Be Vietnam Pro", sans-serif;
                 font-family: 'Geist', sans-serif;
@@ -195,6 +195,7 @@
                 color: #fff;
                 margin: 0;
                 width: auto;
+                padding-right: 1rem;
             }
             .icon_wrapper {
                 position: relative;
@@ -430,21 +431,27 @@
     }
 }
 
-//! BREAKPOINT: 1566px
+//! BREAKPOINT: 1566px x 864
 @media screen and (max-width: 1600px) {
     .aboutCompany__container {
         width: 85%;
         .aboutCompany__item__image {
             height: 90vh;
-            .button {
-                width: 30%;
-            }
         }
     }
     .goals_section {
-        width: 80%;
+        width: 85%;
         .images_wrapper img {
             height: 75vh;
+        }
+    }
+    .quoteSection {
+        padding: 4.5rem 0 7.5rem;
+        .quote {
+            width: 70%;
+        }
+        .author {
+            margin: 3rem auto 0;
         }
     }
 }
@@ -486,12 +493,7 @@
         }
         .images_wrapper img {
             width: 82.5%;
-        }
-    }
-    .quoteSection {
-        padding: 6.5vh 0;
-        .author {
-            margin: 3rem auto 0;
+            height: 70vh;
         }
     }
 }
@@ -512,13 +514,14 @@
         font-size: 18px;
         line-height: 1.5rem;
     }
-    .aboutCompany__container .aboutCompany__item__image .button {
-        width: 32.5%;
-    }
     .goals_section {
         width: 85%;
         .images_wrapper {
             width: 42.5%;
+            img {
+                width: 90%;
+                height: 75vh;
+            }
         }
         .goals_content .goals_accordion .accordion-item .content-reveal .description {
             font-size: 16px;
@@ -539,9 +542,18 @@
     }
     .goals_section {
         width: 87.5%;
-        .images_wrapper img {
-            width: 80%;
-            height: 80vh;
+        .goals_content .goals_accordion .accordion-item.active .heading_bar {
+            margin-bottom: 1.25rem;
+        }
+        .goals_content .goals_accordion .accordion-item .content-reveal .description {
+            font-size: 15px;
+            margin-bottom: 3rem;
+        }
+        .images_wrapper {
+            img {
+                //width: 90%;
+                //height: 75vh;
+            }
         }
     }
 }

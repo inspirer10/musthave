@@ -65,6 +65,7 @@ function InstagramStory() {
             onMouseEnter={() => setIsPlaying(false)}
             onMouseLeave={() => setIsPlaying(true)}
         >
+            <h2 className='logo'>MUSTHAVE</h2>
             <div className='instagram-story__progress'>
                 {slides.map((_, index) => (
                     <div
@@ -112,7 +113,7 @@ function InstagramStory() {
                         fill
                         className='instagram-story__image'
                         //priority
-                        priority
+                        priority={true}
                     />
                 </div>
 

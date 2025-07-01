@@ -113,7 +113,7 @@
     }
 }
 
-//! BREAKPOINT: 1566px
+//! BREAKPOINT: 1566px x 864
 @media screen and (max-width: 1600px) {
     .section__categories {
         .categories__container {
@@ -156,7 +156,10 @@
     .section__categories .categories__container .categories__item__one,
     .section__categories .categories__container .categories__item__two,
     .section__categories .categories__container .categories__item__three {
-        width: 31.5%;
+        width: 31.75%;
+    }
+    .item__payload button {
+        width: 70%;
     }
 }
 

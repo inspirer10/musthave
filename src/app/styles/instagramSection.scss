@@ -84,7 +84,7 @@
             padding-right: 6px;
             cursor: pointer;
             transition: 0.225s ease-in-out;
-            width: 35%;
+            width: fit-content;
             .text {
                 //font-family: "Be Vietnam Pro", sans-serif;
                 font-family: 'Geist', sans-serif;
@@ -95,6 +95,7 @@
                 line-height: 1;
                 margin: 0;
                 width: auto;
+                padding-right: 1rem;
             }
             .icon_wrapper {
                 position: relative;
@@ -134,7 +135,7 @@
             //font-family: 'Switzer', sans-serif;
             //font-family: 'Geist', sans-serif;
             font-family: 'Onest', sans-serif;
-            font-size: 6rem;
+            font-size: 6.5rem;
             font-weight: 700;
             margin-bottom: 2.5rem;
         }
@@ -400,15 +401,15 @@
     }
 }
 
-//! BREAKPOINT: 1566px
+//! BREAKPOINT: 1566px x 864
 @media screen and (max-width: 1600px) {
     .highlightedProduct__container {
-        width: 82.5%;
-        .highlightedProduct__image .button {
-            width: 40%;
-        }
-        .highlightedProduct__text p {
-            font-size: 18px;
+        width: 85%;
+        .highlightedProduct__text {
+            width: 45%;
+            p {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -447,12 +448,9 @@
             }
         }
     }
-    .highlightedProduct__container .highlightedProduct__image .button {
-        width: 45%;
-    }
     .instagramSection .top__gallery,
     .instagramSection .bottom__gallery {
-        width: 92.5%;
+        width: 90%;
     }
     .highlightedProduct__container .highlightedProduct__text p {
         font-size: 17px;

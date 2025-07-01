@@ -19,12 +19,11 @@ function ProfileSubpage() {
         keepLogged: false,
     });
 
-    // Stan do obsługi błędów i ładowania
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    // Prosta walidacja
+    // Walidacja formularza rejestracji
     const validate = () => {
         const err = {};
         if (!form.email) err.email = 'Email is required';
@@ -44,7 +43,7 @@ function ProfileSubpage() {
         }));
     };
 
-    // Obsługa submit
+    // Obsługa Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validate();
@@ -59,7 +58,7 @@ function ProfileSubpage() {
         }, 1200);
     };
 
-    // Obsługa Google (tu podepnij własny OAuth lub next-auth)
+    //Login by Google (podpięcie OAuth lub next-auth)
     const handleGoogle = () => {
         alert('Google login not implemented');
     };

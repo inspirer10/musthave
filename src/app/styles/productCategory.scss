@@ -386,22 +386,22 @@
     }
 }
 
-//? BREAKPOINT: 1536px
+//? BREAKPOINT: 1536px x 864
 @media screen and (max-width: 1600px) {
     .links-container {
-        width: 92.5%;
-        margin-top: 14vh;
+        width: 95%;
+        margin-top: 7rem;
     }
     .items_category_container {
-        width: 92.5%;
-        margin-top: 5vh;
+        width: 95%;
+        margin-top: 2.25rem;
     }
     .clothing__single__item {
-        width: 31.75%;
+        width: 32%;
         margin-bottom: 5vh;
     }
     .clothing__info .name {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         word-spacing: 1.75px;
     }
     .clothing__single__item .image__container {
@@ -415,37 +415,31 @@
     }
 }
 
-@media screen and (max-width: 1500px) {
-    .links-container {
-        width: 92.5%;
-    }
-    .items_category_container {
-        width: 95%;
-    }
-    .clothing__single__item {
-        width: 32%;
-    }
-    .clothing__info {
-        .name {
-            font-size: 1.25rem;
-        }
-    }
+//* BREAKPOINT: 1440 x 900
+@media screen and (max-width: 1450px) {
     .clothing__single__item .image__container {
-        height: 55vh;
+        height: 52.5vh;
         .main_image {
-            height: 55vh;
+            height: 52.5vh;
         }
         .secondary_image {
-            height: 55vh;
+            height: 52.5vh;
         }
+    }
+    .clothing__items {
+        width: 80%;
+    }
+    .items_category_container .sorting-wrapper {
+        width: 17.5%;
+    }
+    .sorting__list span,
+    .sorting__categories__list span {
+        font-size: 15px;
     }
 }
 
-//? BREAKPOINT: 1366px
-@media screen and (max-width: 1385px) {
-    .links-container {
-        width: 95%;
-    }
+//? BREAKPOINT: 1366px x 768
+@media screen and (max-width: 1380px) {
     .clothing__info {
         .name {
             font-size: 18px;
@@ -459,12 +453,23 @@
             font-size: 20px;
         }
     }
+    .links-container {
+        margin-top: 6.25rem;
+        .clothing__header {
+            font-size: 3rem;
+        }
+    }
+    .sorting__list span,
+    .sorting__categories__list span {
+        font-size: 14px;
+    }
 }
 
 //? BREAKPOINT: 1280px x 720
 @media screen and (max-width: 1285px) {
     .links-container {
         width: 97.5%;
+        margin-top: 6rem;
         .clothing__header {
             font-size: 2.75rem;
         }
@@ -510,18 +515,18 @@
     }
     .clothing__single__item .image__container {
         height: 35vh;
-        height: 35dvh;
+        //height: 35dvh;
         .main_image {
             height: 35vh;
-            height: 35dvh;
+            //height: 35dvh;
         }
         .secondary_image {
             height: 35vh;
-            height: 35dvh;
+            //height: 35dvh;
         }
     }
     .links-container {
-        margin-top: calc(10dvh + 0.25rem);
+        margin-top: calc(10vh + 0.25rem);
         width: 97.5%;
         flex-direction: column-reverse;
         .links-wrapper {

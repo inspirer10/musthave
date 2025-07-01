@@ -158,6 +158,17 @@ footer {
     footer .footer_content-container .footer_content-wrapper .footer__links {
         width: 90%;
     }
+    footer .footer_content-container .footer_content-wrapper .footer__links .wrapper {
+        p {
+            font-size: 18px;
+            //letter-spacing: 0.25px;
+        }
+        li {
+            //font-size: 17px;
+            font-size: 16px;
+            letter-spacing: -0.25px;
+        }
+    }
 }
 
 //* iPhone 15 Pro Max
