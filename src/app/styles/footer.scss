@@ -178,18 +178,18 @@ footer {
         flex-wrap: wrap;
         border-bottom-color: rgb(75, 75, 75);
         .wrapper {
-            width: 33%;
+            width: 33.3333%;
             align-items: center;
             p {
                 font-size: 18px;
-                letter-spacing: 0;
+                letter-spacing: -0.25px;
                 margin-bottom: 0.5rem;
             }
             li {
                 font-size: 15px;
                 font-weight: 400;
                 margin: 1px 0;
-                letter-spacing: -0.4px;
+                letter-spacing: -0.45px;
                 white-space: nowrap;
             }
             &:nth-of-type(4) {
@@ -198,8 +198,8 @@ footer {
                 align-items: center;
             }
             .social_icons {
-                gap: 1.5rem;
-                margin-top: 6px;
+                gap: 2.25rem;
+                margin-top: 8px;
                 .icon {
                     font-size: 24px;
                     margin-right: 0;

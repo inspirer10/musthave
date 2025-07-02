@@ -526,7 +526,7 @@
         }
     }
     .links-container {
-        margin-top: calc(10vh + 0.25rem);
+        margin-top: 5rem;
         width: 97.5%;
         flex-direction: column-reverse;
         .links-wrapper {
@@ -553,17 +553,25 @@
     }
     .clothing__items {
         width: 100%;
-        margin: 4vh auto 0;
+        margin: 1.25rem auto 0;
         .clothing__single__item {
             width: calc(98% / 2);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            .image__container .main_image,
+            .image__container .secondary_image {
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
             img {
                 box-shadow: 1px 1px 3px rgb(125, 125, 125);
+                box-shadow: none;
             }
         }
     }
     .clothing__info {
         .brand {
-            font-family: "Inter", sans-serif;
+            font-family: "Geist", sans-serif;
             margin-top: 6px;
             font-size: 13px;
             letter-spacing: 0;

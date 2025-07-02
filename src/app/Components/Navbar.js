@@ -65,11 +65,11 @@ function Navbar({ color, activeCategory, children }) {
             className={`navbar ${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
         >
             <main className={mobileView ? 'mobile_menu active' : 'mobile_menu'}>
+                <IoMdClose
+                    className='close-icon'
+                    onClick={handleCloseMobileMenu}
+                />
                 <div className='mobile-links-wrapper'>
-                    <IoMdClose
-                        className='close-icon'
-                        onClick={handleCloseMobileMenu}
-                    />
                     <Link className='mobile-link' href='/items'>
                         ITEMS
                     </Link>

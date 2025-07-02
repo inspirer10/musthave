@@ -170,10 +170,10 @@
         .categories__heading {
             font-size: 3.75rem;
             letter-spacing: -1.5px;
-            padding: 2rem 0 0.75rem;
+            padding: 0 0 1rem;
         }
         .categories__container {
-            width: 97.5%;
+            width: 100%;
             flex-direction: column;
             height: auto;
             .categories__item__one {
@@ -193,6 +193,7 @@
         }
     }
     .item__payload button {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
+        width: 90%;
     }
 }

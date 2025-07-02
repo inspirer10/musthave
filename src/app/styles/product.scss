@@ -1045,8 +1045,8 @@
         justify-content: center;
         &.additional-space {
             width: 100%;
-            margin-top: 6rem;
-            margin-bottom: 1rem;
+            margin-top: 5.25rem;
+            margin-bottom: 0.75rem;
             .links-wrapper {
                 p {
                     font-size: 16px;
@@ -1061,6 +1061,7 @@
     }
     .product__container {
         margin-bottom: 5vh;
+        margin-top: 0.75rem;
         .product {
             width: 97.5%;
             margin: 0 auto;
@@ -1082,6 +1083,9 @@
                         &:first-of-type {
                             margin-top: 0.25rem;
                         }
+                        &:last-of-type {
+                            margin: 0.25rem 0.2rem;
+                        }
                     }
                 }
                 .img-wrapper {
@@ -1094,22 +1098,29 @@
                 }
             }
         }
-    }
-    .product__info {
-        margin-top: 1.75rem;
-        width: 95%;
-        .product__description {
-            width: 100%;
-            h2 {
-                margin-top: 0rem;
-                margin-bottom: 0.25rem;
+        .product__info {
+            margin-top: 1.75rem;
+            width: 95%;
+            margin-right: auto;
+            .product__description {
+                width: 100%;
+                h2 {
+                    margin-top: 0rem;
+                    margin-bottom: 0.25rem;
+                }
+                .brand {
+                    margin: 0;
+                }
             }
-            .brand {
-                margin: 0;
+            .selector-container {
+                width: 100%;
+                .buttons-wrapper .add_bag-button {
+                    width: 67.5%;
+                }
             }
-        }
-        .quantity__selector {
-            margin: 0.5rem auto 1rem;
+            .quantity__selector {
+                margin: 0.5rem auto 1rem;
+            }
         }
     }
     .additional-info-container,
@@ -1127,5 +1138,15 @@
     }
     .suggested__items_container {
         padding-bottom: 2.5vh;
+        .suggested__single__item {
+            width: 32%;
+            &:nth-of-type(4) {
+                display: none;
+            }
+        }
+    }
+    .product__container .product__info .selector-container .buttons-wrapper .favorite-button,
+    .product__container .product__info .selector-container .buttons-wrapper .copy_link-button {
+        padding: 0.85rem;
     }
 }
