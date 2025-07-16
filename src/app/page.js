@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import Introduction from './Components/Introduction';
 import Header from './Components/Header';
@@ -36,7 +36,7 @@ export default function Home() {
         const timer = setTimeout(() => {
             setIsLoading(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 3000);
+        }, 3000); //3 seconds delay
 
         return () => {
             clearTimeout(timer);

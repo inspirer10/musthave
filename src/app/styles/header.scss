@@ -131,6 +131,7 @@
                     font-weight: 500;
                     letter-spacing: 0.25px;
                     color: rgb(180, 180, 180);
+                    padding: 1px;
                     display: flex;
                     position: relative;
                     list-style: none;
@@ -143,17 +144,6 @@
                         //border-top: 1px solid white;
                         //font-weight: 500;
                         // padding-top: 4px;
-                        &::before {
-                            /* content: '';
-                            position: absolute;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            top: -8px;
-                            width: 9px;
-                            height: 9px;
-                            border-radius: 50%;
-                            background-color: #fff; */
-                        }
                     }
                     &::after {
                         content: '';
@@ -169,6 +159,7 @@
                     }
                     &:hover {
                         color: #fff;
+                        transform: translateY(-2px);
                         &::after {
                             transform: scaleX(1);
                             transform-origin: left;
@@ -714,15 +705,16 @@
             left: 0%;
             h3 {
                 font-size: 4.5rem;
-                letter-spacing: -1.5px;
+                letter-spacing: -1.75px;
                 //text-align: center;
-                padding-left: 2.5%;
+                padding-left: 0.75rem;
             }
             .intro {
-                padding: 5rem 2.5% 0;
-                width: 100%;
+                padding: 4rem 0 0;
+                width: 90%;
+                margin: 0 auto;
                 text-align: justify;
-                line-height: 1.425;
+                line-height: 1.45;
             }
         }
         .logo p {
@@ -776,7 +768,7 @@
 //* iPhone 15 Pro
 @media screen and (max-width: 400px) {
     .header-video-container .header__video__text .intro {
-        line-height: 1.35;
+        line-height: 1.45;
     }
     .navbar .navbar-container {
         .navbar_menu-wrapper .navbar_menu {

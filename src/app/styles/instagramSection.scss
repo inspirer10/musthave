@@ -476,24 +476,21 @@
         width: 97.5%;
         flex-direction: column;
         .highlightedProduct__image {
-            width: 100%;
+            //width: 100%;
             width: 97.5%;
-            height: 60vh;
-            margin-top: 0vh;
+            height: 67.5vh;
+            margin-top: 0;
             margin-bottom: 5vh;
             h3 {
                 margin-top: 0.75rem;
-                margin-bottom: 0;
                 font-size: 1.5rem;
             }
             p {
-                font-size: 15px;
+                font-size: 16px;
                 width: 90%;
             }
             .button {
-                width: 50%;
-                font-size: 13px;
-                margin: 0.4rem auto 0.2rem;
+                margin: 1rem auto 0rem;
             }
         }
         .highlightedProduct__text {
@@ -503,19 +500,21 @@
             h2 {
                 font-size: 4.25rem;
                 font-weight: 700;
-                margin: 0 auto 1rem;
+                margin: 2rem auto 0.5rem;
                 letter-spacing: -1px;
             }
             p {
+                width: 95%;
+                margin: 0 auto;
                 font-size: 16px;
-                line-height: calc(16px * 1.35);
+                line-height: 1.35;
                 text-align: justify;
             }
             .view_product {
                 justify-content: center;
-                margin: 3rem auto 0;
+                margin: 1.5rem auto 1rem;
                 a {
-                    font-size: 19px;
+                    font-size: 18px;
                 }
             }
         }
@@ -526,8 +525,8 @@
             width: 100%;
             flex-direction: column;
             .top_gallery_item1 {
-                height: 27.5vh;
-                height: 27.5dvh;
+                height: 30vh;
+                //height: 27.5dvh;
                 width: 90%;
                 background: url('/instaGallery2.jpg') 50% 50%;
                 background-size: cover;
@@ -570,18 +569,15 @@
         .highlightedProduct__text {
             p {
                 font-size: 15px;
-                line-height: calc(15px * 1.4);
+                line-height: 1.4;
             }
             .view_product {
                 margin-top: 2.25rem;
             }
         }
         .highlightedProduct__image {
-            height: 62.5vh;
+            height: 67.5vh;
             margin-bottom: 2.5vh;
-            .button {
-                width: 60%;
-            }
         }
     }
     .instagramSection {

@@ -55,9 +55,7 @@ html,
 body {
     //overflow-x: hidden;
     max-width: 100vw;
-    background-color: #fff;
     background-color: rgb(250, 250, 255);
-    color: #000;
     color: rgb(0, 0, 5);
     scrollbar-color: rgb(125, 125, 125) white;
     -webkit-font-smoothing: antialiased;
@@ -140,19 +138,17 @@ li {
         user-select: none;
         opacity: 0;
         animation: showHeading .0s forwards;
-        // animation-delay: 2.15s;
         animation-delay: 2.75s;
         &:nth-of-type(2) {
             color: rgb(135, 135, 135);
             top: 32.5%;
             clip-path: inset(47.5% 0 0 0);
-            animation-delay: 2.45s; //0.12s
+            animation-delay: 2.45s;
         }
         &:nth-of-type(3) {
             color: rgb(90, 90, 90);
             top: 44.25%;
             clip-path: inset(60% 0 0 0);
-            //  animation-delay: 2.75s;
             animation-delay: 2.2s;
         }
         /* &:nth-of-type(4) {
@@ -174,6 +170,26 @@ li {
     @keyframes hideElement {
         100% {
             opacity: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .introduction-page {
+        .typing-effect {
+            .text {
+                font-size: 25px;
+                letter-spacing: 0.25px;
+            }
+        }
+        h2 {
+            top: 40%;
+            &:nth-of-type(2) {
+                top: 45%;
+            }
+            &:nth-of-type(3) {
+                top: 49%;
+            }
         }
     }
 }

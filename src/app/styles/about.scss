@@ -605,7 +605,7 @@
                 height: 40vh;
             }
             .video-text {
-                font-size: 17.5vw;
+                font-size: 17vw;
                 letter-spacing: 0;
             }
         }
@@ -618,16 +618,18 @@
                 .aboutCompany__description {
                     width: 100%;
                     h2 {
-                        font-size: 3.75rem;
+                        font-size: 3.5rem;
                         font-weight: 700;
                         text-align: center;
                         letter-spacing: -1px;
-                        margin-top: 1.5rem;
-                        margin-bottom: 2rem;
+                        margin-top: 2.5rem;
+                        margin-bottom: 0.75rem;
                     }
                     p {
+                        width: 95%;
+                        margin: 0 auto;
                         font-size: 16px;
-                        line-height: calc(16px * 1.35);
+                        line-height: 1.35;
                         span {
                             font-size: 18px;
                         }
@@ -635,7 +637,7 @@
                 }
                 .view_more {
                     justify-content: center;
-                    margin: 2rem auto 0;
+                    margin: 1.5rem auto 1.5rem;
                     a {
                         font-size: 18px;
                     }
@@ -643,20 +645,19 @@
             }
             .aboutCompany__item__image {
                 width: 100%;
-                height: 60vh;
+                height: 65vh;
                 margin-top: 5vh;
                 h3 {
                     margin-top: 0.75rem;
                     font-size: 1.75rem;
                 }
                 p {
-                    font-size: 13px;
-                    width: 95%;
+                    font-size: 15px;
+                    width: 80%;
+                    text-wrap: balance;
                 }
                 button {
-                    width: 40%;
-                    font-size: 12px;
-                    margin: 0.5rem auto 0.2rem;
+                    margin: 1rem auto 0rem;
                 }
             }
         }
