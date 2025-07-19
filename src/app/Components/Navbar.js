@@ -155,6 +155,7 @@ function Navbar({ color, activeCategory, children }) {
                     <Link href='/favorites' id='navbar-fav'>
                         <IoBookmarkOutline className='fav-icon' />
                     </Link>
+
                     <p
                         className='fav-icon cart'
                         onClick={openBag}

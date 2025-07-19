@@ -470,7 +470,7 @@
 }
 
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .highlightedProduct__container {
         margin: 0vh auto 10vh;
         width: 97.5%;
@@ -478,7 +478,7 @@
         .highlightedProduct__image {
             //width: 100%;
             width: 97.5%;
-            height: 67.5vh;
+            height: 70vh;
             margin-top: 0;
             margin-bottom: 5vh;
             h3 {
@@ -490,7 +490,7 @@
                 width: 90%;
             }
             .button {
-                margin: 1rem auto 0rem;
+                margin: 1.25rem auto 0rem;
             }
         }
         .highlightedProduct__text {
@@ -542,7 +542,7 @@
                 }
                 .button {
                     margin-top: 1.5rem;
-                    width: 62.5%;
+                    width: 75%;
                 }
             }
         }
@@ -576,14 +576,14 @@
             }
         }
         .highlightedProduct__image {
-            height: 67.5vh;
+            height: 70vh;
             margin-bottom: 2.5vh;
         }
     }
     .instagramSection {
         margin-top: 10vh;
         .top__gallery .instagramSection__followUs .button {
-            width: 65%;
+            width: 75%;
         }
     }
 }

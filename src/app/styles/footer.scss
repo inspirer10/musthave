@@ -69,7 +69,7 @@ footer {
                     li {
                         position: relative;
                         //font-family: 'Be Vietnam Pro', sans-serif;
-                        font-family: 'Geist', sans-serif;
+                        //font-family: 'Geist', sans-serif;
                         font-family: 'Onest', sans-serif;
                         font-size: 18px;
                         font-weight: 500;
@@ -171,8 +171,27 @@ footer {
     }
 }
 
+//? smartphones
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
+    footer {
+        height: auto;
+        position: relative;
+        clip-path: none;
+        padding: 2rem 0 2.5rem;
+        .footer_content-container {
+            position: relative;
+            height: auto;
+            top: 0;
+            .footer_content-wrapper {
+                position: static;
+                height: auto;
+                .brand {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
     footer .footer_content-container .footer_content-wrapper .footer__links {
         width: 99%;
         flex-wrap: wrap;

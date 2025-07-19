@@ -313,9 +313,6 @@
             }
         }
     }
-    .parallax-section .img-container {
-        //  top: 5vh;
-    }
 }
 
 //! BREAKPOINT: 1366px x 768
@@ -380,7 +377,7 @@
 }
 
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .marquee .marquee__content {
         animation-duration: 12.5s;
         .marquee__item {

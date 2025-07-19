@@ -71,12 +71,14 @@ function Header() {
 
             <div className='header-video-container'>
                 <video
+                    //preload
+                    poster='/aboutCompany2.jpg'
+                    preload='auto'
                     playsInline
                     autoPlay
                     loop
                     muted
                     disablePictureInPicture
-                    //preload
                     controlsList='nodownload nofullscreen noremoteplayback'
                     aria-label='Video player'
                 >

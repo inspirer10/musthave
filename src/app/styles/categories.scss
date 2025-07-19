@@ -6,7 +6,7 @@
     background-color: rgb(240, 240, 240);
     .categories__heading {
         //font-family: "Be Vietnam Pro", sans-serif;
-        font-family: 'Onest', sans-serif;
+        //font-family: 'Onest', sans-serif;
         font-family: 'Barlow', sans-serif;
         font-size: clamp(3rem, 12.5vw, 9rem);
         font-weight: 700;
@@ -164,13 +164,13 @@
 }
 
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .section__categories {
         padding-bottom: 7.5vh;
         .categories__heading {
             font-size: 3.75rem;
             letter-spacing: -1.5px;
-            padding: 0 0 1rem;
+            padding: 2rem 0 1.25rem;
         }
         .categories__container {
             width: 100%;

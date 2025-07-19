@@ -402,7 +402,7 @@
     background-position: center;
     background-size: cover;
     .quote {
-        font-family: "Urbanist", sans-serif;
+        //font-family: "Urbanist", sans-serif;
         font-family: "Barlow", sans-serif;
         font-size: 2.75rem;
         font-weight: 600;
@@ -413,9 +413,9 @@
         text-wrap: balance;
     }
     .author {
-        font-family: "Lexend Deca", sans-serif;
-        font-family: "Raleway", sans-serif;
-        font-family: "Geist", sans-serif;
+        //font-family: "Lexend Deca", sans-serif;
+        //font-family: "Raleway", sans-serif;
+        //font-family: "Geist", sans-serif;
         font-family: 'Onest', sans-serif;
         font-size: 1.75rem;
         font-weight: 400;
@@ -549,12 +549,12 @@
             font-size: 15px;
             margin-bottom: 3rem;
         }
-        .images_wrapper {
+        /*.images_wrapper {
             img {
                 //width: 90%;
                 //height: 75vh;
             }
-        }
+        }*/
     }
 }
 
@@ -597,7 +597,7 @@
 }
 
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .aboutCompany {
         margin-bottom: 0;
         .video-container {
@@ -619,11 +619,11 @@
                     width: 100%;
                     h2 {
                         font-size: 3.5rem;
-                        font-weight: 700;
+                        font-weight: 800;
                         text-align: center;
                         letter-spacing: -1px;
-                        margin-top: 2.5rem;
-                        margin-bottom: 0.75rem;
+                        margin-top: 3rem;
+                        margin-bottom: 0.5rem;
                     }
                     p {
                         width: 95%;
@@ -645,19 +645,20 @@
             }
             .aboutCompany__item__image {
                 width: 100%;
-                height: 65vh;
+                height: 70vh;
                 margin-top: 5vh;
                 h3 {
                     margin-top: 0.75rem;
-                    font-size: 1.75rem;
+                    //font-size: 1.75rem;
+                    font-size: 29px;
                 }
                 p {
                     font-size: 15px;
-                    width: 80%;
+                    width: 85%;
                     text-wrap: balance;
                 }
                 button {
-                    margin: 1rem auto 0rem;
+                    margin: 1.25rem auto 0rem;
                 }
             }
         }
@@ -688,10 +689,10 @@
 @media screen and (max-width: 400px) {
     .aboutCompany .aboutCompany__container article .aboutCompany__description p {
         font-size: 15px;
-        line-height: calc(15px * 1.4);
+        line-height: 1.4;
     }
     .aboutCompany .aboutCompany__container .aboutCompany__item__image button {
-        width: 42.5%
+        width: auto;
     }
     .goals_section {
         width: 95%;
