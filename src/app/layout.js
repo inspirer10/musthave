@@ -61,6 +61,14 @@ export const viewport = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en' suppressHydrationWarning={true}>
+            <head>
+                <meta name='apple-mobile-web-app-capable' content='yes' />
+                <meta
+                    name='apple-mobile-web-app-status-bar-style'
+                    content='black-translucent'
+                />
+                <meta name='theme-color' content='rgba(0, 0, 0, 0.85)' />
+            </head>
             <body>
                 <StoreProvider>{children}</StoreProvider>
             </body>

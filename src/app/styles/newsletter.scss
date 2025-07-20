@@ -110,13 +110,19 @@
         form {
             #newsletterInput {
                 min-width: 250px;
+                border-radius: 0px;
                 border-top-left-radius: 12px;
                 border-bottom-left-radius: 12px;
+                height: 3.5rem;
             }
             #submitButton {
                 padding: 1rem 14px;
+                border-radius: 0px;
                 border-top-right-radius: 12px;
                 border-bottom-right-radius: 12px;
+                height: 3.5rem;
+                //border-top-width: 2px;
+                //border-bottom-width: 1px;
             }
         }
     }
