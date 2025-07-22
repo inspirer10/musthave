@@ -48,7 +48,12 @@ const Product = (params) => {
                 productName={product.productName}
                 productPrice={product.productPrice}
                 productId={product.productId}
+                uniqueProductID={product.uniqueProductID}
                 productCategory={product.productCategory}
+                size={product.productCategory}
+                renderSuggested={
+                    product.productCategory === 'Accessories' ? false : true
+                }
                 isFavorite={product.isFavorite}
                 image1={product.image}
                 image2={product.image2}
@@ -57,11 +62,7 @@ const Product = (params) => {
                 image5={product.image5}
                 imagesCount={product.imagesCount}
                 productDescription={product.productDescription}
-                size={product.productCategory}
                 link={`/product/${product.productId}/${product.productName}`}
-                renderSuggested={
-                    product.productCategory === 'Accessories' ? false : true
-                }
             />
         </>
     );

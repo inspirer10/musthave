@@ -13,7 +13,8 @@ const favoriteSlice = createSlice({
     reducers: {
         addFavoriteItem: (state, action) => {
             const exists = state.favItemsList.some(
-                (item) => item.productId === action.payload.productId
+                (item) =>
+                    item.uniqueProductID === action.payload.uniqueProductID
             );
 
             if (!exists) {
@@ -21,9 +22,9 @@ const favoriteSlice = createSlice({
             }
         },
         removeFavoriteItem: (state, action) => {
-            // Remove by productId
+            // Remove by uniqueProductID
             state.favItemsList = state.favItemsList.filter(
-                (item) => item.productId !== action.payload
+                (item) => item.uniqueProductID !== action.payload
             );
             //state.totalPrice -= action.payload.price;
         },

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -18,13 +18,16 @@ function ProductCard({
     image,
     image2,
     link,
+    uniqueProductID,
     //isFavorite, // This comes from Redux (allProductsSlice)
 }) {
     const dispatch = useDispatch();
 
     // Get favorite status directly from Redux
     const isFavorite = useSelector((state) =>
-        state.favorite.favItemsList.some((item) => item.productId === productId)
+        state.favorite.favItemsList.some(
+            (item) => item.uniqueProductID === uniqueProductID
+        )
     );
 
     const handleFavoriteItem = () => {
@@ -38,15 +41,16 @@ function ProductCard({
                     image,
                     image2,
                     link,
+                    uniqueProductID,
                     //isFavorite: true,
                 })
             );
         } else {
-            dispatch(removeFavoriteItem(productId));
+            dispatch(removeFavoriteItem(uniqueProductID));
         }
         //Toggle in allProductsSlice
         //TOGGLE stanu isFavorite w LocalStorage //true||false
-        dispatch(toggleFavorite(productId));
+        dispatch(toggleFavorite(uniqueProductID));
     };
 
     return (
@@ -77,6 +81,7 @@ function ProductCard({
             </div>
 
             <div className='clothing__info'>
+                <h5>{uniqueProductID}</h5>
                 <p className='brand'>MUSTHAVE</p>
                 <p
                     className='name'

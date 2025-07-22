@@ -266,6 +266,7 @@ function ClothingSubpage() {
                                 image2,
                                 isFavorite,
                                 link,
+                                uniqueProductID,
                             }) => (
                                 <ProductCard
                                     productName={productName}
@@ -274,6 +275,7 @@ function ClothingSubpage() {
                                     image={image}
                                     image2={image2}
                                     link={link}
+                                    uniqueProductID={uniqueProductID}
                                     isFavorite={isFavorite}
                                     key={productId + productName}
                                 />

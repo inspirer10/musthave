@@ -14,6 +14,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This classic black t-shirt is made from 100% high-quality cotton, offering superior comfort and durability. The minimalist design features a crew neckline and a regular fit, making it a versatile addition to any wardrobe.',
+            uniqueProductID: 'clothing_black_20250722_0',
         },
         {
             productName: 'HOODIE',
@@ -29,6 +30,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stay cozy and stylish with our beige hoodie, made from a soft cotton blend. This hoodie features a relaxed fit, kangaroo pocket, and adjustable drawstrings for maximum comfort. Perfect for casual wear or layering on cooler days.',
+            uniqueProductID: 'clothing_beige_20250722_1',
         },
         {
             productName: 'DRESS',
@@ -44,6 +46,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Make a statement with our vibrant yellow dress. Crafted from a lightweight, breathable fabric, this dress is designed for both comfort and style. It features a flattering A-line silhouette, short sleeves, and a knee-length hem, making it suitable for various occasions',
+            uniqueProductID: 'clothing_yellow_20250722_2',
         },
         {
             productName: 'JUMPSUIT',
@@ -59,6 +62,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our green jumpsuit is the epitome of chic and comfort. Made from a soft, stretchy material, it offers a flattering fit with a cinched waist and wide-leg pants. The sleeveless design and v-neckline add a touch of elegance, perfect for both casual and formal events.',
+            uniqueProductID: 'clothing_green_20250722_3',
         },
         {
             productName: 'GOT T-SHIRT',
@@ -74,6 +78,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This classic white t-shirt is made from 100% high-quality cotton, offering superior comfort and durability. The minimalist design features a crew neckline and a regular fit, making it a versatile addition to any wardrobe.',
+            uniqueProductID: 'clothing_white_20250722_4',
         },
         {
             productName: 'HOODIE',
@@ -89,6 +94,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Add a pop of color to your wardrobe with our pink hoodie. Made from a plush, fleece-lined fabric, this kangaroo hoodie provides warmth and comfort. It features a front pocket and adjustable drawstrings, making it ideal for everyday wear.',
+            uniqueProductID: 'clothing_pink_20250722_5',
         },
         {
             productName: 'DRESS',
@@ -104,6 +110,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our blue dress combines elegance with simplicity. Made from a soft, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has long sleeves and a round neckline, perfect for both day and night outings.',
+            uniqueProductID: 'clothing_blue_20250722_6',
         },
         {
             productName: 'SWEATSHIRT',
@@ -119,6 +126,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This classic gray sweatshirt is perfect for any casual occasion. Made from a soft and durable cotton blend, it provides both comfort and warmth. It features a crew neckline, ribbed cuffs, and a relaxed fit, making it an essential piece for your wardrobe.',
+            uniqueProductID: 'clothing_gray_20250722_7',
         },
         {
             productName: 'TROUSERS',
@@ -134,6 +142,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Elevate your everyday look with these stylish black trousers. Crafted from high-quality fabric, they offer a slim fit that flatters all body types. Featuring a button and zip closure, belt loops, and functional pockets, these trousers are both practical and fashionable.',
+            uniqueProductID: 'clothing_black_20250722_8',
         },
         {
             productName: 'SWEATSHIRT',
@@ -149,6 +158,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our black sweatshirt combines comfort with a sleek design. Made from premium cotton, it offers a soft feel and a relaxed fit. The sweatshirt features a crew neckline and ribbed cuffs, making it ideal for layering or wearing on its own.',
+            uniqueProductID: 'clothing_black_20250722_9',
         },
         {
             productName: 'DRESS',
@@ -162,6 +172,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stand out in our elegant white puffy dress. Made from lightweight, breathable fabric, this dress features a fitted bodice and a voluminous skirt that falls just above the knee. The short sleeves and round neckline add a touch of sophistication, perfect for special occasions.',
+            uniqueProductID: 'clothing_puffy_20250722_10',
         },
         {
             productName: 'JEANS',
@@ -177,6 +188,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our dark jeans are a versatile addition to any wardrobe. Made from high-quality denim, they offer a comfortable fit with just the right amount of stretch. These jeans feature a classic five-pocket design, a button and zip fly, and a tapered leg for a modern look.',
+            uniqueProductID: 'clothing_dark_20250722_11',
         },
         {
             productName: 'DRESS',
@@ -192,6 +204,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Make a statement with our fancy dress. Designed with intricate detailing, this dress features a fitted bodice and a flowing skirt that falls to mid-calf. The dress is made from luxurious fabric, with a v-neckline and short sleeves, perfect for elegant events.',
+            uniqueProductID: 'clothing_fancy_20250722_12',
         },
         {
             productName: 'T-SHIRT',
@@ -207,6 +220,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This classic white t-shirt is an essential for any wardrobe. Made from 100% soft, breathable cotton, it offers a comfortable fit and versatile style. It features a crew neckline and short sleeves, perfect for layering or wearing on its own.',
+            uniqueProductID: 'clothing_white_20250722_13',
         },
         {
             productName: 'JEANS',
@@ -222,6 +236,8 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our light jeans offer a casual and comfortable look. Made from high-quality denim, they feature a classic five-pocket design, a button and zip fly, and a slim fit that flatters all body types. Perfect for everyday wear.',
+
+            uniqueProductID: 'clothing_light_20250722_14',
         },
         {
             productName: 'DRESS',
@@ -237,6 +253,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stand out in our colorful dress. Crafted from lightweight, breathable fabric, this dress features a vibrant print, short sleeves, and a hemline that falls just above the knee. Perfect for adding a splash of color to your wardrobe.',
+            uniqueProductID: 'clothing_colorful_20250722_15',
         },
         {
             productName: 'SHIRT',
@@ -252,6 +269,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Add a touch of sophistication with our striped shirt. Made from a soft cotton blend, it features a classic button-down design, long sleeves, and a regular fit. The vertical stripes add a stylish twist to a timeless piece.',
+            uniqueProductID: 'clothing_striped_20250722_16',
         },
         {
             productName: 'HOODIE',
@@ -267,6 +285,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our black hoodie is a must-have for any casual wardrobe. Made from a soft, fleece-lined fabric, it offers warmth and comfort. It features a kangaroo pocket, adjustable drawstrings, and a relaxed fit, perfect for everyday wear.',
+            uniqueProductID: 'clothing_black_20250722_17',
         },
         {
             productName: 'SWEATSHIRT',
@@ -282,6 +301,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stay cozy with our light sweatshirt. Made from a soft cotton blend, it features a crew neckline, ribbed cuffs, and a relaxed fit. The neutral color makes it easy to pair with any outfit, providing both style and comfort.',
+            uniqueProductID: 'clothing_light_20250722_18',
         },
         {
             productName: 'SHIRT',
@@ -297,6 +317,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Make a statement with our dotted shirt. Crafted from a lightweight, breathable fabric, it features a playful polka dot pattern, a classic button-down design, and long sleeves. Perfect for adding a fun element to your wardrobe.',
+            uniqueProductID: 'clothing_dotted_20250722_19',
         },
         {
             productName: 'DRESS',
@@ -311,6 +332,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our azure dress combines elegance with simplicity. Made from a soft, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has short sleeves and a round neckline, ideal for both day and night outings.',
+            uniqueProductID: 'clothing_azure_20250722_20',
         },
         {
             productName: 'T-SHIRT',
@@ -326,6 +348,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This stylish blue t-shirt is a versatile addition to any wardrobe. Made from 100% soft, breathable cotton, it provides all-day comfort. It features a classic crew neckline and short sleeves, perfect for both casual and active wear.',
+            uniqueProductID: 'clothing_blue_20250722_21',
         },
         {
             productName: 'T-SHIRT',
@@ -341,6 +364,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stand out with our gradient t-shirt. Made from a lightweight, breathable fabric, this t-shirt features a unique gradient design that transitions smoothly from one color to another. It has a crew neckline and short sleeves, adding a modern twist to a classic style.',
+            uniqueProductID: 'clothing_gradient_20250722_22',
         },
         {
             productName: 'DRESS',
@@ -355,6 +379,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Our elegant black dress is perfect for any special occasion. Made from a luxurious, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has short sleeves and a round neckline, offering a timeless and sophisticated look.',
+            uniqueProductID: 'clothing_black_20250722_23',
         },
     ],
     accessories: [
@@ -371,6 +396,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'These white socks are a wardrobe essential, providing both comfort and style. Made from a soft, breathable cotton blend, they ensure all-day comfort and durability. Perfect for everyday wear or athletic activities.',
+            uniqueProductID: 'accessories_white_20250722_0',
         },
         {
             productName: 'RUCKSACK',
@@ -384,6 +410,8 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This stylish brown rucksack combines functionality with a classic design. Crafted from durable materials, it features multiple compartments for organized storage and adjustable straps for comfort. Ideal for daily use or weekend adventures.',
+
+            uniqueProductID: 'accessories_brown_20250722_1',
         },
         {
             productName: 'BAG',
@@ -397,6 +425,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'A versatile brown bag perfect for everyday use. Made from high-quality materials, it offers ample space and a sleek design. Whether for work or casual outings, this bag adds a touch of elegance to any outfit.',
+            uniqueProductID: 'accessories_brown_20250722_2',
         },
 
         {
@@ -413,6 +442,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'These black glasses feature a timeless design suitable for any occasion. Made from high-quality materials, they offer durability and comfort. The classic frame design ensures they remain stylish and versatile.',
+            uniqueProductID: 'accessories_black_20250722_3',
         },
         {
             productName: 'GLASSES',
@@ -426,6 +456,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stand out with these crystal glasses. The transparent frames add a modern touch, while the high-quality construction ensures durability. Perfect for those who want a unique yet elegant accessory.',
+            uniqueProductID: 'accessories_crystal_20250722_4',
         },
         {
             productName: 'GLASSES',
@@ -441,6 +472,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Add a pop of color to your look with these orange glasses. The vibrant frames are made from durable materials, providing both style and comfort. Ideal for making a bold fashion statement.',
+            uniqueProductID: 'accessories_orange_20250722_5',
         },
 
         {
@@ -457,6 +489,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'These magma glasses feature a striking design with a blend of red and black hues. Crafted from high-quality materials, they offer a comfortable fit and a unique look. Perfect for those who want to stand out.',
+            uniqueProductID: 'accessories_magma_20250722_6',
         },
         {
             productName: 'CAP',
@@ -470,6 +503,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This blue cap is a stylish and practical accessory for any outfit. Made from breathable fabric, it offers comfort and a secure fit. Ideal for casual wear or outdoor activities.',
+            uniqueProductID: 'accessories_blue_20250722_7',
         },
 
         {
@@ -484,6 +518,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Brighten up your wardrobe with this colorful scarf. Made from soft, lightweight fabric, it provides warmth and style. Perfect for adding a splash of color to any outfit.',
+            uniqueProductID: 'accessories_colorful_20250722_8',
         },
         {
             productName: 'BAG',
@@ -497,6 +532,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This big bag is perfect for those who need extra space. Made from durable materials, it offers ample storage and a sleek design. Ideal for travel or everyday use.',
+            uniqueProductID: 'accessories_big_20250722_9',
         },
 
         {
@@ -511,6 +547,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'A chic small bag perfect for carrying essentials. Made from high-quality materials, it combines style and functionality. Ideal for both casual and formal occasions.',
+            uniqueProductID: 'accessories_small_20250722_10',
         },
         {
             productName: 'BEANIE',
@@ -524,6 +561,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stay warm and stylish with this black beanie. Made from soft, cozy fabric, it offers comfort and a snug fit. Perfect for cold weather.',
+            uniqueProductID: 'accessories_black_20250722_11',
         },
         {
             productName: 'CAP',
@@ -538,6 +576,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'A classic black cap that complements any outfit. Made from durable materials, it provides comfort and a secure fit. Ideal for everyday wear.',
+            uniqueProductID: 'accessories_black_20250722_12',
         },
         {
             productName: 'POUCH',
@@ -553,6 +592,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This brown pouch is a versatile accessory for carrying small essentials. Made from high-quality materials, it offers a sleek design and ample space. Perfect for both casual and formal occasions.',
+            uniqueProductID: 'accessories_brown_20250722_13',
         },
         {
             productName: 'RING',
@@ -568,6 +608,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'This pink ring features a stunning design with intricate details. Made from high-quality materials, it offers elegance and durability. Ideal for special occasions or as a statement piece.',
+            uniqueProductID: 'accessories_pink_20250722_14',
         },
         {
             productName: 'WATCH',
@@ -583,6 +624,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Elevate your style with this gold watch. Featuring a luxurious design and high-quality craftsmanship, it combines functionality with elegance. Perfect for making a sophisticated statement.',
+            uniqueProductID: 'accessories_gold_20250722_15',
         },
     ],
     shoes: [
@@ -598,6 +640,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Stylish white sneakers that complement any outfit. Made from durable materials, they provide comfort and versatility for everyday wear. Perfect for those who value both fashion and function.',
+            uniqueProductID: 'shoes_white_20250722_0',
         },
         {
             productName: 'HYPER SHOES',
@@ -613,6 +656,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Bold, special edition shoes designed for those who love to stand out. Featuring unique design and top-notch craftsmanship, they are perfect for special occasions. These shoes combine striking aesthetics with exceptional quality.',
+            uniqueProductID: 'shoes_special_20250722_1',
         },
         {
             productName: 'SBW SHOES',
@@ -627,6 +671,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Elegant leather shoes that add a touch of class to any outfit. Crafted from high-quality leather, they offer both durability and style. Ideal for both formal events and everyday wear',
+            uniqueProductID: 'shoes_leather_20250722_2',
         },
         {
             productName: 'HEELS',
@@ -640,6 +685,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Classic white heels that blend elegance with comfort. Perfect for formal events, they add a touch of glamour to any outfit. These heels are designed to make you feel confident and stylish',
+            uniqueProductID: 'shoes_white_20250722_3',
         },
         {
             productName: 'TIM BOOTS',
@@ -655,6 +701,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Sturdy boots in a wood-tone finish, designed for outdoor activities. Made from high-quality materials, they provide comfort and durability. These boots are perfect for both rugged adventures and casual wear',
+            uniqueProductID: 'shoes_wood_20250722_4',
         },
         {
             productName: 'SPECIAL SHOES',
@@ -669,6 +716,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Vibrant yellow shoes that are sure to catch the eye. These shoes are perfect for adding a pop of color and flair to any outfit. Crafted with care, they combine style and comfort seamlessly',
+            uniqueProductID: 'shoes_yellow_20250722_5',
         },
         {
             productName: 'BRD SHOES',
@@ -683,6 +731,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Multicolored shoes that highlight your individuality. They offer a unique blend of style and comfort for any occasion. These shoes are perfect for those who love to make a statement',
+            uniqueProductID: 'shoes_multicolor_20250722_6',
         },
         {
             productName: 'SLIDES',
@@ -696,6 +745,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Comfortable creamy slides, perfect for everyday outings or lounging at home. They offer simplicity and style in one package. These slides are a must-have for anyone looking for casual comfort',
+            uniqueProductID: 'shoes_creamy_20250722_7',
         },
         {
             productName: 'GOAT SHOES',
@@ -711,6 +761,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Luxurious black shoes with an elegant design. Ideal for both formal and casual occasions, they add a touch of sophistication to any outfit. Made from high-quality materials, they ensure long-lasting comfort',
+            uniqueProductID: 'shoes_black_20250722_8',
         },
         {
             productName: 'UNIQUE SHOES',
@@ -726,6 +777,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Reflective shoes that combine safety with fashion. Perfect for those who love to stand out, these shoes offer both visibility and style. They are designed to make a bold statement wherever you go',
+            uniqueProductID: 'shoes_reflective_20250722_9',
         },
         {
             productName: 'PUFFED SHOES',
@@ -741,6 +793,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Gray, plush shoes that provide all-day comfort. Ideal for everyday wear, they offer a blend of style and coziness. These shoes are perfect for anyone seeking both comfort and elegance',
+            uniqueProductID: 'shoes_gray_20250722_10',
         },
         {
             productName: 'VANS',
@@ -755,6 +808,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Classic and durable shoes, perfect for any casual occasion. They offer a timeless style that pairs well with any outfit. These shoes are a staple for those who value both comfort and fashion',
+            uniqueProductID: 'shoes_classic_20250722_11',
         },
         {
             productName: 'CLASSIC',
@@ -770,6 +824,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Minimalist white sneakers, perfect for everyday wear. They combine comfort, style, and versatility in one. These sneakers are ideal for those who appreciate a clean, classic look',
+            uniqueProductID: 'shoes_white_20250722_12',
         },
         {
             productName: 'ANKLE SHOES',
@@ -784,6 +839,7 @@ const productsData = {
             isFavorite: false,
             productDescription:
                 'Elegant white ankle shoes that add sophistication to any outfit. Ideal for both everyday and semi-formal occasions, they provide comfort and style. These shoes are a great addition to any wardrobe',
+            uniqueProductID: 'shoes_white_20250722_13',
         },
     ],
 };

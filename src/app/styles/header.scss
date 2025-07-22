@@ -189,7 +189,7 @@
                 justify-content: center;
                 transition: color .225s ease, transform .25s ease;
                 cursor: pointer;
-                transition-delay: .125s;
+                transition-delay: .075s;
                 &.cart {
                     position: relative;
                     &::after {
@@ -208,7 +208,7 @@
                         text-align: center;
                         color: #fff;
                         transition: color .225s ease, transform .25s ease;
-                        transition-delay: .125s;
+                        transition-delay: .075s;
                     }
                     &:hover {
                         &::after {
@@ -671,7 +671,6 @@
                     font-size: 29px;
                     font-weight: 600;
                     letter-spacing: 0.75px;
-                    margin-right: 0.75rem;
                     margin-right: 0;
                 }
                 .navbar_links-wrapper {

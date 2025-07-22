@@ -382,3 +382,15 @@
         }
     }
 }
+
+@media screen and (max-width: 1300px) {
+    .profile-section .content-wrapper .instagram-story {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .profile-section .content-wrapper .instagram-story {
+        width: 42.5%;
+    }
+}

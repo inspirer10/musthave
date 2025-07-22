@@ -427,20 +427,23 @@
     .bag {
         width: 100%;
         height: 120%;
+        .bag__checkout {
+            width: 95%;
+        }
     }
     .bag__products {
         width: 95%;
-        padding: 0 .125rem 1.25rem;
-    }
-    .bag__products img {
-        display: none;
+        padding: 0 0.125rem 1.25rem;
+        img {
+            display: none;
+        }
     }
     #close__icon {
         font-size: 2.5rem;
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
     .bag {
         .bag__products .product-name .product_link {
             text-wrap: nowrap;
@@ -460,7 +463,7 @@
 }
 
 //* iPhone 15 Pro Max
-@media (max-width: 450px) {
+@media (max-width: 550px) {
     .bag {
         .bag__products {
             padding: 0.75rem 0;
@@ -475,8 +478,16 @@
             }
         }
         .bag__checkout button {
-            min-width: 65%;
+            min-width: 70%;
             height: 3.75rem;
+            transition: .2s ease-in-out;
+            &:hover {
+                width: 45%;
+                min-width: 45%;
+                .price {
+                    transform: translate(-75%, -50%);
+                }
+            }
         }
     }
 }
@@ -484,7 +495,7 @@
 //* iPhone 15 Pro
 @media screen and (max-width: 400px) {
     .bag .bag__checkout button {
-        min-width: 72.5%;
+        min-width: 75%;
         padding: 14px 1.25rem;
         height: 3.5rem;
     }

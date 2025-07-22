@@ -208,36 +208,39 @@
                 font-family: "Barlow", sans-serif;
                 font-size: 3rem;
                 font-weight: 600;
+                font-weight: 700;
                 word-spacing: 1px;
             }
             .button {
                 position: relative;
-                margin-top: 2.5rem;
+                margin-top: 2rem;
                 padding: 20px 0;
                 background-color: #000;
                 color: #FFF;
                 border-radius: 50px;
-                width: 50%;
+                width: 55%;
                 overflow: hidden;
-                transition: .2s ease;
                 cursor: pointer;
+                transition: .2s ease;
+                transition-delay: 0.1s;
                 .mask {
                     overflow: hidden;
                     position: relative;
                     .slider {
                         display: flex;
                         position: relative;
-                        animation: text_slide 2.5s linear infinite forwards;
-                        transition: top .325s ease;
                         top: 0;
+                        animation: text_slide 2.5s linear infinite forwards;
+                        transition: top .3s ease;
+                        transition-delay: 0.1s;
                         p {
                             font-family: "Barlow", sans-serif;
-                            margin: 0;
                             text-transform: uppercase;
                             white-space: nowrap;
-                            letter-spacing: -0.25px;
+                            margin: 0;
                             letter-spacing: 1px;
                             word-spacing: 1.5px;
+                            user-select: none;
                             &:nth-of-type(2) {
                                 position: absolute;
                                 left: calc(100% + 15px);
@@ -249,6 +252,7 @@
                         top: 0;
                         left: 50%;
                         transform: translateX(-50%);
+                        user-select: none;
                         span {
                             //font-family: "Lexend Deca", sans-serif;
                             font-family: 'Geist', sans-serif;
@@ -256,19 +260,23 @@
                             position: relative;
                             color: transparent;
                             transition: top .25s ease-out;
+                            transition-delay: 0.1s;
                         }
                     }
                 }
                 &:hover {
-                    background-color: #00008B;
+                    //background-color: #00008B;
                     background-color: #0a00c1;
                     .slider {
+                        top: -20px;
                         transition: top .0s ease-out;
-                        top: -18px;
+                        transition-delay: 0.1s;
                     }
                     .hover-text span {
                         color: #FFF;
                         top: 0;
+                        line-height: 1;
+                        font-size: 18px;
                     }
                 }
             }
@@ -281,10 +289,10 @@
                 width: fit-content;
                 margin: 0 auto;
                 opacity: 0;
-                transition: .3s ease-in-out;
-                transition-delay: 3s;
                 visibility: hidden;
                 cursor: pointer;
+                transition: .3s ease;
+                transition-delay: 3s;
                 &.visible {
                     transform: translateY(-12.5px);
                     opacity: 1;
@@ -320,11 +328,14 @@
                     transform: translate(-50%, -50%);
                     color: #FFF;
                     font-size: 2.5rem;
+                    will-change: transform;
                     cursor: pointer;
                     transition: .3s ease;
-                    transition-delay: 0.1s;
+                    transition-delay: 0.05s;
                     &:hover {
-                        transform: translate(-50%, -57.5%);
+                        color: rgb(190, 190, 190);
+                        //transform: translate(-50%, -57.5%);
+                        transform: translate(-50%, -50%) scale(1.25);
                     }
                 }
             }
@@ -371,11 +382,13 @@
                     transform: translate(-50%, -50%);
                     color: #FFF;
                     font-size: 2.5rem;
+                    will-change: transform;
                     cursor: pointer;
                     transition: .3s ease;
-                    transition-delay: 0.1s;
+                    transition-delay: 0.05s;
                     &:hover {
-                        transform: translate(-50%, -57.5%);
+                        color: rgb(190, 190, 190);
+                        transform: translate(-50%, -50%) scale(1.25);
                     }
                 }
             }

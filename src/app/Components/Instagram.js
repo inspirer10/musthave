@@ -136,31 +136,31 @@ function Instagram() {
                                 </div>
 
                                 <p className='hover-text'>
-                                    <span style={{ transitionDelay: '0.06s' }}>
+                                    <span style={{ transitionDelay: '0.07s' }}>
                                         @
                                     </span>
-                                    <span style={{ transitionDelay: '0.08s' }}>
+                                    <span style={{ transitionDelay: '0.09s' }}>
                                         M
                                     </span>
-                                    <span style={{ transitionDelay: '0.09s' }}>
+                                    <span style={{ transitionDelay: '0.11s' }}>
                                         U
                                     </span>
-                                    <span style={{ transitionDelay: '0.1s' }}>
+                                    <span style={{ transitionDelay: '0.12s' }}>
                                         S
                                     </span>
-                                    <span style={{ transitionDelay: '0.11s' }}>
+                                    <span style={{ transitionDelay: '0.13s' }}>
                                         T
                                     </span>
-                                    <span style={{ transitionDelay: '0.12s' }}>
+                                    <span style={{ transitionDelay: '0.14s' }}>
                                         H
                                     </span>
-                                    <span style={{ transitionDelay: '0.13s' }}>
+                                    <span style={{ transitionDelay: '0.15s' }}>
                                         A
                                     </span>
-                                    <span style={{ transitionDelay: '0.14s' }}>
+                                    <span style={{ transitionDelay: '0.16s' }}>
                                         V
                                     </span>
-                                    <span style={{ transitionDelay: '0.15s' }}>
+                                    <span style={{ transitionDelay: '0.17s' }}>
                                         E
                                     </span>
                                 </p>

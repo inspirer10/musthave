@@ -51,6 +51,7 @@ function ProductPage({
     size,
     link,
     productId,
+    uniqueProductID,
 }) {
     const dispatch = useDispatch();
     let itemInfoModal = useRef(null);
@@ -71,14 +72,14 @@ function ProductPage({
     const favoriteList = useSelector((state) => state.favorite.favItemsList);
     // Get favorite status from Redux
     const isFavorite = favoriteList.some(
-        (item) => item.productId === productId
+        (item) => item.uniqueProductID === uniqueProductID
     );
 
     /*    const handleFavoriteItem = (payload, id) => {
         // Sprawdzanie, czy produkt już istnieje w tablicy
         //!const isInFavoriteList = favoriteList.some((item) => item.photo === id);
         const isInFavoriteList = favoriteList.some(
-            (item) => item.productId === payload.productId
+            (item) => item.uniqueProductID === payload.uniqueProductID
         );
 
         if (!isInFavoriteList) {
@@ -113,7 +114,7 @@ function ProductPage({
 
     const handleFavoriteItem = () => {
         const isInFavoriteList = favoriteList.some(
-            (item) => item.productId === productId
+            (item) => item.uniqueProductID === uniqueProductID
         );
 
         if (!isInFavoriteList) {
@@ -124,10 +125,11 @@ function ProductPage({
                 image: image1,
                 image2,
                 link,
+                uniqueProductID,
             };
 
             dispatch(addFavoriteItem(payload));
-            dispatch(toggleFavorite(productId));
+            dispatch(toggleFavorite(uniqueProductID));
 
             // Show add modal
             if (itemFavoriteModal.current) {
@@ -139,8 +141,8 @@ function ProductPage({
                 }, 2000);
             }
         } else {
-            dispatch(removeFavoriteItem(productId));
-            dispatch(toggleFavorite(productId));
+            dispatch(removeFavoriteItem(uniqueProductID));
+            dispatch(toggleFavorite(uniqueProductID));
 
             // Show remove modal
             if (itemFavoriteModalRemove.current) {

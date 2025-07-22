@@ -25,7 +25,10 @@ function FavoritesSubpage() {
                     <div className='empty-state'>
                         <aside>
                             <div className='aboutCompany__description'>
-                                <h5>You haven’t added any favorites yet</h5>
+                                <h5>
+                                    You haven’t added any <span>favorites</span>{' '}
+                                    yet
+                                </h5>
                                 <p>
                                     Browse our products and tap the
                                     <IoBookmarksOutline className='icon' />
@@ -33,7 +36,7 @@ function FavoritesSubpage() {
                                 </p>
 
                                 <div className='view_more'>
-                                    <a href='/aboutCompany'>VIEW MORE</a>
+                                    <a href='/items'>CHECK PRODUCTS</a>
                                     <FaArrowRightLong className='icon' />
                                 </div>
                             </div>
@@ -71,6 +74,7 @@ function FavoritesSubpage() {
                             image2,
                             isFavorite,
                             link,
+                            uniqueProductID,
                         }) => (
                             <ProductCard
                                 key={`${productId}-${image}`} // Unique composite key
@@ -80,6 +84,7 @@ function FavoritesSubpage() {
                                 image={image}
                                 image2={image2}
                                 link={link}
+                                uniqueProductID={uniqueProductID}
                                 isFavorite={isFavorite}
                             />
                         )

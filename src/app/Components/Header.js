@@ -72,8 +72,8 @@ function Header() {
             <div className='header-video-container'>
                 <video
                     //preload
-                    poster='/aboutCompany2.jpg'
                     preload='auto'
+                    poster='/aboutCompany2.jpg'
                     playsInline
                     autoPlay
                     loop
