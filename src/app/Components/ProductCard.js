@@ -81,7 +81,6 @@ function ProductCard({
             </div>
 
             <div className='clothing__info'>
-                <h5>{uniqueProductID}</h5>
                 <p className='brand'>MUSTHAVE</p>
                 <p
                     className='name'
