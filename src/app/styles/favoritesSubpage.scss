@@ -38,6 +38,7 @@
                         display: inline-block;
                         color: #0a00c1;
                         background: -webkit-linear-gradient(90deg, #0a00c1, #000);
+                        background-clip: text;
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                     }
@@ -177,6 +178,11 @@
         flex-wrap: wrap;
         width: 100%;
         margin: 0 auto;
+        justify-content: flex-start;
+        gap: 2%;
+        .clothing__single__item {
+            width: 32%;
+        }
     }
 }
 
@@ -184,13 +190,40 @@
 //* BREAKPOINT 1536px x 864
 @media screen and (max-width: 1600px) {
     .favorite_items-section {
-        width: 90%
+        width: 90%;
     }
 }
 
 //* BREAKPOINT 1440px x 900
 @media screen and (max-width: 1450px) {
     .favorite_items-section {
-        width: 92.5%
+        width: 92.5%;
+    }
+}
+
+//* BREAKPOINT 1366px x 768
+@media screen and (max-width: 1370px) {
+    .favorite_items-section {
+        width: 92.5%;
+    }
+}
+
+//* BREAKPOINT 1280x x 720
+@media screen and (max-width: 1285px) {
+    .favorite_items-section {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .favorite_items-section {
+        width: 97.5%;
+        .favorites_items {
+            gap: 2%;
+            .clothing__single__item {
+                width: 49%;
+                margin-bottom: 2vh;
+            }
+        }
     }
 }

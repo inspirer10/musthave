@@ -1,4 +1,24 @@
-/* ! NAVBAR */
+//* NAVBAR
+.top_info-bar {
+    width: 100%;
+    color: #FFF;
+    background-color: #000;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 2rem;
+    z-index: 100000;
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    margin: 0;
+    display: none;
+    p {
+        font-family: 'Onest', sans-serif;
+    }
+}
 
 .navbar {
     position: fixed;
@@ -9,11 +29,12 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(20px);
-    transition: transform 0.175s ease-in-out, box-shadow 0.175s ease-in-out;
+    //transition: transform 0.175s ease-in-out, box-shadow 0.175s ease-in-out;
+    transition: .2s ease;
     .mobile_menu {
         //display: none; //none    align-items: center;
         position: fixed;
-        z-index: 100000000;
+        z-index: 10000000;
         top: 0;
         left: 0;
         transform: translateX(-100%);

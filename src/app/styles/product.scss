@@ -125,65 +125,6 @@
             }
         }
     }
-    .itemInfoModal,
-    .itemSizeModal,
-    .itemCopyURLModal,
-    .itemFavoriteModal,
-    .itemFavoriteModalRemove {
-        opacity: 0;
-        position: fixed;
-        right: 1rem;
-        bottom: 2rem;
-        background-color: rgba(0, 0, 0);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        padding: 13px 19px;
-        border-radius: 50px;
-        z-index: 1000;
-        //transition: .4s cubic-bezier(.4, 0, .2, 1);
-        transition: opacity 0.3s cubic-bezier(.4, 0, .2, 1);
-        &.show_added-modal {
-            opacity: 1;
-        }
-        p {
-            font-size: 15px;
-            font-weight: 300;
-            letter-spacing: -0.2px;
-            color: #fff;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            .icon-success {
-                font-size: 18px;
-                margin-right: 8px;
-                color: rgb(0, 255, 0);
-            }
-            .icon {
-                font-size: 18px;
-                margin-right: 8px;
-                color: rgb(225, 225, 225);
-            }
-        }
-    }
-    .itemFavoriteModal,
-    .itemFavoriteModalRemove {
-        bottom: 5rem;
-        height: fit-content;
-        background-color: #0a00c1;
-        z-index: 990;
-        border: none;
-        p {
-            font-size: 17px;
-            font-weight: 400;
-            letter-spacing: 0px;
-        }
-        .icon-heart {
-            font-size: 20px;
-            margin-right: 10px;
-            color: white;
-        }
-    }
 }
 
 .img-container-mobile {
@@ -469,9 +410,6 @@
     .additional-info-item {
         padding: 8px 0;
         border-bottom: 1px solid rgb(175, 175, 175);
-        &:first-of-type {
-            // border: none;
-        }
         .additional-info-label {
             //font-family: 'Switzer', sans-serif;
             font-family: 'Geist', sans-serif;
@@ -539,7 +477,7 @@
     font-family: "Geist", sans-serif;
     font-size: 4.5rem;
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.1;
     letter-spacing: -1px;
     word-spacing: 6px;
     margin: 7.5vh 0 0;

@@ -1,3 +1,5 @@
+import toast, { Toaster } from 'react-hot-toast';
+
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Bag from '../Bag/Bag';
@@ -21,8 +23,7 @@ import {
     IoBookmarksOutline,
     IoShareSocialOutline,
 } from 'react-icons/io5';
-import { GoCheckCircle } from 'react-icons/go';
-import { SlClose } from 'react-icons/sl';
+
 import { IoMdAddCircle } from 'react-icons/io';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
@@ -54,11 +55,6 @@ function ProductPage({
     uniqueProductID,
 }) {
     const dispatch = useDispatch();
-    let itemInfoModal = useRef(null);
-    let itemSizeModal = useRef(null);
-    let itemCopyURLModal = useRef(null);
-    let itemFavoriteModal = useRef(null);
-    let itemFavoriteModalRemove = useRef(null);
 
     const [itemQuantity, setItemQuantity] = useState(1);
     const [itemSize, setItemSize] = useState('');
@@ -74,43 +70,6 @@ function ProductPage({
     const isFavorite = favoriteList.some(
         (item) => item.uniqueProductID === uniqueProductID
     );
-
-    /*    const handleFavoriteItem = (payload, id) => {
-        // Sprawdzanie, czy produkt już istnieje w tablicy
-        //!const isInFavoriteList = favoriteList.some((item) => item.photo === id);
-        const isInFavoriteList = favoriteList.some(
-            (item) => item.uniqueProductID === payload.uniqueProductID
-        );
-
-        if (!isInFavoriteList) {
-            dispatch(addFavoriteItem(payload)); //dodanie prod do FAV_List - produkt jako payload
-            if (itemFavoriteModal.current) {
-                itemFavoriteModal.current.classList.add('show_added-modal');
-                itemFavoriteModalRemove.current?.classList.remove(
-                    'show_added-modal'
-                );
-                setTimeout(() => {
-                    itemFavoriteModal.current?.classList.remove(
-                        'show_added-modal'
-                    );
-                }, 2000);
-            }
-        } else {
-            dispatch(removeFavoriteItem(id));
-            if (itemFavoriteModalRemove.current) {
-                itemFavoriteModalRemove.current.classList.add(
-                    'show_added-modal'
-                );
-                itemFavoriteModal.current?.classList.remove('show_added-modal');
-                setTimeout(() => {
-                    itemFavoriteModalRemove.current?.classList.remove(
-                        'show_added-modal'
-                    );
-                }, 1250);
-            }
-        }
-        dispatch(toggleFavorite(id)); //TOGGLE stanu isFavorite w LocalStorage //true||false
-    }; */
 
     const handleFavoriteItem = () => {
         const isInFavoriteList = favoriteList.some(
@@ -132,29 +91,13 @@ function ProductPage({
             dispatch(toggleFavorite(uniqueProductID));
 
             // Show add modal
-            if (itemFavoriteModal.current) {
-                itemFavoriteModal.current.classList.add('show_added-modal');
-                setTimeout(() => {
-                    itemFavoriteModal.current?.classList.remove(
-                        'show_added-modal'
-                    );
-                }, 2000);
-            }
+            addFavNotification();
         } else {
             dispatch(removeFavoriteItem(uniqueProductID));
             dispatch(toggleFavorite(uniqueProductID));
 
             // Show remove modal
-            if (itemFavoriteModalRemove.current) {
-                itemFavoriteModalRemove.current.classList.add(
-                    'show_added-modal'
-                );
-                setTimeout(() => {
-                    itemFavoriteModalRemove.current?.classList.remove(
-                        'show_added-modal'
-                    );
-                }, 1250);
-            }
+            removeFavNotification();
         }
     };
 
@@ -173,19 +116,10 @@ function ProductPage({
             setItemQuantity(0);
             setItemSize('');
 
-            if (itemInfoModal.current) {
-                itemInfoModal.current.classList.add('show_added-modal');
-                setTimeout(() => {
-                    itemInfoModal.current?.classList.remove('show_added-modal');
-                }, 3000);
-            }
+            //success toast notification
+            addedNotification();
         } else if (itemQuantity !== 0 && itemQuantity !== '') {
-            if (itemSizeModal.current) {
-                itemSizeModal.current.classList.add('show_added-modal');
-                setTimeout(() => {
-                    itemSizeModal.current?.classList.remove('show_added-modal');
-                }, 2000);
-            }
+            sizeNotification();
         } else {
             return;
         }
@@ -420,6 +354,114 @@ function ProductPage({
         };
     }, [isThrottled, activeImg]);
 
+    //TOASTS in bottom right corner
+    const urlNotification = () =>
+        toast.success(
+            <>
+                URL copied successfully&nbsp;
+                <FiShare
+                    size={18}
+                    color='#fff'
+                    style={{ verticalAlign: 'middle', marginLeft: '2px' }}
+                />
+            </>,
+            {
+                style: {
+                    fontSize: '15px',
+                    fontWeight: '300',
+                    letterSpacing: '-0.2px',
+                    color: '#fff',
+                    //padding: '10px 16px',
+                    background: 'rgb(5, 5, 5)',
+                    border: '1px solid rgba(255, 255, 255, 0.5)',
+                    borderRadius: '50px',
+                    userSelect: 'none',
+                },
+                iconTheme: {
+                    primary: 'rgb(75, 255, 0)',
+                    secondary: '#FFF',
+                },
+            }
+        );
+
+    const sizeNotification = () =>
+        toast.error('Please select your Size', {
+            style: {
+                fontSize: '15px',
+                fontWeight: '300',
+                letterSpacing: '-0.2px',
+                color: '#fff',
+                //padding: '10px 16px',
+                background: 'rgb(5, 5, 5)',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
+                borderRadius: '50px',
+                userSelect: 'none',
+            },
+        });
+
+    const addedNotification = () =>
+        toast.success('Product successfully added', {
+            style: {
+                fontSize: '15px',
+                fontWeight: '300',
+                letterSpacing: '-0.2px',
+                color: '#fff',
+                //padding: '10px 16px',
+                background: 'rgb(5, 5, 5)',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
+                borderRadius: '50px',
+                userSelect: 'none',
+            },
+        });
+
+    const addFavNotification = () =>
+        toast(
+            <>
+                <GrFavorite
+                    size={18}
+                    color='#fff'
+                    style={{ verticalAlign: 'middle', marginRight: '7px' }}
+                />
+                Added to List&nbsp;
+            </>,
+            {
+                style: {
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    letterSpacing: '0px',
+                    color: '#fff',
+                    //padding: '10px 16px',
+                    background: 'rgb(10, 0, 193)',
+                    borderRadius: '50px',
+                    userSelect: 'none',
+                },
+            }
+        );
+
+    const removeFavNotification = () =>
+        toast(
+            <>
+                <FaHeartBroken
+                    size={18}
+                    color='#fff'
+                    style={{ verticalAlign: 'middle', marginRight: '7px' }}
+                />
+                Removed from List&nbsp;
+            </>,
+            {
+                style: {
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    letterSpacing: '0px',
+                    color: '#fff',
+                    //padding: '10px 16px',
+                    background: 'rgb(10, 0, 193)',
+                    borderRadius: '50px',
+                    userSelect: 'none',
+                },
+            }
+        );
+
     return (
         <>
             <Navbar color={'dimgray'} />
@@ -448,44 +490,6 @@ function ProductPage({
             </article>
 
             <div className='product__container'>
-                <div className='itemInfoModal' ref={itemInfoModal}>
-                    <p>
-                        <GoCheckCircle className='icon-success' />
-                        Product successfully added
-                    </p>
-                </div>
-
-                <div className='itemSizeModal' ref={itemSizeModal}>
-                    <p>
-                        <SlClose className='icon' />
-                        Please select your Size
-                    </p>
-                </div>
-
-                <div className='itemCopyURLModal' ref={itemCopyURLModal}>
-                    <p>
-                        <FiShare className='icon' />
-                        URL copied successfully
-                    </p>
-                </div>
-
-                <div className='itemFavoriteModal' ref={itemFavoriteModal}>
-                    <p>
-                        <GrFavorite className='icon-heart' />
-                        Added to List
-                    </p>
-                </div>
-
-                <div
-                    className='itemFavoriteModalRemove'
-                    ref={itemFavoriteModalRemove}
-                >
-                    <p>
-                        <FaHeartBroken className='icon-heart' />
-                        Removed from List
-                    </p>
-                </div>
-
                 <div className='product'>
                     <div className='img-container-mobile'>
                         <img
@@ -683,17 +687,7 @@ function ProductPage({
                                     navigator.clipboard.writeText(
                                         window.location.href
                                     );
-
-                                    if (itemCopyURLModal.current) {
-                                        itemCopyURLModal.current.classList.add(
-                                            'show_added-modal'
-                                        );
-                                        setTimeout(() => {
-                                            itemCopyURLModal.current?.classList.remove(
-                                                'show_added-modal'
-                                            );
-                                        }, 3000);
-                                    }
+                                    urlNotification();
                                 }}
                             >
                                 <IoShareSocialOutline className='copy-icon' />
@@ -703,7 +697,7 @@ function ProductPage({
                     {/* ADDITIONAL INFO OG POSITION */}
                 </div>
             </div>
-
+            <Toaster position='bottom-right' reverseOrder={true} />
             {renderSuggestedItems && <SuggestedItems />}
             <Footer />
         </>

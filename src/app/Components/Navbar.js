@@ -13,6 +13,7 @@ import { IoMdClose } from 'react-icons/io';
 function Navbar({ color, activeCategory, children }) {
     let lastScrollTop = 0;
     const itemsInCart = useSelector((state) => state.cart.items);
+    const favoriteItems = useSelector((state) => state.favorite.favItemsList);
 
     let [mobileView, setMobileView] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
@@ -61,82 +62,93 @@ function Navbar({ color, activeCategory, children }) {
     };
 
     return (
-        <nav
-            className={`navbar ${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
-        >
-            <main className={mobileView ? 'mobile_menu active' : 'mobile_menu'}>
-                <IoMdClose
-                    className='close-icon'
-                    onClick={handleCloseMobileMenu}
-                />
-                <div className='mobile-links-wrapper'>
-                    <Link className='mobile-link' href='/items'>
-                        ITEMS
-                    </Link>
-                    <Link className='mobile-link' href='/clothing'>
-                        CLOTHING
-                    </Link>
-                    <Link className='mobile-link' href='/accessories'>
-                        ACCESSORIES
-                    </Link>
-                    <Link className='mobile-link' href='/shoes'>
-                        SHOES
-                    </Link>
-                    <Link className='mobile-link' href='/favorites'>
-                        FAVOURITES
-                    </Link>
-                </div>
-                <p className='mobile-brand'>MUSTHAVE</p>
-            </main>
-
-            <div className='navbar-container'>
-                <div className='navbar_menu-wrapper'>
-                    <CgMenuLeftAlt
-                        className='navbar_menu'
-                        onClick={handleOpenMobileMenu}
+        <>
+            <div className='top_info-bar'>
+                <p>123 123 123 123 </p>
+                <p>avangardeStudio@gmail.com</p>
+            </div>
+            <nav
+                className={`navbar ${
+                    showNavbar ? 'navbar--show' : 'navbar--hide'
+                }`}
+            >
+                <main
+                    className={
+                        mobileView ? 'mobile_menu active' : 'mobile_menu'
+                    }
+                >
+                    <IoMdClose
+                        className='close-icon'
+                        onClick={handleCloseMobileMenu}
                     />
-                </div>
-
-                <div className='navbar_links-container'>
-                    <Link
-                        className='logo'
-                        style={{ color: `${color}` }}
-                        href='/'
-                    >
-                        MUSTHAVE
-                    </Link>
-                    <div className='navbar_links-wrapper'>
-                        <Link
-                            href='/clothing'
-                            className={`${
-                                activeCategory === 'clothing'
-                                    ? 'navbar-link active'
-                                    : 'navbar-link'
-                            }`}
-                        >
+                    <div className='mobile-links-wrapper'>
+                        <Link className='mobile-link' href='/items'>
+                            ITEMS
+                        </Link>
+                        <Link className='mobile-link' href='/clothing'>
                             CLOTHING
                         </Link>
-                        <Link
-                            href='/accessories'
-                            className={`${
-                                activeCategory === 'accessories'
-                                    ? 'navbar-link active'
-                                    : 'navbar-link'
-                            }`}
-                        >
+                        <Link className='mobile-link' href='/accessories'>
                             ACCESSORIES
                         </Link>
-                        <Link
-                            href='/shoes'
-                            className={`${
-                                activeCategory === 'shoes'
-                                    ? 'navbar-link active'
-                                    : 'navbar-link'
-                            }`}
-                        >
+                        <Link className='mobile-link' href='/shoes'>
                             SHOES
                         </Link>
-                        {/*
+                        <Link className='mobile-link' href='/favorites'>
+                            FAVOURITES
+                        </Link>
+                    </div>
+                    <p className='mobile-brand'>MUSTHAVE</p>
+                </main>
+
+                <div className='navbar-container'>
+                    <div className='navbar_menu-wrapper'>
+                        <CgMenuLeftAlt
+                            className='navbar_menu'
+                            onClick={handleOpenMobileMenu}
+                        />
+                    </div>
+
+                    <div className='navbar_links-container'>
+                        <Link
+                            className='logo'
+                            style={{ color: `${color}` }}
+                            href='/'
+                        >
+                            MUSTHAVE
+                        </Link>
+                        <div className='navbar_links-wrapper'>
+                            <Link
+                                href='/clothing'
+                                className={`${
+                                    activeCategory === 'clothing'
+                                        ? 'navbar-link active'
+                                        : 'navbar-link'
+                                }`}
+                            >
+                                CLOTHING
+                            </Link>
+                            <Link
+                                href='/accessories'
+                                className={`${
+                                    activeCategory === 'accessories'
+                                        ? 'navbar-link active'
+                                        : 'navbar-link'
+                                }`}
+                            >
+                                ACCESSORIES
+                            </Link>
+                            <Link
+                                href='/shoes'
+                                className={`${
+                                    activeCategory === 'shoes'
+                                        ? 'navbar-link active'
+                                        : 'navbar-link'
+                                }`}
+                            >
+                                SHOES
+                            </Link>
+                            {/*
                         <Link
                             className='navbar-link'
                             href='/shoes'
@@ -144,28 +156,37 @@ function Navbar({ color, activeCategory, children }) {
                         >
                             SALES
                         </Link> */}
+                        </div>
                     </div>
-                </div>
 
-                <div className='navbar_icons-wrapper'>
-                    <IoSearchOutline className='fav-icon' id='searchIcon' />
-                    <Link href='/profile' id='navbar-fav'>
-                        <RiUser3Line className='fav-icon' />
-                    </Link>
-                    <Link href='/favorites' id='navbar-fav'>
+                    <div className='navbar_icons-wrapper'>
+                        <IoSearchOutline className='fav-icon' id='searchIcon' />
+                        <Link href='/profile' id='navbar-fav'>
+                            <RiUser3Line className='fav-icon' />
+                        </Link>
+                        {/* <Link href='/favorites' id='navbar-fav'>
                         <IoBookmarkOutline className='fav-icon' />
                     </Link>
+                    */}
 
-                    <p
-                        className='fav-icon cart'
-                        onClick={openBag}
-                        cart-length={itemsInCart.length}
-                    >
-                        <IoBagOutline />
-                    </p>
+                        <Link
+                            className='fav-icon cart'
+                            href='/favorites'
+                            cart-length={favoriteItems.length}
+                        >
+                            <IoBookmarkOutline />
+                        </Link>
+                        <p
+                            className='fav-icon cart'
+                            onClick={openBag}
+                            cart-length={itemsInCart.length}
+                        >
+                            <IoBagOutline />
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 }
 

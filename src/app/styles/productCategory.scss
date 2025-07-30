@@ -6,8 +6,8 @@
     margin: 7rem auto 0;
     width: 90%;
     &.additional-space {
-        margin-top: 8rem;
-        width: 75%;
+        margin-top: 7.5rem;
+        width: 80%;
     }
     .clothing__header {
         //font-family: "Be Vietnam Pro", sans-serif;
@@ -189,6 +189,7 @@
     padding-bottom: 12px;
     position: relative;
     transition: .175s ease-out, transform .2s ease-out;
+    transition-delay: .075s;
     &:hover {
         border-color: rgb(150, 150, 150);
         transform: translateY(-8px);
@@ -219,6 +220,7 @@
             border-top-left-radius: 18px;
             cursor: pointer;
             transition: 0.6s ease;
+            transition-delay: .075s;
             //transition: 0.5s ease-in-out;
         }
     }
@@ -237,6 +239,7 @@
         border-top-left-radius: 18px;
         cursor: pointer;
         transition: 0.6s ease;
+        transition-delay: .075s;
         //transition: 0.5s ease-in-out;
     }
 }
@@ -290,97 +293,13 @@
         cursor: pointer;
         .fav-icon {
             font-size: 1.5rem;
-            transition: .275s ease;
+            transition: .25s ease;
+            transition-delay: .075s;
         }
         &:hover {
             .fav-icon {
                 color: rgb(100, 100, 100);
                 transform: translateY(-2.5px);
-            }
-        }
-    }
-}
-
-//! 4 PROPONOWANE ITEMKI na podstronie produktu
-.search__items__input {
-    outline: none;
-    border: none;
-    font-size: 16px;
-    text-align: center;
-    color: gray;
-    &:focus {
-        color: #000;
-        border-bottom: 2px solid gray;
-    }
-    &:focus-within {
-        border-bottom: 2px solid gray;
-    }
-    &::placeholder {
-        color: gray;
-    }
-}
-
-.suggested__heading {
-    display: flex;
-    justify-content: center;
-    font-size: 4rem;
-    word-spacing: 6px;
-    font-weight: 600;
-    margin: 7.5vh 0 4rem;
-    letter-spacing: -0.75px;
-    user-select: none;
-}
-
-.suggested__items_container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .suggested__single__item {
-        width: calc(90% / 4);
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 7.5vh;
-        user-select: none;
-        img {
-            width: 100%;
-            display: flex;
-            object-fit: cover;
-            object-position: center;
-            cursor: pointer;
-            aspect-ratio: 1.5/2;
-            box-shadow: 1px 1px 4px rgb(200, 200, 200);
-        }
-        .element {
-            position: relative;
-            &:hover {
-                .element__description {
-                    background-position: bottom;
-                    color: #fff;
-                    transition: 0.75s backdrop-filter, .225s background;
-                    backdrop-filter: blur(10px);
-                }
-            }
-            .element__description {
-                position: absolute;
-                z-index: 10;
-                width: 100%;
-                bottom: 0;
-                right: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 22.5%;
-                transition: 0s backdrop-filter, .3s background;
-                cursor: pointer;
-                font-size: 200%;
-                color: transparent;
-                font-weight: 400;
-                letter-spacing: 5px;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, transparent 50%);
-                background-size: 100% 200%;
-                background-position: top;
             }
         }
     }
@@ -416,7 +335,7 @@
 }
 
 //* BREAKPOINT: 1440 x 900
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1460px) {
     .clothing__single__item .image__container {
         height: 52.5vh;
         .main_image {
@@ -509,7 +428,7 @@
 }
 
 //* iPhone 15 Pro Max
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .items_category_container .sorting-wrapper {
         position: static;
     }

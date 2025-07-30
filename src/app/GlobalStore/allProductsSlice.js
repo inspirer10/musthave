@@ -914,48 +914,6 @@ const allProductsSlice = createSlice({
         setProducts: (state, action) => {
             state.products = action.payload;
         },
-        /*toggleFavorite: (state, action) => {
-            const uniqueImage = action.payload; // Unikalny identyfikator - image
-            const product = state.allProducts.find(
-                (item) => item.image === uniqueImage
-            ); // Znajdź produkt po 'image'
-            if (product) {
-                product.isFavorite = !product.isFavorite; // Przełącz ulubiony status
-            }
-        },*/
-
-        /*toggleFavorite: (state, action) => {
-            const uniqueImage = action.payload; // Unikalny identyfikator - image
-            state.allProducts = state.allProducts.map((category) =>
-                category.map((item) =>
-                    item.image === uniqueImage
-                        ? { ...item, isFavorite: !item.isFavorite } // Odwrócenie wartości `isFavorite`
-                        : item
-                )
-            );
-        },*/
-
-        /*
-        toggleFavorite: (state, action) => {
-            const product = state.products.find(
-                (item) => item.productId === action.payload
-            );
-            if (product) {
-                product.isFavorite = !product.isFavorite;
-            }
-        },
-        */
-        /*
-        toggleFavorite: (state, action) => {
-            // Przechodzimy po wszystkich kategoriach
-            state.products.forEach((categoryArr) => {
-                categoryArr.forEach((product) => {
-                    if (product.productId === action.payload) {
-                        product.isFavorite = !product.isFavorite;
-                    }
-                });
-            });
-        }, */
 
         toggleFavorite: (state, action) => {
             // Przechodzimy po wszystkich kategoriach
