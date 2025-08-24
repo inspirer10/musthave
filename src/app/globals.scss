@@ -79,119 +79,16 @@ li {
     list-style: none;
 }
 
-//INTRO on visting page
-.introduction-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000000;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    cursor: none;
-    .typing-effect {
-        display: flex;
-        align-items: center;
-        animation: hideElement .0s forwards;
-        animation-delay: 2.1s;
-        .text {
-            font-size: 3rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 1px;
-            border-right: 4px solid;
-            width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            margin: 0 auto;
-            animation: typing 1.9s steps(29), cursor .4s step-end infinite alternate;
-        }
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-        @keyframes cursor {
-            50% {
-                border-color: transparent;
-            }
-        }
-    }
-    h2 {
-        // font-size: clamp(2.25rem, 7.5vw, 10rem);
-        font-size: 18vw;
-        color: #00008B;
-        //color: #0a00c1;
-        color: #FFF;
-        position: absolute;
-        top: 17.5%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        width: 100%;
-        line-height: 1;
-        user-select: none;
-        opacity: 0;
-        animation: showHeading .0s forwards;
-        animation-delay: 2.75s;
-        &:nth-of-type(2) {
-            color: rgb(135, 135, 135);
-            top: 32.5%;
-            clip-path: inset(47.5% 0 0 0);
-            animation-delay: 2.45s;
-        }
-        &:nth-of-type(3) {
-            color: rgb(90, 90, 90);
-            top: 44.25%;
-            clip-path: inset(60% 0 0 0);
-            animation-delay: 2.2s;
-        }
-        /* &:nth-of-type(4) {
-            color: #FFF;
-            color: #0a00c1;
-            top: 47.5%;
-            clip-path: inset(65% 0 0 0);
-            animation-delay: 2.7s;
-        } */
-    }
-    @keyframes showHeading {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    @keyframes hideElement {
-        100% {
-            opacity: 0;
-        }
-    }
+.top_info-bar {
+    display: none;
 }
 
-@media screen and (max-width: 550px) {
-    .introduction-page {
-        .typing-effect {
-            .text {
-                font-size: 25px;
-                letter-spacing: 0.25px;
-            }
-        }
-        h2 {
-            top: 40%;
-            &:nth-of-type(2) {
-                top: 45%;
-            }
-            &:nth-of-type(3) {
-                top: 49%;
-            }
-        }
-    }
+.custom-toast {
+    width: fit-content !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    will-change: transform !important;
 }
 
 .fixed-brand {

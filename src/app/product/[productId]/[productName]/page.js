@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
 
 //import productsData from '../../../productsData';
-import ProductPage from '@/app/Components/ProductPages/ProductPage';
-import PageNotFound from '@/app/Components/PageNotFound';
 
-import { useSelector } from 'react-redux';
+import ProductPage from '@/components/ProductPage/ProductPage';
+import PageNotFound from '@/components/PageNotFound';
 
 const Product = (params) => {
     // Pobieranie dynamicznych parametrów

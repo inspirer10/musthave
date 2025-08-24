@@ -1,10 +1,21 @@
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'motion/react';
+
+import './categories.scss';
 
 function Categories() {
     return (
         <section className='section__categories'>
-            <h2 className='categories__heading'>Categories</h2>
+            <motion.h2
+                initial={{ opacity: 0, transform: 'translateY(40px)' }}
+                whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65, ease: 'easeIn' }}
+                className='categories__heading'
+            >
+                Categories
+            </motion.h2>
             <div className='categories__container'>
                 <div className='categories__item__one'>
                     <Image

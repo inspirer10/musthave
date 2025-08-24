@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { FaArrowRightLong } from 'react-icons/fa6';
 import Image from 'next/image';
-import { FiArrowUpRight } from 'react-icons/fi';
 import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'motion/react';
+
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { GoArrowRight } from 'react-icons/go';
 //import AboutIntroParallax from './AboutIntroParallax';
+
+import './about.scss';
 
 function AboutCompany() {
     const [active, setActive] = useState(1);
@@ -230,12 +233,26 @@ function AboutCompany() {
             </section>
 
             <article className='quoteSection'>
-                <p className='quote'>
+                <motion.p
+                    initial={{ opacity: 0, transform: 'translateY(35px)' }}
+                    whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.65, ease: 'easeIn' }}
+                    className='quote'
+                >
                     <i>" </i>Dressing well doesn't depend on a lot of clothes.
                     It's a matter of harmony and common sense.
                     <i>"</i>
-                </p>
-                <p className='author'>Oscar de la Renta</p>
+                </motion.p>
+                <motion.p
+                    initial={{ opacity: 0, transform: 'translateY(40px)' }}
+                    whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.65, ease: 'easeIn' }}
+                    className='author'
+                >
+                    Oscar de la Renta
+                </motion.p>
             </article>
         </>
     );

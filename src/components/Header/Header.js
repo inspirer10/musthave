@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../GlobalStore/newsletterSlice';
+import Image from 'next/image';
+import './header.scss';
 import { FaFacebookF, FaTiktok, FaTwitter } from 'react-icons/fa';
 import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose, MdKeyboardArrowRight } from 'react-icons/md';
 import { motion } from 'motion/react';
-import Navbar from './Navbar';
-import Image from 'next/image';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { openModal, closeModal } from '@/app/GlobalStore/newsletterSlice';
+import Navbar from '../Navbar/Navbar';
 
 function Header() {
     const modalOpenStateFromSessionStorage = useSelector(

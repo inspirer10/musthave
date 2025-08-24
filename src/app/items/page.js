@@ -1,11 +1,7 @@
 'use client';
 
-import ItemsSubpage from '../Components/ItemsSubpage';
-
-import '../styles/header.scss';
-import '../styles/productCategory.scss';
-import '../styles/footer.scss';
 import { useEffect } from 'react';
+import ItemsSubpage from '@/components/ItemsSubpage';
 
 export default function Items() {
     useEffect(() => {

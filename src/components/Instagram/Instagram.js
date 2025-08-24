@@ -1,10 +1,14 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { FiArrowUpRight } from 'react-icons/fi';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'motion/react';
+
+import { FiArrowUpRight } from 'react-icons/fi';
 import { SiInstagram } from 'react-icons/si';
 import { FiInstagram } from 'react-icons/fi';
+
+import './instagramSection.scss';
+import './newsletter.scss';
 
 function Instagram() {
     const image1 = useRef(null);

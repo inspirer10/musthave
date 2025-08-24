@@ -1,11 +1,7 @@
 'use client';
 
-import '../styles/header.scss';
-import '../styles/productCategory.scss';
-import '../styles/footer.scss';
-
 import { useEffect } from 'react';
-import ClothingSubpage from '../Components/ClothingSubpage';
+import ClothingSubpage from '@/components/ClothingSubpage';
 
 export default function Clothing() {
     useEffect(() => {

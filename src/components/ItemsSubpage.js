@@ -1,20 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from './Navbar.js';
-import Bag from './Bag/Bag.js';
-import ProductCard from './ProductCard.js';
-import Footer from './Footer.js';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-import { useSelector } from 'react-redux';
 
-function ClothingSubpage() {
+import Navbar from './Navbar/Navbar';
+import Bag from './Bag/Bag';
+import ProductCard from './ProductCard/ProductCard';
+import Footer from './Footer/Footer';
+
+import './productCategory.scss';
+
+function ItemsSubpage() {
     const clothingItems = useSelector((state) => state.allProducts.products[0]);
+    const accessoriesItems = useSelector(
+        (state) => state.allProducts.products[1]
+    );
+    const shoesItems = useSelector((state) => state.allProducts.products[2]);
 
-    const [searchItem, setSearchItem] = useState(''); //przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(clothingItems); //sortowanie kolejności produktów
-    const [sortedOption, setSortedOption] = useState(''); //SORT rerender podstrony
-    const [sortExpanded, setSortExpanded] = useState(true); //price sort - rozwinięte czy nie
-    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwinięte czy nie
+    let allProductsData = [
+        ...clothingItems,
+        ...shoesItems,
+        ...accessoriesItems,
+    ];
+
+    const [searchItem, setSearchItem] = useState('');
+    const [data, setData] = useState(allProductsData); // sortowanie kolejności produktów
+    const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
+    const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
+    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
 
     //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
     const handleCategorySelection = (category) => {
@@ -27,8 +40,8 @@ function ClothingSubpage() {
 
     return (
         <>
-            <Navbar color={'rgb(120, 120, 120)'} activeCategory='clothing'>
-                {/*<label htmlFor='searchItems' className='search__items'>
+            <Navbar color={'rgb(120, 120, 120)'}>
+                {/* <label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
                         placeholder='SEARCH'
@@ -47,14 +60,9 @@ function ClothingSubpage() {
                         MUSTHAVE
                     </p>
                     <span>/</span>
-                    <p onClick={() => (document.location.href = `/items/`)}>
-                        ITEMS
-                    </p>
-                    <span>/</span>
-                    <p className='active-link'>Clothing</p>
+                    <p className='active-link'>ITEMS</p>
                 </div>
-
-                <h2 className='clothing__header'>Clothing</h2>
+                <h2 className='clothing__header'>All products</h2>
             </article>
 
             <section className='items_category_container'>
@@ -203,10 +211,10 @@ function ClothingSubpage() {
                             <input
                                 type='radio'
                                 name='category'
-                                value='sweatshirt'
-                                checked={searchItem === 'SWEATSHIRT'}
+                                value='knitwear'
+                                checked={searchItem === 'KNITWEAR'}
                                 onClick={() =>
-                                    handleCategorySelection('SWEATSHIRT')
+                                    handleCategorySelection('KNITWEAR')
                                 }
                                 readOnly
                             />
@@ -223,18 +231,17 @@ function ClothingSubpage() {
                             />
                             <span>Dresses & Jumpsuits</span>
                         </label>
+
                         <label>
                             <input
                                 type='radio'
                                 name='category'
-                                value='hoodie'
-                                checked={searchItem === 'HOODIE'}
-                                onClick={() =>
-                                    handleCategorySelection('HOODIE')
-                                }
+                                value='shoes'
+                                checked={searchItem === 'SHOES'}
+                                onClick={() => handleCategorySelection('SHOES')}
                                 readOnly
                             />
-                            <span>HOODIES</span>
+                            <span>SHOES</span>
                         </label>
                     </div>
                 </div>
@@ -283,10 +290,9 @@ function ClothingSubpage() {
                         )}
                 </div>
             </section>
-
             <Footer />
         </>
     );
 }
 
-export default ClothingSubpage;
+export default ItemsSubpage;

@@ -110,7 +110,18 @@ function ProductCard({
 
     return (
         <>
-            <Toaster position='bottom-right' reverseOrder={true} />
+            <Toaster
+                position='bottom-right'
+                reverseOrder={true}
+                gutter={6}
+                /* gap={6}
+                toastOptions={{
+                    classNames: {
+                        toast: 'custom-toast',
+                    },
+                }}*/
+            />
+
             <div
                 key={productName + productId}
                 className='clothing__single__item'

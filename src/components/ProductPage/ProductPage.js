@@ -1,13 +1,13 @@
-import toast, { Toaster } from 'react-hot-toast';
-
+import { Toaster, toast } from 'sonner';
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Navbar from '../Navbar/Navbar';
 import Bag from '../Bag/Bag';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
+import SuggestedItems from '../SuggestedItems/SuggestedItems';
+import Footer from '../Footer/Footer';
+
 import { v4 as uuidv4 } from 'uuid';
 
-import SuggestedItems from '../SuggestedItems';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '/src/app/GlobalStore/cartSlice.js';
 import {
@@ -16,25 +16,21 @@ import {
 } from '/src/app/GlobalStore/favoriteSlice.js';
 import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
 
-import DetailsItem from '../DetailsItem';
+import DetailsItem from './DetailsItem';
 
 import {
     IoBookmarks,
     IoBookmarksOutline,
     IoShareSocialOutline,
 } from 'react-icons/io5';
-
 import { IoMdAddCircle } from 'react-icons/io';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
 //import { FiLink, FiLink2 } from 'react-icons/fi';
 import { FiMinus, FiPlus, FiShare, FiScissors } from 'react-icons/fi';
-
 import { TbTruckDelivery } from 'react-icons/tb';
 
-import '../../styles/header.scss';
-import '../../styles/product.scss';
-import '../../styles/footer.scss';
+import './product.scss';
 
 function ProductPage({
     //isFavorite,
@@ -697,7 +693,16 @@ function ProductPage({
                     {/* ADDITIONAL INFO OG POSITION */}
                 </div>
             </div>
-            <Toaster position='bottom-right' reverseOrder={true} />
+
+            <Toaster
+                position='bottom-right'
+                gap={6}
+                toastOptions={{
+                    classNames: {
+                        toast: 'custom-toast',
+                    },
+                }}
+            />
             {renderSuggestedItems && <SuggestedItems />}
             <Footer />
         </>

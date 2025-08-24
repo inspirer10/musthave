@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Navbar from '../Components/Navbar';
-import Bag from '../Components/Bag/Bag';
-import Footer from '../Components/Footer';
-import InstagramStory from './InstagramStory';
 
 //import { IoPersonOutline } from 'react-icons/io5';
 import { FcGoogle } from 'react-icons/fc';
 import { HiOutlineMail } from 'react-icons/hi';
 import { PiLock, PiEyeLight, PiEyeSlashLight } from 'react-icons/pi';
 import { BsPersonBoundingBox } from 'react-icons/bs';
+
+import Navbar from '@/components/Navbar/Navbar';
+import Bag from '@/components/Bag/Bag';
+import InstagramStory from './InstagramStory';
+import Footer from '@/components/Footer/Footer';
+
+import './profileSubpage.scss';
 
 function ProfileSubpage() {
     // Stan formularza

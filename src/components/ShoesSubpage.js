@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar.js';
-import Bag from './Bag/Bag.js';
-import Footer from './Footer.js';
+import { useSelector } from 'react-redux';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-import { useSelector } from 'react-redux';
-import ProductCard from './ProductCard.js';
 
-function AccessoriesSubpage() {
-    const accessoriesItems = useSelector(
-        (state) => state.allProducts.products[1]
-    );
+import Navbar from './Navbar/Navbar';
+import Bag from './Bag/Bag';
+import ProductCard from './ProductCard/ProductCard';
+import Footer from './Footer/Footer';
+
+import './productCategory.scss';
+
+function ShoesSubpage() {
+    const shoesItems = useSelector((state) => state.allProducts.products[2]);
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
-    const [data, setData] = useState(accessoriesItems); // sortowanie kolejności produktów
+    const [data, setData] = useState(shoesItems); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
@@ -28,7 +29,7 @@ function AccessoriesSubpage() {
 
     return (
         <>
-            <Navbar color={'rgb(120, 120, 120)'} activeCategory='accessories'>
+            <Navbar color={'rgb(120, 120, 120)'} activeCategory='shoes'>
                 {/*<label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
@@ -52,9 +53,9 @@ function AccessoriesSubpage() {
                         ITEMS
                     </p>
                     <span>/</span>
-                    <p className='active-link'>Accessories</p>
+                    <p className='active-link'>Shoes</p>
                 </div>
-                <h2 className='clothing__header'>Accessories</h2>
+                <h2 className='clothing__header'>Shoes</h2>
             </article>
 
             <section className='items_category_container'>
@@ -172,44 +173,6 @@ function AccessoriesSubpage() {
                             />
                             <span>All</span>
                         </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='bag'
-                                checked={searchItem === 'BAG'}
-                                onClick={() => handleCategorySelection('BAG')}
-                                readOnly
-                            />
-                            <span>Bags</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='glasses'
-                                checked={searchItem === 'GLASSES'}
-                                onClick={() =>
-                                    handleCategorySelection('GLASSES')
-                                }
-                                readOnly
-                            />
-                            <span>GLASSES</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='cap'
-                                checked={searchItem === 'CAP'}
-                                onClick={() => handleCategorySelection('CAP')}
-                                readOnly
-                            />
-                            <span>CAPS</span>
-                        </label>
                     </div>
                 </div>
 
@@ -262,4 +225,4 @@ function AccessoriesSubpage() {
     );
 }
 
-export default AccessoriesSubpage;
+export default ShoesSubpage;

@@ -1,12 +1,7 @@
 'use client';
 
-import '../styles/header.scss';
-import '../styles/productCategory.scss';
-import '../styles/profileSubpage.scss';
-import '../styles/footer.scss';
-
 import { useEffect } from 'react';
-import ProfileSubpage from './ProfileSubpage';
+import ProfileSubpage from '@/components/ProfileSubpage/ProfileSubpage';
 
 export default function Profile() {
     useEffect(() => {

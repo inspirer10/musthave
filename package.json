@@ -10,18 +10,19 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^2.8.2",
-        "lenis": "^1.3.8",
+        "lenis": "^1.3.9",
         "motion": "^12.23.12",
-        "next": "^15.4.5",
+        "next": "^15.5.0",
         "next-redux-wrapper": "^8.1.0",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
-        "react-hot-toast": "^2.5.2",
+        "react-hot-toast": "^2.6.0",
         "react-icons": "^5.5.0",
         "react-redux": "^9.2.0",
         "redux": "^5.0.1",
         "redux-persist": "^6.0.0",
-        "sass": "^1.89.2",
+        "sass": "^1.90.0",
+        "sonner": "^2.0.7",
         "uuid": "^11.1.0"
     }
 }

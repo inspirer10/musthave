@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import productsData from '../productsData';
+import productsData from '@/data/productsData';
 
 function SuggestedItems() {
     let firstItem = 0, // od 0 do 3

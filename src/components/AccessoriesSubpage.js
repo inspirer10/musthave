@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar.js';
-import Bag from './Bag/Bag.js';
-import Footer from './Footer.js';
+import { useSelector } from 'react-redux';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-import { useSelector } from 'react-redux';
-import ProductCard from './ProductCard.js';
 
-function ItemsSubpage() {
-    const clothingItems = useSelector((state) => state.allProducts.products[0]);
+import Navbar from './Navbar/Navbar';
+import Bag from './Bag/Bag';
+import ProductCard from './ProductCard/ProductCard';
+import Footer from './Footer/Footer';
+
+import './productCategory.scss';
+
+function AccessoriesSubpage() {
     const accessoriesItems = useSelector(
         (state) => state.allProducts.products[1]
     );
-    const shoesItems = useSelector((state) => state.allProducts.products[2]);
-
-    let allProductsData = [
-        ...clothingItems,
-        ...shoesItems,
-        ...accessoriesItems,
-    ];
-
-    const [searchItem, setSearchItem] = useState('');
-    const [data, setData] = useState(allProductsData); // sortowanie kolejności produktów
+    const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
+    const [data, setData] = useState(accessoriesItems); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
     const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
     const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
@@ -37,8 +31,8 @@ function ItemsSubpage() {
 
     return (
         <>
-            <Navbar color={'rgb(120, 120, 120)'}>
-                {/* <label htmlFor='searchItems' className='search__items'>
+            <Navbar color={'rgb(120, 120, 120)'} activeCategory='accessories'>
+                {/*<label htmlFor='searchItems' className='search__items'>
                     <input
                         type='text'
                         placeholder='SEARCH'
@@ -57,9 +51,13 @@ function ItemsSubpage() {
                         MUSTHAVE
                     </p>
                     <span>/</span>
-                    <p className='active-link'>ITEMS</p>
+                    <p onClick={() => (document.location.href = `/items/`)}>
+                        ITEMS
+                    </p>
+                    <span>/</span>
+                    <p className='active-link'>Accessories</p>
                 </div>
-                <h2 className='clothing__header'>All products</h2>
+                <h2 className='clothing__header'>Accessories</h2>
             </article>
 
             <section className='items_category_container'>
@@ -182,63 +180,38 @@ function ItemsSubpage() {
                             <input
                                 type='radio'
                                 name='category'
-                                value='trousers'
-                                checked={searchItem === 'TROUSERS'}
+                                value='bag'
+                                checked={searchItem === 'BAG'}
+                                onClick={() => handleCategorySelection('BAG')}
+                                readOnly
+                            />
+                            <span>Bags</span>
+                        </label>
+
+                        <label>
+                            <input
+                                type='radio'
+                                name='category'
+                                value='glasses'
+                                checked={searchItem === 'GLASSES'}
                                 onClick={() =>
-                                    handleCategorySelection('TROUSERS')
+                                    handleCategorySelection('GLASSES')
                                 }
                                 readOnly
                             />
-                            <span>Trousers & Jeans</span>
+                            <span>GLASSES</span>
                         </label>
 
                         <label>
                             <input
                                 type='radio'
                                 name='category'
-                                value='shirt'
-                                checked={searchItem === 'SHIRT'}
-                                onClick={() => handleCategorySelection('SHIRT')}
+                                value='cap'
+                                checked={searchItem === 'CAP'}
+                                onClick={() => handleCategorySelection('CAP')}
                                 readOnly
                             />
-                            <span>Blouses & Tops</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='knitwear'
-                                checked={searchItem === 'KNITWEAR'}
-                                onClick={() =>
-                                    handleCategorySelection('KNITWEAR')
-                                }
-                                readOnly
-                            />
-                            <span>Sweatshirts</span>
-                        </label>
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='dress'
-                                checked={searchItem === 'DRESS'}
-                                onClick={() => handleCategorySelection('DRESS')}
-                                readOnly
-                            />
-                            <span>Dresses & Jumpsuits</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='shoes'
-                                checked={searchItem === 'SHOES'}
-                                onClick={() => handleCategorySelection('SHOES')}
-                                readOnly
-                            />
-                            <span>SHOES</span>
+                            <span>CAPS</span>
                         </label>
                     </div>
                 </div>
@@ -251,15 +224,14 @@ function ItemsSubpage() {
                     {data
                         .filter((post) => {
                             if (searchItem === '') {
-                                return true; //wszystkie posty gdy searchItem jest pusty
+                                return post;
                             } else if (
                                 post.productName
                                     .toLowerCase()
                                     .includes(searchItem.toLowerCase())
                             ) {
-                                return true; //true gdy post.productName zawiera searchItem
+                                return post;
                             }
-                            return false; //false gdy post nie spełnia warunku
                         })
                         .map(
                             ({
@@ -287,9 +259,10 @@ function ItemsSubpage() {
                         )}
                 </div>
             </section>
+
             <Footer />
         </>
     );
 }
 
-export default ItemsSubpage;
+export default AccessoriesSubpage;

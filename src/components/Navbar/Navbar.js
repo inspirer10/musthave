@@ -10,6 +10,8 @@ import {
 import { CgMenuLeftAlt } from 'react-icons/cg';
 import { IoMdClose } from 'react-icons/io';
 
+import './navbar.scss';
+
 function Navbar({ color, activeCategory, children }) {
     let lastScrollTop = 0;
     const itemsInCart = useSelector((state) => state.cart.items);
@@ -25,14 +27,6 @@ function Navbar({ color, activeCategory, children }) {
         document.querySelector('.bag').addEventListener('wheel', (e) => {
             e.stopPropagation(); // Zatrzymuje event scrolla
         });
-    };
-
-    const handleRedirect = () => {
-        if (children) {
-            return;
-        } else {
-            document.location.href = '/items';
-        }
     };
 
     const handleScroll = () => {

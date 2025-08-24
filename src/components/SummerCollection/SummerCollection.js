@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useScroll, useTransform, motion } from 'motion/react';
 import Image from 'next/image';
+
+import './summer.scss';
+
+import { useScroll, useTransform, motion } from 'motion/react';
 
 const useImageTransition = (images, interval = 2500) => {
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,24 +1,18 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
-import Introduction from './Components/Introduction';
-import Header from './Components/Header';
-import Bag from './Components/Bag/Bag';
-import SummerCollection from './Components/SummerCollection';
-import Categories from './Components/Categories';
-import AboutCompany from './Components/AboutCompany';
-import Instagram from './Components/Instagram';
-import Footer from './Components/Footer';
-
-import './styles/header.scss';
-import './styles/summer.scss';
-import './styles/categories.scss';
-import './styles/about.scss';
-import './styles/instagramSection.scss';
-import './styles/newsletter.scss';
-import './styles/footer.scss';
 
 import { AnimatePresence } from 'framer-motion';
+
+import Introduction from '@/components/Introduction/Introduction';
+import Header from '@/components/Header/Header';
+import Bag from '@/components/Bag/Bag';
+import SummerCollection from '@/components/SummerCollection/SummerCollection';
+import Categories from '@/components/Categories/Categories';
+import AboutCompany from '@/components/AboutCompany/AboutCompany';
+import Instagram from '@/components/Instagram/Instagram';
+import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +27,7 @@ export default function Home() {
 
         requestAnimationFrame(raf);
 
+        //INTRODUCTION screen timeout
         const timer = setTimeout(() => {
             setIsLoading(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });

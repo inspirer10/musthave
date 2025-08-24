@@ -1,14 +1,17 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Bag from './Bag/Bag';
-import ProductCard from './ProductCard';
-import Footer from './Footer';
-
-import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+
+import Navbar from '../Navbar/Navbar';
+import Bag from '../Bag/Bag';
+import ProductCard from '../ProductCard/ProductCard';
+import Footer from '../Footer/Footer';
 
 import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
 import { FaArrowRightLong } from 'react-icons/fa6';
+
+import '../productCategory.scss';
+import './favoritesSubpage.scss';
 
 function FavoritesSubpage() {
     const favItems = useSelector((state) => state.favorite.favItemsList);

@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { motion } from 'framer-motion';
+
+import './introduction.scss';
 
 function Introduction() {
     const slideUp = {
