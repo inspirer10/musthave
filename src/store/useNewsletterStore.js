@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const useNewsletterStore = create(
     persist(
@@ -11,7 +11,9 @@ export const useNewsletterStore = create(
         }),
         {
             name: 'musthave-newsletter',
-            getStorage: () => sessionStorage,
+            //getStorage: () => sessionStorage,
+            storage: createJSONStorage(() => sessionStorage),
+            version: 1,
         }
     )
 );

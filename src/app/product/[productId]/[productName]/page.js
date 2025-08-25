@@ -1,12 +1,11 @@
 'use client';
 
-//import productsData from '../../../productsData';
 import React from 'react';
-import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
 import ProductPage from '@/components/ProductPage/ProductPage';
 import PageNotFound from '@/components/PageNotFound/PageNotFound';
 
 import { useStore } from '@/store/useStore';
+import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
 
 const Product = (params) => {
     // Pobieranie dynamicznych parametrów

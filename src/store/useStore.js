@@ -1,7 +1,7 @@
 //'use client';
 
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const useStore = create(
     persist(
@@ -931,7 +931,7 @@ export const useStore = create(
 
             removeItemFromCart: (id) =>
                 set((state) => ({
-                    cartItems: state.cartItems.filter((i) => i.id !== id),
+                    cartItems: state.cartItems.filter((item) => item.id !== id),
                 })),
 
             clearCart: () => set({ cartItems: [] }),
@@ -967,21 +967,13 @@ export const useStore = create(
         }),
         {
             name: 'musthave-storage', // klucz dla całego store
-            version: 1,
-            getStorage: () => localStorage, // domyślnie localStorage
-            // rozdzielenie segmentów
+            storage: createJSONStorage(() => localStorage),
             partialize: (state) => ({
                 products: state.products,
                 cartItems: state.cartItems,
                 favItemsList: state.favItemsList,
             }),
-            // nadpisujemy storage dla newslettera
-            migrate: (persistedState, version) => {
-                // nic nie zmieniamy
-                return persistedState;
-            },
-            // dodatkowa konfiguracja
-            // w localStorage mamy produkty, koszyk, ulubione…
+            version: 1,
         }
     )
 );
