@@ -1,5 +1,4 @@
 import './globals.scss';
-import StoreProvider from './GlobalStore/StoreProvider.js';
 
 export const metadata = {
     title: 'M U S T H A V E',
@@ -69,9 +68,7 @@ export default function RootLayout({ children }) {
                 />
                 <meta name='theme-color' content='rgba(0, 0, 0, 0.85)' />
             </head>
-            <body>
-                <StoreProvider>{children}</StoreProvider>
-            </body>
+            <body>{children}</body>
         </html>
     );
 }

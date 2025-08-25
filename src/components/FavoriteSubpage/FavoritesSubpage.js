@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
+import { useStore } from '@/store/useStore';
 
 import Navbar from '../Navbar/Navbar';
 import Bag from '../Bag/Bag';
@@ -14,7 +14,7 @@ import '../productCategory.scss';
 import './favoritesSubpage.scss';
 
 function FavoritesSubpage() {
-    const favItems = useSelector((state) => state.favorite.favItemsList);
+    const favItemsList = useStore((state) => state.favItemsList);
     //console.log(favItems);
 
     return (
@@ -23,8 +23,8 @@ function FavoritesSubpage() {
             <Bag />
 
             <section className='favorite_items-section'>
-                {favItems.length !== 0 && <h2>Your Favorite Items</h2>}
-                {favItems.length === 0 && (
+                {favItemsList.length !== 0 && <h2>Your Favorite Items</h2>}
+                {favItemsList.length === 0 && (
                     <div className='empty-state'>
                         <aside>
                             <div className='aboutCompany__description'>
@@ -51,7 +51,7 @@ function FavoritesSubpage() {
                                     //src={'/aboutCompany2.jpg'}
                                     src={'/stars.png'}
                                     height={700}
-                                    width={700}
+                                    width={600}
                                     alt='infinite sign in space'
                                 />
                             </div>
@@ -68,7 +68,7 @@ function FavoritesSubpage() {
                 )}
 
                 <div className='favorites_items'>
-                    {favItems.map(
+                    {favItemsList.map(
                         ({
                             productName,
                             productPrice,

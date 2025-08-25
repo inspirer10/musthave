@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useStore } from '@/store/useStore';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 
@@ -11,11 +11,9 @@ import Footer from './Footer/Footer';
 import './productCategory.scss';
 
 function ItemsSubpage() {
-    const clothingItems = useSelector((state) => state.allProducts.products[0]);
-    const accessoriesItems = useSelector(
-        (state) => state.allProducts.products[1]
-    );
-    const shoesItems = useSelector((state) => state.allProducts.products[2]);
+    const clothingItems = useStore((state) => state.products[0]) || [];
+    const accessoriesItems = useStore((state) => state.products[1]) || [];
+    const shoesItems = useStore((state) => state.products[2]) || [];
 
     let allProductsData = [
         ...clothingItems,

@@ -1,27 +1,25 @@
 import React from 'react';
 import './bag.scss';
 
-import { useSelector, useDispatch } from 'react-redux';
-import {
-    removeItemFromCart,
-    clearCart,
-} from '/src/app/GlobalStore/cartSlice.js';
+import { useStore } from '@/store/useStore';
 import { MdOutlineClose } from 'react-icons/md';
 import { FaArrowRightLong as ArrowIcon } from 'react-icons/fa6';
 import Link from 'next/link';
 import Image from 'next/image';
 
 function Bag() {
-    const itemsInCart = useSelector((state) => state.cart.items);
-    const dispatch = useDispatch();
+    const cartItems = useStore((state) => state.cartItems);
+    const removeItemFromCart = useStore((state) => state.removeItemFromCart);
+    const clearCart = useStore((state) => state.clearCart);
 
     const handleRemoveItem = (payload) => {
         console.log(payload);
-        dispatch(removeItemFromCart(payload)); // Wysyłamy produkt jako payload
+        //! dispatch(removeItemFromCart(payload));
+        removeItemFromCart(payload.id); // Wysyłamy produkt jako payload
     };
 
     const handleClearCart = () => {
-        dispatch(clearCart());
+        clearCart();
     };
 
     /*  document.querySelector('body').addEventListener('click', function (e) {
@@ -43,7 +41,7 @@ function Bag() {
         document.querySelector('.navbar').classList.remove('disable__pointers');
     }
 
-    const itemsPrice = itemsInCart.reduce((sum, item) => sum + item.price, 0);
+    const itemsPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
     const handleRedirect = (link) => {
         window.location.href = `${link}`; // Przekierowanie na stronę docelową
@@ -69,7 +67,7 @@ function Bag() {
             </ul>
 
             <div className='products-container'>
-                {itemsInCart.map(
+                {cartItems.map(
                     ({ photo, name, id, price, size, quantity, link }) => {
                         return (
                             <ul className='bag__products' key={name + id}>

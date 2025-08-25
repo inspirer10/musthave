@@ -6,31 +6,27 @@ import { GrInstagram } from 'react-icons/gr';
 import { MdOutlineClose, MdKeyboardArrowRight } from 'react-icons/md';
 import { motion } from 'motion/react';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '@/app/GlobalStore/newsletterSlice';
 import Navbar from '../Navbar/Navbar';
+import { useNewsletterStore } from '@/store/useNewsletterStore';
 
 function Header() {
-    const modalOpenStateFromSessionStorage = useSelector(
-        (state) => state.newsletter.isOpen
-    );
-    const hasModalBeenShown = useSelector(
-        (state) => state.newsletter.wasModalShown
-    );
-    const dispatch = useDispatch();
+    const isModalOpen = useNewsletterStore((state) => state.isModalOpen);
+    const wasModalShown = useNewsletterStore((state) => state.wasModalShown);
+    const openModal = useNewsletterStore((state) => state.openModal);
+    const closeModal = useNewsletterStore((state) => state.closeModal);
 
-    const handleNewsletterModalClose = () => dispatch(closeModal());
+    const handleNewsletterModalClose = () => closeModal();
 
     //* OPEN modal after 8sec
     useEffect(() => {
-        if (!hasModalBeenShown) {
+        if (!wasModalShown) {
             const modalTimeout = setTimeout(() => {
-                dispatch(openModal());
+                openModal();
             }, 8000);
 
             return () => clearTimeout(modalTimeout);
         }
-    }, [dispatch]);
+    }, [wasModalShown, openModal]);
 
     const handleSubmitModal = (e) => {
         e.preventDefault();
@@ -138,7 +134,7 @@ function Header() {
                 </div>
             </div>
 
-            {modalOpenStateFromSessionStorage && (
+            {isModalOpen && (
                 <div id='mailing__modal'>
                     <p className='close' onClick={handleNewsletterModalClose}>
                         <MdOutlineClose />
@@ -147,14 +143,14 @@ function Header() {
                     <div className='modal_image-wrapper'>
                         <Image
                             src='/images/blackHoodie2.jpg'
-                            height={450}
-                            width={450}
+                            height={400}
+                            width={400}
                             alt='product thumbnail'
                         />
                         <Image
                             src='/instaGallery6.jpg'
-                            height={450}
-                            width={450}
+                            height={400}
+                            width={400}
                             alt='product thumbnail'
                         />
                     </div>

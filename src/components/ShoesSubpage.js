@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useStore } from '@/store/useStore';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 
@@ -11,7 +11,8 @@ import Footer from './Footer/Footer';
 import './productCategory.scss';
 
 function ShoesSubpage() {
-    const shoesItems = useSelector((state) => state.allProducts.products[2]);
+    const shoesItems = useStore((state) => state.products[2]);
+
     const [searchItem, setSearchItem] = useState(''); // przechwytuje nazwę szukanego produktu
     const [data, setData] = useState(shoesItems); // sortowanie kolejności produktów
     const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony

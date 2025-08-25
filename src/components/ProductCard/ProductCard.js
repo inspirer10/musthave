@@ -1,19 +1,12 @@
+//import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import {
-    addFavoriteItem,
-    removeFavoriteItem,
-} from '/src/app/GlobalStore/favoriteSlice.js';
-import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
-
-//import { v4 as uuidv4 } from 'uuid';
+import toast, { Toaster } from 'react-hot-toast';
 import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
 import { GrFavorite } from 'react-icons/gr';
-import { FaHeartBroken } from 'react-icons/fa';
+import { ImHeartBroken } from 'react-icons/im';
 
-import toast, { Toaster } from 'react-hot-toast';
+import { useStore } from '@/store/useStore';
 
 function ProductCard({
     productName,
@@ -25,39 +18,44 @@ function ProductCard({
     uniqueProductID,
     //isFavorite, // This comes from Redux (allProductsSlice)
 }) {
-    const dispatch = useDispatch();
+    const favItemsList = useStore((state) => state.favItemsList);
+    const addFavoriteItem = useStore((state) => state.addFavoriteItem);
+    const removeFavoriteItem = useStore((state) => state.removeFavoriteItem);
+    const toggleFavorite = useStore((state) => state.toggleFavorite);
 
     // Get favorite status directly from Redux
-    const isFavorite = useSelector((state) =>
+    /*const isFavorite = useSelector((state) =>
         state.favorite.favItemsList.some(
             (item) => item.uniqueProductID === uniqueProductID
         )
+    );*/
+
+    // Get favorite status directly from Zustand
+    const isFavorite = favItemsList.some(
+        (item) => item.uniqueProductID === uniqueProductID
     );
 
     const handleFavoriteItem = () => {
         if (!isFavorite) {
             //dodanie prod do FAV_List - produkt jako payload
-            dispatch(
-                addFavoriteItem({
-                    productName,
-                    productPrice,
-                    productId,
-                    image,
-                    image2,
-                    link,
-                    uniqueProductID,
-                    //isFavorite: true,
-                })
-            );
+            addFavoriteItem({
+                productName,
+                productPrice,
+                productId,
+                image,
+                image2,
+                link,
+                uniqueProductID,
+            });
 
             addFavNotification();
         } else {
-            dispatch(removeFavoriteItem(uniqueProductID));
+            removeFavoriteItem(uniqueProductID);
             removeFavNotification();
         }
         //Toggle in allProductsSlice
         //TOGGLE stanu isFavorite w LocalStorage //true||false
-        dispatch(toggleFavorite(uniqueProductID));
+        toggleFavorite(uniqueProductID);
     };
 
     const addFavNotification = () =>
@@ -87,7 +85,7 @@ function ProductCard({
     const removeFavNotification = () =>
         toast(
             <>
-                <FaHeartBroken
+                <ImHeartBroken
                     size={18}
                     color='#fff'
                     style={{ verticalAlign: 'middle', marginRight: '7px' }}

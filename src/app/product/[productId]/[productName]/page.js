@@ -1,13 +1,12 @@
 'use client';
 
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
-
 //import productsData from '../../../productsData';
-
+import React from 'react';
+import { useParams } from 'next/navigation'; // lub 'useRouter' dla dynamicznych parametrow
 import ProductPage from '@/components/ProductPage/ProductPage';
-import PageNotFound from '@/components/PageNotFound';
+import PageNotFound from '@/components/PageNotFound/PageNotFound';
+
+import { useStore } from '@/store/useStore';
 
 const Product = (params) => {
     // Pobieranie dynamicznych parametrów
@@ -19,16 +18,16 @@ const Product = (params) => {
         ? decodeURIComponent(productName)
         : '';
 
-    const clothingItems = useSelector((state) => state.allProducts.products[0]);
-    const accessoriesItems = useSelector(
-        (state) => state.allProducts.products[1]
-    );
-    const shoesItems = useSelector((state) => state.allProducts.products[2]);
     /* const allProductsSTARE_Z_PLIKU = [
         ...productsData.clothing,
         ...productsData.shoes,
         ...productsData.accessories,
     ]; */
+
+    const products = useStore((state) => state.products);
+    const clothingItems = products[0] || [];
+    const accessoriesItems = products[1] || [];
+    const shoesItems = products[2] || [];
 
     const allProducts = [...clothingItems, ...shoesItems, ...accessoriesItems];
 

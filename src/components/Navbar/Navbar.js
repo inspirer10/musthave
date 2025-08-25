@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import { RiUser3Line } from 'react-icons/ri';
 import {
     IoBagOutline,
@@ -11,11 +11,12 @@ import { CgMenuLeftAlt } from 'react-icons/cg';
 import { IoMdClose } from 'react-icons/io';
 
 import './navbar.scss';
+import { useStore } from '@/store/useStore';
 
 function Navbar({ color, activeCategory, children }) {
     let lastScrollTop = 0;
-    const itemsInCart = useSelector((state) => state.cart.items);
-    const favoriteItems = useSelector((state) => state.favorite.favItemsList);
+    const cartItems = useStore((state) => state.cartItems);
+    const favItemsList = useStore((state) => state.favItemsList);
 
     let [mobileView, setMobileView] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
@@ -61,6 +62,7 @@ function Navbar({ color, activeCategory, children }) {
                 <p>123 123 123 123 </p>
                 <p>avangardeStudio@gmail.com</p>
             </div>
+
             <nav
                 className={`navbar ${
                     showNavbar ? 'navbar--show' : 'navbar--hide'
@@ -166,14 +168,14 @@ function Navbar({ color, activeCategory, children }) {
                         <Link
                             className='fav-icon cart'
                             href='/favorites'
-                            cart-length={favoriteItems.length}
+                            cart-length={favItemsList.length}
                         >
                             <IoBookmarkOutline />
                         </Link>
                         <p
                             className='fav-icon cart'
                             onClick={openBag}
-                            cart-length={itemsInCart.length}
+                            cart-length={cartItems.length}
                         >
                             <IoBagOutline />
                         </p>

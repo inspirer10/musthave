@@ -1,23 +1,9 @@
-import { Toaster, toast } from 'sonner';
+//import { FiLink, FiLink2 } from 'react-icons/fi';
+
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Navbar from '../Navbar/Navbar';
-import Bag from '../Bag/Bag';
-import SuggestedItems from '../SuggestedItems/SuggestedItems';
-import Footer from '../Footer/Footer';
-
 import { v4 as uuidv4 } from 'uuid';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from '/src/app/GlobalStore/cartSlice.js';
-import {
-    addFavoriteItem,
-    removeFavoriteItem,
-} from '/src/app/GlobalStore/favoriteSlice.js';
-import { toggleFavorite } from '/src/app/GlobalStore/allProductsSlice.js';
-
-import DetailsItem from './DetailsItem';
-
+import Image from 'next/image';
+import { Toaster, toast } from 'sonner';
 import {
     IoBookmarks,
     IoBookmarksOutline,
@@ -26,10 +12,16 @@ import {
 import { IoMdAddCircle } from 'react-icons/io';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
-//import { FiLink, FiLink2 } from 'react-icons/fi';
 import { FiMinus, FiPlus, FiShare, FiScissors } from 'react-icons/fi';
 import { TbTruckDelivery } from 'react-icons/tb';
 
+import Navbar from '../Navbar/Navbar';
+import Bag from '../Bag/Bag';
+import SuggestedItems from '../SuggestedItems/SuggestedItems';
+import Footer from '../Footer/Footer';
+import DetailsItem from './DetailsItem';
+
+import { useStore } from '@/store/useStore';
 import './product.scss';
 
 function ProductPage({
@@ -50,30 +42,24 @@ function ProductPage({
     productId,
     uniqueProductID,
 }) {
-    const dispatch = useDispatch();
+    const addItemToCart = useStore((state) => state.addItemToCart);
+    const favItemsList = useStore((state) => state.favItemsList);
+    const addFavoriteItem = useStore((state) => state.addFavoriteItem);
+    const removeFavoriteItem = useStore((state) => state.removeFavoriteItem);
+    const toggleFavorite = useStore((state) => state.toggleFavorite);
 
     const [itemQuantity, setItemQuantity] = useState(1);
     const [itemSize, setItemSize] = useState('');
     const [activeImg, setActiveImg] = useState(image1);
 
-    const handleAddItem = (payload) => {
-        console.log(payload);
-        dispatch(addItemToCart(payload)); //produkt jako payload
-    };
-
-    const favoriteList = useSelector((state) => state.favorite.favItemsList);
-    // Get favorite status from Redux
-    const isFavorite = favoriteList.some(
+    // Get favorite status from Zustand
+    const isFavorite = favItemsList.some(
         (item) => item.uniqueProductID === uniqueProductID
     );
 
     const handleFavoriteItem = () => {
-        const isInFavoriteList = favoriteList.some(
-            (item) => item.uniqueProductID === uniqueProductID
-        );
-
-        if (!isInFavoriteList) {
-            const payload = {
+        if (!isFavorite) {
+            addFavoriteItem({
                 productName,
                 productPrice,
                 productId,
@@ -81,16 +67,14 @@ function ProductPage({
                 image2,
                 link,
                 uniqueProductID,
-            };
-
-            dispatch(addFavoriteItem(payload));
-            dispatch(toggleFavorite(uniqueProductID));
+            });
+            toggleFavorite(uniqueProductID);
 
             // Show add modal
             addFavNotification();
         } else {
-            dispatch(removeFavoriteItem(uniqueProductID));
-            dispatch(toggleFavorite(uniqueProductID));
+            removeFavoriteItem(uniqueProductID);
+            toggleFavorite(uniqueProductID);
 
             // Show remove modal
             removeFavNotification();
@@ -98,8 +82,8 @@ function ProductPage({
     };
 
     function addProductToBag({ name, price, link, photo }) {
-        if (itemQuantity !== 0 && itemQuantity !== '' && itemSize !== '') {
-            handleAddItem({
+        if (itemQuantity > 0 && itemSize !== '') {
+            addItemToCart({
                 name,
                 id: uuidv4(),
                 size: itemSize,
@@ -114,7 +98,7 @@ function ProductPage({
 
             //success toast notification
             addedNotification();
-        } else if (itemQuantity !== 0 && itemQuantity !== '') {
+        } else if (itemQuantity > 0) {
             sizeNotification();
         } else {
             return;
@@ -218,6 +202,7 @@ function ProductPage({
 
     const [isThrottled, setIsThrottled] = useState(false); //Blok zmiany obrazków onScroll zbyt szybko
     const containerRef = useRef(null);
+
     const handleScroll = (e) => {
         e.preventDefault(); //Zatrzymuje domyślne działanie przeglądarki
         e.stopPropagation(); //Zatrzymuje propagację zdarzenia
@@ -460,7 +445,18 @@ function ProductPage({
 
     return (
         <>
-            <Navbar color={'dimgray'} />
+            <Navbar color={'rgb(120, 120, 120)'}>
+                {/* <label htmlFor='searchItems' className='search__items'>
+                    <input
+                        type='text'
+                        placeholder='SEARCH'
+                        id='searchItems'
+                        className='search__items__input'
+                        onChange={(e) => setSearchItem(e.target.value)}
+                        value={searchItem}
+                    />
+                </label> */}
+            </Navbar>
             <Bag />
 
             <article className='links-container additional-space'>
@@ -497,75 +493,25 @@ function ProductPage({
 
                     <div className='images-container'>
                         <div className='product-thumbnails'>
-                            <Image
-                                src={image1}
-                                className={`${
-                                    activeImg === image1
-                                        ? 'thumbnail-image active_image'
-                                        : 'thumbnail-image'
-                                }`}
-                                height={325}
-                                width={325}
-                                onClick={() => setActiveImg(image1)}
-                                alt='product photo_1'
-                            />
-                            <Image
-                                src={image2}
-                                className={`${
-                                    activeImg === image2
-                                        ? 'thumbnail-image active_image'
-                                        : 'thumbnail-image'
-                                }`}
-                                height={325}
-                                width={325}
-                                onClick={() => setActiveImg(image2)}
-                                alt='product photo_2'
-                                loading='lazy'
-                            />
-                            {image3 && (
-                                <Image
-                                    src={image3}
-                                    className={`${
-                                        activeImg === image3
-                                            ? 'thumbnail-image active_image'
-                                            : 'thumbnail-image'
-                                    }`}
-                                    height={325}
-                                    width={325}
-                                    onClick={() => setActiveImg(image3)}
-                                    alt='product photo_3'
-                                    loading='lazy'
-                                />
-                            )}
-                            {image4 && (
-                                <Image
-                                    src={image4}
-                                    className={`${
-                                        activeImg === image4
-                                            ? 'thumbnail-image active_image'
-                                            : 'thumbnail-image'
-                                    }`}
-                                    height={325}
-                                    width={325}
-                                    onClick={() => setActiveImg(image4)}
-                                    alt='product photo_4'
-                                    loading='lazy'
-                                />
-                            )}
-                            {image5 && (
-                                <Image
-                                    src={image5}
-                                    className={`${
-                                        activeImg === image5
-                                            ? 'thumbnail-image active_image'
-                                            : 'thumbnail-image'
-                                    }`}
-                                    height={325}
-                                    width={325}
-                                    onClick={() => setActiveImg(image5)}
-                                    alt='product photo_5'
-                                    loading='lazy'
-                                />
+                            {[image1, image2, image3, image4, image5].map(
+                                (img, index) =>
+                                    img && (
+                                        <Image
+                                            key={index}
+                                            src={img}
+                                            className={
+                                                img === activeImg
+                                                    ? 'thumbnail-image active_image'
+                                                    : 'thumbnail-image'
+                                            }
+                                            height={125}
+                                            width={125}
+                                            onClick={() => setActiveImg(img)}
+                                            alt={`product photo_${index + 1}`}
+                                            //loading={index > 1 ? 'lazy' : undefined}
+                                            loading='lazy'
+                                        />
+                                    )
                             )}
                         </div>
 
@@ -634,7 +580,7 @@ function ProductPage({
                             <p>{itemQuantity}</p>
                             <button
                                 onClick={() => {
-                                    if (itemQuantity >= 20) {
+                                    if (itemQuantity === 20) {
                                         return;
                                     } else setItemQuantity(itemQuantity + 1);
                                 }}
@@ -703,6 +649,7 @@ function ProductPage({
                     },
                 }}
             />
+
             {renderSuggestedItems && <SuggestedItems />}
             <Footer />
         </>
