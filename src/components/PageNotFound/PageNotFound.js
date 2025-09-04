@@ -15,7 +15,7 @@ function PageNotFound() {
 
         const timer = setTimeout(() => {
             router.back(); // Przekierowanie do poprzedniej strony
-        }, 2750);
+        }, 2950);
 
         return () => {
             clearInterval(interval);
