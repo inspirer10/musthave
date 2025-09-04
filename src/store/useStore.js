@@ -964,6 +964,9 @@ export const useStore = create(
 
             openModal: () => set({ isModalOpen: true, wasModalShown: true }),
             closeModal: () => set({ isModalOpen: false }),
+
+            _hasHydrated: false,
+            setHasHydrated: (v) => set({ _hasHydrated: v }),
         }),
         {
             name: 'musthave-storage', // klucz dla całego store
@@ -974,6 +977,10 @@ export const useStore = create(
                 favItemsList: state.favItemsList,
             }),
             version: 1,
+
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            },
         }
     )
 );

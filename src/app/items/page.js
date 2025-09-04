@@ -1,13 +1,10 @@
-'use client';
-
-import { useEffect } from 'react';
 import ItemsSubpage from '@/components/ItemsSubpage';
 
-export default function Items() {
-    useEffect(() => {
-        document.title = `MUSTHAVE | Items`;
-    }, []);
+export const metadata = {
+    title: 'MUSTHAVE | Items',
+};
 
+export default function Items() {
     return (
         <>
             <ItemsSubpage />

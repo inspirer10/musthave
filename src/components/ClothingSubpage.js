@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useStore } from '@/store/useStore';
 import { AiOutlineMinus } from 'react-icons/ai';

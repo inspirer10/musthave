@@ -1,13 +1,10 @@
-'use client';
-
-import { useEffect } from 'react';
 import FavoritesSubpage from '@/components/FavoriteSubpage/FavoritesSubpage';
 
-export default function Favorites() {
-    useEffect(() => {
-        document.title = `MUSTHAVE | Favorite products`;
-    }, []);
+export const metadata = {
+    title: 'MUSTHAVE | Favorite products',
+};
 
+export default function Favorites() {
     return (
         <>
             <FavoritesSubpage />

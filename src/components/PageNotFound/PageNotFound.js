@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import './pageNotFound.scss';
 
 function PageNotFound() {
     const router = useRouter();
@@ -12,7 +15,7 @@ function PageNotFound() {
 
         const timer = setTimeout(() => {
             router.back(); // Przekierowanie do poprzedniej strony
-        }, 3000);
+        }, 2750);
 
         return () => {
             clearInterval(interval);
@@ -22,7 +25,9 @@ function PageNotFound() {
 
     return (
         <div className='not-found-container'>
-            <h2>404 - Page Not Found</h2>
+            <h2>
+                404 <br /> <span>-</span> Page Not Found
+            </h2>
             <h6>
                 You will be redirected back in {countdown} second
                 {countdown !== 1 ? 's' : ''}...

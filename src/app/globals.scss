@@ -106,37 +106,3 @@ li {
     color: #fff;
     mix-blend-mode: difference;
 }
-
-//! 404 PAGE
-.not-found-container {
-    background-color: #000;
-    color: #FFF;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    h2 {
-        font-family: 'Geist', sans-serif;
-        font-size: 5rem;
-        font-weight: 600;
-        margin-bottom: 2rem;
-    }
-    h6 {
-        font-family: 'Poppins', sans-serif;
-        font-family: 'Onest', sans-serif;
-        font-size: 1.6rem;
-        font-weight: 400;
-        margin-bottom: 10rem;
-        letter-spacing: -0.75px;
-    }
-    .not-found-brand {
-        font-family: 'Geist', sans-serif;
-        position: absolute;
-        font-weight: 300;
-        bottom: 3%;
-        font-size: 1.6rem;
-        letter-spacing: 2.5px;
-    }
-}

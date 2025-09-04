@@ -40,11 +40,11 @@ function Header() {
         animate: (index) => ({
             opacity: 1,
             transition: {
-                duration: 0.25,
+                duration: 0.225,
                 type: 'inertia',
                 type: 'easeIn',
                 velocity: 100,
-                delay: 3.75 + index * 0.7, //opóźnienie (3.75s) + indywidualne opóźnienie (index * 0.7)
+                delay: 3.5 + index * 0.5, //opóźnienie (3.75s) + indywidualne opóźnienie (index * 0.5)
             },
         }),
     };
@@ -54,11 +54,11 @@ function Header() {
         animate: () => ({
             opacity: 1,
             transition: {
-                duration: 0.25,
+                duration: 0.2,
                 type: 'inertia',
                 type: 'easeIn',
                 velocity: 100,
-                delay: 6.5,
+                delay: 5.5,
             },
         }),
     };
@@ -70,6 +70,7 @@ function Header() {
             <div className='header-video-container'>
                 <video
                     //preload
+                    suppressHydrationWarning
                     preload='auto'
                     poster='/aboutCompany2.jpg'
                     playsInline
@@ -143,14 +144,14 @@ function Header() {
                     <div className='modal_image-wrapper'>
                         <Image
                             src='/images/blackHoodie2.jpg'
-                            height={400}
-                            width={400}
+                            height={350}
+                            width={350}
                             alt='product thumbnail'
                         />
                         <Image
                             src='/instaGallery6.jpg'
-                            height={400}
-                            width={400}
+                            height={350}
+                            width={350}
                             alt='product thumbnail'
                         />
                     </div>

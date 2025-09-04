@@ -42,6 +42,7 @@ function AboutCompany() {
             <section className='aboutCompany'>
                 <div className='video-container'>
                     <video
+                        suppressHydrationWarning
                         playsInline
                         autoPlay
                         loop

@@ -1,13 +1,10 @@
-'use client';
-
-import { useEffect } from 'react';
 import ProfileSubpage from '@/components/ProfileSubpage/ProfileSubpage';
 
-export default function Profile() {
-    useEffect(() => {
-        document.title = `Your Profile | MUSTHAVE`;
-    }, []);
+export const metadata = {
+    title: 'Your Profile | MUSTHAVE',
+};
 
+export default function Profile() {
     return (
         <>
             <ProfileSubpage />
