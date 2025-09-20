@@ -2,8 +2,9 @@ import React from 'react';
 import './bag.scss';
 
 import { useStore } from '@/store/useStore';
-import { MdOutlineClose } from 'react-icons/md';
-import { FaArrowRightLong as ArrowIcon } from 'react-icons/fa6';
+
+import { Icon } from '@iconify/react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -51,7 +52,9 @@ function Bag() {
         <section className='bag'>
             <div className='bag__top__bar'>
                 <h2>MY BAG</h2>
-                <MdOutlineClose
+
+                <Icon
+                    icon='material-symbols:close'
                     id='close__icon'
                     onClick={() => {
                         closeBag();
@@ -123,7 +126,7 @@ function Bag() {
                 <button onClick={() => handleClearCart()}>
                     <p className='price'>${itemsPrice}</p>
                     <span>Checkout</span>
-                    <ArrowIcon className='icon' />
+                    <Icon icon='mingcute:arrow-right-line' className='icon' />
                     <div className='icon_wrapper'></div>
                 </button>
             </div>

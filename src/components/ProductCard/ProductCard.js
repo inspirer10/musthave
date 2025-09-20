@@ -2,11 +2,12 @@
 import Image from 'next/image';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
+
 import { GrFavorite } from 'react-icons/gr';
 import { ImHeartBroken } from 'react-icons/im';
 
 import { useStore } from '@/store/useStore';
+import { Icon } from '@iconify/react';
 
 function ProductCard({
     productName,
@@ -166,9 +167,16 @@ function ProductCard({
                         onClick={handleFavoriteItem}
                     >
                         {isFavorite ? (
-                            <IoBookmarks className='fav-icon' />
+                            <Icon
+                                icon='famicons:bookmarks'
+                                className='fav-icon'
+                                style={{ color: 'rgb(10, 0, 225)' }}
+                            />
                         ) : (
-                            <IoBookmarksOutline className='fav-icon' />
+                            <Icon
+                                icon='famicons:bookmarks-outline'
+                                className='fav-icon'
+                            />
                         )}
                     </div>
                 </div>

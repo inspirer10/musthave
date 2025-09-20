@@ -9,8 +9,7 @@ import Bag from '../Bag/Bag';
 import ProductCard from '../ProductCard/ProductCard';
 import Footer from '../Footer/Footer';
 
-import { IoBookmarks, IoBookmarksOutline } from 'react-icons/io5';
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { Icon } from '@iconify/react';
 
 import '../productCategory.scss';
 import './favoritesSubpage.scss';
@@ -36,13 +35,20 @@ function FavoritesSubpage() {
                                 </h5>
                                 <p>
                                     Browse our products and tap the
-                                    <IoBookmarksOutline className='icon' />
+                                    <Icon
+                                        icon='famicons:bookmarks-outline'
+                                        className='icon'
+                                    />
                                     on products you like.
                                 </p>
 
                                 <div className='view_more'>
                                     <a href='/items'>CHECK PRODUCTS</a>
-                                    <FaArrowRightLong className='icon' />
+
+                                    <Icon
+                                        icon='ri:arrow-right-long-line'
+                                        className='icon'
+                                    />
                                 </div>
                             </div>
                         </aside>
@@ -52,9 +58,11 @@ function FavoritesSubpage() {
                                     className='image'
                                     //src={'/aboutCompany2.jpg'}
                                     src={'/stars.png'}
-                                    height={700}
-                                    width={600}
-                                    alt='infinite sign in space'
+                                    height={600}
+                                    width={500}
+                                    quality={90}
+                                    priority
+                                    alt='infinite sign set in space'
                                 />
                             </div>
 

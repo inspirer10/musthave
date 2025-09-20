@@ -3,10 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'motion/react';
 
-import { FaArrowRightLong } from 'react-icons/fa6';
-import { FiArrowUpRight } from 'react-icons/fi';
-import { GoArrowRight } from 'react-icons/go';
 //import AboutIntroParallax from './AboutIntroParallax';
+import { Icon } from '@iconify/react';
 
 import './about.scss';
 
@@ -75,7 +73,11 @@ function AboutCompany() {
 
                             <div className='view_more'>
                                 <a href='/aboutCompany'>VIEW MORE</a>
-                                <FaArrowRightLong className='icon' />
+
+                                <Icon
+                                    icon='ri:arrow-right-long-line'
+                                    className='icon'
+                                />
                             </div>
                         </div>
                     </article>
@@ -88,7 +90,7 @@ function AboutCompany() {
                             <Image
                                 src={'/aboutCompany2.jpg'}
                                 height={550}
-                                width={550}
+                                width={400}
                                 alt='black and white photo of a female model'
                             />
                         </div>
@@ -101,7 +103,10 @@ function AboutCompany() {
                             <button className='button'>
                                 <p className='text'>See more</p>
                                 <div className='icon_wrapper'>
-                                    <FiArrowUpRight className='arrow-icon' />
+                                    <Icon
+                                        icon='lucide:arrow-up-right'
+                                        className='arrow-icon'
+                                    />
                                 </div>
                             </button>
                         </Link>
@@ -138,7 +143,10 @@ function AboutCompany() {
                                         </p>
                                         <Link href='/about'>
                                             Learn more
-                                            <GoArrowRight className='arrow-icon' />
+                                            <Icon
+                                                icon='ri:arrow-right-long-line'
+                                                className='arrow-icon'
+                                            />
                                         </Link>
                                     </div>
                                 </div>
@@ -171,7 +179,10 @@ function AboutCompany() {
 
                                         <Link href='/about' className='lime'>
                                             Learn more
-                                            <GoArrowRight className='arrow-icon' />
+                                            <Icon
+                                                icon='ri:arrow-right-long-line'
+                                                className='arrow-icon'
+                                            />
                                         </Link>
                                     </div>
                                 </div>
@@ -205,7 +216,10 @@ function AboutCompany() {
                                         </p>
                                         <Link href='/about' className='craft'>
                                             Learn more
-                                            <GoArrowRight className='arrow-icon' />
+                                            <Icon
+                                                icon='ri:arrow-right-long-line'
+                                                className='arrow-icon'
+                                            />
                                         </Link>
                                     </div>
                                 </div>
@@ -214,9 +228,10 @@ function AboutCompany() {
                     </article>
                     <aside className='images_wrapper'>
                         <Image
-                            loading='lazy'
-                            height={700}
-                            width={700}
+                            //loading='lazy'
+                            priority
+                            height={500}
+                            width={400}
                             src={
                                 active === 1
                                     ? '/brand.jpg'

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
+import { Icon } from '@iconify/react';
 
 function InstagramStory() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -14,7 +14,7 @@ function InstagramStory() {
         { id: 3, image: '/aboutCompany2.jpg', time: '1h' },
     ];
 
-    const SLIDE_DURATION = 3500; //3.5-sekundy
+    const SLIDE_DURATION = 3500; //3.5 sekundy
 
     //Synchronizuj slideRef z currentSlide zawsze przy zmianie
     useEffect(() => {
@@ -96,6 +96,8 @@ function InstagramStory() {
                             alt='company avatar'
                             width={50}
                             height={50}
+                            quality={100}
+                            priority
                         />
                     </div>
                     <span className='instagram-story__username'>@musthave</span>
@@ -113,7 +115,8 @@ function InstagramStory() {
                         fill
                         className='instagram-story__image'
                         //priority
-                        priority={true}
+                        priority
+                        quality={80}
                     />
                 </div>
 
@@ -122,7 +125,7 @@ function InstagramStory() {
                     onClick={goToPrev}
                     aria-label='Previous story'
                 >
-                    <IoChevronBack />
+                    <Icon icon='humbleicons:chevron-left' />
                 </button>
 
                 <button
@@ -130,7 +133,7 @@ function InstagramStory() {
                     onClick={goToNext}
                     aria-label='Next story'
                 >
-                    <IoChevronForward />
+                    <Icon icon='humbleicons:chevron-right' />
                 </button>
             </main>
         </aside>

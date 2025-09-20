@@ -3,9 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'motion/react';
 
-import { FiArrowUpRight } from 'react-icons/fi';
-import { SiInstagram } from 'react-icons/si';
-import { FiInstagram } from 'react-icons/fi';
+import { Icon } from '@iconify/react';
 
 import './instagramSection.scss';
 import './newsletter.scss';
@@ -75,8 +73,8 @@ function Instagram() {
                         <Image
                             loading='lazy'
                             src={'/images/blackHoodie2.jpg'}
-                            height={650}
-                            width={650}
+                            height={550}
+                            width={450}
                             alt='photo of female model sitting on the floor and wearing a hoodie'
                         />
                     </div>
@@ -90,7 +88,10 @@ function Instagram() {
                         <button className='button'>
                             <p className='text'> Check product</p>
                             <div className='icon_wrapper'>
-                                <FiArrowUpRight className='arrow-icon' />
+                                <Icon
+                                    icon='lucide:arrow-up-right'
+                                    className='arrow-icon'
+                                />
                             </div>
                         </button>
                     </Link>
@@ -111,7 +112,7 @@ function Instagram() {
 
                     <div className='view_product'>
                         <a href='/product/black/HOODIE'>VIEW PRODUCT</a>
-                        <FiArrowUpRight className='icon' />
+                        <Icon icon='lucide:arrow-up-right' className='icon' />
                     </div>
                 </aside>
             </section>
@@ -120,7 +121,10 @@ function Instagram() {
                 <div className='top__gallery'>
                     <div className='top_gallery_item1' ref={image1}>
                         <div className='icon-wrapper'>
-                            <FiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                     <div className='instagramSection__followUs'>
@@ -178,7 +182,10 @@ function Instagram() {
 
                     <div className='top_gallery_item2' ref={image2}>
                         <div className='icon-wrapper'>
-                            <SiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                 </div>
@@ -186,22 +193,34 @@ function Instagram() {
                 <div className='bottom__gallery'>
                     <div className='bottom__gallery_item1' ref={image3}>
                         <div className='icon-wrapper'>
-                            <SiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                     <div className='bottom__gallery_item2' ref={image4}>
                         <div className='icon-wrapper'>
-                            <FiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                     <div className='bottom__gallery_item3' ref={image5}>
                         <div className='icon-wrapper'>
-                            <SiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                     <div className='bottom__gallery_item4' ref={image6}>
                         <div className='icon-wrapper'>
-                            <FiInstagram className='insta-icon' />
+                            <Icon
+                                icon='lucide:instagram'
+                                className='insta-icon'
+                            />
                         </div>
                     </div>
                 </div>

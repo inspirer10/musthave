@@ -11,7 +11,6 @@ export const useStore = create(
                 [
                     {
                         productName: 'GOT T-SHIRT',
-                        //productPrice: '129.00',
                         productPrice: 129,
                         productPopularity: 0,
                         productId: 'black',
@@ -21,11 +20,11 @@ export const useStore = create(
                         image3: '/images/tshirt1.png',
                         image4: '/images/tshirt4.png',
                         image5: '/images/tshirt5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'This classic black t-shirt is made from 100% high-quality cotton, offering superior comfort and durability. The minimalist design features a crew neckline and a regular fit, making it a versatile addition to any wardrobe.',
                         uniqueProductID: 'clothing_black_20250722_0',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'HOODIE',
@@ -38,11 +37,11 @@ export const useStore = create(
                         image3: '/images/hoodie5.jpg',
                         image4: '/images/hoodie4.jpg',
                         image5: '/images/hoodie2.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Stay cozy and stylish with our beige hoodie, made from a soft cotton blend. This hoodie features a relaxed fit, kangaroo pocket, and adjustable drawstrings for maximum comfort. Perfect for casual wear or layering on cooler days.',
                         uniqueProductID: 'clothing_beige_20250722_1',
+                        productsTags: 'hoodie',
                     },
                     {
                         productName: 'DRESS',
@@ -55,11 +54,11 @@ export const useStore = create(
                         image3: '/images/dressYellow4.jpg',
                         image4: '/images/dressYellow2.jpg',
                         image5: '/images/dressYellow5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Make a statement with our vibrant yellow dress. Crafted from a lightweight, breathable fabric, this dress is designed for both comfort and style. It features a flattering A-line silhouette, short sleeves, and a knee-length hem, making it suitable for various occasions',
                         uniqueProductID: 'clothing_yellow_20250722_2',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'JUMPSUIT',
@@ -72,11 +71,11 @@ export const useStore = create(
                         image3: '/images/jumpsuit3.jpg',
                         image4: '/images/jumpsuit4.jpg',
                         image5: '/images/jumpsuit5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our green jumpsuit is the epitome of chic and comfort. Made from a soft, stretchy material, it offers a flattering fit with a cinched waist and wide-leg pants. The sleeveless design and v-neckline add a touch of elegance, perfect for both casual and formal events.',
                         uniqueProductID: 'clothing_green_20250722_3',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'GOT T-SHIRT',
@@ -89,11 +88,11 @@ export const useStore = create(
                         image3: '/images/tshirtWhite1.png',
                         image4: '/images/tshirtWhite4.png',
                         image5: '/images/tshirtWhite5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'This classic white t-shirt is made from 100% high-quality cotton, offering superior comfort and durability. The minimalist design features a crew neckline and a regular fit, making it a versatile addition to any wardrobe.',
                         uniqueProductID: 'clothing_white_20250722_4',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'HOODIE',
@@ -106,11 +105,11 @@ export const useStore = create(
                         image3: '/images/pinkHoodie3.jpg',
                         image4: '/images/pinkHoodie4.jpg',
                         image5: '/images/pinkHoodie6.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Add a pop of color to your wardrobe with our pink hoodie. Made from a plush, fleece-lined fabric, this kangaroo hoodie provides warmth and comfort. It features a front pocket and adjustable drawstrings, making it ideal for everyday wear.',
                         uniqueProductID: 'clothing_pink_20250722_5',
+                        productsTags: 'hoodie',
                     },
                     {
                         productName: 'DRESS',
@@ -123,11 +122,11 @@ export const useStore = create(
                         image3: '/images/dressBlue4.jpg',
                         image4: '/images/dressBlue3.jpg',
                         image5: '/images/dressBlue2.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our blue dress combines elegance with simplicity. Made from a soft, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has long sleeves and a round neckline, perfect for both day and night outings.',
                         uniqueProductID: 'clothing_blue_20250722_6',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'SWEATSHIRT',
@@ -140,11 +139,11 @@ export const useStore = create(
                         image3: '/images/sweatshirtGray3.png',
                         image4: '/images/sweatshirtGray4.png',
                         image5: '/images/sweatshirtGray5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'This classic gray sweatshirt is perfect for any casual occasion. Made from a soft and durable cotton blend, it provides both comfort and warmth. It features a crew neckline, ribbed cuffs, and a relaxed fit, making it an essential piece for your wardrobe.',
                         uniqueProductID: 'clothing_gray_20250722_7',
+                        productsTags: 'sweatshirt',
                     },
                     {
                         productName: 'TROUSERS',
@@ -157,11 +156,11 @@ export const useStore = create(
                         image3: '/images/trousers3.jpg',
                         image4: '/images/trousers4.jpg',
                         image5: '/images/trousers5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Elevate your everyday look with these stylish black trousers. Crafted from high-quality fabric, they offer a slim fit that flatters all body types. Featuring a button and zip closure, belt loops, and functional pockets, these trousers are both practical and fashionable.',
                         uniqueProductID: 'clothing_black_20250722_8',
+                        productsTags: 'trousers',
                     },
                     {
                         productName: 'SWEATSHIRT',
@@ -174,11 +173,11 @@ export const useStore = create(
                         image3: '/images/sweatshirtBlack3.png',
                         image4: '/images/sweatshirtBlack2.png',
                         image5: '/images/sweatshirtBlack5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our black sweatshirt combines comfort with a sleek design. Made from premium cotton, it offers a soft feel and a relaxed fit. The sweatshirt features a crew neckline and ribbed cuffs, making it ideal for layering or wearing on its own.',
                         uniqueProductID: 'clothing_black_20250722_9',
+                        productsTags: 'sweatshirt',
                     },
                     {
                         productName: 'DRESS',
@@ -189,11 +188,11 @@ export const useStore = create(
                         image: '/images/dressWhite1.png',
                         image2: '/images/dressWhite2.png',
                         image3: '/images/dressWhite3.png',
-                        imagesCount: 3,
                         isFavorite: false,
                         productDescription:
                             'Stand out in our elegant white puffy dress. Made from lightweight, breathable fabric, this dress features a fitted bodice and a voluminous skirt that falls just above the knee. The short sleeves and round neckline add a touch of sophistication, perfect for special occasions.',
                         uniqueProductID: 'clothing_puffy_20250722_10',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'JEANS',
@@ -206,11 +205,11 @@ export const useStore = create(
                         image3: '/images/jeans5.jpg',
                         image4: '/images/jeans3.jpg',
                         image5: '/images/jeans2.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our dark jeans are a versatile addition to any wardrobe. Made from high-quality denim, they offer a comfortable fit with just the right amount of stretch. These jeans feature a classic five-pocket design, a button and zip fly, and a tapered leg for a modern look.',
                         uniqueProductID: 'clothing_dark_20250722_11',
+                        productsTags: 'trousers',
                     },
                     {
                         productName: 'DRESS',
@@ -223,11 +222,11 @@ export const useStore = create(
                         image3: '/images/dressFancy4.jpg',
                         image4: '/images/dressFancy2.jpg',
                         image5: '/images/dressFancy5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Make a statement with our fancy dress. Designed with intricate detailing, this dress features a fitted bodice and a flowing skirt that falls to mid-calf. The dress is made from luxurious fabric, with a v-neckline and short sleeves, perfect for elegant events.',
                         uniqueProductID: 'clothing_fancy_20250722_12',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'T-SHIRT',
@@ -240,11 +239,11 @@ export const useStore = create(
                         image3: '/images/tShirtWhite5.jpg',
                         image4: '/images/tShirtWhite1.jpg',
                         image5: '/images/tShirtWhite4.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'This classic white t-shirt is an essential for any wardrobe. Made from 100% soft, breathable cotton, it offers a comfortable fit and versatile style. It features a crew neckline and short sleeves, perfect for layering or wearing on its own.',
                         uniqueProductID: 'clothing_white_20250722_13',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'JEANS',
@@ -257,13 +256,12 @@ export const useStore = create(
                         image3: '/images/jeansLight2.jpg',
                         image4: '/images/jeansLight4.jpg',
                         image5: '/images/jeansLight5.jpg',
-                        imagesCount: 5,
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our light jeans offer a casual and comfortable look. Made from high-quality denim, they feature a classic five-pocket design, a button and zip fly, and a slim fit that flatters all body types. Perfect for everyday wear.',
 
                         uniqueProductID: 'clothing_light_20250722_14',
+                        productsTags: 'trousers',
                     },
                     {
                         productName: 'DRESS',
@@ -276,11 +274,11 @@ export const useStore = create(
                         image3: '/images/dressColorful4.jpg',
                         image4: '/images/dressColorful2.jpg',
                         image5: '/images/dressColorful5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Stand out in our colorful dress. Crafted from lightweight, breathable fabric, this dress features a vibrant print, short sleeves, and a hemline that falls just above the knee. Perfect for adding a splash of color to your wardrobe.',
                         uniqueProductID: 'clothing_colorful_20250722_15',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'SHIRT',
@@ -293,11 +291,11 @@ export const useStore = create(
                         image3: '/images/shirt2.png',
                         image4: '/images/shirt3.png',
                         image5: '/images/shirt5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Add a touch of sophistication with our striped shirt. Made from a soft cotton blend, it features a classic button-down design, long sleeves, and a regular fit. The vertical stripes add a stylish twist to a timeless piece.',
                         uniqueProductID: 'clothing_striped_20250722_16',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'HOODIE',
@@ -310,11 +308,11 @@ export const useStore = create(
                         image3: '/images/blackHoodie3.jpg',
                         image4: '/images/blackHoodie4.jpg',
                         image5: '/images/blackHoodie5.jpg',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Our black hoodie is a must-have for any casual wardrobe. Made from a soft, fleece-lined fabric, it offers warmth and comfort. It features a kangaroo pocket, adjustable drawstrings, and a relaxed fit, perfect for everyday wear.',
                         uniqueProductID: 'clothing_black_20250722_17',
+                        productsTags: 'hoodie',
                     },
                     {
                         productName: 'SWEATSHIRT',
@@ -327,11 +325,11 @@ export const useStore = create(
                         image3: '/images/sweatshirtLight3.png',
                         image4: '/images/sweatshirtLight2.png',
                         image5: '/images/sweatshirtLight5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Stay cozy with our light sweatshirt. Made from a soft cotton blend, it features a crew neckline, ribbed cuffs, and a relaxed fit. The neutral color makes it easy to pair with any outfit, providing both style and comfort.',
                         uniqueProductID: 'clothing_light_20250722_18',
+                        productsTags: 'sweatshirt',
                     },
                     {
                         productName: 'SHIRT',
@@ -344,11 +342,11 @@ export const useStore = create(
                         image3: '/images/shirtDotted2.png',
                         image4: '/images/shirtDotted4.png',
                         image5: '/images/shirtDotted6.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Make a statement with our dotted shirt. Crafted from a lightweight, breathable fabric, it features a playful polka dot pattern, a classic button-down design, and long sleeves. Perfect for adding a fun element to your wardrobe.',
                         uniqueProductID: 'clothing_dotted_20250722_19',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'DRESS',
@@ -360,11 +358,11 @@ export const useStore = create(
                         image2: '/images/dressAzure2.jpg',
                         image3: '/images/dressAzure3.jpg',
                         image4: '/images/dressAzure4.jpg',
-                        imagesCount: 4,
                         isFavorite: false,
                         productDescription:
                             'Our azure dress combines elegance with simplicity. Made from a soft, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has short sleeves and a round neckline, ideal for both day and night outings.',
                         uniqueProductID: 'clothing_azure_20250722_20',
+                        productsTags: 'dress',
                     },
                     {
                         productName: 'T-SHIRT',
@@ -377,11 +375,11 @@ export const useStore = create(
                         image3: '/images/tshirtBlue3.png',
                         image4: '/images/tshirtBlue4.png',
                         image5: '/images/tshirtBlue5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'This stylish blue t-shirt is a versatile addition to any wardrobe. Made from 100% soft, breathable cotton, it provides all-day comfort. It features a classic crew neckline and short sleeves, perfect for both casual and active wear.',
                         uniqueProductID: 'clothing_blue_20250722_21',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'T-SHIRT',
@@ -394,11 +392,11 @@ export const useStore = create(
                         image3: '/images/tshirtGradient3.png',
                         image4: '/images/tshirtGradient4.png',
                         image5: '/images/tshirtGradient5.png',
-                        imagesCount: 5,
                         isFavorite: false,
                         productDescription:
                             'Stand out with our gradient t-shirt. Made from a lightweight, breathable fabric, this t-shirt features a unique gradient design that transitions smoothly from one color to another. It has a crew neckline and short sleeves, adding a modern twist to a classic style.',
                         uniqueProductID: 'clothing_gradient_20250722_22',
+                        productsTags: 'shirt',
                     },
                     {
                         productName: 'DRESS',
@@ -410,11 +408,11 @@ export const useStore = create(
                         image2: '/images/dressBlack3.jpg',
                         image3: '/images/dressBlack4.jpg',
                         image4: '/images/dressBlack2.jpg',
-                        imagesCount: 4,
                         isFavorite: false,
                         productDescription:
                             'Our elegant black dress is perfect for any special occasion. Made from a luxurious, flowy fabric, it features a fitted bodice and a flared skirt that falls just above the knee. The dress has short sleeves and a round neckline, offering a timeless and sophisticated look.',
                         uniqueProductID: 'clothing_black_20250722_23',
+                        productsTags: 'dress',
                     },
                 ],
                 [

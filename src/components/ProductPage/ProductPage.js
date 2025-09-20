@@ -4,16 +4,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import { Toaster, toast } from 'sonner';
-import {
-    IoBookmarks,
-    IoBookmarksOutline,
-    IoShareSocialOutline,
-} from 'react-icons/io5';
-import { IoMdAddCircle } from 'react-icons/io';
+
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
-import { FiMinus, FiPlus, FiShare, FiScissors } from 'react-icons/fi';
-import { TbTruckDelivery } from 'react-icons/tb';
+import { FiShare, FiScissors } from 'react-icons/fi';
+
+import { Icon } from '@iconify/react';
 
 import Navbar from '../Navbar/Navbar';
 import Bag from '../Bag/Bag';
@@ -132,7 +128,7 @@ function ProductPage({
         },
         {
             label: 'Sizing',
-            icon: <TbTruckDelivery />,
+            icon: '',
             textContent: `${sizingTextContent} Please refer to our size chart to find your perfect fit. If you're between sizes, we recommend ordering the next size up for a more comfortable fit.`,
         },
         {
@@ -505,11 +501,15 @@ function ProductPage({
                                                     : 'thumbnail-image'
                                             }
                                             height={125}
-                                            width={125}
+                                            width={100}
                                             onClick={() => setActiveImg(img)}
                                             alt={`product photo_${index + 1}`}
-                                            //loading={index > 1 ? 'lazy' : undefined}
-                                            loading='lazy'
+                                            loading={
+                                                index > 1 ? 'lazy' : undefined
+                                            }
+                                            priority={
+                                                index === 1 ? true : false
+                                            }
                                         />
                                     )
                             )}
@@ -522,9 +522,11 @@ function ProductPage({
                         >
                             <Image
                                 src={activeImg}
-                                id='imageBox'
                                 height={650}
-                                width={650}
+                                width={500}
+                                priority
+                                quality={90}
+                                id='imageBox'
                                 alt='Product thumbnail'
                             />
                         </div>
@@ -556,7 +558,10 @@ function ProductPage({
                             <div className='size-selector-label'>
                                 <label htmlFor='size'>SIZE:</label>
                                 <p className='size-guide'>
-                                    <FiScissors className='ruler-icon' />
+                                    <Icon
+                                        icon='mdi:scissors'
+                                        className='ruler-icon'
+                                    />
                                     SIZE GUIDE{' '}
                                 </p>
                             </div>
@@ -574,7 +579,7 @@ function ProductPage({
                                     itemQuantity === 1 ? 'disabled' : null
                                 }
                             >
-                                <FiMinus className='icon' />
+                                <Icon icon='lucide:minus' className='icon' />
                             </button>
 
                             <p>{itemQuantity}</p>
@@ -588,7 +593,7 @@ function ProductPage({
                                     itemQuantity === 20 ? 'disabled' : null
                                 }
                             >
-                                <FiPlus className='icon' />
+                                <Icon icon='lucide:plus' className='icon' />
                             </button>
                         </div>
 
@@ -608,7 +613,7 @@ function ProductPage({
                                 <div className='background' />
                                 <p className='text'>ADD TO BAG</p>
                                 <div className='icon'>
-                                    <IoMdAddCircle />
+                                    <Icon icon='tdesign:add-circle-filled' />
                                 </div>
                             </div>
 
@@ -617,9 +622,15 @@ function ProductPage({
                                 onClick={handleFavoriteItem}
                             >
                                 {isFavorite ? (
-                                    <IoBookmarks className='fav-icon' />
+                                    <Icon
+                                        icon='famicons:bookmarks'
+                                        className='fav-icon'
+                                    />
                                 ) : (
-                                    <IoBookmarksOutline className='fav-icon' />
+                                    <Icon
+                                        icon='famicons:bookmarks-outline'
+                                        className='fav-icon'
+                                    />
                                 )}
                             </div>
 
@@ -632,7 +643,7 @@ function ProductPage({
                                     urlNotification();
                                 }}
                             >
-                                <IoShareSocialOutline className='copy-icon' />
+                                <Icon icon='ix:share' className='copy-icon' />
                             </div>
                         </div>
                     </div>

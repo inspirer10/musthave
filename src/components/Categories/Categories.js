@@ -3,6 +3,28 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 import './categories.scss';
+import Link from 'next/link';
+
+const cardsData = [
+    {
+        image: '/image.jpg',
+        category: 'Clothing',
+        linkHref: '/clothing',
+        linkText: 'View the Collection!',
+    },
+    {
+        image: '/image3.jpg',
+        category: 'Accessories',
+        linkHref: '/accessories',
+        linkText: 'Accent Your Look!',
+    },
+    {
+        image: '/image2.jpg',
+        category: 'Shoes',
+        linkHref: '/shoes',
+        linkText: 'Step Inside!',
+    },
+];
 
 function Categories() {
     return (
@@ -17,64 +39,26 @@ function Categories() {
                 Categories
             </motion.h2>
             <div className='categories__container'>
-                <div className='categories__item__one'>
-                    <Image
-                        className='category_image'
-                        src='/image.jpg'
-                        fill
-                        loading='lazy'
-                        alt='category_thumbnail'
-                    />
-                    <div className='item__payload'>
-                        <p>Clothing</p>
-                        <button
-                            onClick={() =>
-                                (document.location.href = '/clothing')
-                            }
-                        >
-                            Check it out!
-                        </button>
-                    </div>
-                </div>
+                {cardsData.map(
+                    ({ image, category, linkHref, linkText }, index) => (
+                        <div key={index} className='category_card'>
+                            <Image
+                                className='category_image'
+                                src={image}
+                                fill
+                                loading='lazy'
+                                alt={`${category} category thumbnail`}
+                            />
 
-                <div className='categories__item__three'>
-                    <Image
-                        className='category_image'
-                        src='/image3.jpg'
-                        fill
-                        loading='lazy'
-                        alt='category_thumbnail'
-                    />
-
-                    <div className='item__payload'>
-                        <p>Accessories</p>
-                        <button
-                            onClick={() =>
-                                (document.location.href = '/accessories')
-                            }
-                        >
-                            Check it out!
-                        </button>
-                    </div>
-                </div>
-
-                <div className='categories__item__two'>
-                    <Image
-                        className='category_image'
-                        src='/image2.jpg'
-                        fill
-                        loading='lazy'
-                        alt='category_thumbnail'
-                    />
-                    <div className='item__payload'>
-                        <p>Shoes</p>
-                        <button
-                            onClick={() => (document.location.href = '/shoes')}
-                        >
-                            Check it out!
-                        </button>
-                    </div>
-                </div>
+                            <div className='item__payload'>
+                                <p>{category}</p>
+                                <Link className='button' href={`${linkHref}`}>
+                                    {linkText}
+                                </Link>
+                            </div>
+                        </div>
+                    )
+                )}
             </div>
         </section>
     );

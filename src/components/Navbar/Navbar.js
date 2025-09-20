@@ -11,6 +11,7 @@ import {
 } from 'react-icons/io5';
 import { CgMenuLeftAlt } from 'react-icons/cg';
 import { IoMdClose } from 'react-icons/io';
+import { Icon } from '@iconify/react';
 
 import './navbar.scss';
 import { useStore } from '@/store/useStore';
@@ -61,7 +62,7 @@ function Navbar({ color, activeCategory, children }) {
     return (
         <>
             <div className='top_info-bar'>
-                <p>123 123 123 123 </p>
+                <p>+(48) 567 123 456</p>
                 <p>avangardeStudio@gmail.com</p>
             </div>
 
@@ -75,7 +76,8 @@ function Navbar({ color, activeCategory, children }) {
                         mobileView ? 'mobile_menu active' : 'mobile_menu'
                     }
                 >
-                    <IoMdClose
+                    <Icon
+                        icon='material-symbols:close'
                         className='close-icon'
                         onClick={handleCloseMobileMenu}
                     />
@@ -158,28 +160,32 @@ function Navbar({ color, activeCategory, children }) {
                     </div>
 
                     <div className='navbar_icons-wrapper'>
-                        <IoSearchOutline className='fav-icon' id='searchIcon' />
+                        <Icon
+                            icon='octicon:search-16'
+                            className='fav-icon'
+                            id='searchIcon'
+                        />
+
                         <Link href='/profile' id='navbar-fav'>
-                            <RiUser3Line className='fav-icon' />
+                            <Icon icon='mi:user' className='fav-icon' />
                         </Link>
-                        {/* <Link href='/favorites' id='navbar-fav'>
-                        <IoBookmarkOutline className='fav-icon' />
-                    </Link>
-                    */}
+                        {/*  <Link href='/favorites' id='navbar-fav'>
+                                <IoBookmarkOutline className='fav-icon' />
+                        </Link>  */}
 
                         <Link
                             className='fav-icon cart'
                             href='/favorites'
                             cart-length={favItemsList.length}
                         >
-                            <IoBookmarkOutline />
+                            <Icon icon='iconoir:bookmark' />
                         </Link>
                         <p
                             className='fav-icon cart'
                             onClick={openBag}
                             cart-length={cartItems.length}
                         >
-                            <IoBagOutline />
+                            <Icon icon='ion:bag-outline' />
                         </p>
                     </div>
                 </div>

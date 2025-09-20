@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useStore } from '@/store/useStore';
-import { AiOutlineMinus } from 'react-icons/ai';
-import { IoIosArrowDown } from 'react-icons/io';
 
 import Navbar from './Navbar/Navbar';
 import Bag from './Bag/Bag';
@@ -11,6 +9,7 @@ import ProductCard from './ProductCard/ProductCard';
 import Footer from './Footer/Footer';
 
 import './productCategory.scss';
+import { Icon } from '@iconify/react';
 
 function ItemsSubpage() {
     const clothingItems = useStore((state) => state.products[0]) || [];
@@ -23,20 +22,52 @@ function ItemsSubpage() {
         ...accessoriesItems,
     ];
 
-    const [searchItem, setSearchItem] = useState('');
-    const [data, setData] = useState(allProductsData); // sortowanie kolejności produktów
-    const [sortedOption, setSortedOption] = useState(''); // SORT rerender podstrony
-    const [sortExpanded, setSortExpanded] = useState(true); //opcje sort - rozwinięte czy nie
-    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //opcje sort - rozwinięte czy nie
+    const [searchItem, setSearchItem] = useState(''); //tag szukanego produktu
+    //const [data, setData] = useState(allProductsData); // sortowanie kolejności produktów
+    const [sortedOption, setSortedOption] = useState(''); // 'popularity', 'low_to_high', 'high_to_low'
+    const [sortExpanded, setSortExpanded] = useState(true); //price/popularity sort - rozwinięte czy nie
+    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwinięte czy nie
 
     //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
-    const handleCategorySelection = (category) => {
-        if (searchItem === category) {
+    const handleCategorySelection = (tag) => {
+        if (searchItem === tag) {
             setSearchItem('');
         } else {
-            setSearchItem(category);
+            setSearchItem(tag);
         }
     };
+
+    const visibleItems = useMemo(() => {
+        // 1) Filtrowanie
+        const filtered = !searchItem
+            ? allProductsData
+            : allProductsData.filter((item) => {
+                  const raw = item.productsTags || '';
+                  const tags = raw
+                      .toLowerCase()
+                      .split(',')
+                      .map((tag) => tag.trim());
+                  return tags.includes(searchItem);
+              });
+
+        // 2) Sortowanie
+        if (sortedOption === 'popularity') {
+            return [...filtered].sort(
+                (a, b) => b.productPopularity - a.productPopularity
+            );
+        }
+        if (sortedOption === 'low_to_high') {
+            return [...filtered].sort(
+                (a, b) => a.productPrice - b.productPrice
+            );
+        }
+        if (sortedOption === 'high_to_low') {
+            return [...filtered].sort(
+                (a, b) => b.productPrice - a.productPrice
+            );
+        }
+        return filtered;
+    }, [allProductsData, searchItem, sortedOption]);
 
     return (
         <>
@@ -54,7 +85,7 @@ function ItemsSubpage() {
             </Navbar>
             <Bag />
 
-            <article className='links-container'>
+            <div className='links-container'>
                 <div className='links-wrapper'>
                     <p onClick={() => (document.location.href = '/')}>
                         MUSTHAVE
@@ -63,19 +94,22 @@ function ItemsSubpage() {
                     <p className='active-link'>ITEMS</p>
                 </div>
                 <h2 className='clothing__header'>All products</h2>
-            </article>
+            </div>
 
             <section className='items_category_container'>
                 <div className='sorting-wrapper'>
+                    {/* SORT BY POPULARITY */}
                     <div className='sorting-heading'>
                         <h6>Sort By</h6>
                         {sortExpanded ? (
-                            <AiOutlineMinus
+                            <Icon
+                                icon='cuida:minus-outline'
                                 className='icon'
                                 onClick={() => setSortExpanded(false)}
                             />
                         ) : (
-                            <IoIosArrowDown
+                            <Icon
+                                icon='tabler:chevron-down'
                                 className='icon'
                                 onClick={() => setSortExpanded(true)}
                             />
@@ -89,72 +123,49 @@ function ItemsSubpage() {
                                 : 'sorting__list hidden-list'
                         }
                     >
-                        <label>
-                            <input
-                                type='radio'
-                                name='sort'
-                                value='popularity'
-                                onClick={() => {
-                                    setData(
-                                        data.sort((a, b) =>
-                                            a.productPopularity >
-                                            b.productPopularity
-                                                ? 1
-                                                : -1
-                                        )
-                                    );
-                                    setSortedOption('default');
-                                }}
-                            />
-                            <span>Popularity</span>
-                        </label>
-                        <label>
-                            <input
-                                type='radio'
-                                name='sort'
-                                value='price-low-to-high'
-                                onClick={() => {
-                                    setData(
-                                        data.sort((a, b) =>
-                                            a.productPrice > b.productPrice
-                                                ? 1
-                                                : -1
-                                        )
-                                    );
-                                    setSortedOption('low_to_high');
-                                }}
-                            />
-                            <span>Price (Low to High)</span>
-                        </label>
-                        <label>
-                            <input
-                                type='radio'
-                                name='sort'
-                                value='price-high-to-low'
-                                onClick={() => {
-                                    setData(
-                                        data.sort((a, b) =>
-                                            a.productPrice < b.productPrice
-                                                ? 1
-                                                : -1
-                                        )
-                                    );
-                                    setSortedOption('high_to_low');
-                                }}
-                            />
-                            <span>Price (High to Low)</span>
-                        </label>
+                        {[
+                            {
+                                icon: 'tabler:chart-bar-popular',
+                                label: 'Popularity',
+                                value: 'popularity',
+                            },
+                            {
+                                icon: 'mingcute:sort-descending-line',
+                                label: 'Price (Low to High)',
+                                value: 'low_to_high',
+                            },
+                            {
+                                icon: 'mingcute:sort-ascending-line',
+                                label: 'Price (High to Low)',
+                                value: 'high_to_low',
+                            },
+                        ].map(({ icon, label, value }) => (
+                            <div
+                                className={`${
+                                    sortedOption === value
+                                        ? 'active_category'
+                                        : null
+                                } category_wrapper`}
+                                onClick={() => setSortedOption(value)}
+                                key={value}
+                            >
+                                <Icon icon={icon} className='icon' />
+                                <p>{label}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className='sorting-heading'>
                         <h6>Categories</h6>
                         {sortCategoriesExpanded ? (
-                            <AiOutlineMinus
+                            <Icon
+                                icon='cuida:minus-outline'
                                 className='icon'
                                 onClick={() => setSortCategoriesExpanded(false)}
                             />
                         ) : (
-                            <IoIosArrowDown
+                            <Icon
+                                icon='tabler:chevron-down'
                                 className='icon'
                                 onClick={() => setSortCategoriesExpanded(true)}
                             />
@@ -168,126 +179,90 @@ function ItemsSubpage() {
                                 : 'sorting__categories__list hidden-list'
                         }
                     >
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='all'
-                                //onClick={() => {setSearchItem('');}}
-                                checked={searchItem === ''}
-                                onClick={() => handleCategorySelection('')}
-                                readOnly
-                            />
-                            <span>All</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='trousers'
-                                checked={searchItem === 'TROUSERS'}
-                                onClick={() =>
-                                    handleCategorySelection('TROUSERS')
-                                }
-                                readOnly
-                            />
-                            <span>Trousers & Jeans</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='shirt'
-                                checked={searchItem === 'SHIRT'}
-                                onClick={() => handleCategorySelection('SHIRT')}
-                                readOnly
-                            />
-                            <span>Blouses & Tops</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='knitwear'
-                                checked={searchItem === 'KNITWEAR'}
-                                onClick={() =>
-                                    handleCategorySelection('KNITWEAR')
-                                }
-                                readOnly
-                            />
-                            <span>Sweatshirts</span>
-                        </label>
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='dress'
-                                checked={searchItem === 'DRESS'}
-                                onClick={() => handleCategorySelection('DRESS')}
-                                readOnly
-                            />
-                            <span>Dresses & Jumpsuits</span>
-                        </label>
-
-                        <label>
-                            <input
-                                type='radio'
-                                name='category'
-                                value='shoes'
-                                checked={searchItem === 'SHOES'}
-                                onClick={() => handleCategorySelection('SHOES')}
-                                readOnly
-                            />
-                            <span>SHOES</span>
-                        </label>
+                        {[
+                            {
+                                icon: 'hugeicons:grid-view',
+                                label: 'All',
+                                value: '',
+                            },
+                            {
+                                icon: 'hugeicons:jogger-pants',
+                                label: 'Trousers & Jeans',
+                                value: 'trousers',
+                            },
+                            {
+                                icon: 'hugeicons:shirt-01',
+                                label: 'Blouses & Tops',
+                                value: 'shirt',
+                            },
+                            {
+                                icon: 'hugeicons:long-sleeve-shirt',
+                                label: 'Sweatshirts',
+                                value: 'sweatshirt',
+                            },
+                            {
+                                icon: 'hugeicons:dress-02',
+                                label: 'Dresses & Jumpsuits',
+                                value: 'dress',
+                            },
+                            {
+                                icon: 'hugeicons:hoodie',
+                                label: 'Hoodies',
+                                value: 'hoodie',
+                            },
+                            {
+                                icon: 'hugeicons:running-shoes',
+                                label: 'Shoes',
+                                value: 'shoes',
+                            },
+                        ].map(({ icon, label, value }) => (
+                            <div
+                                className={`${
+                                    searchItem === value
+                                        ? 'active_category'
+                                        : null
+                                } category_wrapper`}
+                                onClick={() => handleCategorySelection(value)}
+                                key={value}
+                            >
+                                <Icon icon={icon} className='icon' />
+                                <p>{label}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
                 <div
                     className='clothing__items'
-                    data-attr={data.length}
-                    id={sortedOption ? sortedOption : ''}
+                    data-attr={visibleItems.length}
+                    sorted-option={sortedOption ? sortedOption : ''}
                 >
-                    {data
-                        .filter((post) => {
-                            if (searchItem === '') {
-                                return true; //wszystkie posty gdy searchItem jest pusty
-                            } else if (
-                                post.productName
-                                    .toLowerCase()
-                                    .includes(searchItem.toLowerCase())
-                            ) {
-                                return true; //true gdy post.productName zawiera searchItem
-                            }
-                            return false; //false gdy post nie spełnia warunku
-                        })
-                        .map(
-                            ({
-                                productName,
-                                productPrice,
-                                productId,
-                                image,
-                                image2,
-                                isFavorite,
-                                link,
-                                uniqueProductID,
-                            }) => (
-                                <ProductCard
-                                    productName={productName}
-                                    productPrice={productPrice}
-                                    productId={productId}
-                                    image={image}
-                                    image2={image2}
-                                    link={link}
-                                    uniqueProductID={uniqueProductID}
-                                    isFavorite={isFavorite}
-                                    key={productId + productName}
-                                />
-                            )
-                        )}
+                    {visibleItems.map(
+                        ({
+                            productName,
+                            productPrice,
+                            productId,
+                            image,
+                            image2,
+                            isFavorite,
+                            link,
+                            uniqueProductID,
+                            productsTags,
+                        }) => (
+                            <ProductCard
+                                productName={productName}
+                                productPrice={productPrice}
+                                productId={productId}
+                                image={image}
+                                image2={image2}
+                                link={link}
+                                uniqueProductID={uniqueProductID}
+                                isFavorite={isFavorite}
+                                key={productId + productName}
+                                productsTags={productsTags}
+                            />
+                        )
+                    )}
                 </div>
             </section>
             <Footer />

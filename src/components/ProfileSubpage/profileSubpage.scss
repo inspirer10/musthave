@@ -23,12 +23,12 @@
             .icon {
                 color: rgb(0, 0, 100);
                 color: rgb(10, 0, 193);
-                font-size: 2.5rem;
+                font-size: 3rem;
                 will-change: transform;
-                transition: .35s ease;
+                transition: .3s ease;
                 cursor: pointer;
                 &:hover {
-                    transform: translateY(-4px);
+                    transform: translateY(-2px);
                 }
             }
             h2 {
@@ -37,7 +37,7 @@
                 font-size: 2.5rem;
                 font-weight: 600;
                 letter-spacing: -0.75px;
-                margin-top: 1rem;
+                margin-top: 0.75rem;
             }
             .subHeading {
                 font-size: 21px;

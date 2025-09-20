@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import './header.scss';
-import { FaFacebookF, FaTiktok, FaTwitter } from 'react-icons/fa';
-import { GrInstagram } from 'react-icons/gr';
-import { MdOutlineClose, MdKeyboardArrowRight } from 'react-icons/md';
+
+import { Icon } from '@iconify/react';
+
 import { motion } from 'motion/react';
 
 import Navbar from '../Navbar/Navbar';
@@ -125,8 +125,11 @@ function Header() {
                     onClick={() => (document.location.href = '/items')}
                 >
                     <p>
-                        EXPLORE THE SHOP{' '}
-                        <MdKeyboardArrowRight className='icon' />
+                        EXPLORE THE SHOP
+                        <Icon
+                            icon='material-symbols:chevron-right-rounded'
+                            className='icon'
+                        />
                     </p>
                 </div>
 
@@ -138,7 +141,7 @@ function Header() {
             {isModalOpen && (
                 <div id='mailing__modal'>
                     <p className='close' onClick={handleNewsletterModalClose}>
-                        <MdOutlineClose />
+                        <Icon icon='material-symbols:close' />
                     </p>
 
                     <div className='modal_image-wrapper'>
@@ -183,10 +186,16 @@ function Header() {
                             </label>
                         </form>
                         <div className='modal__icons'>
-                            <GrInstagram className='icon' />
-                            <FaTwitter className='icon' />
-                            <FaFacebookF className='icon' />
-                            <FaTiktok className='icon' />
+                            <Icon icon='lucide:instagram' className='icon' />
+                            <Icon icon='si:twitter-fill' className='icon' />
+                            <Icon
+                                icon='tdesign:logo-youtube-filled'
+                                className='icon'
+                            />
+                            <Icon
+                                icon='akar-icons:tiktok-fill'
+                                className='icon'
+                            />
                         </div>
                     </div>
                 </div>

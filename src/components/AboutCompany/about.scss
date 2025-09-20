@@ -126,7 +126,7 @@
         }
         &:hover {
             .image-container img {
-                transform: scale(1.15);
+                transform: scale(1.08);
             }
         }
         .image-container {
@@ -144,6 +144,7 @@
                 margin: 0 auto;
                 transform-origin: top;
                 transition: .55s cubic-bezier(.4, 0, .2, 1);
+                transition-delay: 0.025s;
             }
         }
         h3 {

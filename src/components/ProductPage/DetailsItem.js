@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { RiArrowDownSLine, RiCloseLine } from 'react-icons/ri';
+import { Icon } from '@iconify/react';
 
 const FAQItem = ({ label, textContent, icon }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +15,12 @@ const FAQItem = ({ label, textContent, icon }) => {
                 {label}
                 <span className='additional-info-toggle'>
                     {isOpen ? (
-                        <RiCloseLine className='icon' />
+                        <Icon
+                            icon='material-symbols:close-rounded'
+                            className='icon'
+                        />
                     ) : (
-                        <RiArrowDownSLine className='icon' />
+                        <Icon icon='tabler:chevron-down' className='icon' />
                     )}
                 </span>
             </div>

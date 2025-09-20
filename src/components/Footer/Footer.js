@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaYoutube, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { Icon } from '@iconify/react';
 
 import './footer.scss';
 
@@ -30,10 +30,19 @@ function Footer() {
                         <div className='wrapper'>
                             <p>Stay connected</p>
                             <div className='social_icons'>
-                                <FaInstagram className='icon' />
-                                <FaTwitter className='icon' />
-                                <FaYoutube className='icon' />
-                                <FaTiktok className='icon' />
+                                <Icon
+                                    icon='lucide:instagram'
+                                    className='icon'
+                                />
+                                <Icon icon='si:twitter-fill' className='icon' />
+                                <Icon
+                                    icon='tdesign:logo-youtube-filled'
+                                    className='icon'
+                                />
+                                <Icon
+                                    icon='akar-icons:tiktok-fill'
+                                    className='icon'
+                                />
                             </div>
                         </div>
                     </div>

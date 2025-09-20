@@ -186,9 +186,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: color .225s ease, transform .25s ease;
                 cursor: pointer;
-                transition-delay: .075s;
+                transition: color .225s ease, transform .25s ease;
+                transition-delay: .05s;
                 &.cart {
                     position: relative;
                     &::after {
@@ -207,7 +207,7 @@
                         text-align: center;
                         color: #fff;
                         transition: color .225s ease, transform .25s ease;
-                        transition-delay: .075s;
+                        transition-delay: .05s;
                     }
                     &:hover {
                         &::after {
@@ -216,7 +216,7 @@
                     }
                 }
                 &:hover {
-                    color: rgb(165, 165, 165);
+                    color: rgb(175, 175, 175);
                     transform: translateY(-2px);
                 }
             }
