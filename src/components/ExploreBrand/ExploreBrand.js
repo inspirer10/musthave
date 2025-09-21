@@ -66,7 +66,7 @@ function ExploreBrand() {
                         width={300}
                         alt='//*TO FILL'
                         className='image_2'
-                        quality={90}
+                        quality={80}
                     />
 
                     <Image
@@ -75,6 +75,15 @@ function ExploreBrand() {
                         width={300}
                         alt='//*TO FILL'
                         className='image_3'
+                        quality={90}
+                    />
+
+                    <Image
+                        src={'/perfectShirt/3.jpg'}
+                        height={400}
+                        width={300}
+                        alt='//*TO FILL'
+                        className='image_4'
                         quality={90}
                     />
 

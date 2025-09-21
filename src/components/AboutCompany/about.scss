@@ -394,8 +394,8 @@
 //! QUOTE
 .quoteSection {
     text-align: center;
-    background-color: rgb(220, 220, 220);
-    background-image: linear-gradient(to bottom, #d7d7d7, #e0e0e0, #e8e8e8, #f1f1f1, #fff);
+    background: #E1E1E1;
+    background: linear-gradient(to bottom, rgba(225, 225, 225, 1) 0%, rgba(246, 246, 246, 1) 100%);
     padding: 5rem 0 7.5rem;
     margin: 5vh auto;
     //background-image: url('/testimg5.jpg');

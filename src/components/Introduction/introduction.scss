@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
+    background-color: var(--black);
     cursor: none;
     .typing-effect {
         display: flex;
@@ -19,7 +19,7 @@
         .text {
             font-size: 3rem;
             font-weight: 600;
-            color: #fff;
+            color: var(--white);
             letter-spacing: 1px;
             border-right: 4px solid;
             width: 100%;
@@ -47,7 +47,7 @@
         font-size: 18vw;
         color: #00008B;
         //color: #0a00c1;
-        color: #FFF;
+        color: var(--white);
         position: absolute;
         top: 17.5%;
         left: 50%;

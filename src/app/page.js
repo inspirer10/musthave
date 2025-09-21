@@ -47,6 +47,7 @@ export default function Home() {
             </AnimatePresence>
             <Header />
             <Bag />
+            <ExploreBrand />
             <SummerCollection />
 
             <h2 className='fixed-brand'>MUSTHAVE</h2>
@@ -54,7 +55,6 @@ export default function Home() {
             <Categories />
             <AboutCompany />
 
-            <ExploreBrand />
             <Instagram />
             <Footer />
         </>

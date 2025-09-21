@@ -56,7 +56,7 @@ function Navbar({ color, activeCategory, children }) {
         <>
             <div className='top_info-bar'>
                 <p>+(48) 567 123 456</p>
-                <p>avangardeStudio@gmail.com</p>
+                <p>musthaveStudio@gmail.com</p>
             </div>
 
             <nav
