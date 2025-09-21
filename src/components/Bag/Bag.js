@@ -79,8 +79,8 @@ function Bag() {
                                         className='thumbnail-image'
                                         src={photo}
                                         alt={id + name}
-                                        height={300}
-                                        width={300}
+                                        height={170}
+                                        width={130}
                                         onClick={() => handleRedirect(link)}
                                     />
 

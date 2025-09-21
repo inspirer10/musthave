@@ -76,7 +76,7 @@ function ProductCard({
                     letterSpacing: '0px',
                     color: '#fff',
                     //padding: '10px 16px',
-                    background: 'rgb(10, 0, 193)',
+                    background: 'rgb(1, 42, 254)',
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
@@ -100,7 +100,7 @@ function ProductCard({
                     letterSpacing: '0px',
                     color: '#fff',
                     //padding: '10px 16px',
-                    background: 'rgb(10, 0, 193)',
+                    background: 'rgb(1, 42, 254)',
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
@@ -136,6 +136,7 @@ function ProductCard({
                         width={400}
                         title={productName}
                         src={image}
+                        priority
                         className='main_image'
                         alt={`${productName} thumbnail`}
                     />
@@ -170,7 +171,7 @@ function ProductCard({
                             <Icon
                                 icon='famicons:bookmarks'
                                 className='fav-icon'
-                                style={{ color: 'rgb(10, 0, 225)' }}
+                                style={{ color: 'rgb(1, 42, 254)' }}
                             />
                         ) : (
                             <Icon

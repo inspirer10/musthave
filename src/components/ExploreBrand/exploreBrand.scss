@@ -1,0 +1,78 @@
+.explore_brand-section {
+    padding: 12.5vh 0;
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+        color: var(--black);
+        font-family: 'Barlow', sans-serif;
+        font-size: 6rem;
+        font-weight: 600;
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        article {
+            margin: 7.5vh 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            .position {
+                max-width: 550px;
+                h5 {
+                    font-family: 'Barlow', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    letter-spacing: 0.5px;
+                    font-variant: small-caps;
+                    //color: rgb(35, 35, 35);
+                    color: var(--dark-grey);
+                    margin-bottom: 5px;
+                    line-height: 1.5;
+                }
+                p {
+                    font-family: 'Barlow', sans-serif;
+                    color: rgb(135, 135, 135);
+                    text-wrap: balance;
+                    line-height: 1.4;
+                }
+            }
+        }
+        aside {
+            margin-top: -15%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            .image_wrapper {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                &:hover {
+                    img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+            img {
+                object-fit: cover;
+                height: 40%;
+                width: auto;
+                transition: .2s;
+            }
+            .image_2 {
+                position: absolute;
+                top: 25%;
+                right: 85%;
+                z-index: 0;
+                min-width: 325px;
+                min-height: 475px;
+            }
+            .image_3 {
+                position: relative;
+                z-index: 5;
+            }
+        }
+    }
+}

@@ -118,6 +118,8 @@ function Header() {
                         — delivering high-quality clothing to customers across
                         the globe
                     </motion.p>
+
+                    <button className='button'>Future of your wardrobe</button>
                 </div>
 
                 <div

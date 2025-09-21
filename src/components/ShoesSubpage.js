@@ -2,8 +2,6 @@
 
 import React, { useMemo, useState } from 'react';
 import { useStore } from '@/store/useStore';
-import { AiOutlineMinus } from 'react-icons/ai';
-import { IoIosArrowDown } from 'react-icons/io';
 
 import Navbar from './Navbar/Navbar';
 import Bag from './Bag/Bag';

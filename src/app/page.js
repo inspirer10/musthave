@@ -13,6 +13,7 @@ import Categories from '@/components/Categories/Categories';
 import AboutCompany from '@/components/AboutCompany/AboutCompany';
 import Instagram from '@/components/Instagram/Instagram';
 import Footer from '@/components/Footer/Footer';
+import ExploreBrand from '@/components/ExploreBrand/ExploreBrand';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -52,6 +53,8 @@ export default function Home() {
 
             <Categories />
             <AboutCompany />
+
+            <ExploreBrand />
             <Instagram />
             <Footer />
         </>

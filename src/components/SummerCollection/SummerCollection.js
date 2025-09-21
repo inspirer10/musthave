@@ -107,16 +107,16 @@ function SummerCollection() {
                         transition={{ duration: 0.6, ease: 'easeIn' }}
                         viewport={{ once: true }}
                         whileHover={{
-                            color: '#000',
-                            backgroundColor: 'rgb(225, 225, 225)',
+                            color: '#0b0b0b',
+                            backgroundColor: 'rgb(235, 235, 235)',
                             transition: {
-                                duration: 0.225,
+                                duration: 0.25,
                                 ease: [0.43, 0.13, 0.23, 0.96],
                             },
                         }}
                         animate={{
-                            backgroundColor: '#000',
-                            color: '#FFF',
+                            backgroundColor: '#0b0b0b',
+                            color: '#f6f6f6',
                             transition: {
                                 duration: 0.225,
                                 ease: [0.43, 0.13, 0.23, 0.96],
@@ -127,7 +127,7 @@ function SummerCollection() {
                     </motion.button>
                 </article>
 
-                <article className='summer__right__section'>
+                <aside className='summer__right__section'>
                     <div className='product__tile'>
                         <motion.div
                             className='image-container'
@@ -195,7 +195,7 @@ function SummerCollection() {
                             </p>
                         </div>
                     </div>
-                </article>
+                </aside>
             </section>
 
             {/* <section className='fixed__image'>

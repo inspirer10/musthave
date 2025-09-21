@@ -78,11 +78,11 @@
             font-weight: 700;
             letter-spacing: 0.75px;
             text-transform: uppercase;
-            border: 1px solid black;
+            border: 2px solid var(--black);
             padding: 1rem 3.25rem;
             border-radius: 10px;
-            background-color: #000;
-            color: #FFF;
+            background-color: var(--black);
+            color: var(--white);
             cursor: pointer;
         }
     }
@@ -94,12 +94,12 @@
         justify-content: flex-end;
         gap: 2.5rem;
         .product__tile {
-            border: 1px solid rgb(225, 225, 225);
+            border: 2px solid rgb(225, 225, 225);
             height: 72.5vh;
             width: 47.5%;
             margin: 2.5rem 0;
             position: relative;
-            border-radius: calc(15px + 1px); //+border-width
+            border-radius: calc(15px + 2px); //+border-width
             overflow: hidden;
             //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: 0.4s ease;
@@ -123,15 +123,15 @@
                 //transition: .35s linear;
             }
             .glass__box {
-                color: #fff;
+                color: var(--white);
                 z-index: 10;
                 position: absolute;
                 bottom: 0;
                 left: 50%;
-                width: calc(100% - 0px);
+                width: calc(100% + 0px);
                 transform: translateX(calc(-50%));
                 height: auto;
-                background: rgba(0, 0, 0, 0.65);
+                background: rgba(11, 11, 11, 0.65);
                 backdrop-filter: blur(10px);
                 display: flex;
                 flex-direction: column;
@@ -139,8 +139,8 @@
                 justify-content: space-between;
                 padding: 1rem 0 1.5rem 1.75rem;
                 text-align: left;
-                border-bottom-left-radius: 15px;
-                border-bottom-right-radius: 15px;
+                border-bottom-left-radius: 17px;
+                border-bottom-right-radius: 17px;
                 user-select: none;
                 transition: .4s ease;
                 .company-name {
@@ -231,7 +231,7 @@
         user-select: none;
         p {
             font-family: 'Barlow', sans-serif;
-            color: #fff;
+            color: var(--white);
             width: 75%;
             font-size: 3vw;
             font-weight: 600;
@@ -240,7 +240,7 @@
             text-align: justify;
         }
         h3 {
-            color: #fff;
+            color: var(--white);
             opacity: 0.6;
             font-size: 12.5vw;
             width: auto;

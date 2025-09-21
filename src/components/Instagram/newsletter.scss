@@ -14,6 +14,7 @@
         letter-spacing: -0.5px;
         margin-bottom: 1.5rem;
         margin-top: 2rem;
+        color: var(--black);
     }
     p {
         // font-family: "Lexend Deca", sans-serif;
@@ -24,7 +25,7 @@
         line-height: 1.3;
         margin-bottom: 0.5rem;
         letter-spacing: -0.2px;
-        color: rgb(150, 150, 150);
+        color: rgb(145, 145, 145);
     }
     form {
         #newsletterInput {
@@ -38,11 +39,11 @@
             text-align: left;
             padding: 1rem 1.5rem 1rem 1rem;
             outline: none;
-            background-color: #fff;
+            background-color: var(--white);
             border: 1px solid rgb(125, 125, 125);
             border-right: none;
             &:focus {
-                border-color: #000;
+                border-color: var(--black);
             }
         }
         #submitButton {
@@ -52,16 +53,16 @@
             font-size: 1rem;
             font-weight: 500;
             padding: 1rem;
-            border: 1px solid #0a00c1;
+            border: 1px solid var(--blue);
             border-top-width: 1.5px;
             border-bottom-width: 0.9px;
-            background-color: #0a00c1;
-            color: #fff;
+            background-color: var(--blue);
+            color: var(--white);
             cursor: pointer;
             transition: .2s ease-in-out;
             &:hover {
-                background-color: #000;
-                border-color: #000;
+                background-color: var(--black);
+                border-color: var(--black);
             }
         }
     }

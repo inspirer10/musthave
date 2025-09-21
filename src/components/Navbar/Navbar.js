@@ -3,14 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 //import { useSelector } from 'react-redux';
-import { RiUser3Line } from 'react-icons/ri';
-import {
-    IoBagOutline,
-    IoBookmarkOutline,
-    IoSearchOutline,
-} from 'react-icons/io5';
-import { CgMenuLeftAlt } from 'react-icons/cg';
-import { IoMdClose } from 'react-icons/io';
+
 import { Icon } from '@iconify/react';
 
 import './navbar.scss';
@@ -103,7 +96,8 @@ function Navbar({ color, activeCategory, children }) {
 
                 <div className='navbar-container'>
                     <div className='navbar_menu-wrapper'>
-                        <CgMenuLeftAlt
+                        <Icon
+                            icon='gg:menu-left-alt'
                             className='navbar_menu'
                             onClick={handleOpenMobileMenu}
                         />
