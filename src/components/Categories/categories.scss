@@ -98,6 +98,7 @@
         font-size: 18px;
         font-weight: 500;
         width: auto;
+        min-width: 50%;
         text-align: center;
         color: #fff;
         background-color: transparent;
@@ -105,7 +106,6 @@
         text-transform: uppercase;
         border: 2px solid var(--white);
         padding: 1rem 2rem;
-        min-width: 50%;
         margin: 0 0 2rem;
         border-radius: 8px;
         will-change: transform;
@@ -166,7 +166,7 @@
         width: 31.75%;
     }
     .item__payload .button {
-        width: 70%;
+        min-width: 75%;
     }
 }
 
@@ -183,22 +183,29 @@
             width: 100%;
             flex-direction: column;
             height: auto;
+            gap: 1vh;
             .categories__item__one {
                 img {
                     object-position: bottom;
                 }
             }
             .category_card {
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
                 align-self: center;
-                margin: 0.75rem auto;
+                margin: 0.75rem auto 0;
                 width: 95%;
                 aspect-ratio: 1/1;
+                &:nth-of-type(2) {
+                    margin-bottom: unset;
+                }
+                &:nth-of-type(3) {
+                    margin-bottom: unset;
+                }
             }
         }
     }
     .item__payload .button {
         margin-bottom: 1rem;
-        width: 90%;
+        min-width: 82.5%;
     }
 }

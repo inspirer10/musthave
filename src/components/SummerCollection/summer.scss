@@ -385,7 +385,7 @@
         }
     }
     .summer__section {
-        padding: 12.5vh 0;
+        padding: 12.5vh 0 10vh;
         width: 97.5%;
         flex-direction: column;
         .summer__left__section {
@@ -410,16 +410,16 @@
             width: 100%;
             flex-wrap: wrap;
             .product__tile {
-                margin: 0.5rem auto;
+                margin: 0.25rem auto;
                 width: 95%;
-                height: 62.5vh;
+                height: 57.5vh;
                 &:nth-of-type(2) {
                     margin-left: auto !important;
                 }
                 .glass__box {
                     height: auto;
                     align-items: center;
-                    padding: 0.75rem 0;
+                    padding: 1rem 0;
                     .company-name {
                         font-size: 15px;
                         opacity: 0.75;

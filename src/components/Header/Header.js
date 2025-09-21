@@ -44,7 +44,7 @@ function Header() {
                 type: 'inertia',
                 type: 'easeIn',
                 velocity: 100,
-                delay: 3.5 + index * 0.5, //opóźnienie (3.75s) + indywidualne opóźnienie (index * 0.5)
+                delay: 3.5 + index * 0.5, //opóźnienie (3.5s) + indywidualne opóźnienie (index * 0.5)
             },
         }),
     };
@@ -119,7 +119,15 @@ function Header() {
                         the globe
                     </motion.p>
 
-                    <button className='button'>Future of your wardrobe</button>
+                    <motion.button
+                        variants={fadeInDescription}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{ once: true }}
+                        className='button'
+                    >
+                        Future of your wardrobe
+                    </motion.button>
                 </div>
 
                 <div
