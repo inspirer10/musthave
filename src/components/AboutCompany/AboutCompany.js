@@ -41,16 +41,17 @@ function AboutCompany() {
                 <div className='video-container'>
                     <video
                         suppressHydrationWarning
+                        //preload
+                        //poster
                         playsInline
                         autoPlay
                         loop
                         muted
                         disablePictureInPicture
-                        //preload
                         controlsList='nodownload nofullscreen noremoteplayback'
                         aria-label='Video player'
                     >
-                        <source src={'/musthave2.mp4'} type='video/mp4' />
+                        <source src={'/intro.mp4'} type='video/mp4' />
                         Your browser does not support the video tag.
                     </video>
 

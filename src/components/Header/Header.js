@@ -69,10 +69,10 @@ function Header() {
 
             <div className='header-video-container'>
                 <video
-                    //preload
                     suppressHydrationWarning
                     preload='auto'
-                    poster='/aboutCompany2.jpg'
+                    //poster='/aboutCompany2.jpg'
+                    poster='/perfectShirt/1.png'
                     playsInline
                     autoPlay
                     loop
@@ -81,7 +81,7 @@ function Header() {
                     controlsList='nodownload nofullscreen noremoteplayback'
                     aria-label='Video player'
                 >
-                    <source src={'/intro.mp4'} type='video/mp4' />
+                    <source src={'/musthave2.mp4'} type='video/mp4' />
                     Your browser does not support the video tag.
                 </video>
 
@@ -149,14 +149,16 @@ function Header() {
                     <div className='modal_image-wrapper'>
                         <Image
                             src='/images/blackHoodie2.jpg'
-                            height={350}
-                            width={350}
+                            height={300}
+                            width={250}
+                            quality={90}
                             alt='product thumbnail'
                         />
                         <Image
                             src='/instaGallery6.jpg'
-                            height={350}
-                            width={350}
+                            height={300}
+                            width={250}
+                            quality={90}
                             alt='product thumbnail'
                         />
                     </div>

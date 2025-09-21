@@ -160,7 +160,7 @@
             font-size: 18vw;
             font-weight: 700;
             color: var(--black);
-            opacity: 0.125;
+            opacity: 0.225;
             overflow: hidden;
             user-select: none;
         }
@@ -396,9 +396,14 @@
         width: 67.5%;
         height: 57.5%;
     }
-    .header-video-container .header__video__text h3 {
-        font-size: 6rem;
-        letter-spacing: -3.5px;
+    .header-video-container .header__video__text {
+        h3 {
+            font-size: 6rem;
+            letter-spacing: -3.5px;
+        }
+        .intro {
+            padding-top: 3rem;
+        }
     }
 }
 
@@ -438,20 +443,30 @@
             height: 100vh;
         }
         .header__video__text {
-            top: 55%;
+            top: 52.5%;
             left: 0%;
             h3 {
-                font-size: 4.5rem;
+                font-size: 4.25rem;
                 letter-spacing: -1.75px;
                 //text-align: center;
-                padding-left: 0.75rem;
+                padding-left: 1rem;
+                line-height: 0.85;
             }
             .intro {
-                padding: 4rem 0 0;
+                padding: 3rem 0 0;
                 width: 90%;
                 margin: 0 auto;
                 text-align: justify;
                 line-height: 1.45;
+            }
+            .button {
+                width: 90%;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin: 1.75rem auto 0;
+                padding: 14px 0;
             }
         }
         .logo p {
