@@ -71,9 +71,9 @@ body {
     max-width: 100vw;
     background-color: $color-white;
     color: $color-black;
-    scrollbar-color: rgb(100, 100, 100) $color-white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    scrollbar-color: rgb(85, 85, 85) $color-white;
+    //-webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
 }
 
 a,

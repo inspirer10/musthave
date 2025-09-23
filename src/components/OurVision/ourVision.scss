@@ -1,0 +1,187 @@
+.ourVision_section {
+    padding: 15vh 5% 17.5vh;
+    margin: 0 auto;
+    background-color: var(--black);
+    color: var(--white);
+    * {
+        &::selection {
+            background-color: var(--white);
+            color: var(--black);
+        }
+    }
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1.15;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.0125em;
+            line-height: 1.5;
+            text-align: justify;
+            text-wrap: balance;
+            max-width: 600px;
+            color: var(--casper);
+            span {
+                color: var(--white);
+            }
+        }
+    }
+    main {
+        .images-container {
+            padding: 7.5vh 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .card {
+                width: 30%;
+                .image {
+                    object-fit: cover;
+                    aspect-ratio: 1/1.225;
+                    width: 100%;
+                    height: auto;
+                    transition: .15s ease-out;
+                }
+                p {
+                    font-family: 'Barlow', sans-serif;
+                    font-size: 18px;
+                    letter-spacing: -0.0125em;
+                    word-spacing: 0.75px;
+                    color: rgb(225, 225, 225);
+                    line-height: 1.1;
+                }
+            }
+        }
+        .content-wrapper {
+            padding-top: 10vh;
+            position: relative;
+            .floating_image {
+                object-fit: cover;
+                position: absolute;
+                top: 66.666%;
+                right: 0;
+                transform: translateY(-50%);
+                width: auto;
+                height: 65vh;
+                aspect-ratio: 1/1.225;
+            }
+            h3 {
+                font-family: 'Barlow', sans-serif;
+                font-size: 5rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                line-height: 1.15;
+                margin-bottom: 7.5vh;
+                text-align: right;
+            }
+            .step-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                margin-bottom: 7vh;
+                width: fit-content;
+                .number-tag {
+                    font-family: 'Onest', sans-serif;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: var(--dark-grey);
+                    margin-bottom: 0.75rem;
+                    user-select: none;
+                }
+                .heading {
+                    font-family: 'Barlow', sans-serif;
+                    font-size: 2rem;
+                    font-size: 30px;
+                    font-weight: 600;
+                    line-height: 1.4;
+                    letter-spacing: -0.0125em;
+                }
+                p {
+                    font-size: 18px;
+                    font-weight: 400;
+                    letter-spacing: 0.0125em;
+                    line-height: 1.5;
+                    text-align: justify;
+                    text-wrap: balance;
+                    max-width: 750px;
+                    color: var(--casper);
+                    color: rgb(150, 150, 150);
+                    span {
+                        color: var(--white);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//! BREAKPOINT: 1566px x 864
+@media screen and (max-width: 1600px) {}
+
+//! BREAKPOINT: 1440px
+@media screen and (max-width: 1500px) {
+    .ourVision_section {
+        padding: 12.5vh 5% 15vh;
+        header {
+            h2 {
+                font-size: 4rem;
+            }
+            p {
+                font-size: 15px;
+                max-width: 550px;
+            }
+        }
+        main .content-wrapper {
+            h3 {
+                font-size: 4rem;
+            }
+            .step-wrapper {
+                margin-bottom: 6vh;
+                .number-tag {
+                    font-size: 16px;
+                    margin-bottom: 0.5rem;
+                }
+                p {
+                    font-size: 16px;
+                    max-width: 650px;
+                }
+            }
+        }
+    }
+}
+
+//? BREAKPOINT: 1366px
+@media screen and (max-width: 1370px) {
+    .ourVision_section {
+        padding: 12.5vh 5% 15vh;
+        header {
+            p {
+                font-size: 14px;
+            }
+        }
+        main .content-wrapper {
+            .step-wrapper {
+                margin-bottom: 6vh;
+                .number-tag {
+                    font-size: 15px;
+                    margin-bottom: 0.25rem;
+                }
+                .heading {
+                    font-size: 28px;
+                }
+                p {
+                    font-size: 14px;
+                    max-width: 600px;
+                }
+            }
+        }
+    }
+}

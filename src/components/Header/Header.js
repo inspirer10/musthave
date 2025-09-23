@@ -124,6 +124,25 @@ function Header() {
                         initial='initial'
                         whileInView='animate'
                         viewport={{ once: true }}
+                        whileHover={{
+                            color: '#f6f6f6',
+                            backgroundColor: 'rgba(250, 250, 250, 0.15)',
+                            borderColor: 'rgba(250, 250, 250, 0.4)',
+                            backdropFilter: 'blur(10px)',
+                            transition: {
+                                duration: 0.275,
+                                ease: [0.43, 0.13, 0.23, 0.96],
+                            },
+                        }} // hover ze SCSS przepisany do whileHover
+                        animate={{
+                            backgroundColor: 'rgba(250, 250, 250, 0.05)',
+                            color: 'rgba(250, 250, 250, 0.75)',
+                            backdropFilter: 'blur(5px)',
+                            transition: {
+                                duration: 0.275,
+                                ease: [0.43, 0.13, 0.23, 0.96],
+                            },
+                        }} // domyślny/po wejściu w viewport stan
                         className='button'
                     >
                         Future of your wardrobe

@@ -14,6 +14,7 @@ import AboutCompany from '@/components/AboutCompany/AboutCompany';
 import Instagram from '@/components/Instagram/Instagram';
 import Footer from '@/components/Footer/Footer';
 import ExploreBrand from '@/components/ExploreBrand/ExploreBrand';
+import OurVision from '@/components/OurVision/OurVision';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,7 @@ export default function Home() {
             <Header />
             <Bag />
             <ExploreBrand />
+            <OurVision />
             <SummerCollection />
 
             <h2 className='fixed-brand'>MUSTHAVE</h2>
