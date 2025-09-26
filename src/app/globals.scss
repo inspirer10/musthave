@@ -42,13 +42,14 @@
 //color: rgb(11, 11, 1117);
 $color-black: #0b0b0b; //Onyx - 17,17,17 NOW(11,11,11)
 $color-white: #f6f6f6; //off-white
-$color-blue: #012afe; //Rich Blue
+$color-blue: #081fca; //Rich Blue #012afe
 $color-dark-grey: #353535;
 $color-casper: #ABBBCB;
 :root {
     --black: #0b0b0b;
     --white: #f6f6f6;
-    --blue: #012afe;
+    //--blue: #012afe;
+    --blue: #081fca;
     --dark-grey: #353535;
     --casper: #ABBBCB;
 }

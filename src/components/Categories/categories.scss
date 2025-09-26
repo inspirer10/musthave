@@ -1,6 +1,6 @@
 // ! CATEGORIES
 .section__categories {
-    padding-bottom: 27.5vh;
+    padding-bottom: 25vh;
     height: auto;
     .categories__heading {
         //font-family: "Be Vietnam Pro", sans-serif;
@@ -113,8 +113,8 @@
         transition: .3s ease;
         &:hover {
             color: var(--white);
-            background-color: rgb(0, 1, 246);
-            border-color: rgb(0, 1, 246);
+            background-color: var(--blue);
+            border-color: var(--blue);
             transform: scale(1.03);
         }
         &:active {

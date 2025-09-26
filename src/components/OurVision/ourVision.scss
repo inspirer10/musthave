@@ -93,6 +93,7 @@
                     font-size: 18px;
                     font-weight: 500;
                     color: var(--dark-grey);
+                    width: fit-content;
                     margin-bottom: 0.75rem;
                     user-select: none;
                 }
@@ -103,6 +104,7 @@
                     font-weight: 600;
                     line-height: 1.4;
                     letter-spacing: -0.0125em;
+                    width: fit-content;
                 }
                 p {
                     font-size: 18px;
@@ -176,6 +178,62 @@
                 }
                 .heading {
                     font-size: 28px;
+                }
+                p {
+                    font-size: 14px;
+                    max-width: 600px;
+                }
+            }
+        }
+    }
+}
+
+//* iPhone 15 Pro Max
+@media screen and (max-width: 550px) {
+    .ourVision_section main .content-wrapper {
+        padding-top: 7.5vh;
+    }
+    .ourVision_section main .images-container {
+        flex-direction: column;
+        .card {
+            width: 100%;
+            margin-bottom: 1.75rem;
+            .image {
+                aspect-ratio: 1/1;
+            }
+            p {
+                font-size: 20px;
+                letter-spacing: 0;
+            }
+        }
+    }
+    .ourVision_section {
+        padding: 10vh 2% 12.5vh;
+        header {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.75rem;
+            p {
+                font-size: 14px;
+            }
+        }
+        main .content-wrapper {
+            h3 {
+                text-align: center;
+                font-size: 3rem;
+            }
+            .floating_image {
+                display: none;
+            }
+            .step-wrapper {
+                margin-bottom: 5vh;
+                .number-tag {
+                    font-size: 16px;
+                    margin-bottom: 0.25rem;
+                }
+                .heading {
+                    font-size: 24px;
+                    text-wrap: balance;
                 }
                 p {
                     font-size: 14px;
