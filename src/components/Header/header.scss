@@ -438,23 +438,23 @@
         }
         .header__video__text {
             top: 52.5%;
-            left: 0%;
+            left: 5%;
+            width: 90%;
             h3 {
                 font-size: 4.25rem;
                 letter-spacing: -1.75px;
                 //text-align: center;
-                padding-left: 1rem;
                 line-height: 0.85;
             }
             .intro {
                 padding: 3rem 0 0;
-                width: 90%;
+                width: 100%;
                 margin: 0 auto;
                 text-align: justify;
                 line-height: 1.45;
             }
             .button {
-                width: 90%;
+                width: 95%;
                 display: flex;
                 align-items: center;
                 text-align: center;

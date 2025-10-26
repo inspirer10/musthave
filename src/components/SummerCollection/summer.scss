@@ -385,28 +385,28 @@
         }
     }
     .summer__section {
-        padding: 12.5vh 0 10vh;
+        padding: 10vh 0 7.5vh;
         width: 97.5%;
         flex-direction: column;
         .summer__left__section {
             width: 100%;
             h2 {
-                font-size: 3.9rem;
+                font-size: 3.825rem;
                 font-weight: 700;
                 line-height: 4.2rem;
                 text-align: center;
                 margin: 0 auto;
             }
             p {
-                margin: 0.75rem auto;
+                margin: 0.75rem auto 0.25rem;
             }
             button {
-                width: 92.5%;
+                width: 90%;
                 margin: 1.5rem auto;
             }
         }
         .summer__right__section {
-            margin-top: 2.5vh;
+            margin-top: 3.75vh;
             width: 100%;
             flex-wrap: wrap;
             .product__tile {
