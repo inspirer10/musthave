@@ -1,27 +1,27 @@
 {
-    "name": "musthave",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "lenis": "^1.3.11",
-        "motion": "^12.23.21",
-        "next": "^15.5.4",
-        "react": "^19.1.1",
-        "react-dom": "^19.1.1",
-        "react-hot-toast": "^2.6.0",
-        "react-icons": "^5.5.0",
-        "sass": "^1.93.2",
-        "sonner": "^2.0.7",
-        "uuid": "^13.0.0",
-        "zustand": "^5.0.8"
-    },
-    "devDependencies": {
-        "@iconify/react": "^6.0.2"
-    }
+  "name": "musthave",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "lenis": "^1.3.11",
+    "motion": "^12.23.21",
+    "next": "15.5.9",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "sass": "^1.93.2",
+    "sonner": "^2.0.7",
+    "uuid": "^13.0.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@iconify/react": "^6.0.2"
+  }
 }
