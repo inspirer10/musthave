@@ -3,7 +3,7 @@
     width: 90%;
     margin: 0 auto;
     h2 {
-        font-family: 'Barlow', sans-serif;
+        font-family: var(--font-barlow), sans-serif;
         font-size: 6rem;
         font-weight: 600;
         color: var(--black);
@@ -22,7 +22,7 @@
             .position {
                 max-width: 550px;
                 h5 {
-                    font-family: 'Barlow', sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     font-size: 18px;
                     font-weight: 600;
                     font-variant: small-caps;
@@ -33,7 +33,7 @@
                     letter-spacing: 0.025em;
                 }
                 p {
-                    font-family: 'Barlow', sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     color: rgb(135, 135, 135);
                     text-wrap: balance;
                     line-height: 1.4;

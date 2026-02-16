@@ -27,7 +27,7 @@
         animation: scroll 32.5s linear infinite forwards;
         animation-delay: 0.05s;
         .marquee__item {
-            font-family: 'Geist', sans-serif;
+            font-family: var(--font-geist), sans-serif;
             font-size: 4rem;
             font-weight: 600;
             flex: 0 0 auto;
@@ -65,7 +65,7 @@
             margin-bottom: 0.5rem;
         }
         p {
-            font-family: 'Onest', sans-serif;
+            font-family: var(--font-onest), sans-serif;
             font-size: 1.75rem;
             font-weight: 500;
             color: rgb(125, 125, 125);
@@ -73,7 +73,7 @@
             margin: 0 0 2.25rem;
         }
         button {
-            font-family: 'Barlow', sans-serif;
+            font-family: var(--font-barlow), sans-serif;
             font-size: 20px;
             font-weight: 700;
             letter-spacing: 0.75px;
@@ -145,7 +145,7 @@
                 transition: .4s ease;
                 .company-name {
                     //font-family: "Be Vietnam Pro", sans-serif;
-                    font-family: "Barlow", sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     //font-family: 'Switzer', sans-serif;
                     font-size: 18px;
                     font-weight: 400;
@@ -153,8 +153,8 @@
                 }
                 h5 {
                     //font-family: "Urbanist", sans-serif;
-                    font-family: "Geist", sans-serif;
-                    font-family: 'Onest', sans-serif;
+                    font-family: var(--font-geist), sans-serif;
+                    font-family: var(--font-onest), sans-serif;
                     font-size: 2.25rem;
                     font-weight: 600;
                     letter-spacing: 0px;
@@ -163,8 +163,8 @@
                 }
                 .slogan {
                     //font-family: 'Poppins';
-                    font-family: "Geist", sans-serif;
-                    font-family: 'Onest', sans-serif;
+                    font-family: var(--font-geist), sans-serif;
+                    font-family: var(--font-onest), sans-serif;
                     font-size: 1.25rem;
                     font-weight: 300;
                     letter-spacing: -0.25px;
@@ -230,7 +230,7 @@
         mix-blend-mode: difference;
         user-select: none;
         p {
-            font-family: 'Barlow', sans-serif;
+            font-family: var(--font-barlow), sans-serif;
             color: var(--white);
             width: 75%;
             font-size: 3vw;

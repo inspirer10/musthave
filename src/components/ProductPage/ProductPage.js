@@ -1,16 +1,20 @@
 //import { FiLink, FiLink2 } from 'react-icons/fi';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import { Toaster, toast } from 'sonner';
 
+import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
-// FiScissors
-import { FiShare } from 'react-icons/fi';
-
-import { Icon } from '@iconify/react';
+import {
+    FiMinus,
+    FiPlus,
+    FiScissors,
+    FiShare,
+} from 'react-icons/fi';
+import { IoAddCircle } from 'react-icons/io5';
 
 import Navbar from '../Navbar/Navbar';
 import Bag from '../Bag/Bag';
@@ -193,14 +197,14 @@ function ProductPage({
             productName.slice(1).toLowerCase();
 
         document.title = `${titleId} ${titleName.toUpperCase()} | MUSTHAVE`;
-    }, []);
+    }, [productId, productName]);
 
     const renderSuggestedItems = renderSuggested;
 
     const [isThrottled, setIsThrottled] = useState(false); //Blok zmiany obrazków onScroll zbyt szybko
     const containerRef = useRef(null);
 
-    const handleScroll = (e) => {
+    const handleScroll = useCallback((e) => {
         e.preventDefault(); //Zatrzymuje domyślne działanie przeglądarki
         e.stopPropagation(); //Zatrzymuje propagację zdarzenia
 
@@ -318,7 +322,16 @@ function ProductPage({
                 }
             }
         }
-    };
+    }, [
+        activeImg,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
+        imagesCount,
+        isThrottled,
+    ]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -330,7 +343,7 @@ function ProductPage({
             //Usunięcie zdarzenia przy odmontowywaniu komponentu
             container.removeEventListener('wheel', handleWheel);
         };
-    }, [isThrottled, activeImg]);
+    }, [isThrottled, activeImg, handleScroll]);
 
     //TOASTS in bottom right corner
     const urlNotification = () =>
@@ -563,10 +576,7 @@ function ProductPage({
                             <div className='size-selector-label'>
                                 <label htmlFor='size'>SIZE:</label>
                                 <p className='size-guide'>
-                                    <Icon
-                                        icon='mdi:scissors'
-                                        className='ruler-icon'
-                                    />
+                                    <FiScissors className='ruler-icon' />
                                     SIZE GUIDE{' '}
                                 </p>
                             </div>
@@ -584,7 +594,7 @@ function ProductPage({
                                     itemQuantity === 1 ? 'disabled' : null
                                 }
                             >
-                                <Icon icon='lucide:minus' className='icon' />
+                                <FiMinus className='icon' />
                             </button>
 
                             <p>{itemQuantity}</p>
@@ -598,7 +608,7 @@ function ProductPage({
                                     itemQuantity === 20 ? 'disabled' : null
                                 }
                             >
-                                <Icon icon='lucide:plus' className='icon' />
+                                <FiPlus className='icon' />
                             </button>
                         </div>
 
@@ -618,7 +628,7 @@ function ProductPage({
                                 <div className='background' />
                                 <p className='text'>ADD TO BAG</p>
                                 <div className='icon'>
-                                    <Icon icon='tdesign:add-circle-filled' />
+                                    <IoAddCircle />
                                 </div>
                             </div>
 
@@ -627,15 +637,9 @@ function ProductPage({
                                 onClick={handleFavoriteItem}
                             >
                                 {isFavorite ? (
-                                    <Icon
-                                        icon='famicons:bookmarks'
-                                        className='fav-icon'
-                                    />
+                                    <BsBookmarkFill className='fav-icon' />
                                 ) : (
-                                    <Icon
-                                        icon='famicons:bookmarks-outline'
-                                        className='fav-icon'
-                                    />
+                                    <BsBookmark className='fav-icon' />
                                 )}
                             </div>
 
@@ -648,7 +652,7 @@ function ProductPage({
                                     urlNotification();
                                 }}
                             >
-                                <Icon icon='ix:share' className='copy-icon' />
+                                <FiShare className='copy-icon' />
                             </div>
                         </div>
                     </div>
@@ -666,7 +670,12 @@ function ProductPage({
                 }}
             />
 
-            {renderSuggestedItems && <SuggestedItems />}
+            {renderSuggestedItems && (
+                <SuggestedItems
+                    seedKey={uniqueProductID}
+                    excludeProductId={`${productId}-${productName}`}
+                />
+            )}
             <Footer />
         </>
     );

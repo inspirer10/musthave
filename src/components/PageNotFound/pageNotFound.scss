@@ -9,7 +9,7 @@
     flex-direction: column;
     overflow: hidden;
     h2 {
-        font-family: 'Geist', sans-serif;
+        font-family: var(--font-geist), sans-serif;
         font-size: 5rem;
         font-weight: 600;
         margin-bottom: 2rem;
@@ -20,14 +20,14 @@
     }
     h6 {
         //font-family: 'Poppins', sans-serif;
-        font-family: 'Onest', sans-serif;
+        font-family: var(--font-onest), sans-serif;
         font-size: 1.5rem;
         font-weight: 400;
         margin-bottom: 10rem;
         letter-spacing: -0.75px;
     }
     .not-found-brand {
-        font-family: 'Geist', sans-serif;
+        font-family: var(--font-geist), sans-serif;
         position: absolute;
         font-weight: 300;
         bottom: 3%;

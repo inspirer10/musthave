@@ -15,7 +15,7 @@
         justify-content: space-between;
         align-items: flex-start;
         h2 {
-            font-family: 'Barlow', sans-serif;
+            font-family: var(--font-barlow), sans-serif;
             font-size: 5rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -51,7 +51,7 @@
                     transition: .15s ease-out;
                 }
                 p {
-                    font-family: 'Barlow', sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     font-size: 18px;
                     letter-spacing: -0.0125em;
                     word-spacing: 0.75px;
@@ -74,7 +74,7 @@
                 aspect-ratio: 1/1.225;
             }
             h3 {
-                font-family: 'Barlow', sans-serif;
+                font-family: var(--font-barlow), sans-serif;
                 font-size: 5rem;
                 font-weight: 600;
                 text-transform: uppercase;
@@ -89,7 +89,7 @@
                 margin-bottom: 7vh;
                 width: fit-content;
                 .number-tag {
-                    font-family: 'Onest', sans-serif;
+                    font-family: var(--font-onest), sans-serif;
                     font-size: 18px;
                     font-weight: 500;
                     color: var(--dark-grey);
@@ -98,7 +98,7 @@
                     user-select: none;
                 }
                 .heading {
-                    font-family: 'Barlow', sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     font-size: 2rem;
                     font-size: 30px;
                     font-weight: 600;

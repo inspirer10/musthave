@@ -4,8 +4,8 @@
     height: auto;
     .categories__heading {
         //font-family: "Be Vietnam Pro", sans-serif;
-        //font-family: 'Onest', sans-serif;
-        font-family: 'Barlow', sans-serif;
+        //font-family: var(--font-onest), sans-serif;
+        font-family: var(--font-barlow), sans-serif;
         font-size: clamp(3rem, 12.5vw, 9rem);
         font-weight: 700;
         letter-spacing: 2.5px;
@@ -81,9 +81,9 @@
     flex-direction: column;
     width: 100%;
     p {
-        //font-family: 'Onest', sans-serif;
-        //font-family: 'Geist', sans-serif;
-        font-family: 'Barlow', sans-serif;
+        //font-family: var(--font-onest), sans-serif;
+        //font-family: var(--font-geist), sans-serif;
+        font-family: var(--font-barlow), sans-serif;
         font-size: 3rem;
         font-weight: 600;
         letter-spacing: 0px;
@@ -93,8 +93,8 @@
     }
     .button {
         //font-family: "Be Vietnam Pro", sans-serif;
-        //font-family: 'Geist', sans-serif;
-        font-family: 'Onest', sans-serif;
+        //font-family: var(--font-geist), sans-serif;
+        font-family: var(--font-onest), sans-serif;
         font-size: 18px;
         font-weight: 500;
         width: auto;

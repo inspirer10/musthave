@@ -1,37 +1,46 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import productsData from '@/data/productsData';
 import Image from 'next/image';
+import Link from 'next/link';
 
-function SuggestedItems() {
-    let firstItem = 0, // od 0 do 3
-        secondItem = 0, // od 4 do 7
-        thirdItem = 0, // od 8 do 11
-        fourthItem = 0; // od 12 do 15
+function buildProductPath(productId, productName) {
+    return `/product/${String(productId).toLowerCase()}/${encodeURIComponent(
+        String(productName).toUpperCase(),
+    )}`;
+}
 
-    function selectItems() {
-        firstItem = Math.floor(Math.random() * 4); // od 0 do 3
-        secondItem = Math.floor(Math.random() * 4) + 4; // od 4 do 7
-        thirdItem = Math.floor(Math.random() * 4) + 8; // od 8 do 11
-        fourthItem = Math.floor(Math.random() * 4) + 12; // od 12 do 15
+function hashString(value = '') {
+    let hash = 0;
+    for (let i = 0; i < value.length; i += 1) {
+        hash = (hash << 5) - hash + value.charCodeAt(i);
+        hash |= 0;
     }
-    selectItems();
+    return Math.abs(hash);
+}
 
-    let suggestedProducts = [
-        productsData.accessories[firstItem],
-        productsData.accessories[secondItem],
-        productsData.accessories[thirdItem],
-        productsData.accessories[fourthItem],
-    ];
+function SuggestedItems({ seedKey = '', excludeProductId = '' }) {
+    const suggestedProducts = useMemo(() => {
+        const accessories = (productsData.accessories || []).filter(Boolean);
 
-    // Funkcja do losowego tasowania tablicy
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
+        const filtered = accessories.filter((item) => {
+            const itemKey = `${item.productId}-${item.productName}`;
+            return itemKey !== excludeProductId;
+        });
 
-    shuffleArray(suggestedProducts);
+        return filtered
+            .map((item) => {
+                const itemKey =
+                    item.uniqueProductID || `${item.productId}-${item.productName}`;
+                const score = hashString(`${seedKey}-${itemKey}`);
+
+                return {
+                    ...item,
+                    score,
+                };
+            })
+            .sort((a, b) => a.score - b.score)
+            .slice(0, 4);
+    }, [excludeProductId, seedKey]);
 
     return (
         <>
@@ -40,12 +49,11 @@ function SuggestedItems() {
             <div className='suggested__items_container'>
                 {suggestedProducts.map(
                     ({ productName, productPrice, productId, image }) => (
-                        <div
+                        <Link
                             key={productName + productId}
                             className='suggested__single__item'
-                            onClick={() =>
-                                (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
-                            }
+                            href={buildProductPath(productId, productName)}
+                            prefetch={false}
                         >
                             <div className='element'>
                                 <Image
@@ -54,7 +62,7 @@ function SuggestedItems() {
                                     height={525}
                                     width={450}
                                     className='element__image'
-                                    alt='product'
+                                    alt={`${productName} suggested product`}
                                 />
                                 <div className='element__description'>
                                     {productName}
@@ -65,7 +73,7 @@ function SuggestedItems() {
                                 <p className='name'>{productName}</p>
                                 <p className='price'>{productPrice}$</p>
                             </div>
-                        </div>
+                        </Link>
                     ),
                 )}
             </div>

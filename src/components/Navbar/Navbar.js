@@ -4,7 +4,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 //import { useSelector } from 'react-redux';
 
-import { Icon } from '@iconify/react';
+import { FiSearch, FiShoppingBag, FiBookmark } from 'react-icons/fi';
+import { HiBars3 } from 'react-icons/hi2';
+import { IoClose } from 'react-icons/io5';
+import { LuUserRound } from 'react-icons/lu';
 
 import './navbar.scss';
 import { useStore } from '@/store/useStore';
@@ -70,8 +73,7 @@ function Navbar({ color, activeCategory }) {
                         mobileView ? 'mobile_menu active' : 'mobile_menu'
                     }
                 >
-                    <Icon
-                        icon='material-symbols:close'
+                    <IoClose
                         className='close-icon'
                         onClick={handleCloseMobileMenu}
                     />
@@ -97,8 +99,7 @@ function Navbar({ color, activeCategory }) {
 
                 <div className='navbar-container'>
                     <div className='navbar_menu-wrapper'>
-                        <Icon
-                            icon='gg:menu-left-alt'
+                        <HiBars3
                             className='navbar_menu'
                             onClick={handleOpenMobileMenu}
                         />
@@ -155,14 +156,10 @@ function Navbar({ color, activeCategory }) {
                     </div>
 
                     <div className='navbar_icons-wrapper'>
-                        <Icon
-                            icon='octicon:search-16'
-                            className='fav-icon'
-                            id='searchIcon'
-                        />
+                        <FiSearch className='fav-icon' id='searchIcon' />
 
                         <Link href='/profile' id='navbar-fav'>
-                            <Icon icon='mi:user' className='fav-icon' />
+                            <LuUserRound className='fav-icon' />
                         </Link>
                         {/*  <Link href='/favorites' id='navbar-fav'>
                                 <IoBookmarkOutline className='fav-icon' />
@@ -173,14 +170,14 @@ function Navbar({ color, activeCategory }) {
                             href='/favorites'
                             cart-length={favItemsList.length}
                         >
-                            <Icon icon='iconoir:bookmark' />
+                            <FiBookmark />
                         </Link>
                         <p
                             className='fav-icon cart'
                             onClick={toggleBag}
                             cart-length={cartItems.length}
                         >
-                            <Icon icon='ion:bag-outline' />
+                            <FiShoppingBag />
                         </p>
                     </div>
                 </div>

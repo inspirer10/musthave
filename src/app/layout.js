@@ -1,4 +1,38 @@
 import './globals.scss';
+import {
+    Barlow,
+    Geist,
+    Instrument_Serif,
+    Onest,
+} from 'next/font/google';
+
+const geist = Geist({
+    subsets: ['latin'],
+    variable: '--font-geist',
+    display: 'swap',
+});
+
+const onest = Onest({
+    subsets: ['latin'],
+    variable: '--font-onest',
+    display: 'swap',
+});
+
+const barlow = Barlow({
+    subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    style: ['normal', 'italic'],
+    variable: '--font-barlow',
+    display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+    subsets: ['latin'],
+    weight: '400',
+    style: ['normal', 'italic'],
+    variable: '--font-instrument-serif',
+    display: 'swap',
+});
 
 export const metadata = {
     title: 'M U S T H A V E',
@@ -68,7 +102,11 @@ export default function RootLayout({ children }) {
                 />
                 <meta name='theme-color' content='rgba(0, 0, 0, 0.85)' />
             </head>
-            <body>{children}</body>
+            <body
+                className={`${geist.variable} ${onest.variable} ${barlow.variable} ${instrumentSerif.variable}`}
+            >
+                {children}
+            </body>
         </html>
     );
 }

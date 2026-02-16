@@ -5,7 +5,13 @@ import './bag.scss';
 
 import { useStore } from '@/store/useStore';
 
-import { Icon } from '@iconify/react';
+import {
+    FiArrowRight,
+    FiChevronLeft,
+    FiChevronRight,
+    FiShoppingBag,
+} from 'react-icons/fi';
+import { IoClose } from 'react-icons/io5';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -92,7 +98,8 @@ function Bag() {
             const seen = new Set();
             return items.filter((item) => {
                 const key =
-                    item.uniqueProductID || `${item.productId}-${item.productName}`;
+                    item.uniqueProductID ||
+                    `${item.productId}-${item.productName}`;
 
                 if (seen.has(key)) return false;
                 seen.add(key);
@@ -139,9 +146,10 @@ function Bag() {
         };
     }, [allProducts, favItemsList]);
 
-    const recommendationsHeading = recommendedData.source === 'favorites'
-        ? 'From your favorites'
-        : 'Popular right now';
+    const recommendationsHeading =
+        recommendedData.source === 'favorites'
+            ? 'From your favorites'
+            : 'Popular right now';
     const recommendedItems = recommendedData.items;
 
     const clearCheckoutTimer = () => {
@@ -217,7 +225,10 @@ function Bag() {
         const recommendationsTrack = recommendationsTrackRef.current;
         if (!recommendationsTrack) return;
 
-        const scrollAmount = Math.max(recommendationsTrack.clientWidth * 0.8, 220);
+        const scrollAmount = Math.max(
+            recommendationsTrack.clientWidth * 0.8,
+            220,
+        );
         recommendationsTrack.scrollBy({
             left: direction * scrollAmount,
             behavior: 'smooth',
@@ -234,11 +245,7 @@ function Bag() {
             <div className='bag__top__bar'>
                 <h2>MY BAG</h2>
 
-                <Icon
-                    icon='material-symbols:close'
-                    id='close__icon'
-                    onClick={closeAndResetBag}
-                />
+                <IoClose id='close__icon' onClick={closeAndResetBag} />
             </div>
 
             {checkoutStep === 'summary' && orderSummary ? (
@@ -295,7 +302,7 @@ function Bag() {
             ) : cartItems.length === 0 ? (
                 <section className='bag__empty-state'>
                     <div className='empty-icon'>
-                        <Icon icon='ion:bag-outline' />
+                        <FiShoppingBag />
                     </div>
                     <h3>Your bag is empty</h3>
                     <p>
@@ -319,16 +326,18 @@ function Bag() {
                                     <button
                                         type='button'
                                         aria-label='Scroll recommendations left'
-                                        onClick={() => scrollRecommendations(-1)}
+                                        onClick={() =>
+                                            scrollRecommendations(-1)
+                                        }
                                     >
-                                        <Icon icon='material-symbols:chevron-left-rounded' />
+                                        <FiChevronLeft />
                                     </button>
                                     <button
                                         type='button'
                                         aria-label='Scroll recommendations right'
                                         onClick={() => scrollRecommendations(1)}
                                     >
-                                        <Icon icon='material-symbols:chevron-right-rounded' />
+                                        <FiChevronRight />
                                     </button>
                                 </div>
                             </div>
@@ -374,7 +383,9 @@ function Bag() {
                                                     {productName}
                                                 </p>
                                                 <p className='recommendation-price'>
-                                                    {formatCurrency(productPrice)}
+                                                    {formatCurrency(
+                                                        productPrice,
+                                                    )}
                                                 </p>
                                             </div>
 
@@ -470,10 +481,8 @@ function Bag() {
                                 {formatCurrency(itemsPrice)}
                             </p>
                             <span>Checkout</span>
-                            <Icon
-                                icon='mingcute:arrow-right-line'
-                                className='icon'
-                            />
+
+                            <FiArrowRight className='icon' />
                             <div className='icon_wrapper'></div>
                         </button>
                     </div>

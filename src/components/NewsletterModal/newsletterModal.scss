@@ -41,7 +41,7 @@
     .modal_info-wrapper {
         width: 50%;
         .modal_heading {
-            font-family: 'Geist', sans-serif;
+            font-family: var(--font-geist), sans-serif;
             font-size: 1.75rem;
             font-weight: 700;
             margin-top: 0.75rem;
@@ -52,7 +52,7 @@
         }
         .modal_description {
             width: 90%;
-            font-family: 'Geist', sans-serif;
+            font-family: var(--font-geist), sans-serif;
             font-size: 18px;
             font-weight: 500;
             letter-spacing: -0.25px;
@@ -91,7 +91,7 @@
                     }
                 }
                 .modalButton {
-                    font-family: 'Geist', sans-serif;
+                    font-family: var(--font-geist), sans-serif;
                     font-size: 15px;
                     font-weight: 400;
                     letter-spacing: 0.75px;
@@ -109,7 +109,7 @@
                 }
                 .modal_rules {
                     color: rgb(35, 35, 35);
-                    font-family: 'Barlow', sans-serif;
+                    font-family: var(--font-barlow), sans-serif;
                     font-size: 14px;
                     font-weight: 500;
                     text-align: justify;
