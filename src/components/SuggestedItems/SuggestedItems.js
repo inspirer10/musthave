@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import productsData from '@/data/productsData';
+import Image from 'next/image';
 
 function SuggestedItems() {
     let firstItem = 0, // od 0 do 3
@@ -47,11 +48,13 @@ function SuggestedItems() {
                             }
                         >
                             <div className='element'>
-                                <img
+                                <Image
                                     title={productName}
                                     src={image}
-                                    alt='product'
+                                    height={525}
+                                    width={450}
                                     className='element__image'
+                                    alt='product'
                                 />
                                 <div className='element__description'>
                                     {productName}
@@ -63,7 +66,7 @@ function SuggestedItems() {
                                 <p className='price'>{productPrice}$</p>
                             </div>
                         </div>
-                    )
+                    ),
                 )}
             </div>
         </>

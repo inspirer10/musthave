@@ -55,7 +55,7 @@ function ExploreBrand() {
                         src={'/perfectShirt/1.png'}
                         height={400}
                         width={300}
-                        alt='//*TO FILL'
+                        alt='close-up of premium shirt texture and stitching'
                         className='image_1'
                         quality={90}
                     />
@@ -64,7 +64,7 @@ function ExploreBrand() {
                         src={'/perfectShirt/2.jpeg'}
                         height={400}
                         width={300}
-                        alt='//*TO FILL'
+                        alt='studio photo of minimalist shirt on model'
                         className='image_2'
                         quality={80}
                     />
@@ -73,7 +73,7 @@ function ExploreBrand() {
                         src={'/perfectShirt/4.jpg'}
                         height={400}
                         width={300}
-                        alt='//*TO FILL'
+                        alt='dark apparel piece highlighting fit and fabric'
                         className='image_3'
                         quality={90}
                     />
@@ -82,7 +82,7 @@ function ExploreBrand() {
                         src={'/perfectShirt/3.jpg'}
                         height={400}
                         width={300}
-                        alt='//*TO FILL'
+                        alt='folded premium garments arranged for display'
                         className='image_4'
                         quality={90}
                     />
@@ -92,7 +92,7 @@ function ExploreBrand() {
                             src={'/perfectShirt/5.jpg'}
                             height={400}
                             width={300}
-                            alt='//*TO FILL'
+                            alt='additional premium garment detail'
                             className='image_1'
                         />
                     </div>*/}

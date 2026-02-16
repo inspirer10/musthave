@@ -33,11 +33,18 @@ function AboutCompany() {
         }, 200);
     };
 
+    const goalsImageAlt =
+        active === 1
+            ? 'team discussing global expansion strategy'
+            : active === 2
+            ? 'designer working on innovative apparel concepts'
+            : 'craftsmanship-focused fashion production scene';
+
     return (
         <>
             {/*  <AboutIntroParallax /> */}
 
-            <section className='aboutCompany'>
+            <section className='aboutCompany' id='aboutCompany'>
                 <div className='video-container'>
                     <video
                         suppressHydrationWarning
@@ -73,7 +80,7 @@ function AboutCompany() {
                             </p>
 
                             <div className='view_more'>
-                                <a href='/aboutCompany'>VIEW MORE</a>
+                                <Link href='/aboutCompany'>VIEW MORE</Link>
 
                                 <Icon
                                     icon='ri:arrow-right-long-line'
@@ -142,7 +149,7 @@ function AboutCompany() {
                                             products and building connections
                                             across diverse markets.
                                         </p>
-                                        <Link href='/about'>
+                                        <Link href='/aboutCompany'>
                                             Learn more
                                             <Icon
                                                 icon='ri:arrow-right-long-line'
@@ -237,13 +244,13 @@ function AboutCompany() {
                                 active === 1
                                     ? '/brand.jpg'
                                     : active === 2
-                                    ? '/about1.jpg'
-                                    : active === 3
-                                    ? '/testimg4.jpg'
-                                    : '/testimg4.jpg'
+                                      ? '/about1.jpg'
+                                      : active === 3
+                                        ? '/testimg4.jpg'
+                                        : '/testimg4.jpg'
                             }
                             className={` ${imageShowUp ? 'showUp' : ''}`}
-                            alt='thumbnail'
+                            alt={goalsImageAlt}
                         />
                     </aside>
                 </article>

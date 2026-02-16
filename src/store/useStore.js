@@ -913,7 +913,7 @@ export const useStore = create(
                     products: state.products.map((prod) =>
                         prod.uniqueProductID === uniqueProductID
                             ? { ...prod, isFavorite: !prod.isFavorite }
-                            : prod
+                            : prod,
                     ),
                 }));
             },
@@ -923,6 +923,12 @@ export const useStore = create(
 
             // --- CART ---
             cartItems: [],
+
+            // --- BAG SHOW UI ---
+            isBagOpen: false,
+            openBag: () => set({ isBagOpen: true }),
+            closeBag: () => set({ isBagOpen: false }),
+            toggleBag: () => set((state) => ({ isBagOpen: !state.isBagOpen })),
 
             addItemToCart: (item) =>
                 set((state) => ({ cartItems: [...state.cartItems, item] })),
@@ -939,7 +945,7 @@ export const useStore = create(
 
             addFavoriteItem: (item) => {
                 const exists = get().favItemsList.some(
-                    (i) => i.uniqueProductID === item.uniqueProductID
+                    (i) => i.uniqueProductID === item.uniqueProductID,
                 );
                 if (!exists)
                     set((state) => ({
@@ -950,7 +956,7 @@ export const useStore = create(
             removeFavoriteItem: (uniqueProductID) =>
                 set((state) => ({
                     favItemsList: state.favItemsList.filter(
-                        (i) => i.uniqueProductID !== uniqueProductID
+                        (i) => i.uniqueProductID !== uniqueProductID,
                     ),
                 })),
 
@@ -979,6 +985,6 @@ export const useStore = create(
             onRehydrateStorage: () => (state) => {
                 state?.setHasHydrated(true);
             },
-        }
-    )
+        },
+    ),
 );

@@ -16,6 +16,7 @@ import Footer from '@/components/Footer/Footer';
 import ExploreBrand from '@/components/ExploreBrand/ExploreBrand';
 import OurVision from '@/components/OurVision/OurVision';
 import OurTeam from '@/components/OurTeam/OurTeam';
+import Navbar from '@/components/Navbar/Navbar';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,7 @@ export default function Home() {
             <AnimatePresence mode='wait'>
                 {isLoading && <Introduction />}
             </AnimatePresence>
+            <Navbar />
             <Header />
             <Bag />
             <ExploreBrand />

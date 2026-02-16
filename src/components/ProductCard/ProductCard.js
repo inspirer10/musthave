@@ -33,7 +33,7 @@ function ProductCard({
 
     // Get favorite status directly from Zustand
     const isFavorite = favItemsList.some(
-        (item) => item.uniqueProductID === uniqueProductID
+        (item) => item.uniqueProductID === uniqueProductID,
     );
 
     const handleFavoriteItem = () => {
@@ -80,7 +80,7 @@ function ProductCard({
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
-            }
+            },
         );
 
     const removeFavNotification = () =>
@@ -104,7 +104,7 @@ function ProductCard({
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
-            }
+            },
         );
 
     return (

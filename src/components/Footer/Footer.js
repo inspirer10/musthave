@@ -9,24 +9,24 @@ function Footer() {
             <div className='footer_content-container'>
                 <div className='footer_content-wrapper'>
                     <div className='footer__links'>
-                        <div className='wrapper'>
+                        <ul className='wrapper'>
                             <p>Company</p>
                             <li>About Us</li>
                             <li>FAQ</li>
                             <li>Blog</li>
-                        </div>
-                        <div className='wrapper'>
+                        </ul>
+                        <ul className='wrapper'>
                             <p>Services</p>
                             <li>Size Guide</li>
                             <li>Delivery</li>
                             <li>Returns</li>
-                        </div>
-                        <div className='wrapper'>
+                        </ul>
+                        <ul className='wrapper'>
                             <p>Help</p>
                             <li>Support</li>
                             <li>Terms & Conditions</li>
                             <li>Privacy Policy</li>
-                        </div>
+                        </ul>
                         <div className='wrapper'>
                             <p>Stay connected</p>
                             <div className='social_icons'>

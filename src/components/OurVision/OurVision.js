@@ -28,7 +28,7 @@ function OurVision() {
                             width={550}
                             quality={100}
                             className='image'
-                            alt=''
+                            alt='team collaborating across locations'
                         />
                         <p>Creating borderless connection</p>
                     </div>
@@ -40,7 +40,7 @@ function OurVision() {
                             width={550}
                             quality={100}
                             className='image'
-                            alt=''
+                            alt='designer exploring new fashion concepts'
                         />
                         <p>Exploring innovation</p>
                     </div>
@@ -52,7 +52,7 @@ function OurVision() {
                             width={550}
                             quality={100}
                             className='image'
-                            alt=''
+                            alt='creative concept board for future collection'
                         />
                         <p>Transforming dreams into reality</p>
                     </div>
@@ -114,7 +114,7 @@ function OurVision() {
                         width={450}
                         quality={100}
                         className='floating_image'
-                        alt=''
+                        alt='fashion strategy board with sketches and textures'
                     />
                 </div>
             </main>

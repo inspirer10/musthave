@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 //import { useSelector } from 'react-redux';
 
@@ -9,40 +9,41 @@ import { Icon } from '@iconify/react';
 import './navbar.scss';
 import { useStore } from '@/store/useStore';
 
-function Navbar({ color, activeCategory, children }) {
-    let lastScrollTop = 0;
+function Navbar({ color, activeCategory }) {
+    const lastScrollTopRef = useRef(0);
     const cartItems = useStore((state) => state.cartItems);
     const favItemsList = useStore((state) => state.favItemsList);
+    const isBagOpen = useStore((state) => state.isBagOpen);
+    const toggleBag = useStore((state) => state.toggleBag);
 
-    let [mobileView, setMobileView] = useState(false);
+    const [mobileView, setMobileView] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
 
-    const openBag = () => {
-        document.querySelector('.bag').classList.toggle('open');
-        document.querySelector('.navbar').classList.toggle('disable__pointers');
-        document.querySelector('body').classList.toggle('disable__scroll');
-        document.querySelector('.bag').addEventListener('wheel', (e) => {
-            e.stopPropagation(); // Zatrzymuje event scrolla
-        });
-    };
-
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         if (window.innerWidth > 1050) {
             const scrollTop =
                 window.scrollY || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                setShowNavbar(false); // Scroll w dół - ukryj navbar
+            if (scrollTop > lastScrollTopRef.current) {
+                setShowNavbar(false); // Scroll down - hide navbar
             } else {
-                setShowNavbar(true); // Scroll w górę - pokaż navbar
+                setShowNavbar(true); // Scroll up - show navbar
             }
-            lastScrollTop = scrollTop;
+            lastScrollTopRef.current = scrollTop;
         }
-    };
+    }, []);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [handleScroll]);
+
+    useEffect(() => {
+        document.body.classList.toggle('disable__scroll', isBagOpen);
+
+        return () => {
+            document.body.classList.remove('disable__scroll');
+        };
+    }, [isBagOpen]);
 
     const handleOpenMobileMenu = () => {
         setMobileView(true);
@@ -60,7 +61,7 @@ function Navbar({ color, activeCategory, children }) {
             </div>
 
             <nav
-                className={`navbar ${
+                className={`navbar ${isBagOpen ? 'disable__pointers' : ''} ${
                     showNavbar ? 'navbar--show' : 'navbar--hide'
                 }`}
             >
@@ -176,7 +177,7 @@ function Navbar({ color, activeCategory, children }) {
                         </Link>
                         <p
                             className='fav-icon cart'
-                            onClick={openBag}
+                            onClick={toggleBag}
                             cart-length={cartItems.length}
                         >
                             <Icon icon='ion:bag-outline' />

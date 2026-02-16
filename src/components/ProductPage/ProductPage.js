@@ -7,7 +7,8 @@ import { Toaster, toast } from 'sonner';
 
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
-import { FiShare, FiScissors } from 'react-icons/fi';
+// FiScissors
+import { FiShare } from 'react-icons/fi';
 
 import { Icon } from '@iconify/react';
 
@@ -50,7 +51,7 @@ function ProductPage({
 
     // Get favorite status from Zustand
     const isFavorite = favItemsList.some(
-        (item) => item.uniqueProductID === uniqueProductID
+        (item) => item.uniqueProductID === uniqueProductID,
     );
 
     const handleFavoriteItem = () => {
@@ -358,7 +359,7 @@ function ProductPage({
                     primary: 'rgb(75, 255, 0)',
                     secondary: '#FFF',
                 },
-            }
+            },
         );
 
     const sizeNotification = () =>
@@ -412,7 +413,7 @@ function ProductPage({
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
-            }
+            },
         );
 
     const removeFavNotification = () =>
@@ -436,7 +437,7 @@ function ProductPage({
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
-            }
+            },
         );
 
     return (
@@ -480,7 +481,11 @@ function ProductPage({
             <div className='product__container'>
                 <div className='product'>
                     <div className='img-container-mobile'>
-                        <img
+                        <Image
+                            height={600}
+                            width={450}
+                            // priority
+                            //quality={90}
                             id='imageBox'
                             src={activeImg}
                             alt='Product thumbnail'
@@ -511,7 +516,7 @@ function ProductPage({
                                                 index === 1 ? true : false
                                             }
                                         />
-                                    )
+                                    ),
                             )}
                         </div>
 
@@ -550,7 +555,7 @@ function ProductPage({
                                     label={label}
                                     textContent={textContent}
                                 />
-                            )
+                            ),
                         )}
                     </div>
                     <div className='selector-container'>
@@ -638,7 +643,7 @@ function ProductPage({
                                 className='copy_link-button'
                                 onClick={() => {
                                     navigator.clipboard.writeText(
-                                        window.location.href
+                                        window.location.href,
                                     );
                                     urlNotification();
                                 }}

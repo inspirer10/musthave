@@ -1,39 +1,25 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
-import './header.scss';
-
 import { Icon } from '@iconify/react';
-
 import { motion } from 'motion/react';
-
-import Navbar from '../Navbar/Navbar';
+import './header.scss';
 import { useNewsletterStore } from '@/store/useNewsletterStore';
+import NewsletterModal from '../NewsletterModal/NewsletterModal';
 
 function Header() {
     const isModalOpen = useNewsletterStore((state) => state.isModalOpen);
     const wasModalShown = useNewsletterStore((state) => state.wasModalShown);
     const openModal = useNewsletterStore((state) => state.openModal);
-    const closeModal = useNewsletterStore((state) => state.closeModal);
 
-    const handleNewsletterModalClose = () => closeModal();
-
-    //* OPEN modal after 8sec
+    //* OPEN modal after 8.5 sec
     useEffect(() => {
         if (!wasModalShown) {
             const modalTimeout = setTimeout(() => {
                 openModal();
-            }, 8000);
+            }, 8500);
 
             return () => clearTimeout(modalTimeout);
         }
     }, [wasModalShown, openModal]);
-
-    const handleSubmitModal = (e) => {
-        e.preventDefault();
-        if (document.querySelector('#modalInput').value) {
-            handleNewsletterModalClose();
-        }
-    };
 
     const fadeIn = {
         initial: { opacity: 0 },
@@ -65,8 +51,6 @@ function Header() {
 
     return (
         <header>
-            <Navbar />
-
             <div className='header-video-container'>
                 <video
                     suppressHydrationWarning
@@ -167,70 +151,7 @@ function Header() {
                 </div>
             </div>
 
-            {isModalOpen && (
-                <div id='mailing__modal'>
-                    <p className='close' onClick={handleNewsletterModalClose}>
-                        <Icon icon='material-symbols:close' />
-                    </p>
-
-                    <div className='modal_image-wrapper'>
-                        <Image
-                            src='/images/blackHoodie2.jpg'
-                            height={300}
-                            width={250}
-                            quality={90}
-                            alt='product thumbnail'
-                        />
-                        <Image
-                            src='/instaGallery6.jpg'
-                            height={300}
-                            width={250}
-                            quality={90}
-                            alt='product thumbnail'
-                        />
-                    </div>
-
-                    <div className='modal_info-wrapper'>
-                        <h2 className='modal_heading'>Join our mailing list</h2>
-                        <p className='modal_description'>
-                            Sign up for exclusive updates, new arrivals &
-                            insider-only discounts and get <span>15%</span> off
-                            your first order!
-                        </p>
-                        <form onSubmit={handleSubmitModal}>
-                            <label>
-                                <input
-                                    id='modalInput'
-                                    type='email'
-                                    placeholder='Enter your email address'
-                                />
-                                <input
-                                    className='modalButton'
-                                    type='submit'
-                                    value='SUBMIT'
-                                />
-                                <p className='modal_rules'>
-                                    *By submitting this form, you consent to
-                                    receive our Newsletter and agree to our
-                                    <span> Privacy Policy.</span>
-                                </p>
-                            </label>
-                        </form>
-                        <div className='modal__icons'>
-                            <Icon icon='lucide:instagram' className='icon' />
-                            <Icon icon='si:twitter-fill' className='icon' />
-                            <Icon
-                                icon='tdesign:logo-youtube-filled'
-                                className='icon'
-                            />
-                            <Icon
-                                icon='akar-icons:tiktok-fill'
-                                className='icon'
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
+            {isModalOpen && <NewsletterModal />}
 
             {/*    <div className='bottom_bar'>
                 <p>

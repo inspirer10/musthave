@@ -22,7 +22,7 @@ export const metadata = {
         siteName: 'Musthave',
         images: [
             {
-                url: 'https://musthave.vercel.app/og-image.jpg', // put your OG image here!
+                url: 'https://musthave.vercel.app/og-image.jpg',
                 width: 1200,
                 height: 630,
             },
