@@ -1,7 +1,7 @@
 import AccessoriesSubpage from '@/components/AccessoriesSubpage';
 
 export const metadata = {
-    title: 'MUSTHAVE | Accessories',
+    title: 'MUSTHAVE | ACCESSORIES',
 };
 
 export default function Accessories() {

@@ -1,20 +1,22 @@
 //import { FiLink, FiLink2 } from 'react-icons/fi';
-
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import './product.scss';
+import React, {
+    useState,
+    useEffect,
+    useRef,
+    useCallback,
+    useMemo,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
-import {
-    FiMinus,
-    FiPlus,
-    FiScissors,
-    FiShare,
-} from 'react-icons/fi';
+import { FiMinus, FiPlus, FiScissors, FiShare } from 'react-icons/fi';
 import { IoAddCircle } from 'react-icons/io5';
+import { TbShoppingBagPlus } from 'react-icons/tb';
 
 import Navbar from '../Navbar/Navbar';
 import Bag from '../Bag/Bag';
@@ -23,7 +25,6 @@ import Footer from '../Footer/Footer';
 import DetailsItem from './DetailsItem';
 
 import { useStore } from '@/store/useStore';
-import './product.scss';
 
 function ProductPage({
     //isFavorite,
@@ -32,7 +33,6 @@ function ProductPage({
     image3,
     image4,
     image5,
-    imagesCount,
     productName,
     productPrice,
     productCategory,
@@ -201,149 +201,74 @@ function ProductPage({
 
     const renderSuggestedItems = renderSuggested;
 
-    const [isThrottled, setIsThrottled] = useState(false); //Blok zmiany obrazków onScroll zbyt szybko
     const containerRef = useRef(null);
+    const isWheelThrottledRef = useRef(false);
+    const wheelThrottleTimeoutRef = useRef(null);
+    const productImages = useMemo(
+        () => [image1, image2, image3, image4, image5].filter(Boolean),
+        [image1, image2, image3, image4, image5],
+    );
 
-    const handleScroll = useCallback((e) => {
-        e.preventDefault(); //Zatrzymuje domyślne działanie przeglądarki
-        e.stopPropagation(); //Zatrzymuje propagację zdarzenia
-
-        if (isThrottled) return;
-        setIsThrottled(true); //Ustaw blokadę
-        setTimeout(() => setIsThrottled(false), 125);
-
-        if (e.deltaY > 0) {
-            //Scroll w dół (przechodzenie naprzód)
-            if (imagesCount === 3) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image2);
-                        break;
-                    case image2:
-                        setActiveImg(image3);
-                        break;
-                    case image3:
-                        setActiveImg(image1);
-                        break;
-
-                    default:
-                        break;
-                }
-            } else if (imagesCount === 4) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image2);
-                        break;
-                    case image2:
-                        setActiveImg(image3);
-                        break;
-                    case image3:
-                        setActiveImg(image4);
-                        break;
-                    case image4:
-                        setActiveImg(image1);
-                        break;
-                    default:
-                        break;
-                }
-            } else if (imagesCount === 5) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image2);
-                        break;
-                    case image2:
-                        setActiveImg(image3);
-                        break;
-                    case image3:
-                        setActiveImg(image4);
-                        break;
-                    case image4:
-                        setActiveImg(image5);
-                        break;
-                    case image5:
-                        setActiveImg(image1);
-                        break;
-                    default:
-                        break;
-                }
+    const handleScroll = useCallback(
+        (e) => {
+            if (!productImages.length) {
+                return;
             }
-        } else {
-            //Scroll w górę (przechodzenie wstecz)
-            if (imagesCount === 3) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image3);
-                        break;
-                    case image2:
-                        setActiveImg(image1);
-                        break;
-                    case image3:
-                        setActiveImg(image2);
-                        break;
-                    default:
-                        break;
-                }
-            } else if (imagesCount === 4) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image4);
-                        break;
-                    case image2:
-                        setActiveImg(image1);
-                        break;
-                    case image3:
-                        setActiveImg(image2);
-                        break;
-                    case image4:
-                        setActiveImg(image3);
-                        break;
-                    default:
-                        break;
-                }
-            } else if (imagesCount === 5) {
-                switch (activeImg) {
-                    case image1:
-                        setActiveImg(image5);
-                        break;
-                    case image2:
-                        setActiveImg(image1);
-                        break;
-                    case image3:
-                        setActiveImg(image2);
-                        break;
-                    case image4:
-                        setActiveImg(image3);
-                        break;
-                    case image5:
-                        setActiveImg(image4);
-                        break;
-                    default:
-                        break;
-                }
+
+            if (e.cancelable) {
+                e.preventDefault(); //Zatrzymuje domyślne działanie przeglądarki
             }
-        }
-    }, [
-        activeImg,
-        image1,
-        image2,
-        image3,
-        image4,
-        image5,
-        imagesCount,
-        isThrottled,
-    ]);
+            e.stopPropagation(); //Zatrzymuje propagację zdarzenia
+
+            if (e.deltaY === 0 || isWheelThrottledRef.current) {
+                return;
+            }
+
+            isWheelThrottledRef.current = true;
+            if (wheelThrottleTimeoutRef.current) {
+                clearTimeout(wheelThrottleTimeoutRef.current);
+            }
+            wheelThrottleTimeoutRef.current = setTimeout(() => {
+                isWheelThrottledRef.current = false;
+            }, 125);
+
+            const direction = e.deltaY > 0 ? 1 : -1;
+            setActiveImg((currentImg) => {
+                const currentIndex = productImages.indexOf(currentImg);
+                if (currentIndex === -1) {
+                    return productImages[0];
+                }
+
+                const nextIndex =
+                    (currentIndex + direction + productImages.length) %
+                    productImages.length;
+                return productImages[nextIndex];
+            });
+        },
+        [productImages],
+    );
 
     useEffect(() => {
         const container = containerRef.current;
+        if (!container) {
+            return;
+        }
         //Dodanie zdarzenia `wheel` z `passive: false`
-        const handleWheel = (e) => handleScroll(e);
-        container.addEventListener('wheel', handleWheel, { passive: false });
+        container.addEventListener('wheel', handleScroll, { passive: false });
 
         return () => {
             //Usunięcie zdarzenia przy odmontowywaniu komponentu
-            container.removeEventListener('wheel', handleWheel);
+            container.removeEventListener('wheel', handleScroll);
         };
-    }, [isThrottled, activeImg, handleScroll]);
+    }, [handleScroll]);
+
+    useEffect(() => {
+        return () => {
+            if (wheelThrottleTimeoutRef.current) {
+                clearTimeout(wheelThrottleTimeoutRef.current);
+            }
+        };
+    }, []);
 
     //TOASTS in bottom right corner
     const urlNotification = () =>
@@ -535,8 +460,7 @@ function ProductPage({
 
                         <div
                             className='img-wrapper'
-                            ref={containerRef} // Przypisanie referencji
-                            onWheel={(e) => handleScroll(e)}
+                            ref={containerRef} //Przypisanie referencji
                         >
                             <Image
                                 src={activeImg}
@@ -628,7 +552,7 @@ function ProductPage({
                                 <div className='background' />
                                 <p className='text'>ADD TO BAG</p>
                                 <div className='icon'>
-                                    <IoAddCircle />
+                                    <TbShoppingBagPlus />
                                 </div>
                             </div>
 
@@ -659,16 +583,6 @@ function ProductPage({
                     {/* ADDITIONAL INFO OG POSITION */}
                 </div>
             </div>
-
-            <Toaster
-                position='bottom-right'
-                gap={6}
-                toastOptions={{
-                    classNames: {
-                        toast: 'custom-toast',
-                    },
-                }}
-            />
 
             {renderSuggestedItems && (
                 <SuggestedItems

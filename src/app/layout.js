@@ -1,4 +1,5 @@
 import './globals.scss';
+import SonnerProvider from '@/components/SonnerProvider';
 import {
     Barlow,
     Geist,
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
                 className={`${geist.variable} ${onest.variable} ${barlow.variable} ${instrumentSerif.variable}`}
             >
                 {children}
+                <SonnerProvider />
             </body>
         </html>
     );

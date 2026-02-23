@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import './header.scss';
 import { useNewsletterStore } from '@/store/useNewsletterStore';
 import NewsletterModal from '../NewsletterModal/NewsletterModal';
+import Link from 'next/link';
 
 function Header() {
     const isModalOpen = useNewsletterStore((state) => state.isModalOpen);
@@ -82,7 +83,7 @@ function Header() {
                             >
                                 {text}
                             </motion.h3>
-                        )
+                        ),
                     )}
 
                     <motion.p
@@ -133,10 +134,7 @@ function Header() {
                     </motion.button>
                 </div>
 
-                <div
-                    className='scroll_down'
-                    onClick={() => (document.location.href = '/items')}
-                >
+                <Link className='scroll_down' href='/items'>
                     <p>
                         EXPLORE THE SHOP
                         <Icon
@@ -144,7 +142,7 @@ function Header() {
                             className='icon'
                         />
                     </p>
-                </div>
+                </Link>
 
                 <div className='logo'>
                     <p>MUSTHAVE</p>

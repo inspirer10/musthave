@@ -1,15 +1,16 @@
 'use client';
 
+import './navbar.scss';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 //import { useSelector } from 'react-redux';
 
+import { BsBookmarks } from 'react-icons/bs';
 import { FiSearch, FiShoppingBag, FiBookmark } from 'react-icons/fi';
 import { HiBars3 } from 'react-icons/hi2';
 import { IoClose } from 'react-icons/io5';
 import { LuUserRound } from 'react-icons/lu';
 
-import './navbar.scss';
 import { useStore } from '@/store/useStore';
 
 function Navbar({ color, activeCategory }) {
@@ -170,7 +171,7 @@ function Navbar({ color, activeCategory }) {
                             href='/favorites'
                             cart-length={favItemsList.length}
                         >
-                            <FiBookmark />
+                            <BsBookmarks />
                         </Link>
                         <p
                             className='fav-icon cart'

@@ -1,7 +1,7 @@
 import ShoesSubpage from '@/components/ShoesSubpage';
 
 export const metadata = {
-    title: 'MUSTHAVE | Shoes',
+    title: 'MUSTHAVE | SHOES',
 };
 
 export default function Shoes() {

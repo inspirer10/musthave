@@ -1,18 +1,21 @@
 //import { v4 as uuidv4 } from 'uuid';
-import Image from 'next/image';
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import Image from 'next/image';
+import Link from 'next/link';
 
+import { toast } from 'sonner';
+
+import { BsBookmarks, BsFillBookmarksFill } from 'react-icons/bs';
 import { GrFavorite } from 'react-icons/gr';
 import { ImHeartBroken } from 'react-icons/im';
 
 import { useStore } from '@/store/useStore';
-import { Icon } from '@iconify/react';
 
 function ProductCard({
     productName,
     productId,
     productPrice,
+    productPopularity,
     image,
     image2,
     link,
@@ -67,7 +70,7 @@ function ProductCard({
                     color='#fff'
                     style={{ verticalAlign: 'middle', marginRight: '7px' }}
                 />
-                Added to Favorites&nbsp;
+                Added to List&nbsp;
             </>,
             {
                 style: {
@@ -76,7 +79,7 @@ function ProductCard({
                     letterSpacing: '0px',
                     color: '#fff',
                     //padding: '10px 16px',
-                    background: 'rgb(1, 42, 254)',
+                    background: 'rgb(10, 0, 193)',
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
@@ -91,7 +94,7 @@ function ProductCard({
                     color='#fff'
                     style={{ verticalAlign: 'middle', marginRight: '7px' }}
                 />
-                Removed from Favorites&nbsp;
+                Removed from List&nbsp;
             </>,
             {
                 style: {
@@ -100,7 +103,7 @@ function ProductCard({
                     letterSpacing: '0px',
                     color: '#fff',
                     //padding: '10px 16px',
-                    background: 'rgb(1, 42, 254)',
+                    background: 'rgb(10, 0, 193)',
                     borderRadius: '50px',
                     userSelect: 'none',
                 },
@@ -109,34 +112,21 @@ function ProductCard({
 
     return (
         <>
-            <Toaster
-                position='bottom-right'
-                reverseOrder={true}
-                gutter={6}
-                /* gap={6}
-                toastOptions={{
-                    classNames: {
-                        toast: 'custom-toast',
-                    },
-                }}*/
-            />
-
             <div
                 key={productName + productId}
                 className='clothing__single__item'
             >
-                <div
+                <Link
                     className='image__container'
-                    onClick={() =>
-                        (document.location.href = `/product/${productId.toLowerCase()}/${productName.toUpperCase()}`)
-                    }
+                    href={`/product/${productId.toLowerCase()}/${productName.toUpperCase()}`}
                 >
                     <Image
                         height={400}
                         width={400}
                         title={productName}
                         src={image}
-                        priority
+                        //Prioritize loading for top 6 popular items
+                        priority={productPopularity <= 6 ? true : false}
                         className='main_image'
                         alt={`${productName} thumbnail`}
                     />
@@ -149,7 +139,7 @@ function ProductCard({
                         alt={`${productName} alternate view`}
                         loading='lazy'
                     />
-                </div>
+                </Link>
 
                 <div className='clothing__info'>
                     <p className='brand'>MUSTHAVE</p>
@@ -168,16 +158,12 @@ function ProductCard({
                         onClick={handleFavoriteItem}
                     >
                         {isFavorite ? (
-                            <Icon
-                                icon='famicons:bookmarks'
+                            <BsFillBookmarksFill
                                 className='fav-icon'
                                 style={{ color: 'rgb(1, 42, 254)' }}
                             />
                         ) : (
-                            <Icon
-                                icon='famicons:bookmarks-outline'
-                                className='fav-icon'
-                            />
+                            <BsBookmarks className='fav-icon' />
                         )}
                     </div>
                 </div>
