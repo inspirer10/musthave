@@ -11,15 +11,56 @@ import Footer from './Footer/Footer';
 import './productCategory.scss';
 import { Icon } from '@iconify/react';
 
+const sortOptions = [
+    {
+        icon: 'tabler:chart-bar-popular',
+        label: 'Popularity',
+        value: 'popularity',
+    },
+    {
+        icon: 'mingcute:sort-descending-line',
+        label: 'Price (Low to High)',
+        value: 'low_to_high',
+    },
+    {
+        icon: 'mingcute:sort-ascending-line',
+        label: 'Price (High to Low)',
+        value: 'high_to_low',
+    },
+];
+
+const categoryOptions = [
+    {
+        icon: 'hugeicons:grid-view',
+        label: 'All',
+        value: '',
+    },
+    {
+        icon: 'hugeicons:glasses',
+        label: 'Glasses',
+        value: 'glasses',
+    },
+    {
+        icon: 'hugeicons:shopping-bag-02',
+        label: 'Bags',
+        value: 'bags',
+    },
+    {
+        icon: 'hugeicons:cap',
+        label: 'Caps',
+        value: 'caps',
+    },
+];
+
 function AccessoriesSubpage() {
     const accessoriesItems = useStore((state) => state.products[1]);
 
     const [searchItem, setSearchItem] = useState(''); //tag szukanego produktu
     const [sortedOption, setSortedOption] = useState(''); // 'popularity', 'low_to_high', 'high_to_low'
-    const [sortExpanded, setSortExpanded] = useState(true); //price/popularity sort - rozwinięte czy nie
-    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwinięte czy nie
+    const [sortExpanded, setSortExpanded] = useState(true); //price/popularity sort - rozwiniete czy nie
+    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwiniete czy nie
 
-    //odkliknięcie wyboru kategorii (zmiana na ALL kiedy kliknięto 2raz)
+    //odklikniecie wyboru kategorii (zmiana na ALL kiedy kliknieto 2raz)
     const handleCategorySelection = (tag) => {
         if (searchItem === tag) {
             setSearchItem('');
@@ -28,11 +69,23 @@ function AccessoriesSubpage() {
         }
     };
 
+    const activeSortLabel = sortOptions.find(
+        (option) => option.value === sortedOption
+    )?.label;
+
+    const activeCategoryLabel = searchItem
+        ? categoryOptions.find((option) => option.value === searchItem)?.label
+        : '';
+
+    const hasActiveFilters = Boolean(sortedOption || searchItem);
+
     const visibleItems = useMemo(() => {
+        const sourceItems = accessoriesItems || [];
+
         // 1) Filtrowanie
         const filtered = !searchItem
-            ? accessoriesItems
-            : accessoriesItems.filter((item) => {
+            ? sourceItems
+            : sourceItems.filter((item) => {
                   const raw = item.productsTags || '';
                   const tags = raw
                       .toLowerCase()
@@ -93,7 +146,7 @@ function AccessoriesSubpage() {
             </div>
 
             <section className='items_category_container'>
-                <div className='sorting-wrapper'>
+                <aside className='sorting-wrapper'>
                     <div className='sorting-heading'>
                         <h6>Sort By</h6>
                         {sortExpanded ? (
@@ -118,28 +171,12 @@ function AccessoriesSubpage() {
                                 : 'sorting__list hidden-list'
                         }
                     >
-                        {[
-                            {
-                                icon: 'tabler:chart-bar-popular',
-                                label: 'Popularity',
-                                value: 'popularity',
-                            },
-                            {
-                                icon: 'mingcute:sort-descending-line',
-                                label: 'Price (Low to High)',
-                                value: 'low_to_high',
-                            },
-                            {
-                                icon: 'mingcute:sort-ascending-line',
-                                label: 'Price (High to Low)',
-                                value: 'high_to_low',
-                            },
-                        ].map(({ icon, label, value }) => (
+                        {sortOptions.map(({ icon, label, value }) => (
                             <div
                                 className={`${
                                     sortedOption === value
                                         ? 'active_category'
-                                        : null
+                                        : ''
                                 } category_wrapper`}
                                 onClick={() => setSortedOption(value)}
                                 key={value}
@@ -174,33 +211,12 @@ function AccessoriesSubpage() {
                                 : 'sorting__categories__list hidden-list'
                         }
                     >
-                        {[
-                            {
-                                icon: 'hugeicons:grid-view',
-                                label: 'All',
-                                value: '',
-                            },
-                            {
-                                icon: 'hugeicons:glasses',
-                                label: 'Glasses',
-                                value: 'glasses',
-                            },
-                            {
-                                icon: 'hugeicons:shopping-bag-02',
-                                label: 'Bags',
-                                value: 'bags',
-                            },
-                            {
-                                icon: 'hugeicons:cap',
-                                label: 'Caps',
-                                value: 'caps',
-                            },
-                        ].map(({ icon, label, value }) => (
+                        {categoryOptions.map(({ icon, label, value }) => (
                             <div
                                 className={`${
                                     searchItem === value
                                         ? 'active_category'
-                                        : null
+                                        : ''
                                 } category_wrapper`}
                                 onClick={() => handleCategorySelection(value)}
                                 key={value}
@@ -210,39 +226,107 @@ function AccessoriesSubpage() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </aside>
 
-                <div
-                    className='clothing__items'
-                    data-attr={visibleItems.length}
-                    sorted-option={sortedOption ? sortedOption : ''}
-                >
-                    {visibleItems.map(
-                        ({
-                            productName,
-                            productPrice,
-                            productId,
-                            image,
-                            image2,
-                            isFavorite,
-                            link,
-                            uniqueProductID,
-                            productsTags,
-                        }) => (
-                            <ProductCard
-                                productName={productName}
-                                productPrice={productPrice}
-                                productId={productId}
-                                image={image}
-                                image2={image2}
-                                link={link}
-                                uniqueProductID={uniqueProductID}
-                                isFavorite={isFavorite}
-                                key={productId + productName}
-                                productsTags={productsTags}
-                            />
-                        )
+                <div className='products-panel'>
+                    {hasActiveFilters && (
+                        <>
+                            <div className='items-toolbar'>
+                                <div className='toolbar-meta'>
+                                    {searchItem && (
+                                        <p className='results-count'>
+                                            {visibleItems.length}{' '}
+                                            {visibleItems.length === 1
+                                                ? 'item'
+                                                : 'items'}
+                                        </p>
+                                    )}
+                                    {activeSortLabel && (
+                                        <p className='active-sort'>
+                                            Sorted by{' '}
+                                            <span>{activeSortLabel}</span>
+                                        </p>
+                                    )}
+                                </div>
+
+                                <button
+                                    type='button'
+                                    className='clear-filters-button'
+                                    onClick={() => {
+                                        setSortedOption('');
+                                        setSearchItem('');
+                                    }}
+                                >
+                                    Clear all filters
+                                </button>
+                            </div>
+
+                            <div className='active-filters'>
+                                {activeSortLabel && (
+                                    <button
+                                        type='button'
+                                        className='filter-chip'
+                                        onClick={() => setSortedOption('')}
+                                    >
+                                        Sort: {activeSortLabel}
+                                        <Icon
+                                            icon='ic:round-close'
+                                            className='icon'
+                                        />
+                                    </button>
+                                )}
+
+                                {activeCategoryLabel && (
+                                    <button
+                                        type='button'
+                                        className='filter-chip'
+                                        onClick={() => setSearchItem('')}
+                                    >
+                                        Category: {activeCategoryLabel}
+                                        <Icon
+                                            icon='ic:round-close'
+                                            className='icon'
+                                        />
+                                    </button>
+                                )}
+                            </div>
+                        </>
                     )}
+
+                    <div
+                        className='clothing__items'
+                        data-attr={visibleItems.length}
+                        sorted-option={sortedOption ? sortedOption : ''}
+                    >
+                        {visibleItems.map(
+                            ({
+                                productName,
+                                productPrice,
+                                productId,
+                                image,
+                                image2,
+                                isFavorite,
+                                link,
+                                uniqueProductID,
+                                productsTags,
+                                productPopularity,
+                            }) => (
+                                <ProductCard
+                                    productName={productName}
+                                    productPrice={productPrice}
+                                    productId={productId}
+                                    image={image}
+                                    image2={image2}
+                                    link={link}
+                                    uniqueProductID={uniqueProductID}
+                                    isFavorite={isFavorite}
+                                    key={productId + productName}
+                                    productsTags={productsTags}
+                                    productPopularity={productPopularity}
+                                />
+                            )
+                        )}
+                    </div>
                 </div>
             </section>
 
