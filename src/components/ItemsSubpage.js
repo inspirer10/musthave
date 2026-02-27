@@ -29,60 +29,73 @@ const sortOptions = [
     },
 ];
 
-const categoryOptions = [
+const typeOptions = [
     {
         icon: 'hugeicons:grid-view',
         label: 'All',
         value: '',
-    },
-    {
-        icon: 'hugeicons:jogger-pants',
-        label: 'Trousers & Jeans',
-        value: 'trousers',
+        tags: [],
     },
     {
         icon: 'hugeicons:shirt-01',
-        label: 'Blouses & Tops',
-        value: 'shirt',
+        label: 'Tops',
+        value: 'tops',
+        tags: ['shirt', 'hoodie', 'sweatshirt'],
     },
     {
-        icon: 'hugeicons:long-sleeve-shirt',
-        label: 'Sweatshirts',
-        value: 'sweatshirt',
+        icon: 'hugeicons:jogger-pants',
+        label: 'Trousers',
+        value: 'trousers',
+        tags: ['trousers'],
     },
     {
         icon: 'hugeicons:dress-02',
-        label: 'Dresses & Jumpsuits',
+        label: 'Dresses',
         value: 'dress',
-    },
-    {
-        icon: 'hugeicons:hoodie',
-        label: 'Hoodies',
-        value: 'hoodie',
+        tags: ['dress'],
     },
     {
         icon: 'hugeicons:running-shoes',
         label: 'Shoes',
         value: 'shoes',
+        tags: ['sneakers', 'boots', 'heels', 'slides', 'formal', 'shoes'],
+    },
+    {
+        icon: 'hugeicons:shopping-bag-02',
+        label: 'Bags',
+        value: 'bags',
+        tags: ['bags'],
+    },
+    {
+        icon: 'hugeicons:glasses',
+        label: 'Accessories',
+        value: 'accessories',
+        tags: ['glasses', 'headwear', 'soft-accessories', 'jewelry', 'socks'],
     },
 ];
+
+const parseTags = (raw = '') =>
+    raw
+        .toLowerCase()
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter(Boolean);
 
 function ItemsSubpage() {
     const clothingItems = useStore((state) => state.products[0]);
     const accessoriesItems = useStore((state) => state.products[1]);
     const shoesItems = useStore((state) => state.products[2]);
 
-    const [searchItem, setSearchItem] = useState(''); //tag szukanego produktu
+    const [selectedType, setSelectedType] = useState('');
     const [sortedOption, setSortedOption] = useState(''); // 'popularity', 'low_to_high', 'high_to_low'
     const [sortExpanded, setSortExpanded] = useState(true); //price/popularity sort - rozwiniete czy nie
-    const [sortCategoriesExpanded, setSortCategoriesExpanded] = useState(true); //categories sort - rozwiniete czy nie
+    const [typeExpanded, setTypeExpanded] = useState(true);
 
-    //odklikniecie wyboru kategorii (zmiana na ALL kiedy kliknieto 2raz)
-    const handleCategorySelection = (tag) => {
-        if (searchItem === tag) {
-            setSearchItem('');
+    const handleTypeSelection = (tag) => {
+        if (selectedType === tag) {
+            setSelectedType('');
         } else {
-            setSearchItem(tag);
+            setSelectedType(tag);
         }
     };
 
@@ -90,11 +103,11 @@ function ItemsSubpage() {
         (option) => option.value === sortedOption
     )?.label;
 
-    const activeCategoryLabel = searchItem
-        ? categoryOptions.find((option) => option.value === searchItem)?.label
+    const activeTypeLabel = selectedType
+        ? typeOptions.find((option) => option.value === selectedType)?.label
         : '';
 
-    const hasActiveFilters = Boolean(sortedOption || searchItem);
+    const hasActiveFilters = Boolean(sortedOption || selectedType);
 
     const visibleItems = useMemo(() => {
         const sourceItems = [
@@ -103,17 +116,18 @@ function ItemsSubpage() {
             ...(accessoriesItems || []),
         ];
 
-        // 1) Filtrowanie
-        const filtered = !searchItem
+        const selectedTypeOption = typeOptions.find(
+            (option) => option.value === selectedType
+        );
+        const selectedTags = selectedTypeOption?.tags || [];
+
+        const filtered = !selectedType
             ? sourceItems
-            : sourceItems.filter((item) => {
-                  const raw = item.productsTags || '';
-                  const tags = raw
-                      .toLowerCase()
-                      .split(',')
-                      .map((tag) => tag.trim());
-                  return tags.includes(searchItem);
-              });
+            : sourceItems.filter((item) =>
+                  selectedTags.some((tag) =>
+                      parseTags(item.productsTags).includes(tag)
+                  )
+              );
 
         // 2) Sortowanie
         if (sortedOption === 'popularity') {
@@ -132,7 +146,13 @@ function ItemsSubpage() {
             );
         }
         return filtered;
-    }, [clothingItems, shoesItems, accessoriesItems, searchItem, sortedOption]);
+    }, [
+        clothingItems,
+        shoesItems,
+        accessoriesItems,
+        selectedType,
+        sortedOption,
+    ]);
 
     return (
         <>
@@ -204,37 +224,37 @@ function ItemsSubpage() {
                     </div>
 
                     <div className='sorting-heading'>
-                        <h6>Categories</h6>
-                        {sortCategoriesExpanded ? (
+                        <h6>Product Type</h6>
+                        {typeExpanded ? (
                             <Icon
                                 icon='cuida:minus-outline'
                                 className='icon'
-                                onClick={() => setSortCategoriesExpanded(false)}
+                                onClick={() => setTypeExpanded(false)}
                             />
                         ) : (
                             <Icon
                                 icon='tabler:chevron-down'
                                 className='icon'
-                                onClick={() => setSortCategoriesExpanded(true)}
+                                onClick={() => setTypeExpanded(true)}
                             />
                         )}
                     </div>
 
                     <div
                         className={
-                            sortCategoriesExpanded
+                            typeExpanded
                                 ? 'sorting__categories__list'
                                 : 'sorting__categories__list hidden-list'
                         }
                     >
-                        {categoryOptions.map(({ icon, label, value }) => (
+                        {typeOptions.map(({ icon, label, value }) => (
                             <div
                                 className={`${
-                                    searchItem === value
+                                    selectedType === value
                                         ? 'active_category'
                                         : ''
                                 } category_wrapper`}
-                                onClick={() => handleCategorySelection(value)}
+                                onClick={() => handleTypeSelection(value)}
                                 key={value}
                             >
                                 <Icon icon={icon} className='icon' />
@@ -249,14 +269,12 @@ function ItemsSubpage() {
                         <>
                             <div className='items-toolbar'>
                                 <div className='toolbar-meta'>
-                                    {searchItem && (
-                                        <p className='results-count'>
-                                            {visibleItems.length}{' '}
-                                            {visibleItems.length === 1
-                                                ? 'item'
-                                                : 'items'}
-                                        </p>
-                                    )}
+                                    <p className='results-count'>
+                                        {visibleItems.length}{' '}
+                                        {visibleItems.length === 1
+                                            ? 'item'
+                                            : 'items'}
+                                    </p>
                                     {activeSortLabel && (
                                         <p className='active-sort'>
                                             Sorted by{' '}
@@ -270,7 +288,7 @@ function ItemsSubpage() {
                                     className='clear-filters-button'
                                     onClick={() => {
                                         setSortedOption('');
-                                        setSearchItem('');
+                                        setSelectedType('');
                                     }}
                                 >
                                     Clear all filters
@@ -292,13 +310,13 @@ function ItemsSubpage() {
                                     </button>
                                 )}
 
-                                {activeCategoryLabel && (
+                                {activeTypeLabel && (
                                     <button
                                         type='button'
                                         className='filter-chip'
-                                        onClick={() => setSearchItem('')}
+                                        onClick={() => setSelectedType('')}
                                     >
-                                        Category: {activeCategoryLabel}
+                                        Type: {activeTypeLabel}
                                         <Icon
                                             icon='ic:round-close'
                                             className='icon'

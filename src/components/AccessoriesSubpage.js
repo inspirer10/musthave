@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { useStore } from '@/store/useStore';
+import productsData from '@/data/productsData';
 
 import Navbar from './Navbar/Navbar';
 import Bag from './Bag/Bag';
@@ -47,10 +48,27 @@ const categoryOptions = [
     },
     {
         icon: 'hugeicons:cap',
-        label: 'Caps',
-        value: 'caps',
+        label: 'Headwear',
+        value: 'headwear',
+    },
+    {
+        icon: 'mdi:fabric',
+        label: 'Soft Accessories',
+        value: 'soft-accessories',
+    },
+    {
+        icon: 'ic:baseline-watch',
+        label: 'Jewelry & Watches',
+        value: 'jewelry',
     },
 ];
+
+const accessoriesTagsById = new Map(
+    (productsData.accessories || []).map((item) => [
+        item.uniqueProductID,
+        item.productsTags || '',
+    ]),
+);
 
 function AccessoriesSubpage() {
     const accessoriesItems = useStore((state) => state.products[1]);
@@ -70,7 +88,7 @@ function AccessoriesSubpage() {
     };
 
     const activeSortLabel = sortOptions.find(
-        (option) => option.value === sortedOption
+        (option) => option.value === sortedOption,
     )?.label;
 
     const activeCategoryLabel = searchItem
@@ -80,7 +98,14 @@ function AccessoriesSubpage() {
     const hasActiveFilters = Boolean(sortedOption || searchItem);
 
     const visibleItems = useMemo(() => {
-        const sourceItems = accessoriesItems || [];
+        const sourceItems = (accessoriesItems || []).map((item) => {
+            if (item.productsTags) return item;
+            return {
+                ...item,
+                productsTags:
+                    accessoriesTagsById.get(item.uniqueProductID) || '',
+            };
+        });
 
         // 1) Filtrowanie
         const filtered = !searchItem
@@ -97,17 +122,17 @@ function AccessoriesSubpage() {
         // 2) Sortowanie
         if (sortedOption === 'popularity') {
             return [...filtered].sort(
-                (a, b) => b.productPopularity - a.productPopularity
+                (a, b) => b.productPopularity - a.productPopularity,
             );
         }
         if (sortedOption === 'low_to_high') {
             return [...filtered].sort(
-                (a, b) => a.productPrice - b.productPrice
+                (a, b) => a.productPrice - b.productPrice,
             );
         }
         if (sortedOption === 'high_to_low') {
             return [...filtered].sort(
-                (a, b) => b.productPrice - a.productPrice
+                (a, b) => b.productPrice - a.productPrice,
             );
         }
 
@@ -324,7 +349,7 @@ function AccessoriesSubpage() {
                                     productsTags={productsTags}
                                     productPopularity={productPopularity}
                                 />
-                            )
+                            ),
                         )}
                     </div>
                 </div>

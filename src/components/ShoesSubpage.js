@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { useStore } from '@/store/useStore';
+import productsData from '@/data/productsData';
 
 import Navbar from './Navbar/Navbar';
 import Bag from './Bag/Bag';
@@ -37,10 +38,37 @@ const categoryOptions = [
     },
     {
         icon: 'hugeicons:running-shoes',
-        label: 'Shoes',
-        value: 'shoes',
+        label: 'Sneakers',
+        value: 'sneakers',
+    },
+    {
+        icon: 'maki:shoe',
+        label: 'Boots',
+        value: 'boots',
+    },
+    {
+        icon: 'emojione-monotone:high-heeled-shoe',
+        label: 'Heels',
+        value: 'heels',
+    },
+    {
+        icon: 'tabler:flip-flops',
+        label: 'Slides',
+        value: 'slides',
+    },
+    {
+        icon: 'fluent-emoji-high-contrast:mans-shoe',
+        label: 'Formal',
+        value: 'formal',
     },
 ];
+
+const shoesTagsById = new Map(
+    (productsData.shoes || []).map((item) => [
+        item.uniqueProductID,
+        item.productsTags || '',
+    ]),
+);
 
 function ShoesSubpage() {
     const shoesItems = useStore((state) => state.products[2]);
@@ -60,7 +88,7 @@ function ShoesSubpage() {
     };
 
     const activeSortLabel = sortOptions.find(
-        (option) => option.value === sortedOption
+        (option) => option.value === sortedOption,
     )?.label;
 
     const activeCategoryLabel = searchItem
@@ -70,7 +98,13 @@ function ShoesSubpage() {
     const hasActiveFilters = Boolean(sortedOption || searchItem);
 
     const visibleItems = useMemo(() => {
-        const sourceItems = shoesItems || [];
+        const sourceItems = (shoesItems || []).map((item) => {
+            if (item.productsTags) return item;
+            return {
+                ...item,
+                productsTags: shoesTagsById.get(item.uniqueProductID) || '',
+            };
+        });
 
         // 1) Filtrowanie
         const filtered = !searchItem
@@ -87,17 +121,17 @@ function ShoesSubpage() {
         // 2) Sortowanie
         if (sortedOption === 'popularity') {
             return [...filtered].sort(
-                (a, b) => b.productPopularity - a.productPopularity
+                (a, b) => b.productPopularity - a.productPopularity,
             );
         }
         if (sortedOption === 'low_to_high') {
             return [...filtered].sort(
-                (a, b) => a.productPrice - b.productPrice
+                (a, b) => a.productPrice - b.productPrice,
             );
         }
         if (sortedOption === 'high_to_low') {
             return [...filtered].sort(
-                (a, b) => b.productPrice - a.productPrice
+                (a, b) => b.productPrice - a.productPrice,
             );
         }
 
@@ -314,7 +348,7 @@ function ShoesSubpage() {
                                     productsTags={productsTags}
                                     productPopularity={productPopularity}
                                 />
-                            )
+                            ),
                         )}
                     </div>
                 </div>

@@ -271,7 +271,7 @@
     transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
     &:hover {
         transform: translateY(-4px);
-        border-color: #bdbdbd;
+        border-color: rgb(175, 175, 175);
         box-shadow: 0 16px 30px rgba(10, 10, 10, 0.075);
         .image__container {
             .main_image,
@@ -318,8 +318,8 @@
 
 .image-action {
     position: absolute;
-    left: 0.75rem;
-    bottom: 0.75rem;
+    bottom: 0.5rem;
+    right: 0.625rem;
     z-index: 5;
     display: inline-flex;
     align-items: center;

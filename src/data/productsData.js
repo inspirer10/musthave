@@ -421,6 +421,7 @@ const productsData = {
             productDescription:
                 'These white socks are a wardrobe essential, providing both comfort and style. Made from a soft, breathable cotton blend, they ensure all-day comfort and durability. Perfect for everyday wear or athletic activities.',
             uniqueProductID: 'accessories_white_20250722_0',
+            productsTags: 'socks,soft-accessories',
         },
         {
             productName: 'RUCKSACK',
@@ -436,6 +437,7 @@ const productsData = {
                 'This stylish brown rucksack combines functionality with a classic design. Crafted from durable materials, it features multiple compartments for organized storage and adjustable straps for comfort. Ideal for daily use or weekend adventures.',
 
             uniqueProductID: 'accessories_brown_20250722_1',
+            productsTags: 'bags',
         },
         {
             productName: 'BAG',
@@ -450,6 +452,7 @@ const productsData = {
             productDescription:
                 'A versatile brown bag perfect for everyday use. Made from high-quality materials, it offers ample space and a sleek design. Whether for work or casual outings, this bag adds a touch of elegance to any outfit.',
             uniqueProductID: 'accessories_brown_20250722_2',
+            productsTags: 'bags',
         },
 
         {
@@ -467,6 +470,7 @@ const productsData = {
             productDescription:
                 'These black glasses feature a timeless design suitable for any occasion. Made from high-quality materials, they offer durability and comfort. The classic frame design ensures they remain stylish and versatile.',
             uniqueProductID: 'accessories_black_20250722_3',
+            productsTags: 'glasses',
         },
         {
             productName: 'GLASSES',
@@ -481,6 +485,7 @@ const productsData = {
             productDescription:
                 'Stand out with these crystal glasses. The transparent frames add a modern touch, while the high-quality construction ensures durability. Perfect for those who want a unique yet elegant accessory.',
             uniqueProductID: 'accessories_crystal_20250722_4',
+            productsTags: 'glasses',
         },
         {
             productName: 'GLASSES',
@@ -497,6 +502,7 @@ const productsData = {
             productDescription:
                 'Add a pop of color to your look with these orange glasses. The vibrant frames are made from durable materials, providing both style and comfort. Ideal for making a bold fashion statement.',
             uniqueProductID: 'accessories_orange_20250722_5',
+            productsTags: 'glasses',
         },
 
         {
@@ -514,6 +520,7 @@ const productsData = {
             productDescription:
                 'These magma glasses feature a striking design with a blend of red and black hues. Crafted from high-quality materials, they offer a comfortable fit and a unique look. Perfect for those who want to stand out.',
             uniqueProductID: 'accessories_magma_20250722_6',
+            productsTags: 'glasses',
         },
         {
             productName: 'CAP',
@@ -528,6 +535,7 @@ const productsData = {
             productDescription:
                 'This blue cap is a stylish and practical accessory for any outfit. Made from breathable fabric, it offers comfort and a secure fit. Ideal for casual wear or outdoor activities.',
             uniqueProductID: 'accessories_blue_20250722_7',
+            productsTags: 'headwear',
         },
 
         {
@@ -543,6 +551,7 @@ const productsData = {
             productDescription:
                 'Brighten up your wardrobe with this colorful scarf. Made from soft, lightweight fabric, it provides warmth and style. Perfect for adding a splash of color to any outfit.',
             uniqueProductID: 'accessories_colorful_20250722_8',
+            productsTags: 'soft-accessories',
         },
         {
             productName: 'BAG',
@@ -557,6 +566,7 @@ const productsData = {
             productDescription:
                 'This big bag is perfect for those who need extra space. Made from durable materials, it offers ample storage and a sleek design. Ideal for travel or everyday use.',
             uniqueProductID: 'accessories_big_20250722_9',
+            productsTags: 'bags',
         },
 
         {
@@ -572,6 +582,7 @@ const productsData = {
             productDescription:
                 'A chic small bag perfect for carrying essentials. Made from high-quality materials, it combines style and functionality. Ideal for both casual and formal occasions.',
             uniqueProductID: 'accessories_small_20250722_10',
+            productsTags: 'bags',
         },
         {
             productName: 'BEANIE',
@@ -586,6 +597,7 @@ const productsData = {
             productDescription:
                 'Stay warm and stylish with this black beanie. Made from soft, cozy fabric, it offers comfort and a snug fit. Perfect for cold weather.',
             uniqueProductID: 'accessories_black_20250722_11',
+            productsTags: 'headwear',
         },
         {
             productName: 'CAP',
@@ -601,6 +613,7 @@ const productsData = {
             productDescription:
                 'A classic black cap that complements any outfit. Made from durable materials, it provides comfort and a secure fit. Ideal for everyday wear.',
             uniqueProductID: 'accessories_black_20250722_12',
+            productsTags: 'headwear',
         },
         {
             productName: 'POUCH',
@@ -617,6 +630,7 @@ const productsData = {
             productDescription:
                 'This brown pouch is a versatile accessory for carrying small essentials. Made from high-quality materials, it offers a sleek design and ample space. Perfect for both casual and formal occasions.',
             uniqueProductID: 'accessories_brown_20250722_13',
+            productsTags: 'bags',
         },
         {
             productName: 'RING',
@@ -633,6 +647,7 @@ const productsData = {
             productDescription:
                 'This pink ring features a stunning design with intricate details. Made from high-quality materials, it offers elegance and durability. Ideal for special occasions or as a statement piece.',
             uniqueProductID: 'accessories_pink_20250722_14',
+            productsTags: 'jewelry',
         },
         {
             productName: 'WATCH',
@@ -649,6 +664,7 @@ const productsData = {
             productDescription:
                 'Elevate your style with this gold watch. Featuring a luxurious design and high-quality craftsmanship, it combines functionality with elegance. Perfect for making a sophisticated statement.',
             uniqueProductID: 'accessories_gold_20250722_15',
+            productsTags: 'jewelry',
         },
     ],
     shoes: [
@@ -665,6 +681,7 @@ const productsData = {
             productDescription:
                 'Stylish white sneakers that complement any outfit. Made from durable materials, they provide comfort and versatility for everyday wear. Perfect for those who value both fashion and function.',
             uniqueProductID: 'shoes_white_20250722_0',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'HYPER SHOES',
@@ -681,6 +698,7 @@ const productsData = {
             productDescription:
                 'Bold, special edition shoes designed for those who love to stand out. Featuring unique design and top-notch craftsmanship, they are perfect for special occasions. These shoes combine striking aesthetics with exceptional quality.',
             uniqueProductID: 'shoes_special_20250722_1',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'SBW SHOES',
@@ -696,6 +714,7 @@ const productsData = {
             productDescription:
                 'Elegant leather shoes that add a touch of class to any outfit. Crafted from high-quality leather, they offer both durability and style. Ideal for both formal events and everyday wear',
             uniqueProductID: 'shoes_leather_20250722_2',
+            productsTags: 'shoes,formal',
         },
         {
             productName: 'HEELS',
@@ -710,6 +729,7 @@ const productsData = {
             productDescription:
                 'Classic white heels that blend elegance with comfort. Perfect for formal events, they add a touch of glamour to any outfit. These heels are designed to make you feel confident and stylish',
             uniqueProductID: 'shoes_white_20250722_3',
+            productsTags: 'shoes,heels',
         },
         {
             productName: 'TIM BOOTS',
@@ -726,6 +746,7 @@ const productsData = {
             productDescription:
                 'Sturdy boots in a wood-tone finish, designed for outdoor activities. Made from high-quality materials, they provide comfort and durability. These boots are perfect for both rugged adventures and casual wear',
             uniqueProductID: 'shoes_wood_20250722_4',
+            productsTags: 'shoes,boots',
         },
         {
             productName: 'SPECIAL SHOES',
@@ -741,6 +762,7 @@ const productsData = {
             productDescription:
                 'Vibrant yellow shoes that are sure to catch the eye. These shoes are perfect for adding a pop of color and flair to any outfit. Crafted with care, they combine style and comfort seamlessly',
             uniqueProductID: 'shoes_yellow_20250722_5',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'BRD SHOES',
@@ -756,6 +778,7 @@ const productsData = {
             productDescription:
                 'Multicolored shoes that highlight your individuality. They offer a unique blend of style and comfort for any occasion. These shoes are perfect for those who love to make a statement',
             uniqueProductID: 'shoes_multicolor_20250722_6',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'SLIDES',
@@ -770,6 +793,7 @@ const productsData = {
             productDescription:
                 'Comfortable creamy slides, perfect for everyday outings or lounging at home. They offer simplicity and style in one package. These slides are a must-have for anyone looking for casual comfort',
             uniqueProductID: 'shoes_creamy_20250722_7',
+            productsTags: 'shoes,slides',
         },
         {
             productName: 'GOAT SHOES',
@@ -786,6 +810,7 @@ const productsData = {
             productDescription:
                 'Luxurious black shoes with an elegant design. Ideal for both formal and casual occasions, they add a touch of sophistication to any outfit. Made from high-quality materials, they ensure long-lasting comfort',
             uniqueProductID: 'shoes_black_20250722_8',
+            productsTags: 'shoes,formal',
         },
         {
             productName: 'UNIQUE SHOES',
@@ -802,6 +827,7 @@ const productsData = {
             productDescription:
                 'Reflective shoes that combine safety with fashion. Perfect for those who love to stand out, these shoes offer both visibility and style. They are designed to make a bold statement wherever you go',
             uniqueProductID: 'shoes_reflective_20250722_9',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'PUFFED SHOES',
@@ -818,6 +844,7 @@ const productsData = {
             productDescription:
                 'Gray, plush shoes that provide all-day comfort. Ideal for everyday wear, they offer a blend of style and coziness. These shoes are perfect for anyone seeking both comfort and elegance',
             uniqueProductID: 'shoes_gray_20250722_10',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'VANS',
@@ -833,6 +860,7 @@ const productsData = {
             productDescription:
                 'Classic and durable shoes, perfect for any casual occasion. They offer a timeless style that pairs well with any outfit. These shoes are a staple for those who value both comfort and fashion',
             uniqueProductID: 'shoes_classic_20250722_11',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'CLASSIC',
@@ -849,6 +877,7 @@ const productsData = {
             productDescription:
                 'Minimalist white sneakers, perfect for everyday wear. They combine comfort, style, and versatility in one. These sneakers are ideal for those who appreciate a clean, classic look',
             uniqueProductID: 'shoes_white_20250722_12',
+            productsTags: 'shoes,sneakers',
         },
         {
             productName: 'ANKLE SHOES',
@@ -864,6 +893,7 @@ const productsData = {
             productDescription:
                 'Elegant white ankle shoes that add sophistication to any outfit. Ideal for both everyday and semi-formal occasions, they provide comfort and style. These shoes are a great addition to any wardrobe',
             uniqueProductID: 'shoes_white_20250722_13',
+            productsTags: 'shoes,boots',
         },
     ],
 };
