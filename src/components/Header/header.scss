@@ -50,10 +50,11 @@
             //font-family: 'Outfit', sans-serif;
             font-size: 6.5rem;
             font-weight: 400;
-            letter-spacing: -4px;
+            letter-spacing: -0.0375em;
             line-height: 6rem;
             line-height: 0.875;
             color: rgb(70, 70, 70);
+            overflow: hidden;
             &:nth-of-type(2) {
                 color: rgb(120, 120, 120);
             }
@@ -64,8 +65,12 @@
                 font-family: var(--font-instrument-serif), serif;
                 color: var(--white);
                 font-style: italic;
-                letter-spacing: -0.75px;
+                letter-spacing: -0.0075em;
             }
+        }
+        .headline-line-inner {
+            display: inline-block;
+            will-change: transform, opacity;
         }
         .intro {
             //font-family: 'Outfit', sans-serif;
@@ -113,7 +118,7 @@
             //font-family: "Exo 2", sans-serif;
             //font-family: var(--font-geist), sans-serif;
             font-family: var(--font-onest), sans-serif;
-            color: rgb(205, 205, 205);
+            color: rgba(255, 255, 255, 0.82);
             font-size: 15px;
             font-weight: 300;
             padding-bottom: 5px;
@@ -121,21 +126,58 @@
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid rgb(85, 85, 85);
+            position: relative;
             user-select: none;
             cursor: pointer;
-            transition: .275s ease;
+            transition: .3s ease;
             animation: scroll_down 2.5s infinite forwards;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.45);
+                transition: background-color 0.275s ease;
+            }
+            .scroll-label {
+                display: inline-block;
+                position: relative;
+                color: rgba(255, 255, 255, 0.3);
+                &::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    inset: 0;
+                    color: transparent;
+                    background-image: linear-gradient( 110deg, rgba(255, 255, 255, 0) 35%, #ffffff 50%, rgba(255, 255, 255, 0) 65%);
+                    background-size: 250% 100%;
+                    background-position: 130% 0;
+                    background-repeat: no-repeat;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    will-change: background-position;
+                    animation: scroll_text_shimmer 1.65s linear infinite;
+                    pointer-events: none;
+                }
+            }
         }
         .icon {
             font-size: 15px;
             transition: .3s ease;
             margin-left: 4px;
+            color: rgba(255, 255, 255, 0.75);
+            will-change: opacity, filter;
+            animation: scroll_icon_shimmer 1.65s ease-in-out infinite;
         }
         &:hover {
             p {
-                color: var(--white);
-                border-bottom-color: var(--white);
+                &::after {
+                    background: rgba(255, 255, 255, 1);
+                }
+                .scroll-label {
+                    color: rgba(255, 255, 255, 0.9);
+                }
             }
             .icon {
                 transform: translateX(7px);
@@ -547,5 +589,26 @@
 @media screen and (max-width: 400px) {
     .header-video-container .header__video__text .intro {
         line-height: 1.45;
+    }
+}
+
+@keyframes scroll_text_shimmer {
+    0% {
+        background-position: 130% 0;
+    }
+    100% {
+        background-position: -120% 0;
+    }
+}
+
+@keyframes scroll_icon_shimmer {
+    0%,
+    100% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.95));
     }
 }

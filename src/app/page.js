@@ -50,7 +50,7 @@ export default function Home() {
             </AnimatePresence>
 
             <Navbar />
-            <Header />
+            <Header isIntroLoading={isLoading} />
             <Bag />
             <ExploreBrand />
             <OurVision />

@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { motion } from 'motion/react';
+
 import './header.scss';
 import { useNewsletterStore } from '@/store/useNewsletterStore';
 import NewsletterModal from '../NewsletterModal/NewsletterModal';
-import Link from 'next/link';
 
-function Header() {
+function Header({ isIntroLoading = false }) {
     const isModalOpen = useNewsletterStore((state) => state.isModalOpen);
     const wasModalShown = useNewsletterStore((state) => state.wasModalShown);
     const openModal = useNewsletterStore((state) => state.openModal);
+    const [shouldRevealHeadline, setShouldRevealHeadline] = useState(false);
 
     //* OPEN modal after 8.5 sec
     useEffect(() => {
@@ -22,16 +24,30 @@ function Header() {
         }
     }, [wasModalShown, openModal]);
 
-    const fadeIn = {
-        initial: { opacity: 0 },
+    useEffect(() => {
+        if (isIntroLoading || shouldRevealHeadline) {
+            return;
+        }
+
+        // Keep headline reveal aligned with Introduction exit animation.
+        const revealTimeout = setTimeout(() => {
+            setShouldRevealHeadline(true);
+        }, 700);
+
+        return () => {
+            clearTimeout(revealTimeout);
+        };
+    }, [isIntroLoading, shouldRevealHeadline]);
+
+    const revealFromBottom = {
+        initial: { y: '105%', opacity: 0 },
         animate: (index) => ({
+            y: '0%',
             opacity: 1,
             transition: {
-                duration: 0.225,
-                type: 'inertia',
-                type: 'easeIn',
-                velocity: 100,
-                delay: 3.5 + index * 0.5, //opóźnienie (3.5s) + indywidualne opóźnienie (index * 0.5)
+                duration: 0.72,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.04 + index * 0.12,
             },
         }),
     };
@@ -42,10 +58,8 @@ function Header() {
             opacity: 1,
             transition: {
                 duration: 0.2,
-                type: 'inertia',
-                type: 'easeIn',
-                velocity: 100,
-                delay: 5.5,
+                ease: 'easeIn',
+                delay: 4.8,
             },
         }),
     };
@@ -73,15 +87,20 @@ function Header() {
                 <div className='header__video__text'>
                     {['Where', 'minimalism', 'meets', 'comfort'].map(
                         (text, index) => (
-                            <motion.h3
-                                key={index}
-                                variants={fadeIn}
-                                initial='initial'
-                                whileInView='animate'
-                                viewport={{ once: true }}
-                                custom={index} // Przekazanie indeksu dla opóźnienia
-                            >
-                                {text}
+                            <motion.h3 key={index} className='headline-line'>
+                                <motion.span
+                                    className='headline-line-inner'
+                                    variants={revealFromBottom}
+                                    initial='initial'
+                                    animate={
+                                        shouldRevealHeadline
+                                            ? 'animate'
+                                            : 'initial'
+                                    }
+                                    custom={index}
+                                >
+                                    {text}
+                                </motion.span>
                             </motion.h3>
                         ),
                     )}
@@ -100,7 +119,7 @@ function Header() {
                         <span>
                             Our vision includes expanding our brand worldwide
                         </span>{' '}
-                        — delivering high-quality clothing to customers across
+                        - delivering high-quality clothing to customers across
                         the globe
                     </motion.p>
 
@@ -118,7 +137,7 @@ function Header() {
                                 duration: 0.275,
                                 ease: [0.43, 0.13, 0.23, 0.96],
                             },
-                        }} // hover ze SCSS przepisany do whileHover
+                        }}
                         animate={{
                             backgroundColor: 'rgba(250, 250, 250, 0.05)',
                             color: 'rgba(250, 250, 250, 0.75)',
@@ -127,7 +146,7 @@ function Header() {
                                 duration: 0.275,
                                 ease: [0.43, 0.13, 0.23, 0.96],
                             },
-                        }} // domyślny/po wejściu w viewport stan
+                        }}
                         className='button'
                     >
                         Future of your wardrobe
@@ -136,7 +155,12 @@ function Header() {
 
                 <Link className='scroll_down' href='/items'>
                     <p>
-                        EXPLORE THE SHOP
+                        <span
+                            className='scroll-label'
+                            data-text='EXPLORE THE SHOP'
+                        >
+                            EXPLORE THE SHOP
+                        </span>
                         <Icon
                             icon='material-symbols:chevron-right-rounded'
                             className='icon'

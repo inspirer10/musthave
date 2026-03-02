@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useStore } from '@/store/useStore';
 import productsData from '@/data/productsData';
 
@@ -156,13 +157,13 @@ function ShoesSubpage() {
 
             <div className='links-container'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/')}>
-                        MUSTHAVE
-                    </p>
+                    <Link href='/'>
+                        <p>MUSTHAVE</p>
+                    </Link>
                     <span>/</span>
-                    <p onClick={() => (document.location.href = `/items/`)}>
-                        ITEMS
-                    </p>
+                    <Link href='/items'>
+                        <p>ITEMS</p>
+                    </Link>
                     <span>/</span>
                     <p className='active-link'>Shoes</p>
                 </div>

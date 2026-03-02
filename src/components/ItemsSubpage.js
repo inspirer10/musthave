@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useStore } from '@/store/useStore';
 
 import Navbar from './Navbar/Navbar';
@@ -172,9 +173,9 @@ function ItemsSubpage() {
 
             <div className='links-container'>
                 <div className='links-wrapper'>
-                    <p onClick={() => (document.location.href = '/')}>
-                        MUSTHAVE
-                    </p>
+                    <Link href='/'>
+                        <p>MUSTHAVE</p>
+                    </Link>
                     <span>/</span>
                     <p className='active-link'>ITEMS</p>
                 </div>
