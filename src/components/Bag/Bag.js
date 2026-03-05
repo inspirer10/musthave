@@ -16,9 +16,22 @@ import { IoClose } from 'react-icons/io5';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const CHECKOUT_ANIMATION_MS = 1200;
 const EMPTY_STATE_CAROUSEL_LIMIT = 10;
+const BAG_TOAST_OPTIONS = {
+    style: {
+        fontSize: '15px',
+        fontWeight: '300',
+        letterSpacing: '-0.2px',
+        color: '#fff',
+        background: 'rgb(5, 5, 5)',
+        border: '1px solid rgba(255, 255, 255, 0.5)',
+        borderRadius: '50px',
+        userSelect: 'none',
+    },
+};
 
 function formatCurrency(value) {
     return new Intl.NumberFormat('en-US', {
@@ -173,7 +186,18 @@ function Bag() {
     }, []);
 
     const handleRemoveItem = (id) => {
+        const removedItem = cartItems.find((item) => item.id === id);
+        const willBeEmpty = cartItems.length === 1;
         removeItemFromCart(id);
+
+        if (!removedItem) return;
+
+        const label = removedItem.name || 'Product';
+        const message = willBeEmpty
+            ? `${label} removed. Your bag is now empty.`
+            : `${label} removed from your bag.`;
+
+        toast.success(message, BAG_TOAST_OPTIONS);
     };
 
     const handleRedirect = (link) => {
@@ -203,6 +227,10 @@ function Bag() {
             setOrderSummary(summarySnapshot);
             setCheckoutStep('summary');
             clearCart();
+            toast.success(
+                'Checkout complete. Your bag has been cleared.',
+                BAG_TOAST_OPTIONS,
+            );
         }, CHECKOUT_ANIMATION_MS);
     };
 

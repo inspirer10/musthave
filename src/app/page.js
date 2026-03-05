@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Lenis from 'lenis';
 
 import { AnimatePresence } from 'framer-motion';
@@ -21,24 +21,24 @@ import Navbar from '@/components/Navbar/Navbar';
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
 
+    const handleIntroComplete = useCallback(() => {
+        setIsLoading(false);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }, []);
+
     useEffect(() => {
         const lenis = new Lenis();
+        let rafId = 0;
 
-        function raf(time) {
+        const raf = (time) => {
             lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+            rafId = requestAnimationFrame(raf);
+        };
 
-        requestAnimationFrame(raf);
-
-        //INTRODUCTION screen timeout
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 3000); //3 seconds delay
+        rafId = requestAnimationFrame(raf);
 
         return () => {
-            clearTimeout(timer);
+            cancelAnimationFrame(rafId);
             lenis.destroy();
         };
     }, []);
@@ -46,7 +46,7 @@ export default function Home() {
     return (
         <>
             <AnimatePresence mode='wait'>
-                {isLoading && <Introduction />}
+                {isLoading && <Introduction onComplete={handleIntroComplete} />}
             </AnimatePresence>
 
             <Navbar />

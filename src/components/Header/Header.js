@@ -58,7 +58,8 @@ function Header({ isIntroLoading = false }) {
             opacity: 1,
             transition: {
                 duration: 0.2,
-                ease: 'easeIn',
+                //ease: 'easeIn',
+                ease: [0.25, 1, 0.5, 1],
                 delay: 4.8,
             },
         }),
