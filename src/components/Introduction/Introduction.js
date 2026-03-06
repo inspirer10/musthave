@@ -6,9 +6,9 @@ import './introduction.scss';
 const TAGLINE_TEXT = 'You deserve the best';
 const TYPING_STEP_MS = 55;
 const INITIAL_VISIBLE_CHARS = 1;
-const TAGLINE_HOLD_MS = 420;
+const TAGLINE_HOLD_MS = 400;
 const TAGLINE_FADE_MS = 220;
-const BRAND_STAGGER_MS = 200;
+const BRAND_STAGGER_MS = 210;
 const BRAND_ANIM_MS = 520;
 const EXIT_BUFFER_MS = 220;
 const BRAND_REVEAL_TOTAL_MS =
@@ -125,7 +125,7 @@ function Introduction({ onComplete }) {
         },
         hidden: {
             opacity: 0,
-            y: -10,
+            y: -20,
             transition: {
                 duration: TAGLINE_FADE_MS / 1000,
                 ease: [0.22, 1, 0.36, 1],

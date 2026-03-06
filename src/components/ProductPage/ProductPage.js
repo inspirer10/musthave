@@ -15,7 +15,6 @@ import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 import { GrFavorite } from 'react-icons/gr';
 import { FaHeartBroken } from 'react-icons/fa';
 import { FiMinus, FiPlus, FiScissors, FiShare } from 'react-icons/fi';
-import { IoAddCircle } from 'react-icons/io5';
 import { TbShoppingBagPlus } from 'react-icons/tb';
 
 import Navbar from '../Navbar/Navbar';
@@ -25,6 +24,10 @@ import Footer from '../Footer/Footer';
 import DetailsItem from './DetailsItem';
 
 import { useStore } from '@/store/useStore';
+
+const ADD_TO_BAG_DEFAULT_LABEL = 'ADD TO BAG';
+const ADD_TO_BAG_SIMULATED_DELAY_MS = 1250;
+const ADD_TO_BAG_RESET_DELAY_MS = 1800;
 
 function ProductPage({
     //isFavorite,
@@ -52,8 +55,45 @@ function ProductPage({
     const [itemQuantity, setItemQuantity] = useState(1);
     const [itemSize, setItemSize] = useState('');
     const [activeImg, setActiveImg] = useState(image1);
+    const [addToBagState, setAddToBagState] = useState('idle');
+    const [addToBagLabel, setAddToBagLabel] = useState(
+        ADD_TO_BAG_DEFAULT_LABEL,
+    );
+    const [validationErrors, setValidationErrors] = useState({
+        size: false,
+        quantity: false,
+    });
+    const addToBagFeedbackTimeoutRef = useRef(null);
 
-    // Get favorite status from Zustand
+    const clearAddToBagFeedbackTimeout = useCallback(() => {
+        if (addToBagFeedbackTimeoutRef.current) {
+            clearTimeout(addToBagFeedbackTimeoutRef.current);
+            addToBagFeedbackTimeoutRef.current = null;
+        }
+    }, []);
+
+    const resetAddToBagFeedback = useCallback(() => {
+        setAddToBagState('idle');
+        setAddToBagLabel(ADD_TO_BAG_DEFAULT_LABEL);
+    }, []);
+
+    const scheduleAddToBagFeedbackReset = useCallback(
+        (delayMs = ADD_TO_BAG_RESET_DELAY_MS) => {
+            clearAddToBagFeedbackTimeout();
+            addToBagFeedbackTimeoutRef.current = setTimeout(() => {
+                resetAddToBagFeedback();
+            }, delayMs);
+        },
+        [clearAddToBagFeedbackTimeout, resetAddToBagFeedback],
+    );
+
+    const clearValidationError = useCallback((field) => {
+        setValidationErrors((prev) =>
+            prev[field] ? { ...prev, [field]: false } : prev,
+        );
+    }, []);
+
+    //Get favorite status from Zustand
     const isFavorite = favItemsList.some(
         (item) => item.uniqueProductID === uniqueProductID,
     );
@@ -82,8 +122,44 @@ function ProductPage({
         }
     };
 
-    function addProductToBag({ name, price, link, photo }) {
-        if (itemQuantity > 0 && itemSize !== '') {
+    async function addProductToBag({ name, price, link, photo }) {
+        const missingSize = itemSize === '';
+        const missingQuantity = itemQuantity <= 0;
+
+        if (missingSize || missingQuantity) {
+            clearAddToBagFeedbackTimeout();
+            setValidationErrors({
+                size: missingSize,
+                quantity: missingQuantity,
+            });
+            setAddToBagState('error');
+
+            if (missingSize && missingQuantity) {
+                setAddToBagLabel('SELECT SIZE + QTY');
+                sizeAndQuantityNotification();
+            } else if (missingSize) {
+                setAddToBagLabel('SELECT SIZE');
+                sizeNotification();
+            } else {
+                setAddToBagLabel('SELECT QTY');
+                quantityNotification();
+            }
+            scheduleAddToBagFeedbackReset(2300);
+            return;
+        }
+
+        clearAddToBagFeedbackTimeout();
+        setValidationErrors({
+            size: false,
+            quantity: false,
+        });
+        setAddToBagState('loading');
+        setAddToBagLabel('ADDING...');
+
+        try {
+            await new Promise((resolve) =>
+                setTimeout(resolve, ADD_TO_BAG_SIMULATED_DELAY_MS),
+            );
             addItemToCart({
                 name,
                 id: uuidv4(),
@@ -96,13 +172,17 @@ function ProductPage({
 
             setItemQuantity(0);
             setItemSize('');
+            setAddToBagState('success');
+            setAddToBagLabel('ADDED');
+            scheduleAddToBagFeedbackReset();
 
             //success toast notification
             addedNotification();
-        } else if (itemQuantity > 0) {
-            sizeNotification();
-        } else {
-            return;
+        } catch {
+            setAddToBagState('error');
+            setAddToBagLabel('TRY AGAIN');
+            scheduleAddToBagFeedbackReset(2300);
+            addToBagFailedNotification();
         }
     }
 
@@ -145,7 +225,36 @@ function ProductPage({
     ];
 
     const handleItemSizeSelect = (e) => {
-        setItemSize(e.target.value);
+        const selectedSize = e.target.value;
+        setItemSize(selectedSize);
+
+        if (selectedSize) {
+            clearValidationError('size');
+        }
+    };
+
+    const handleDecreaseQuantity = () => {
+        if (itemQuantity <= 1) {
+            return;
+        }
+
+        const nextQuantity = itemQuantity - 1;
+        setItemQuantity(nextQuantity);
+        if (nextQuantity > 0) {
+            clearValidationError('quantity');
+        }
+    };
+
+    const handleIncreaseQuantity = () => {
+        if (itemQuantity === 20) {
+            return;
+        }
+
+        const nextQuantity = itemQuantity + 1;
+        setItemQuantity(nextQuantity);
+        if (nextQuantity > 0) {
+            clearValidationError('quantity');
+        }
     };
 
     let SELECT_SIZE = <p>Size</p>;
@@ -270,6 +379,28 @@ function ProductPage({
         };
     }, []);
 
+    useEffect(() => {
+        return () => {
+            clearAddToBagFeedbackTimeout();
+        };
+    }, [clearAddToBagFeedbackTimeout]);
+
+    useEffect(() => {
+        if (
+            addToBagState === 'error' &&
+            !validationErrors.size &&
+            !validationErrors.quantity
+        ) {
+            clearAddToBagFeedbackTimeout();
+            resetAddToBagFeedback();
+        }
+    }, [
+        addToBagState,
+        validationErrors,
+        clearAddToBagFeedbackTimeout,
+        resetAddToBagFeedback,
+    ]);
+
     //TOASTS in bottom right corner
     const urlNotification = () =>
         toast.success(
@@ -315,6 +446,36 @@ function ProductPage({
             },
         });
 
+    const quantityNotification = () =>
+        toast.error('Please select quantity', {
+            style: {
+                fontSize: '15px',
+                fontWeight: '300',
+                letterSpacing: '-0.2px',
+                color: '#fff',
+                //padding: '10px 16px',
+                background: 'rgb(5, 5, 5)',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
+                borderRadius: '50px',
+                userSelect: 'none',
+            },
+        });
+
+    const sizeAndQuantityNotification = () =>
+        toast.error('Please select size and quantity', {
+            style: {
+                fontSize: '15px',
+                fontWeight: '300',
+                letterSpacing: '-0.2px',
+                color: '#fff',
+                //padding: '10px 16px',
+                background: 'rgb(5, 5, 5)',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
+                borderRadius: '50px',
+                userSelect: 'none',
+            },
+        });
+
     const addedNotification = () =>
         toast.success('Product successfully added', {
             style: {
@@ -329,6 +490,29 @@ function ProductPage({
                 userSelect: 'none',
             },
         });
+
+    const addToBagFailedNotification = () =>
+        toast.error('Unable to add this item. Please try again.', {
+            style: {
+                fontSize: '15px',
+                fontWeight: '300',
+                letterSpacing: '-0.2px',
+                color: '#fff',
+                background: 'rgb(5, 5, 5)',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
+                borderRadius: '50px',
+                userSelect: 'none',
+            },
+        });
+
+    const addToBagButtonClassName = [
+        'add_bag-button',
+        addToBagState === 'loading' ? 'is-loading' : '',
+        addToBagState === 'error' ? 'is-error' : '',
+        addToBagState === 'success' ? 'is-success' : '',
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     const addFavNotification = () =>
         toast(
@@ -496,7 +680,9 @@ function ProductPage({
                         )}
                     </div>
                     <div className='selector-container'>
-                        <div className='size-selector'>
+                        <div
+                            className={`size-selector ${validationErrors.size ? 'has-error' : ''}`}
+                        >
                             <div className='size-selector-label'>
                                 <label htmlFor='size'>SIZE:</label>
                                 <p className='size-guide'>
@@ -507,15 +693,13 @@ function ProductPage({
                             {SELECT_SIZE}
                         </div>
 
-                        <div className='quantity__selector'>
+                        <div
+                            className={`quantity__selector ${validationErrors.quantity ? 'has-error' : ''}`}
+                        >
                             <button
-                                onClick={() => {
-                                    if (itemQuantity <= 1) {
-                                        return;
-                                    } else setItemQuantity(itemQuantity - 1);
-                                }}
+                                onClick={handleDecreaseQuantity}
                                 className={
-                                    itemQuantity === 1 ? 'disabled' : null
+                                    itemQuantity <= 1 ? 'disabled' : null
                                 }
                             >
                                 <FiMinus className='icon' />
@@ -523,11 +707,7 @@ function ProductPage({
 
                             <p>{itemQuantity}</p>
                             <button
-                                onClick={() => {
-                                    if (itemQuantity === 20) {
-                                        return;
-                                    } else setItemQuantity(itemQuantity + 1);
-                                }}
+                                onClick={handleIncreaseQuantity}
                                 className={
                                     itemQuantity === 20 ? 'disabled' : null
                                 }
@@ -537,9 +717,9 @@ function ProductPage({
                         </div>
 
                         <div className='buttons-wrapper'>
-                            <div
-                                className='add_bag-button'
-                                key={link}
+                            <button
+                                type='button'
+                                className={addToBagButtonClassName}
                                 onClick={() => {
                                     addProductToBag({
                                         name: productName,
@@ -548,13 +728,14 @@ function ProductPage({
                                         photo: image1,
                                     });
                                 }}
+                                disabled={addToBagState === 'loading'}
                             >
                                 <div className='background' />
-                                <p className='text'>ADD TO BAG</p>
+                                <p className='text'>{addToBagLabel}</p>
                                 <div className='icon'>
                                     <TbShoppingBagPlus />
                                 </div>
-                            </div>
+                            </button>
 
                             <div
                                 className='favorite-button'

@@ -3,11 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin: 17.5vh auto 2rem;
     width: 90%;
+    margin: 17.5vh auto 2rem;
     &.additional-space {
-        margin-top: 7.5rem;
         width: 80%;
+        margin-top: 7.5rem;
     }
     .clothing__header {
         font-size: 3.75rem;
@@ -24,9 +24,10 @@
             font-family: var(--font-geist), sans-serif;
             font-size: 19px;
             font-weight: 500;
-            color: rgb(175, 175, 175);
+            letter-spacing: 0.01em;
+            color: rgb(170, 170, 170);
             cursor: pointer;
-            transition: 0.3s ease;
+            transition: 0.24s ease;
             &:hover {
                 color: var(--black);
             }
@@ -35,13 +36,14 @@
             font-family: var(--font-onest), sans-serif;
             font-size: 19px;
             font-weight: 500;
+            letter-spacing: 0.01em;
             color: rgb(200, 200, 200);
             padding: 0 6px;
             user-select: none;
         }
         .active-link {
-            font-weight: 600;
             color: var(--black);
+            font-weight: 600;
         }
     }
 }
@@ -180,6 +182,11 @@
             width: 100%;
             margin-bottom: 10px;
             flex-direction: column;
+            &.has-error {
+                select {
+                    box-shadow: 0 0 0 3px rgba(201, 58, 58, 0.14);
+                }
+            }
             .size-selector-label {
                 display: flex;
                 justify-content: space-between;
@@ -268,12 +275,14 @@
                 border-radius: 8px;
                 z-index: 10;
                 text-align: center;
+                appearance: none;
+                outline: none;
                 cursor: pointer;
-                transition: border-color var(--hover-snap) cubic-bezier(0.4, 0, 0.2, 1);
+                transition: border-color var(--hover-snap) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--hover-snap) cubic-bezier(0.4, 0, 0.2, 1);
                 .background {
                     width: 11px;
                     height: 11px;
-                    border-radius: 50%;
+                    border-radius: 99px;
                     background-color: var(--white);
                     transform: scale(1);
                     transition: transform var(--hover-fill) cubic-bezier(0.22, 1, 0.36, 1), background-color var(--hover-snap) cubic-bezier(0.4, 0, 0.2, 1);
@@ -298,7 +307,14 @@
                     transition: transform var(--hover-slide) cubic-bezier(0.22, 1, 0.36, 1);
                     will-change: transform;
                 }
-                &:hover {
+                &:focus-visible {
+                    box-shadow: 0 0 0 3px rgba(30, 30, 30, 0.2);
+                }
+                &:disabled {
+                    cursor: wait;
+                    opacity: 1;
+                }
+                &:hover:not(.is-loading):not(.is-error):not(.is-success) {
                     border-color: var(--blue);
                     .background {
                         transform: scale(58);
@@ -310,6 +326,32 @@
                     }
                     .icon {
                         transform: translate(-400%, -50%);
+                    }
+                }
+                &.is-loading {
+                    // border-color: rgb(52, 52, 52);
+                    // border-color: var(--blue);
+                    border-color: var(--casper);
+                    .background {
+                        animation: addToBagPulse 1.25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                    }
+                }
+                &.is-success {
+                    //border-color: rgb(16, 171, 121);
+                    //box-shadow: 0 0 0 2px rgba(16, 171, 121, 0.2), 0 12px 24px rgba(6, 68, 48, 0.2);
+                    outline: 3px solid rgba(0, 255, 55, 0.175);
+                    box-shadow: 0 0 0 2px rgba(0, 255, 55, 0.5), 0 12px 24px rgba(0, 255, 55, 0.5);
+                    .background {
+                        //background-color: rgb(117, 251, 198);
+                        background-color: rgb(0, 255, 55);
+                    }
+                }
+                &.is-error {
+                    border-color: var(--black);
+                    // outline: 1px solid rgba(255, 0, 0, 0.25);
+                    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.25), 0 8px 18px rgba(255, 0, 0, 0.25);
+                    .background {
+                        background-color: var(--white);
                     }
                 }
             }
@@ -400,6 +442,18 @@
             justify-content: center;
             user-select: none;
         }
+    }
+}
+
+@keyframes addToBagPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.45);
+        opacity: 0.7;
     }
 }
 
@@ -516,9 +570,7 @@
         overflow: hidden;
         transform: translateZ(0);
         will-change: transform;
-        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-            border-color 0.22s ease,
-            box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.22s ease, box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         position: relative;
         box-shadow: 0 2px 6px rgba(12, 12, 12, 0.06);
         .element__image,
@@ -559,9 +611,7 @@
                 background: linear-gradient(to top, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.45) 55%, rgba(10, 10, 10, 0) 100%);
                 cursor: pointer;
                 pointer-events: none;
-                transition: opacity 0.22s ease,
-                    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
-                    letter-spacing 0.22s ease;
+                transition: opacity 0.22s ease, transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 0.22s ease;
                 will-change: opacity, transform;
             }
         }
@@ -595,8 +645,7 @@
         &:hover {
             transform: translateY(-7px);
             border-color: rgb(170, 170, 170);
-            box-shadow: 0 22px 34px rgba(10, 10, 10, 0.16),
-                0 6px 14px rgba(10, 10, 10, 0.08);
+            box-shadow: 0 22px 34px rgba(10, 10, 10, 0.16), 0 6px 14px rgba(10, 10, 10, 0.08);
             .element__image,
             img {
                 transform: scale(1.04);

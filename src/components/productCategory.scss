@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 1rem; //remove gap
     width: 90%;
     margin: 6.75rem auto 0;
     &.additional-space {
@@ -24,21 +24,21 @@
         text-transform: uppercase;
         p {
             font-family: var(--font-geist), sans-serif;
-            font-size: 1.125rem;
+            font-size: 19px;
             font-weight: 500;
-            letter-spacing: 0.05em;
-            color: rgb(150, 150, 150);
+            letter-spacing: 0.02em;
+            color: rgb(170, 170, 170);
             cursor: pointer;
-            transition: color 0.25s ease;
+            transition: color 0.24s ease;
             &:hover {
                 color: var(--black);
             }
         }
         span {
             font-family: var(--font-onest), sans-serif;
-            font-size: 1.125rem;
+            font-size: 19px;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
             color: rgb(200, 200, 200);
             padding: 0 6px;
             user-select: none;

@@ -81,7 +81,7 @@ function ClothingSubpage() {
     };
 
     const activeSortLabel = sortOptions.find(
-        (option) => option.value === sortedOption
+        (option) => option.value === sortedOption,
     )?.label;
 
     const activeCategoryLabel = searchItem
@@ -108,17 +108,17 @@ function ClothingSubpage() {
         // 2) Sortowanie
         if (sortedOption === 'popularity') {
             return [...filtered].sort(
-                (a, b) => b.productPopularity - a.productPopularity
+                (a, b) => b.productPopularity - a.productPopularity,
             );
         }
         if (sortedOption === 'low_to_high') {
             return [...filtered].sort(
-                (a, b) => a.productPrice - b.productPrice
+                (a, b) => a.productPrice - b.productPrice,
             );
         }
         if (sortedOption === 'high_to_low') {
             return [...filtered].sort(
-                (a, b) => b.productPrice - a.productPrice
+                (a, b) => b.productPrice - a.productPrice,
             );
         }
 
@@ -336,7 +336,7 @@ function ClothingSubpage() {
                                     productsTags={productsTags}
                                     productPopularity={productPopularity}
                                 />
-                            )
+                            ),
                         )}
                     </div>
                 </div>

@@ -130,19 +130,26 @@ function Header({ isIntroLoading = false }) {
                         whileInView='animate'
                         viewport={{ once: true }}
                         whileHover={{
-                            color: '#f6f6f6',
-                            backgroundColor: 'rgba(250, 250, 250, 0.15)',
-                            borderColor: 'rgba(250, 250, 250, 0.4)',
-                            backdropFilter: 'blur(10px)',
+                            color: 'rgba(255, 255, 255, 0.97)',
+                            backgroundColor: 'rgba(250, 253, 255, 0.16)',
+                            borderColor: 'rgba(221, 233, 255, 0.64)',
+                            backdropFilter: 'blur(12px) saturate(145%)',
+                            boxShadow:
+                                '0 16px 34px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.68), inset 0 -1px 0 rgba(255, 255, 255, 0.12)',
+                            y: -2,
                             transition: {
                                 duration: 0.275,
                                 ease: [0.43, 0.13, 0.23, 0.96],
                             },
                         }}
                         animate={{
-                            backgroundColor: 'rgba(250, 250, 250, 0.05)',
-                            color: 'rgba(250, 250, 250, 0.75)',
-                            backdropFilter: 'blur(5px)',
+                            backgroundColor: 'rgba(244, 248, 255, 0.08)',
+                            color: 'rgba(250, 250, 250, 0.8)',
+                            borderColor: 'rgba(214, 226, 255, 0.4)',
+                            backdropFilter: 'blur(7px) saturate(130%)',
+                            boxShadow:
+                                '0 12px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.1)',
+                            y: 0,
                             transition: {
                                 duration: 0.275,
                                 ease: [0.43, 0.13, 0.23, 0.96],

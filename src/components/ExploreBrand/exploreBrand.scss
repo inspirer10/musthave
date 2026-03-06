@@ -2,6 +2,14 @@
     padding: 15vh 0 17.5vh;
     width: 90%;
     margin: 0 auto;
+    .reveal-line {
+        display: block;
+        overflow: hidden;
+    }
+    .reveal-line-inner {
+        display: inline-block;
+        will-change: transform, opacity;
+    }
     h2 {
         font-family: var(--font-barlow), sans-serif;
         font-size: 6rem;
@@ -38,6 +46,7 @@
                     text-wrap: balance;
                     line-height: 1.4;
                     letter-spacing: 0.0125em;
+                    will-change: transform, opacity, filter;
                 }
             }
         }

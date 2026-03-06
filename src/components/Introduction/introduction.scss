@@ -11,101 +11,97 @@
     justify-content: center;
     background-color: var(--black);
     overflow: hidden;
-}
-
-.typing-effect {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    max-width: 92vw;
-    padding: 0 1rem;
-    .text {
-        display: inline-block;
-        min-height: 1.2em;
-        white-space: nowrap;
-        overflow: visible;
-        margin: 0;
-        text-align: center;
-        font-size: clamp(1.25rem, 2.6vw, 3rem);
-        font-weight: 600;
-        color: var(--white);
-        letter-spacing: 0.03em;
-        border-right: 2px solid rgba(246, 246, 246, 0.8);
-        animation: cursor 0.7s step-end infinite;
+    .typing-effect {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        max-width: 92vw;
+        padding: 0 1rem;
+        .text {
+            display: inline-block;
+            min-height: 1.2em;
+            margin: 0;
+            white-space: nowrap;
+            overflow: visible;
+            text-align: center;
+            font-size: clamp(1.25rem, 2.6vw, 3rem);
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.03em;
+            border-right: 2px solid rgba(246, 246, 246, 0.8);
+            animation: cursor 0.7s step-end infinite;
+        }
     }
-}
-
-.brand-stack {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.brand-layer {
-    position: absolute;
-    inset-inline: 0;
-    text-align: center;
-    line-height: 0.9;
-    font-size: clamp(3.25rem, 18vw, 19rem);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    user-select: none;
-    color: var(--white);
-}
-
-.brand-layer--primary {
-    top: 17.5%;
-}
-
-.brand-layer--secondary {
-    top: 32.5%;
-    color: rgb(130, 130, 130);
-    clip-path: inset(47.5% 0 0 0);
-}
-
-.brand-layer--tertiary {
-    top: 44.25%;
-    color: rgb(85, 85, 85);
-    clip-path: inset(60% 0 0 0);
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-    white-space: nowrap;
+    .brand-stack {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        .brand-layer {
+            position: absolute;
+            inset-inline: 0;
+            text-align: center;
+            line-height: 0.9;
+            font-size: clamp(3.25rem, 18vw, 19rem);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            user-select: none;
+            color: var(--white);
+            &--primary {
+                top: 17.5%;
+            }
+            &--secondary {
+                top: 32.5%;
+                color: rgb(115, 115, 115);
+                clip-path: inset(47.5% 0 0 0);
+            }
+            &--tertiary {
+                top: 44.25%;
+                color: rgb(65, 65, 65);
+                clip-path: inset(60% 0 0 0);
+            }
+        }
+    }
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    @media screen and (max-width: 550px) {
+        .typing-effect {
+            .text {
+                font-size: clamp(1rem, 6vw, 1.5rem);
+                letter-spacing: 0.015em;
+                border-right-width: 1.5px;
+            }
+        }
+        .brand-stack {
+            .brand-layer {
+                &--primary {
+                    top: 39%;
+                }
+                &--secondary {
+                    top: 45%;
+                }
+                &--tertiary {
+                    top: 49%;
+                }
+            }
+        }
+    }
 }
 
 @keyframes cursor {
     50% {
         border-color: transparent;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .typing-effect {
-        .text {
-            font-size: clamp(1rem, 6vw, 1.5rem);
-            letter-spacing: 0.015em;
-            border-right-width: 1.5px;
-        }
-    }
-    .brand-layer--primary {
-        top: 39%;
-    }
-    .brand-layer--secondary {
-        top: 45%;
-    }
-    .brand-layer--tertiary {
-        top: 49%;
     }
 }

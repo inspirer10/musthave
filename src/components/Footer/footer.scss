@@ -10,7 +10,7 @@ footer {
     justify-content: center;
     .footer_content-container {
         position: relative;
-        height: calc(100vh + 50vh);
+        height: calc(100vh + 90vh);
         width: 100%;
         top: 0vh;
         //top: -100vh;
@@ -25,8 +25,8 @@ footer {
             align-items: center;
             flex-direction: column;
             //*TEST Linear-Gradient BackGround
-            //background: linear-gradient(170deg, rgb(10, 10, 10), rgb(10, 10, 10) 32.5%, rgba(10, 0, 193, .15) 55%, rgb(10, 10, 10) 62.5%, rgb(10, 10, 10));
             background-image: radial-gradient(circle closest-corner at 50% 100%, var(--card-glow-1), var(--card-glow-2));
+            //background: linear-gradient(170deg, var(--card-glow-2) 0.000%, var(--card-glow-2) 50.000%, var(--card-glow-1) 100.000%);
             background-repeat: no-repeat;
             transition-property: --card-glow-1, --card-glow-2, background-color, transform;
             //transition: .275s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -35,7 +35,7 @@ footer {
             &:hover {
                 --card-glow-1: var(--card-glow-1-hover);
                 --card-glow-2: var(--card-glow-2-hover);
-                background-color: rgb(15, 15, 15);
+                background-color: rgb(13, 13, 13);
             }
             .footer__links {
                 padding-bottom: 1.5rem;
